@@ -1,2 +1,2 @@
-Ehoes of The Past
+Echoes of The Past
 Repository for Game Development Final Project
