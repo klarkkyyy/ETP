@@ -1,5 +1,5 @@
-<h1>Echoes of The Past
-Repository for Game Development Final Project</h1>
+<h1 align = "center">Echoes of The Past</h1>
+<h2 align = "center">Repository for Game Development Final Project</h2>
 
 ============================================================================================
 <h2 align = "center"> 4/11/2026 </h2>
