@@ -8,11 +8,11 @@ Repository for Game Development Final Project</h1>
 
 - "Added & Started Ideas for Level Design Layout with Tentative Sprites"
 
-Initial Look:
+<h4 align = "center">Initial Look</h4>
 
 <img width="1916" height="1073" alt="image" src="https://github.com/user-attachments/assets/5e98b6eb-5b31-4f46-9dd3-45472feb95b7" />
 
-Video Demo:
+<h4 align = "center">Video Demo</h4>
 
 <video src="https://github.com/user-attachments/assets/d97411e6-56a8-45ec-ab39-5eb52ce8fa14" width="600"></video>
 
@@ -26,11 +26,11 @@ Video Demo:
 - Improved Introduction level
 - Included tutorial guides and messages to help the player
 
-Image sample:
+<h4 align = "center">Image Sample</h4>
 
 <img width="1916" height="1073" alt="image" src="https://github.com/user-attachments/assets/09498f80-4bf0-456a-ab69-6ef6bde81468" />
 
-Video Demo:
+<h4 align = "center">Video Demo</h4>
 
 <video src="https://github.com/user-attachments/assets/c404d3ea-c250-4fb6-8e2e-1a4af438b9ae" width="600"></video>
 
@@ -43,12 +43,12 @@ Video Demo:
 - "feature: improved character animations and added enhanced movements"
 - Added tutorials for new character movement
 
-Image Sample:
+<h4 align = "center">Image Sample</h4>
 
 <img width="1916" height="1073" alt="image" src="https://github.com/user-attachments/assets/82294911-829c-4758-9464-50daebd87f5f" />
 
 
-Video Demo:
+<h4 align = "center">Video Demo</h4>
 
 <video src="https://github.com/user-attachments/assets/eca11570-123c-4fbc-a819-fe22afffc122" width="600"></video>
 
