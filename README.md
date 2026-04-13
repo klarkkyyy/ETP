@@ -39,7 +39,7 @@ Repository for Game Development Final Project</h1>
 - Added tutorials for new character movement
 
 - Image Sample
-<img width="1916" height="1073" alt="image" src="Screenshot 2026-04-13 233002" src="https://github.com/user-attachments/assets/82294911-829c-4758-9464-50daebd87f5f" />
+<img width="1916" height="1073" alt="image" src="https://github.com/user-attachments/assets/82294911-829c-4758-9464-50daebd87f5f" />
 
 - Video Demo
 <video src="https://github.com/user-attachments/assets/eca11570-123c-4fbc-a819-fe22afffc122" width="600"></video>
