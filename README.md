@@ -30,3 +30,17 @@ Repository for Game Development Final Project</h1>
 <video src="https://github.com/user-attachments/assets/c404d3ea-c250-4fb6-8e2e-1a4af438b9ae" width="600"></video>
 
 
+============================================================================================
+<h2 align = "center"> 4/13/2026 </h2>
+============================================================================================
+<h3 align = "center">Wall sliding & Wall jumping</h3>
+
+- "feature: improved character animations and added enhanced movements"
+- Added tutorials for new character movement
+
+- Image Sample
+<img width="1916" height="1073" alt="image" src="Screenshot 2026-04-13 233002" src="https://github.com/user-attachments/assets/82294911-829c-4758-9464-50daebd87f5f" />
+
+- Video Demo
+<video src="https://github.com/user-attachments/assets/eca11570-123c-4fbc-a819-fe22afffc122" width="600"></video>
+
