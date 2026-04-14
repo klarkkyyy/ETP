@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c4q8g12cw5q3d"]
+
+[ext_resource type="Texture2D" uid="uid://cp6w1bukhlqtq" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_before_jump_dust_anim_strip_4.png" id="1_11ipm"]
+[ext_resource type="Script" uid="uid://wyj4tol3usqu" path="res://scripts/before_jump_dust.gd" id="1_bspsg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gypk1"]
+atlas = ExtResource("1_11ipm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkhtn"]
+atlas = ExtResource("1_11ipm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fpku"]
+atlas = ExtResource("1_11ipm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqo2n"]
+atlas = ExtResource("1_11ipm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mscxe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gypk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkhtn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fpku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqo2n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="BeforeJumpDust" type="AnimatedSprite2D" unique_id=798087553]
+z_index = 4
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_mscxe")
+script = ExtResource("1_bspsg")

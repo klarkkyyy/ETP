@@ -5268,22 +5268,23 @@ layer_5/name = "bg4"
 layer_6/name = "bg5"
 layer_7/name = "bg6"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2119170334]
+[node name="bird" type="AnimatedSprite2D" parent="." unique_id=2119170334]
 position = Vector2(248, 136)
 sprite_frames = SubResource("SpriteFrames_50axv")
 autoplay = "default"
 frame_progress = 0.80804974
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=1718136728]
-position = Vector2(16, -2)
+z_index = 5
+position = Vector2(846, -2)
 script = ExtResource("95_1ei7g")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1658396944]
+[node name="animations" type="AnimatedSprite2D" parent="player" unique_id=1658396944]
 z_index = 5
 texture_filter = 1
 position = Vector2(25, 137)
 sprite_frames = SubResource("SpriteFrames_yvml1")
-animation = &"idle"
+animation = &"double_jump"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1353691660]
@@ -5302,6 +5303,15 @@ position_smoothing_speed = 10.0
 texture_filter = 1
 position = Vector2(24.5, 137.5)
 shape = SubResource("RectangleShape2D_t0ym2")
+
+[node name="FeetPoint" type="Marker2D" parent="player" unique_id=294253930]
+position = Vector2(24, 140)
+
+[node name="RunPointLeft" type="Marker2D" parent="player" unique_id=1972453408]
+position = Vector2(15, 143)
+
+[node name="RunPointRight" type="Marker2D" parent="player" unique_id=944600834]
+position = Vector2(34, 143)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=668284750]
 position = Vector2(1480, 6)
