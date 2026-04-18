@@ -68,3 +68,25 @@
 <h4 align = "center">Video Demo</h4>
 
 <video src="https://github.com/user-attachments/assets/ef93ec58-44db-4c25-931a-f5583adbc494" width="600"></video>
+
+============================================================================================
+<h2 align = "center"> 4/19/2026 </h2>
+============================================================================================
+<h3 align = "center">Tutorial level Expansion</h3>
+
+- "feature: tutorial expansion + echo/button testing"
+- epxanded level design
+- added title transition animation
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1916" height="1024" alt="image" src="https://github.com/user-attachments/assets/3799d9fa-3796-413d-bacb-2a1b3123c0a1" />
+
+
+<h4 align = "center">Video Demo</h4>
+
+<video src="https://github.com/user-attachments/assets/885a9061-4b00-4d3e-ac89-32cedd534ac6" width="600"></video>
+
+
+
+
