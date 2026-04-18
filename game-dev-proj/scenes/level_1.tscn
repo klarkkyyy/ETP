@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8hyycppmcfjs"]
 
-[ext_resource type="Script" uid="uid://dmha648yjdbld" path="res://scripts/player.gd" id="1_smubd"]
+[ext_resource type="Script" uid="uid://dmha648yjdbld" path="res://player/player.gd" id="1_smubd"]
 [ext_resource type="Texture2D" uid="uid://bvulsalaytf2d" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/bg_00_boss_room.png" id="1_sy755"]
 [ext_resource type="Texture2D" uid="uid://cr5bu4pxt2en5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/bg_01_boss_room.png" id="2_gh4wy"]
 [ext_resource type="Texture2D" uid="uid://coqif7w2q3xxo" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/herochar sprites(new)/herochar_before_or_after_jump_srip_2.png" id="2_ml1t7"]
@@ -158,7 +158,7 @@
 [ext_resource type="Texture2D" uid="uid://j85d2eq5ivrb" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_left.png" id="141_1noql"]
 [ext_resource type="Texture2D" uid="uid://bt3su3adj0xa0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_mid.png" id="142_vtfiu"]
 [ext_resource type="Texture2D" uid="uid://dqjagq6hac7ye" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_right.png" id="143_74wjo"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://scenes/echo_zone.tscn" id="157_r8enm"]
+[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="157_r8enm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_785by"]
 atlas = ExtResource("2_ml1t7")

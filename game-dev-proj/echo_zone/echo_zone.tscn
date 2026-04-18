@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cc0b5s5llahpg"]
 
+[ext_resource type="Script" uid="uid://d28vhev2vgue2" path="res://echo_zone/echo_zone.gd" id="1_kwsfq"]
 [ext_resource type="Texture2D" uid="uid://w631ww10j755" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Effects/dust_from_impact_right_anim.png" id="1_mf18f"]
 [ext_resource type="Texture2D" uid="uid://b0dxpvyctqh3s" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Effects/dust_from_impact_left_anim.png" id="2_ybwqf"]
 
@@ -98,7 +99,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mf18f"]
 size = Vector2(78.5, 41.5)
 
-[node name="echo_zone" type="Node2D" unique_id=1591741099]
+[node name="echo_zone" type="Area2D" unique_id=963310953 groups=["echo_zone"]]
+script = ExtResource("1_kwsfq")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=654057601]
 z_index = 6
@@ -361,3 +363,6 @@ z_index = 6
 position = Vector2(42, 21)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
