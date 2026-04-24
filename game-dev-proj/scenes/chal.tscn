@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cm4rbla3vfhg"]
+
+[ext_resource type="Texture2D" uid="uid://bjrqj7n4jggxk" path="res://assets/floor lamps, candelabra, chandeliers.png" id="1_17gmb"]
+
+[node name="chal" type="Sprite2D" unique_id=389633445]
+texture = ExtResource("1_17gmb")
+region_enabled = true
+region_rect = Rect2(687.4469, 393.98462, 808.0718, 848.19836)

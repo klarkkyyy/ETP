@@ -338,10 +338,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8oea"]
-size = Vector2(9, 15)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dimwy"]
+radius = 4.5
+height = 15.0000305
 
 [node name="Echo" type="Area2D" unique_id=1920671557]
+position = Vector2(267, 3)
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_83bat")
@@ -350,18 +352,17 @@ script = ExtResource("1_83bat")
 modulate = Color(0.21568628, 0.30588236, 0.34117648, 0.50980395)
 z_index = 5
 texture_filter = 1
-position = Vector2(1, -1)
+position = Vector2(1, -2)
 sprite_frames = SubResource("SpriteFrames_mbb5l")
-animation = &"idle"
+animation = &"double_jump"
 autoplay = "idle"
-frame_progress = 0.53251714
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1951133631]
-position = Vector2(1.0000095, -28.999985)
+position = Vector2(0, -1.0000076)
 scale = Vector2(0.901, 0.416)
-zoom = Vector2(2.69, 2.69)
+zoom = Vector2(2.225, 2.225)
 limit_left = -17
-limit_top = -593
+limit_top = -658
 limit_right = 3512
 limit_bottom = 161
 limit_smoothed = true
@@ -370,17 +371,17 @@ position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807239540]
 texture_filter = 1
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_f8oea")
+position = Vector2(0.5, -1.5)
+shape = SubResource("CapsuleShape2D_dimwy")
 
 [node name="FeetPoint" type="Marker2D" parent="." unique_id=116117077]
-position = Vector2(0, 2)
+position = Vector2(0, 1)
 
 [node name="RunPointLeft" type="Marker2D" parent="." unique_id=1633481201]
-position = Vector2(-9, 5)
+position = Vector2(-9, 4)
 
 [node name="RunPointRight" type="Marker2D" parent="." unique_id=163843959]
-position = Vector2(10, 5)
+position = Vector2(10, 4)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -26,7 +26,7 @@ var was_on_floor = true
 var is_wall_sliding = false
 var wall_jump_timer = 0.0                                
 var run_dust_timer = 0
-
+var current_echo_zone: Node = null
 var was_running = false
 
 func _ready():
@@ -85,6 +85,8 @@ func _physics_process(delta: float) -> void:
 	if on_floor_now and not was_on_floor:
 		_on_landed()
 	was_on_floor = on_floor_now
+	floor_snap_length = 10.0  # snap down to floor on slopes
+	floor_max_angle = deg_to_rad(50.0)  # how steep a slope can be walked on
 	move_and_slide()
 
 	# Run dust
@@ -143,9 +145,17 @@ func die():
 		return
 	is_dead = true
 	velocity = Vector2.ZERO
+	
+	# Cancel any in-progress recording
+	if current_echo_zone:
+		current_echo_zone.cancel_recording()
+	
 	anim.play("death")
 	await anim.animation_finished
 
 func _process(_delta):
 	if is_dead:
 		return
+
+func set_echo_zone(zone) -> void:
+	current_echo_zone = zone

@@ -100,267 +100,272 @@ animations = [{
 size = Vector2(78.5, 41.5)
 
 [node name="echo_zone" type="Area2D" unique_id=963310953 groups=["echo_zone"]]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_kwsfq")
+max_echoes = null
+activation_range = null
+sample_every_frames = null
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=654057601]
 z_index = 6
-position = Vector2(41, 14)
+position = Vector2(7, 10)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=1718039688]
 z_index = 6
-position = Vector2(39, -6)
+position = Vector2(5, -10)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="." unique_id=71839808]
 z_index = 6
-position = Vector2(18, 17)
+position = Vector2(-16, 13)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="." unique_id=1904538610]
 z_index = 6
-position = Vector2(33, 16)
+position = Vector2(-1, 12)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="." unique_id=1580167620]
 z_index = 6
-position = Vector2(12, 2)
+position = Vector2(-22, -2)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="." unique_id=374554684]
 z_index = 6
-position = Vector2(32, 7)
+position = Vector2(-2, 3)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="." unique_id=652197861]
 z_index = 6
-position = Vector2(44, 7)
+position = Vector2(10, 3)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="." unique_id=1084832010]
 z_index = 6
-position = Vector2(63, 14)
+position = Vector2(29, 10)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="." unique_id=1211542309]
 z_index = 6
-position = Vector2(59, 7)
+position = Vector2(25, 3)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="." unique_id=36175244]
 z_index = 6
-position = Vector2(51, 11)
+position = Vector2(17, 7)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="." unique_id=1142656040]
 z_index = 6
-position = Vector2(10, 19)
+position = Vector2(-24, 15)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="." unique_id=849440396]
 z_index = 6
-position = Vector2(23, 1)
+position = Vector2(-11, -3)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="." unique_id=212885847]
 z_index = 6
-position = Vector2(11, 12)
+position = Vector2(-23, 8)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="." unique_id=1035470622]
 z_index = 6
-position = Vector2(-2, 14)
+position = Vector2(-36, 10)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="." unique_id=1527919946]
 z_index = 6
-position = Vector2(3, 8)
+position = Vector2(-31, 4)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="." unique_id=1841737006]
 z_index = 6
-position = Vector2(23, 9)
+position = Vector2(-11, 5)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="." unique_id=2082772253]
 z_index = 6
-position = Vector2(-1, 21)
+position = Vector2(-35, 17)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="." unique_id=147708631]
 z_index = 6
-position = Vector2(54, 18)
+position = Vector2(20, 14)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="." unique_id=1485044316]
 z_index = 6
-position = Vector2(68, 20)
+position = Vector2(34, 16)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="." unique_id=2099659208]
 z_index = 6
-position = Vector2(69, 7)
+position = Vector2(35, 3)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=65483931]
-position = Vector2(33.75, 4.25)
+position = Vector2(-0.25, 0.25)
 shape = SubResource("RectangleShape2D_mf18f")
 
 [node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="." unique_id=1872101008]
 z_index = 6
-position = Vector2(69, -11)
+position = Vector2(35, -15)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="." unique_id=1152646182]
 z_index = 6
-position = Vector2(43, -14)
+position = Vector2(9, -18)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="." unique_id=351155729]
 z_index = 6
-position = Vector2(34, 0)
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="." unique_id=1426698908]
 z_index = 6
-position = Vector2(29, -8)
+position = Vector2(-5, -12)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="." unique_id=1818614958]
 z_index = 6
-position = Vector2(14, -13)
+position = Vector2(-20, -17)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="." unique_id=530591078]
 z_index = 6
-position = Vector2(33, -15)
+position = Vector2(-1, -19)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="." unique_id=1950841555]
 z_index = 6
-position = Vector2(-2, -13)
+position = Vector2(-36, -17)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D42" type="AnimatedSprite2D" parent="." unique_id=1655410663]
 z_index = 6
-position = Vector2(54, -14)
+position = Vector2(20, -18)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D43" type="AnimatedSprite2D" parent="." unique_id=223188517]
 z_index = 6
-position = Vector2(59, -4)
+position = Vector2(25, -8)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D44" type="AnimatedSprite2D" parent="." unique_id=251322715]
 z_index = 6
-position = Vector2(42, -1)
+position = Vector2(8, -5)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D45" type="AnimatedSprite2D" parent="." unique_id=45972912]
 z_index = 6
-position = Vector2(50, -9)
+position = Vector2(16, -13)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D46" type="AnimatedSprite2D" parent="." unique_id=253857238]
 z_index = 6
-position = Vector2(17, -6)
+position = Vector2(-17, -10)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D47" type="AnimatedSprite2D" parent="." unique_id=1955323466]
 z_index = 6
-position = Vector2(6, -13)
+position = Vector2(-28, -17)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D48" type="AnimatedSprite2D" parent="." unique_id=1248846205]
 z_index = 6
-position = Vector2(22, -14)
+position = Vector2(-12, -18)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D49" type="AnimatedSprite2D" parent="." unique_id=1384980507]
 z_index = 6
-position = Vector2(-4, -5)
+position = Vector2(-38, -9)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D50" type="AnimatedSprite2D" parent="." unique_id=775088997]
 z_index = 6
-position = Vector2(4, -7)
+position = Vector2(-30, -11)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D51" type="AnimatedSprite2D" parent="." unique_id=108485181]
 z_index = 6
-position = Vector2(-2, 2)
+position = Vector2(-36, -2)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D52" type="AnimatedSprite2D" parent="." unique_id=860268019]
 z_index = 6
-position = Vector2(6, -2)
+position = Vector2(-28, -6)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D53" type="AnimatedSprite2D" parent="." unique_id=235351044]
 z_index = 6
-position = Vector2(52, 1)
+position = Vector2(18, -3)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D54" type="AnimatedSprite2D" parent="." unique_id=1063001813]
 z_index = 6
-position = Vector2(66, 0)
+position = Vector2(32, -4)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D55" type="AnimatedSprite2D" parent="." unique_id=119732365]
 z_index = 6
-position = Vector2(62, -13)
+position = Vector2(28, -17)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D56" type="AnimatedSprite2D" parent="." unique_id=1146291096]
 z_index = 6
-position = Vector2(25, 21)
+position = Vector2(-9, 17)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 
 [node name="AnimatedSprite2D57" type="AnimatedSprite2D" parent="." unique_id=1574939048]
 z_index = 6
-position = Vector2(42, 21)
+position = Vector2(8, 17)
 sprite_frames = SubResource("SpriteFrames_ybwqf")
 autoplay = "default"
 

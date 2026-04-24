@@ -338,11 +338,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tmop"]
-size = Vector2(9, 15)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8t03j"]
+radius = 4.5
+height = 14.999985
 
 [node name="player" type="CharacterBody2D" unique_id=1809962385 groups=["player"]]
-position = Vector2(223, 36)
+position = Vector2(227, 37)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_8t03j")
@@ -350,17 +351,17 @@ script = ExtResource("1_8t03j")
 [node name="animations" type="AnimatedSprite2D" parent="." unique_id=819236985]
 z_index = 5
 texture_filter = 1
-position = Vector2(1, 28.000008)
+position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_pbfsw")
 animation = &"double_jump"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1972321998]
-position = Vector2(1.0001221, -2.3841858e-07)
+position = Vector2(1.0001221, -48.999992)
 scale = Vector2(0.901, 0.416)
-zoom = Vector2(2.69, 2.69)
+zoom = Vector2(2.89, 2.89)
 limit_left = -17
-limit_top = -593
+limit_top = -658
 limit_right = 3512
 limit_bottom = 161
 limit_smoothed = true
@@ -369,14 +370,14 @@ position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1218160493]
 texture_filter = 1
-position = Vector2(0.5, 28.500008)
-shape = SubResource("RectangleShape2D_5tmop")
+position = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_8t03j")
 
 [node name="FeetPoint" type="Marker2D" parent="." unique_id=1916403872]
-position = Vector2(0, 31.000008)
+position = Vector2(0, 3)
 
 [node name="RunPointLeft" type="Marker2D" parent="." unique_id=501291014]
-position = Vector2(-9, 34.000008)
+position = Vector2(-9, 6)
 
 [node name="RunPointRight" type="Marker2D" parent="." unique_id=797407847]
-position = Vector2(10, 34.000008)
+position = Vector2(10, 6)
