@@ -87,6 +87,26 @@
 
 <video src="https://github.com/user-attachments/assets/885a9061-4b00-4d3e-ac89-32cedd534ac6" width="600"></video>
 
+============================================================================================
+<h2 align = "center"> 4/25/2026 </h2>
+============================================================================================
+<h3 align = "center">Echo Mechanic Implementation</h3>
+
+- "feature: successfully implemented echo mechanic + intro improvements"
+- introduction area expansion + improvements
+- added assets
+
+<h4 align = "center">Image Sample</h4>
+<img width="1916" height="1024" alt="image" src="https://github.com/user-attachments/assets/bb58510e-71bf-4f75-8e75-e82280b1cf95" />
+
+
+<h4 align = "center"> Video Demo </h4>
+<video src="https://github.com/user-attachments/assets/be5ec943-f1e2-49bc-8b99-c58df5675517" width="600"></video>
+
+
+
+
+
 
 
 
