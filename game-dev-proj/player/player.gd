@@ -145,13 +145,18 @@ func die():
 		return
 	is_dead = true
 	velocity = Vector2.ZERO
-	
-	# Cancel any in-progress recording
-	if current_echo_zone:
-		current_echo_zone.cancel_recording()
-	
 	anim.play("death")
 	await anim.animation_finished
+	_respawn()
+
+func _respawn():
+	is_dead = false
+	velocity = Vector2.ZERO
+	# find the nearest spawn point
+	var spawn = get_tree().get_first_node_in_group("spawn_point")
+	if spawn:
+		global_position = spawn.global_position
+	anim.play("idle")
 
 func _process(_delta):
 	if is_dead:
