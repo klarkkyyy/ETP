@@ -1,11 +1,12 @@
+#title_trigger.gd
 extends Area2D
 
 @onready var title_intro = $"../CanvasLayer2"
 var triggered = false
 
-func _ready():
-	body_entered.connect(_on_body_entered)
-	print("TitleTrigger ready. title_intro = ", title_intro)
+func _ready() -> void:
+	if not body_entered.is_connected(_on_body_entered):
+		body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
 	print("Something entered: ", body.name)

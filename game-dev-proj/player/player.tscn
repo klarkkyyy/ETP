@@ -356,18 +356,6 @@ sprite_frames = SubResource("SpriteFrames_pbfsw")
 animation = &"double_jump"
 autoplay = "idle"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1972321998]
-position = Vector2(1.0001221, -48.999992)
-scale = Vector2(0.901, 0.416)
-zoom = Vector2(2.89, 2.89)
-limit_left = -17
-limit_top = -658
-limit_right = 3512
-limit_bottom = 161
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1218160493]
 texture_filter = 1
 position = Vector2(0.5, 0.5)

@@ -24,6 +24,8 @@ project/assembly_name="gameDevProj"
 pressure_pad=""
 echo_zone=""
 player=""
+lever=""
+camera=""
 
 [input]
 

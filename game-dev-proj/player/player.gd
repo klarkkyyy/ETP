@@ -1,3 +1,4 @@
+#player.gd
 extends CharacterBody2D
 
 @onready var anim = $animations
@@ -13,27 +14,30 @@ const WALL_JUMP_VELOCITY_X = 200.0
 const WALL_JUMP_VELOCITY_Y = -250.0
 const WALL_JUMP_LOCKOUT = 0.15
 const RUN_DUST_INTERVAL = 0.15
-const AfterJumpDust = preload("res://effects/after_jump_dust.tscn")    
-const BeforeJumpDust = preload("res://effects/before_jump_dust.tscn")  
+const JUMP_BUFFER_TIME = 0.1
+
+const AfterJumpDust = preload("res://effects/after_jump_dust.tscn")
+const BeforeJumpDust = preload("res://effects/before_jump_dust.tscn")
 const RunDust = preload("res://effects/run.tscn")
 const StopDust = preload("res://effects/stop.tscn")
 const DoubleJumpDust = preload("res://effects/double_jump.tscn")
 const WallJumpDust = preload("res://effects/wall_jump.tscn")
 
-var can_double_jump = false
-var is_dead = false
-var was_on_floor = true
-var is_wall_sliding = false
-var wall_jump_timer = 0.0                                
-var run_dust_timer = 0
+var can_double_jump: bool = false
+var is_dead: bool = false
+var was_on_floor: bool = true
+var is_wall_sliding: bool = false
+var wall_jump_timer: float = 0.0
+var run_dust_timer: float = 0.0
+var was_running: bool = false
 var current_echo_zone: Node = null
-var was_running = false
+var _jump_buffer_timer: float = 0.0
 
-func _ready():
+func _ready() -> void:
 	print("run_point_left: ", run_point_left)
 	print("run_point_right: ", run_point_right)
 
-func spawn_effect(scene: PackedScene, point: Marker2D = feet_point):
+func spawn_effect(scene: PackedScene, point: Marker2D = feet_point) -> void:
 	var effect = scene.instantiate()
 	get_parent().add_child(effect)
 	effect.global_position = point.global_position
@@ -42,23 +46,38 @@ func spawn_effect(scene: PackedScene, point: Marker2D = feet_point):
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+
 	if wall_jump_timer > 0.0:
 		wall_jump_timer -= delta
+
+	if is_on_floor():
+		can_double_jump = false
+	else:
+		if was_on_floor and not is_on_floor():
+			can_double_jump = true
+	if Input.is_action_just_pressed("jump"):
+		_jump_buffer_timer = JUMP_BUFFER_TIME
+	elif _jump_buffer_timer > 0.0:
+		_jump_buffer_timer -= delta
+
 	is_wall_sliding = false
-	if is_on_wall() and not is_on_floor() and velocity.y >= 0:
-		var direction = Input.get_axis("left", "right")
-		if (direction > 0 and get_wall_normal().x < 0) or (direction < 0 and get_wall_normal().x > 0):
+	if is_on_wall() and not is_on_floor() and velocity.y > 20.0:
+		var wall_dir = Input.get_axis("left", "right")
+		if (wall_dir > 0 and get_wall_normal().x < 0) or (wall_dir < 0 and get_wall_normal().x > 0):
 			is_wall_sliding = true
+
 	if not is_on_floor():
 		if is_wall_sliding:
 			velocity.y += WALL_SLIDE_GRAVITY * delta
 			velocity.y = min(velocity.y, 60.0)
 		else:
 			velocity += get_gravity() * delta
-	if Input.is_action_just_pressed("jump"):
+
+	if _jump_buffer_timer > 0.0:
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			can_double_jump = true
+			_jump_buffer_timer = 0.0
 			spawn_effect(AfterJumpDust)
 			anim.play("before_or_after_jump")
 		elif is_wall_sliding:
@@ -67,13 +86,17 @@ func _physics_process(delta: float) -> void:
 			wall_jump_timer = WALL_JUMP_LOCKOUT
 			is_wall_sliding = false
 			anim.flip_h = get_wall_normal().x < 0
-			spawn_effect(WallJumpDust)          # ← added
+			_jump_buffer_timer = 0.0
+			spawn_effect(WallJumpDust)
 			anim.play("before_or_after_jump")
 		elif can_double_jump:
+			print("double jump triggered | vel.y: ", velocity.y, " | can_double: ", can_double_jump)
 			velocity.y = DOUBLE_JUMP_VELOCITY
 			can_double_jump = false
-			spawn_effect(DoubleJumpDust)        # ← added
+			_jump_buffer_timer = 0.0
+			spawn_effect(DoubleJumpDust)
 			anim.play("double_jump")
+
 	var direction := Input.get_axis("left", "right")
 	if wall_jump_timer <= 0.0:
 		if direction:
@@ -81,15 +104,19 @@ func _physics_process(delta: float) -> void:
 			anim.flip_h = direction < 0
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+
 	var on_floor_now = is_on_floor()
 	if on_floor_now and not was_on_floor:
 		_on_landed()
 	was_on_floor = on_floor_now
-	floor_snap_length = 10.0  # snap down to floor on slopes
-	floor_max_angle = deg_to_rad(50.0)  # how steep a slope can be walked on
+
+	if is_on_floor() and _jump_buffer_timer <= 0.0:
+		floor_snap_length = 10.0
+	else:
+		floor_snap_length = 0.0
+	floor_max_angle = deg_to_rad(50.0)
 	move_and_slide()
 
-	# Run dust
 	var move_dir := Input.get_axis("left", "right")
 	if is_on_floor() and abs(move_dir) > 0:
 		run_dust_timer -= delta
@@ -98,16 +125,16 @@ func _physics_process(delta: float) -> void:
 			run_dust_timer = RUN_DUST_INTERVAL
 		was_running = true
 	else:
-		run_dust_timer = RUN_DUST_INTERVAL  # ← reset to interval, not 0
+		run_dust_timer = RUN_DUST_INTERVAL
 		if was_running and is_on_floor():
 			spawn_effect(StopDust, run_point_left if not anim.flip_h else run_point_right)
 		was_running = false
 	update_animation()
 
-func update_animation():
+func update_animation() -> void:
 	if is_on_floor():
-		var direction = Input.get_axis("left", "right")
-		if direction != 0:
+		var move = Input.get_axis("left", "right") 
+		if move != 0:
 			anim.play("run")
 		else:
 			anim.play("idle")
@@ -129,31 +156,28 @@ func update_animation():
 			if anim.animation != "jump_down":
 				anim.play("jump_down")
 
-func _on_landed():
-	spawn_effect(BeforeJumpDust)                                        # ADDED
+func _on_landed() -> void:
+	spawn_effect(BeforeJumpDust)
 	anim.play("before_or_after_jump_pt2")
 	await anim.animation_finished
 	anim.play("before_or_after_jump")
 
-func take_hit():
+func take_hit() -> void:
 	anim.play("hit")
 	await anim.animation_finished
 	anim.play("idle")
 
-func die():
+func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
 	velocity = Vector2.ZERO
-	
-	# Cancel any in-progress recording
 	if current_echo_zone:
 		current_echo_zone.cancel_recording()
-	
 	anim.play("death")
 	await anim.animation_finished
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if is_dead:
 		return
 
