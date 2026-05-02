@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dkdrd888gbhyc"]
+
+[ext_resource type="Script" uid="uid://725tqv22ss41" path="res://pressure_pad/pressure_pad.gd" id="1_6ql6c"]
+[ext_resource type="Texture2D" uid="uid://bsayxkxoq8wt0" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/lever & button/floor_button_pressed_anim.png" id="2_6bhtn"]
+[ext_resource type="Texture2D" uid="uid://2sa5wxt4quf1" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/lever & button/floor_button_static.png" id="3_x5qts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cvfs"]
+size = Vector2(12, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5qts"]
+atlas = ExtResource("2_6bhtn")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiwud"]
+atlas = ExtResource("2_6bhtn")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwyec"]
+atlas = ExtResource("2_6bhtn")
+region = Rect2(32, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loflp"]
+atlas = ExtResource("2_6bhtn")
+region = Rect2(48, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np0yb"]
+atlas = ExtResource("2_6bhtn")
+region = Rect2(64, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bhtn"]
+atlas = ExtResource("3_x5qts")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxnt0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5qts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiwud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwyec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loflp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np0yb")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bhtn")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[node name="PressurePad" type="Area2D" unique_id=1371886716 groups=["pressure_pad"]]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_6ql6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=166087726]
+shape = SubResource("RectangleShape2D_0cvfs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=80729331]
+position = Vector2(-1.1920929e-07, 0)
+scale = Vector2(0.75822204, 0.49482408)
+sprite_frames = SubResource("SpriteFrames_cxnt0")
+animation = &"unpressed"
+autoplay = "unpressed"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bnjcceseauw8m"]
+
+[ext_resource type="Texture2D" uid="uid://bxues4ou0byus" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_03_with_effect_anim.png" id="1_agw48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80mfv"]
+atlas = ExtResource("1_agw48")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmmth"]
+atlas = ExtResource("1_agw48")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra7gn"]
+atlas = ExtResource("1_agw48")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3etnt"]
+atlas = ExtResource("1_agw48")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i22l0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80mfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmmth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra7gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3etnt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="PoleLight" type="AnimatedSprite2D" unique_id=944097708]
+sprite_frames = SubResource("SpriteFrames_i22l0")
+autoplay = "default"

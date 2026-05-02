@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bmx0casu34uy8"]
+
+[ext_resource type="Script" uid="uid://d1ep4g2tdriay" path="res://scripts/spike.gd" id="1_7a7y0"]
+[ext_resource type="Texture2D" uid="uid://o0gyaaduj6p3" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/ground_spikes_static.png" id="2_d2mqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx2lw"]
+size = Vector2(16, 8)
+
+[node name="Node2D" type="Area2D" unique_id=1547519173]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_7a7y0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603457326]
+shape = SubResource("RectangleShape2D_cx2lw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2052311082]
+texture = ExtResource("2_d2mqm")

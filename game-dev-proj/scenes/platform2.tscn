@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bol45kcu17mtp"]
+
+[ext_resource type="Texture2D" uid="uid://5r0cqv4fayel" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/library/tileset_library.png" id="1_g8307"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffih7"]
+size = Vector2(26, 6)
+
+[node name="Platform" type="StaticBody2D" unique_id=1184059627]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2069871156]
+position = Vector2(-5, 0)
+texture = ExtResource("1_g8307")
+region_enabled = true
+region_rect = Rect2(111.36584, 127.14015, 16.695656, 8.939529)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1323371403]
+z_index = 4
+shape = SubResource("RectangleShape2D_ffih7")
+one_way_collision = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1681232874]
+position = Vector2(6, 0)
+texture = ExtResource("1_g8307")
+region_enabled = true
+region_rect = Rect2(146.36661, 127.14015, 13.604431, 8.939529)

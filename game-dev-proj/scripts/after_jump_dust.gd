@@ -1,3 +1,4 @@
+#after_jump_dust.gd
 extends AnimatedSprite2D
 
 func _ready():

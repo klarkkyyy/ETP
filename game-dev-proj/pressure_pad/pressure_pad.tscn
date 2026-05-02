@@ -43,6 +43,8 @@ script = ExtResource("1_waxrb")
 shape = SubResource("RectangleShape2D_0cvfs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=80729331]
+position = Vector2(-1.1920929e-07, 0)
+scale = Vector2(0.8125, 1)
 sprite_frames = SubResource("SpriteFrames_cxnt0")
 animation = &"unpressed"
 

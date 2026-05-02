@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c0evu2thl5ney"]
+
+[ext_resource type="Texture2D" uid="uid://dne0px7nisgmc" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_00_with_effect_anim.png" id="1_5ckc8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bag5"]
+atlas = ExtResource("1_5ckc8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc7pv"]
+atlas = ExtResource("1_5ckc8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hx7b"]
+atlas = ExtResource("1_5ckc8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3pnb"]
+atlas = ExtResource("1_5ckc8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ms64h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bag5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hx7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3pnb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="CandleLight" type="AnimatedSprite2D" unique_id=1770641009]
+position = Vector2(3, 0)
+sprite_frames = SubResource("SpriteFrames_ms64h")
+autoplay = "default"

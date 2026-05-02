@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cv7od3kh24rsf"]
+
+[ext_resource type="Script" uid="uid://dii24d3g3juav" path="res://scripts/teleport.gd" id="1_w4hbs"]
+[ext_resource type="Texture2D" uid="uid://brnm43vh84u17" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.6/props/teleport_stone_with_effect.png" id="2_2ayim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyeu7"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfydb"]
+atlas = ExtResource("2_2ayim")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he0bt"]
+atlas = ExtResource("2_2ayim")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm8s4"]
+atlas = ExtResource("2_2ayim")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg2k5"]
+atlas = ExtResource("2_2ayim")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o8a4"]
+atlas = ExtResource("2_2ayim")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsplj"]
+atlas = ExtResource("2_2ayim")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxlc7"]
+atlas = ExtResource("2_2ayim")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i4nc"]
+atlas = ExtResource("2_2ayim")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_df5pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfydb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he0bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm8s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg2k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o8a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsplj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxlc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i4nc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.2
+}]
+
+[node name="Teleport" type="Area2D" unique_id=1270600626 groups=["teleport"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_w4hbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=142972684]
+shape = SubResource("RectangleShape2D_kyeu7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1169130790]
+sprite_frames = SubResource("SpriteFrames_df5pm")
+autoplay = "default"
+frame_progress = 0.034929194
+flip_h = true
