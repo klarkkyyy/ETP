@@ -35,3 +35,11 @@ func close_door() -> void:
 	anim.play("closing")
 	await anim.animation_finished
 	anim.play("closed")
+
+
+func _on_pressure_pad_2_pad_activated() -> void:
+	pass # Replace with function body.
+
+
+func _on_pressure_pad_2_pad_deactivated() -> void:
+	pass # Replace with function body.

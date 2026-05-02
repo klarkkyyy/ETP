@@ -1,121 +1,121 @@
-[gd_scene format=3 uid="uid://de2w1lhmhtb02"]
+[gd_scene format=3 uid="uid://chl7xlx16gkbd"]
 
-[ext_resource type="PackedScene" uid="uid://cuwr4wewgnml4" path="res://player/player.tscn" id="1_ouq3x"]
-[ext_resource type="Script" uid="uid://o7xqs72qb68w" path="res://scripts/title_layer.gd" id="1_rmsd4"]
-[ext_resource type="Texture2D" uid="uid://bvulsalaytf2d" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/bg_00_boss_room.png" id="1_vhfkg"]
-[ext_resource type="Texture2D" uid="uid://cr5bu4pxt2en5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/bg_01_boss_room.png" id="2_0qorx"]
-[ext_resource type="Texture2D" uid="uid://d0qknlct3w5lo" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/library/tileset_library.png" id="3_tngtc"]
-[ext_resource type="Texture2D" uid="uid://e1n3uurafsfh" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/warp room/bg_00_warp_room.png" id="4_ouq3x"]
-[ext_resource type="Texture2D" uid="uid://blphhsmvxnfm5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/warp room/tileset_warp_room.png" id="5_is7aa"]
-[ext_resource type="Texture2D" uid="uid://bk6mh8mi1i328" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/witch shop/bg_00_witch_shop.png" id="6_3i668"]
-[ext_resource type="Texture2D" uid="uid://bqeeungvqlbtw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/witch shop/tileset_witch_shop.png" id="7_oyv6k"]
-[ext_resource type="Texture2D" uid="uid://dqv15aplacbi8" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Keys/scenes_key_collected_anim.png" id="8_lgn6r"]
-[ext_resource type="Texture2D" uid="uid://67xfrk08wpf8" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Keys/scenes_key_idle.png" id="9_gsn8u"]
-[ext_resource type="Texture2D" uid="uid://ocdcl0duidd" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Ladder/ladder_bottom.png" id="10_dhsud"]
-[ext_resource type="Texture2D" uid="uid://b2jt7g8oe35a1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Ladder/ladder_mid.png" id="11_atyr5"]
-[ext_resource type="Texture2D" uid="uid://eqnq0quurbjl" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Ladder/ladder_top.png" id="12_rmsd4"]
-[ext_resource type="Texture2D" uid="uid://dke2x52e5hutx" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/tileset_boss_room.png" id="13_k10w1"]
-[ext_resource type="Texture2D" uid="uid://bsfco6ksed0ac" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/NPCS/shop/item_sell_orb.png" id="14_0d1sk"]
-[ext_resource type="Texture2D" uid="uid://bm0errp0ypare" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/NPCS/shop/witch_merchant_idle.png" id="15_ouk3e"]
-[ext_resource type="Texture2D" uid="uid://ck0qd7uyx4fxw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/NPCS/shop/witch_merchant_static.png" id="16_doedk"]
-[ext_resource type="Texture2D" uid="uid://d03tjfdk6rblh" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chairs/chair_00.png" id="17_5dfsw"]
-[ext_resource type="Texture2D" uid="uid://c2kvfn05hyqjj" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chairs/chair_01.png" id="18_s24xf"]
-[ext_resource type="Texture2D" uid="uid://dgo183ehxucj5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chairs/chair_02.png" id="19_gxavv"]
-[ext_resource type="Texture2D" uid="uid://bmt0kvjcjoaxc" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chests/brown_chest_closed.png" id="20_q5pf6"]
-[ext_resource type="Texture2D" uid="uid://dsex1npmv5ia5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chests/brown_chest_deleting_itself.png" id="21_wt63d"]
-[ext_resource type="Texture2D" uid="uid://bvhdnwamh1tle" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chests/brown_chest_opening.png" id="22_gdexd"]
-[ext_resource type="Texture2D" uid="uid://dlyumaatgmju4" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/books_destroyed_left_anim.png" id="23_ddrpv"]
-[ext_resource type="Texture2D" uid="uid://bqql24qi0v6i7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/bg_00_dungeon.png" id="24_wxplf"]
-[ext_resource type="Texture2D" uid="uid://c1xdqxngd0bcq" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/books_destroyed_right_anim.png" id="25_00q4w"]
-[ext_resource type="Texture2D" uid="uid://dlfqpaqg6yq5b" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/books_static.png" id="26_ifekc"]
-[ext_resource type="Texture2D" uid="uid://b24myah783aj5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/vase_destroyed_left_anim.png" id="27_ep0vl"]
-[ext_resource type="Texture2D" uid="uid://cujrkhfhvdpoq" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/vase_destroyed_right_anim.png" id="28_qcny0"]
-[ext_resource type="Texture2D" uid="uid://c740veu3fdmro" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/vase_idle_anim.png" id="29_k325t"]
-[ext_resource type="Texture2D" uid="uid://cdqexf84q2axi" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_00_anim.png" id="30_y7qi0"]
-[ext_resource type="Texture2D" uid="uid://cxgd8qxiulnl6" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_00_with_effect_anim.png" id="31_fkyfr"]
-[ext_resource type="Texture2D" uid="uid://by8nd1nbtaprt" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_01_anim.png" id="32_47nra"]
-[ext_resource type="Texture2D" uid="uid://dw6sryhgeex0m" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_01_with_effect_anim.png" id="33_2jxrb"]
-[ext_resource type="Texture2D" uid="uid://b320v6dt780tr" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_02_anim.png" id="34_rkbu5"]
-[ext_resource type="Texture2D" uid="uid://ci43rcekbunou" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/tileset_dungeon.png" id="35_rid4u"]
-[ext_resource type="Texture2D" uid="uid://c4eivnasxulnj" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_02_with_effect_anim.png" id="36_b2iu2"]
-[ext_resource type="Texture2D" uid="uid://xjde5ou2tkxf" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_03_anim.png" id="37_06gli"]
-[ext_resource type="Texture2D" uid="uid://ign1ekytbwle" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_03_with_effect_anim.png" id="38_ulnnf"]
-[ext_resource type="Texture2D" uid="uid://dhk56q0n8k0wk" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="39_cxo7r"]
-[ext_resource type="Texture2D" uid="uid://oipaevqdfsb0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_01_static.png" id="40_fc3e2"]
-[ext_resource type="Texture2D" uid="uid://dp4xkr2t3x75c" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/skulls_00_static.png" id="41_i58wl"]
-[ext_resource type="Texture2D" uid="uid://bf3e8iu15jspm" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/table_and_chair_static.png" id="42_23kk1"]
-[ext_resource type="Texture2D" uid="uid://1u6mvyogqim7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_00.png" id="43_224pq"]
-[ext_resource type="Texture2D" uid="uid://ws42cpu4n3uc" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_01.png" id="44_tyk5k"]
-[ext_resource type="Texture2D" uid="uid://c5t0crhil5qgk" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_02.png" id="45_50y58"]
-[ext_resource type="Texture2D" uid="uid://7v3f5ql8hg8y" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/garden/bg_00_garden.png" id="46_6u5wx"]
-[ext_resource type="Texture2D" uid="uid://dtjaomp2paubi" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_00_static.png" id="47_0dojf"]
-[ext_resource type="Texture2D" uid="uid://bb6v7kivmywo7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_01_static.png" id="48_vsbss"]
-[ext_resource type="Texture2D" uid="uid://bcqmh4d3q16jd" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_red_tapestry_static.png" id="49_25atk"]
-[ext_resource type="Texture2D" uid="uid://1jmw23k18wr" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Save Point/goddess_bench_saving_effect.png" id="50_nkj0l"]
-[ext_resource type="Texture2D" uid="uid://cs8b4j1yvb1hl" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Save Point/goddess_bench_static.png" id="51_pm3un"]
-[ext_resource type="Texture2D" uid="uid://bk6q5vy7v1mke" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/ground_spikes_static.png" id="52_8v2a2"]
-[ext_resource type="Texture2D" uid="uid://jl3tewarplhj" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/wall_spikes_left.png" id="53_s5cuv"]
-[ext_resource type="Texture2D" uid="uid://dbkk7k0vajvfw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/wall_spikes_right.png" id="54_sal1a"]
-[ext_resource type="Texture2D" uid="uid://cifngyqk802tw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/aether_potion_idle.png" id="55_7sexs"]
-[ext_resource type="Texture2D" uid="uid://dajcka84utmw7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/explosive_barrel_before_exploding.png" id="56_nfip7"]
-[ext_resource type="Texture2D" uid="uid://dhu7ask7vndy6" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/garden/bg_01_garden.png" id="57_2nkhw"]
-[ext_resource type="Texture2D" uid="uid://557tydjq843n" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/explosive_barrel_idle_anim.png" id="58_h463k"]
-[ext_resource type="Texture2D" uid="uid://bapa4wwip5ivx" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/gold_coin_collected_effect.png" id="59_d76j5"]
-[ext_resource type="Texture2D" uid="uid://cuhwanoxin6jf" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/gold_coin_idle.png" id="60_obj53"]
-[ext_resource type="Texture2D" uid="uid://se1mr47fbilt" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/health_potion_idle.png" id="61_bmqdm"]
-[ext_resource type="Texture2D" uid="uid://civy7ld7ca8ig" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/marker_sigil_powerup.png" id="62_8mtlg"]
-[ext_resource type="Texture2D" uid="uid://ur7scii1r4h5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/marker_sigil_powerup_destroyed.png" id="63_5bk0l"]
-[ext_resource type="Texture2D" uid="uid://cds7i6tmcln4v" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/marker_sigil_powerup_on_player.png" id="64_gj2vh"]
-[ext_resource type="Texture2D" uid="uid://cwu2wlo1jsmi1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup.png" id="65_4mutp"]
-[ext_resource type="Texture2D" uid="uid://b0cuaitqatar0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup_destroyed.png" id="66_vyfge"]
-[ext_resource type="Texture2D" uid="uid://d0docdh3s3k76" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup_throwed.png" id="67_wm4vw"]
-[ext_resource type="Texture2D" uid="uid://beuk5jmrjp3q1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/garden/bg_02_garden.png" id="68_x3l7l"]
-[ext_resource type="Texture2D" uid="uid://biqowg8gi3iyf" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/throwable_axe_anim.png" id="69_io517"]
-[ext_resource type="Texture2D" uid="uid://dkuspp5bplnue" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/throwable_bomb_anim.png" id="70_c4c1y"]
-[ext_resource type="Texture2D" uid="uid://bbuocy5omhmxv" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar.png" id="71_k5sos"]
-[ext_resource type="Texture2D" uid="uid://bkpy3ppnlij1n" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar_icon_complete.png" id="72_aclkt"]
-[ext_resource type="Texture2D" uid="uid://cnxyisxvnvhpj" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar_icon_left.png" id="73_hdtq8"]
-[ext_resource type="Texture2D" uid="uid://vpqqfrgs85re" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar_icon_mid.png" id="74_oq57f"]
-[ext_resource type="Texture2D" uid="uid://mtkqmhlbq84d" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar_icon_right.png" id="75_v7ip3"]
-[ext_resource type="Texture2D" uid="uid://cgee40yrku15y" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar.png" id="76_u738q"]
-[ext_resource type="Texture2D" uid="uid://myytcms6lwdl" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_complete.png" id="77_ju7db"]
-[ext_resource type="Texture2D" uid="uid://j85d2eq5ivrb" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_left.png" id="78_a5edl"]
-[ext_resource type="Texture2D" uid="uid://drpo2ulmc64ej" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/garden/tileset_garden.png" id="79_ya53t"]
-[ext_resource type="Texture2D" uid="uid://bt3su3adj0xa0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_mid.png" id="80_8guta"]
-[ext_resource type="Texture2D" uid="uid://dqjagq6hac7ye" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_right.png" id="81_rlfw7"]
-[ext_resource type="Texture2D" uid="uid://c8voofmtierwq" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/background.png" id="82_v2vy5"]
-[ext_resource type="Texture2D" uid="uid://bsfhwmf6ym52g" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/bg_0.png" id="83_3pdwb"]
-[ext_resource type="Texture2D" uid="uid://dyu4ay5magxdg" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/bg_1.png" id="84_kncks"]
-[ext_resource type="Texture2D" uid="uid://b7e0mffhj7pby" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/bg_2.png" id="85_5ttut"]
-[ext_resource type="Texture2D" uid="uid://kvmjcjifxo7k" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/fg_0.png" id="86_vaodj"]
-[ext_resource type="Texture2D" uid="uid://do0b5ef0wjw15" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/fg_1.png" id="87_boqte"]
-[ext_resource type="Texture2D" uid="uid://dfcx8sieak21j" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset.png" id="88_lsmru"]
-[ext_resource type="Texture2D" uid="uid://dmrk2v0a5t7p7" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="89_iee26"]
-[ext_resource type="Texture2D" uid="uid://n13q4jgnltv6" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/library/bg_00_library.png" id="90_uxicm"]
-[ext_resource type="Texture2D" uid="uid://bxf5hryu3pjaa" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_64x64(new).png" id="91_h2ocv"]
-[ext_resource type="Texture2D" uid="uid://bgmuj00v1omqq" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/waterfall_anim_strip_4.png" id="92_20drq"]
-[ext_resource type="Texture2D" uid="uid://c13fgf2708yi6" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/waterfall_bottom_anim_strip_4.png" id="93_l3ett"]
-[ext_resource type="Texture2D" uid="uid://broj6q6p3tick" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/fauna sprites/bird_idle_anim_strip_8.png" id="94_dnlmj"]
-[ext_resource type="Texture2D" uid="uid://dpl7v50i77y1y" path="res://assets/Grungy_Floor_Tileset_v1.0/Grungy_Floor_Tileset_v1.0/Floor_Tileset/chandelier_frames.png" id="98_lgn6r"]
-[ext_resource type="FontFile" uid="uid://cas05dooal7th" path="res://assets/fonts/BoldPixels.ttf" id="99_0qorx"]
-[ext_resource type="Texture2D" uid="uid://cp4xbvaclnr2u" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/arch corridor/arch_corridor_tileset.png" id="99_dhsud"]
-[ext_resource type="Texture2D" uid="uid://bwbmyesbouje1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/alchemy_room_bg_00.png" id="100_atyr5"]
-[ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="102_is7aa"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="103_3i668"]
-[ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="104_oyv6k"]
-[ext_resource type="PackedScene" uid="uid://devxkbbshfgoc" path="res://scenes/chandelier.tscn" id="106_dhsud"]
-[ext_resource type="Texture2D" uid="uid://gm3v62ao0tmx" path="res://assets/keys/KeyboardMouseUI_AssetPack/Keyboard Letters and Symbols.png" id="106_gsn8u"]
-[ext_resource type="Texture2D" uid="uid://cd7wnv8d7dh3x" path="res://assets/keys/KeyboardMouseUI_AssetPack/Keyboard Extras.png" id="107_dhsud"]
-[ext_resource type="Script" uid="uid://idjxuh7n3uvf" path="res://scripts/tutorial_keys.gd" id="108_atyr5"]
-[ext_resource type="Script" uid="uid://wqqmbyre52v7" path="res://scripts/title_trigger.gd" id="110_k10w1"]
+[ext_resource type="PackedScene" uid="uid://cuwr4wewgnml4" path="res://player/player.tscn" id="1_b2sut"]
+[ext_resource type="Script" uid="uid://wqqmbyre52v7" path="res://scripts/title_trigger.gd" id="2_ibro2"]
+[ext_resource type="Script" uid="uid://o7xqs72qb68w" path="res://scripts/title_layer.gd" id="3_s2wl0"]
+[ext_resource type="Texture2D" uid="uid://7v3f5ql8hg8y" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/garden/bg_00_garden.png" id="4_kt0nx"]
+[ext_resource type="Texture2D" uid="uid://bvulsalaytf2d" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/bg_00_boss_room.png" id="5_7mh5c"]
+[ext_resource type="Texture2D" uid="uid://cr5bu4pxt2en5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/bg_01_boss_room.png" id="6_dk1dx"]
+[ext_resource type="Texture2D" uid="uid://d0qknlct3w5lo" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/library/tileset_library.png" id="7_sr5jx"]
+[ext_resource type="Texture2D" uid="uid://e1n3uurafsfh" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/warp room/bg_00_warp_room.png" id="8_pvdnx"]
+[ext_resource type="Texture2D" uid="uid://blphhsmvxnfm5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/warp room/tileset_warp_room.png" id="9_edc5r"]
+[ext_resource type="Texture2D" uid="uid://bk6mh8mi1i328" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/witch shop/bg_00_witch_shop.png" id="10_3iuyb"]
+[ext_resource type="Texture2D" uid="uid://bqeeungvqlbtw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/witch shop/tileset_witch_shop.png" id="11_q62gb"]
+[ext_resource type="Texture2D" uid="uid://dqv15aplacbi8" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Keys/scenes_key_collected_anim.png" id="12_r1lbg"]
+[ext_resource type="Texture2D" uid="uid://67xfrk08wpf8" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Keys/scenes_key_idle.png" id="13_taapo"]
+[ext_resource type="Texture2D" uid="uid://ocdcl0duidd" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Ladder/ladder_bottom.png" id="14_t1ka2"]
+[ext_resource type="Texture2D" uid="uid://b2jt7g8oe35a1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Ladder/ladder_mid.png" id="15_xt4yk"]
+[ext_resource type="Texture2D" uid="uid://eqnq0quurbjl" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Ladder/ladder_top.png" id="16_a54dr"]
+[ext_resource type="Texture2D" uid="uid://dke2x52e5hutx" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/tileset_boss_room.png" id="17_ha0lc"]
+[ext_resource type="Texture2D" uid="uid://bsfco6ksed0ac" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/NPCS/shop/item_sell_orb.png" id="18_mqguj"]
+[ext_resource type="Texture2D" uid="uid://bm0errp0ypare" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/NPCS/shop/witch_merchant_idle.png" id="19_npp6n"]
+[ext_resource type="Texture2D" uid="uid://ck0qd7uyx4fxw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/NPCS/shop/witch_merchant_static.png" id="20_exqa6"]
+[ext_resource type="Texture2D" uid="uid://d03tjfdk6rblh" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chairs/chair_00.png" id="21_2stuk"]
+[ext_resource type="Texture2D" uid="uid://c2kvfn05hyqjj" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chairs/chair_01.png" id="22_sh5du"]
+[ext_resource type="Texture2D" uid="uid://dgo183ehxucj5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chairs/chair_02.png" id="23_ni8hc"]
+[ext_resource type="Texture2D" uid="uid://bmt0kvjcjoaxc" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chests/brown_chest_closed.png" id="24_s3gv8"]
+[ext_resource type="Texture2D" uid="uid://dsex1npmv5ia5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chests/brown_chest_deleting_itself.png" id="25_n6y7n"]
+[ext_resource type="Texture2D" uid="uid://bvhdnwamh1tle" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chests/brown_chest_opening.png" id="26_fvvkm"]
+[ext_resource type="Texture2D" uid="uid://dlyumaatgmju4" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/books_destroyed_left_anim.png" id="27_d8pec"]
+[ext_resource type="Texture2D" uid="uid://bqql24qi0v6i7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/bg_00_dungeon.png" id="28_6jttq"]
+[ext_resource type="Texture2D" uid="uid://c1xdqxngd0bcq" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/books_destroyed_right_anim.png" id="29_kyxqw"]
+[ext_resource type="Texture2D" uid="uid://dlfqpaqg6yq5b" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/books_static.png" id="30_nx5sj"]
+[ext_resource type="Texture2D" uid="uid://b24myah783aj5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/vase_destroyed_left_anim.png" id="31_0gbsq"]
+[ext_resource type="Texture2D" uid="uid://cujrkhfhvdpoq" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/vase_destroyed_right_anim.png" id="32_6qjen"]
+[ext_resource type="Texture2D" uid="uid://c740veu3fdmro" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/destroyable props/vase_idle_anim.png" id="33_iylfx"]
+[ext_resource type="Texture2D" uid="uid://cdqexf84q2axi" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_00_anim.png" id="34_1gm6d"]
+[ext_resource type="Texture2D" uid="uid://cxgd8qxiulnl6" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_00_with_effect_anim.png" id="35_me2ms"]
+[ext_resource type="Texture2D" uid="uid://by8nd1nbtaprt" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_01_anim.png" id="36_xx07a"]
+[ext_resource type="Texture2D" uid="uid://dw6sryhgeex0m" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_01_with_effect_anim.png" id="37_k78pr"]
+[ext_resource type="Texture2D" uid="uid://b320v6dt780tr" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_02_anim.png" id="38_xn7lj"]
+[ext_resource type="Texture2D" uid="uid://ci43rcekbunou" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/tileset_dungeon.png" id="39_dug2o"]
+[ext_resource type="Texture2D" uid="uid://c4eivnasxulnj" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_02_with_effect_anim.png" id="40_fr066"]
+[ext_resource type="Texture2D" uid="uid://xjde5ou2tkxf" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_03_anim.png" id="41_onw5c"]
+[ext_resource type="Texture2D" uid="uid://ign1ekytbwle" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_03_with_effect_anim.png" id="42_rg0wg"]
+[ext_resource type="Texture2D" uid="uid://dhk56q0n8k0wk" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="43_666po"]
+[ext_resource type="Texture2D" uid="uid://oipaevqdfsb0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_01_static.png" id="44_2bok6"]
+[ext_resource type="Texture2D" uid="uid://dp4xkr2t3x75c" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/skulls_00_static.png" id="45_3abwh"]
+[ext_resource type="Texture2D" uid="uid://bf3e8iu15jspm" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/table_and_chair_static.png" id="46_i3o0f"]
+[ext_resource type="Texture2D" uid="uid://1u6mvyogqim7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_00.png" id="47_biar5"]
+[ext_resource type="Texture2D" uid="uid://ws42cpu4n3uc" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_01.png" id="48_rwqpg"]
+[ext_resource type="Texture2D" uid="uid://c5t0crhil5qgk" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_02.png" id="49_dqw07"]
+[ext_resource type="Texture2D" uid="uid://dtjaomp2paubi" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_00_static.png" id="50_e3s7o"]
+[ext_resource type="Texture2D" uid="uid://bb6v7kivmywo7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_01_static.png" id="51_d51rm"]
+[ext_resource type="Texture2D" uid="uid://bcqmh4d3q16jd" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_red_tapestry_static.png" id="52_cpqxj"]
+[ext_resource type="Texture2D" uid="uid://1jmw23k18wr" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Save Point/goddess_bench_saving_effect.png" id="53_br6vx"]
+[ext_resource type="Texture2D" uid="uid://cs8b4j1yvb1hl" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Save Point/goddess_bench_static.png" id="54_bst7l"]
+[ext_resource type="Texture2D" uid="uid://bk6q5vy7v1mke" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/ground_spikes_static.png" id="55_8l24y"]
+[ext_resource type="Texture2D" uid="uid://jl3tewarplhj" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/wall_spikes_left.png" id="56_hk8cv"]
+[ext_resource type="Texture2D" uid="uid://dbkk7k0vajvfw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/wall_spikes_right.png" id="57_tqr5b"]
+[ext_resource type="Texture2D" uid="uid://cifngyqk802tw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/aether_potion_idle.png" id="58_67qxd"]
+[ext_resource type="Texture2D" uid="uid://dajcka84utmw7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/explosive_barrel_before_exploding.png" id="59_3bfcg"]
+[ext_resource type="Texture2D" uid="uid://dhu7ask7vndy6" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/garden/bg_01_garden.png" id="60_u0m6d"]
+[ext_resource type="Texture2D" uid="uid://557tydjq843n" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/explosive_barrel_idle_anim.png" id="61_uu1si"]
+[ext_resource type="Texture2D" uid="uid://bapa4wwip5ivx" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/gold_coin_collected_effect.png" id="62_vqdmj"]
+[ext_resource type="Texture2D" uid="uid://cuhwanoxin6jf" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/gold_coin_idle.png" id="63_e5wss"]
+[ext_resource type="Texture2D" uid="uid://se1mr47fbilt" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/health_potion_idle.png" id="64_c5c4m"]
+[ext_resource type="Texture2D" uid="uid://civy7ld7ca8ig" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/marker_sigil_powerup.png" id="65_kc71a"]
+[ext_resource type="Texture2D" uid="uid://ur7scii1r4h5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/marker_sigil_powerup_destroyed.png" id="66_a6opk"]
+[ext_resource type="Texture2D" uid="uid://cds7i6tmcln4v" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/marker_sigil_powerup_on_player.png" id="67_fkg3r"]
+[ext_resource type="Texture2D" uid="uid://cwu2wlo1jsmi1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup.png" id="68_qghbm"]
+[ext_resource type="Texture2D" uid="uid://b0cuaitqatar0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup_destroyed.png" id="69_8htfk"]
+[ext_resource type="Texture2D" uid="uid://d0docdh3s3k76" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup_throwed.png" id="70_o4cgj"]
+[ext_resource type="Texture2D" uid="uid://beuk5jmrjp3q1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/garden/bg_02_garden.png" id="71_f31td"]
+[ext_resource type="Texture2D" uid="uid://biqowg8gi3iyf" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/throwable_axe_anim.png" id="72_yjf6t"]
+[ext_resource type="Texture2D" uid="uid://dkuspp5bplnue" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/throwable_bomb_anim.png" id="73_ebxqy"]
+[ext_resource type="Texture2D" uid="uid://bbuocy5omhmxv" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar.png" id="74_o3j6n"]
+[ext_resource type="Texture2D" uid="uid://bkpy3ppnlij1n" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar_icon_complete.png" id="75_0e168"]
+[ext_resource type="Texture2D" uid="uid://cnxyisxvnvhpj" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar_icon_left.png" id="76_c8jdy"]
+[ext_resource type="Texture2D" uid="uid://vpqqfrgs85re" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar_icon_mid.png" id="77_qbvpw"]
+[ext_resource type="Texture2D" uid="uid://mtkqmhlbq84d" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/boss_health_bar_icon_right.png" id="78_ctdps"]
+[ext_resource type="Texture2D" uid="uid://cgee40yrku15y" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar.png" id="79_mbgrc"]
+[ext_resource type="Texture2D" uid="uid://myytcms6lwdl" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_complete.png" id="80_6touv"]
+[ext_resource type="Texture2D" uid="uid://j85d2eq5ivrb" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_left.png" id="81_3uimb"]
+[ext_resource type="Texture2D" uid="uid://drpo2ulmc64ej" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/garden/tileset_garden.png" id="82_it247"]
+[ext_resource type="Texture2D" uid="uid://bt3su3adj0xa0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_mid.png" id="83_83n2s"]
+[ext_resource type="Texture2D" uid="uid://dqjagq6hac7ye" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_right.png" id="84_xex68"]
+[ext_resource type="Texture2D" uid="uid://c8voofmtierwq" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/background.png" id="85_akib5"]
+[ext_resource type="Texture2D" uid="uid://bsfhwmf6ym52g" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/bg_0.png" id="86_s8ecu"]
+[ext_resource type="Texture2D" uid="uid://dyu4ay5magxdg" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/bg_1.png" id="87_tc3f0"]
+[ext_resource type="Texture2D" uid="uid://b7e0mffhj7pby" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/bg_2.png" id="88_q06ep"]
+[ext_resource type="Texture2D" uid="uid://kvmjcjifxo7k" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/fg_0.png" id="89_un2nk"]
+[ext_resource type="Texture2D" uid="uid://do0b5ef0wjw15" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/fg_1.png" id="90_g662w"]
+[ext_resource type="Texture2D" uid="uid://dfcx8sieak21j" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset.png" id="91_v0x48"]
+[ext_resource type="Texture2D" uid="uid://dmrk2v0a5t7p7" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_32x32(new).png" id="92_rlhm7"]
+[ext_resource type="Texture2D" uid="uid://n13q4jgnltv6" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/library/bg_00_library.png" id="93_jo55f"]
+[ext_resource type="Texture2D" uid="uid://bxf5hryu3pjaa" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/tileset_64x64(new).png" id="94_qweg7"]
+[ext_resource type="Texture2D" uid="uid://bgmuj00v1omqq" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/waterfall_anim_strip_4.png" id="95_3kr16"]
+[ext_resource type="Texture2D" uid="uid://c13fgf2708yi6" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/tiles and background_foreground (new)/waterfall_bottom_anim_strip_4.png" id="96_0yxs2"]
+[ext_resource type="Texture2D" uid="uid://dpl7v50i77y1y" path="res://assets/Grungy_Floor_Tileset_v1.0/Grungy_Floor_Tileset_v1.0/Floor_Tileset/chandelier_frames.png" id="97_ithb1"]
+[ext_resource type="Texture2D" uid="uid://cp4xbvaclnr2u" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/arch corridor/arch_corridor_tileset.png" id="98_p1bj2"]
+[ext_resource type="Texture2D" uid="uid://bwbmyesbouje1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/alchemy_room_bg_00.png" id="99_ihcx7"]
+[ext_resource type="Texture2D" uid="uid://broj6q6p3tick" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/fauna sprites/bird_idle_anim_strip_8.png" id="100_emhb3"]
+[ext_resource type="FontFile" uid="uid://cas05dooal7th" path="res://assets/fonts/BoldPixels.ttf" id="101_do440"]
+[ext_resource type="Texture2D" uid="uid://gm3v62ao0tmx" path="res://assets/keys/KeyboardMouseUI_AssetPack/Keyboard Letters and Symbols.png" id="102_5g1f6"]
+[ext_resource type="Texture2D" uid="uid://cd7wnv8d7dh3x" path="res://assets/keys/KeyboardMouseUI_AssetPack/Keyboard Extras.png" id="103_yj4kx"]
+[ext_resource type="Script" uid="uid://idjxuh7n3uvf" path="res://scripts/tutorial_keys.gd" id="104_ymvrs"]
+[ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="105_dljlf"]
+[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="106_v2moy"]
+[ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="107_2tx57"]
+[ext_resource type="PackedScene" uid="uid://devxkbbshfgoc" path="res://scenes/chandelier.tscn" id="108_6075v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k10w1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbmp1"]
 size = Vector2(20, 244)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_atyr5"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sowr8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rmsd4"]
-texture = ExtResource("1_vhfkg")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gof6m"]
+texture = ExtResource("5_7mh5c")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -267,8 +267,8 @@ texture = ExtResource("1_vhfkg")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k10w1"]
-texture = ExtResource("2_0qorx")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xdygo"]
+texture = ExtResource("6_dk1dx")
 1:0/0 = 0
 4:0/0 = 0
 7:0/0 = 0
@@ -330,8 +330,8 @@ texture = ExtResource("2_0qorx")
 10:9/0 = 0
 13:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0d1sk"]
-texture = ExtResource("3_tngtc")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mmoak"]
+texture = ExtResource("7_sr5jx")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -457,8 +457,8 @@ texture = ExtResource("3_tngtc")
 1:9/0 = 0
 2:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouk3e"]
-texture = ExtResource("4_ouq3x")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sth4a"]
+texture = ExtResource("8_pvdnx")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -610,8 +610,8 @@ texture = ExtResource("4_ouq3x")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_doedk"]
-texture = ExtResource("5_is7aa")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4ni7"]
+texture = ExtResource("9_edc5r")
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -646,8 +646,8 @@ texture = ExtResource("5_is7aa")
 4:9/0 = 0
 5:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5dfsw"]
-texture = ExtResource("6_3i668")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4x4i"]
+texture = ExtResource("10_3iuyb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -799,8 +799,8 @@ texture = ExtResource("6_3i668")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s24xf"]
-texture = ExtResource("7_oyv6k")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ohu5"]
+texture = ExtResource("11_q62gb")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
@@ -844,8 +844,8 @@ texture = ExtResource("7_oyv6k")
 3:9/0 = 0
 3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxavv"]
-texture = ExtResource("8_lgn6r")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ji6o"]
+texture = ExtResource("12_r1lbg")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -853,8 +853,8 @@ texture = ExtResource("8_lgn6r")
 4:0/0 = 0
 5:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5pf6"]
-texture = ExtResource("9_gsn8u")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkork"]
+texture = ExtResource("13_taapo")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -864,20 +864,20 @@ texture = ExtResource("9_gsn8u")
 6:0/0 = 0
 7:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt63d"]
-texture = ExtResource("10_dhsud")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_metmg"]
+texture = ExtResource("14_t1ka2")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gdexd"]
-texture = ExtResource("11_atyr5")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_75846"]
+texture = ExtResource("15_xt4yk")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddrpv"]
-texture = ExtResource("12_rmsd4")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_057l4"]
+texture = ExtResource("16_a54dr")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxplf"]
-texture = ExtResource("13_k10w1")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_isxxe"]
+texture = ExtResource("17_ha0lc")
 10:0/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -919,13 +919,13 @@ texture = ExtResource("13_k10w1")
 1:8/0 = 0
 3:8/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_00q4w"]
-texture = ExtResource("14_0d1sk")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmvq6"]
+texture = ExtResource("18_mqguj")
 0:0/0 = 0
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifekc"]
-texture = ExtResource("15_ouk3e")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nnmth"]
+texture = ExtResource("19_npp6n")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -967,27 +967,27 @@ texture = ExtResource("15_ouk3e")
 18:1/0 = 0
 19:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ep0vl"]
-texture = ExtResource("16_doedk")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppge2"]
+texture = ExtResource("20_exqa6")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qcny0"]
-texture = ExtResource("17_5dfsw")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2dka"]
+texture = ExtResource("21_2stuk")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k325t"]
-texture = ExtResource("18_s24xf")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_elsxa"]
+texture = ExtResource("22_sh5du")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7qi0"]
-texture = ExtResource("19_gxavv")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fio2x"]
+texture = ExtResource("23_ni8hc")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkyfr"]
-texture = ExtResource("20_q5pf6")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwwad"]
+texture = ExtResource("24_s3gv8")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -997,8 +997,8 @@ texture = ExtResource("20_q5pf6")
 6:0/0 = 0
 7:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47nra"]
-texture = ExtResource("21_wt63d")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_715m2"]
+texture = ExtResource("25_n6y7n")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1006,22 +1006,8 @@ texture = ExtResource("21_wt63d")
 4:0/0 = 0
 5:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2jxrb"]
-texture = ExtResource("22_gdexd")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkbu5"]
-texture = ExtResource("23_ddrpv")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rid4u"]
-texture = ExtResource("24_wxplf")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aclqs"]
+texture = ExtResource("26_fvvkm")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1030,314 +1016,12 @@ texture = ExtResource("24_wxplf")
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2iu2"]
-texture = ExtResource("25_00q4w")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yl0la"]
+texture = ExtResource("27_d8pec")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_06gli"]
-texture = ExtResource("26_ifekc")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ulnnf"]
-texture = ExtResource("27_ep0vl")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxo7r"]
-texture = ExtResource("28_qcny0")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc3e2"]
-texture = ExtResource("29_k325t")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i58wl"]
-texture = ExtResource("30_y7qi0")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23kk1"]
-texture = ExtResource("31_fkyfr")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_224pq"]
-texture = ExtResource("32_47nra")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tyk5k"]
-texture = ExtResource("33_2jxrb")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50y58"]
-texture = ExtResource("34_rkbu5")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u5wx"]
-texture = ExtResource("35_rid4u")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-8:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-4:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-0:2/0 = 0
-2:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-0:3/0 = 0
-2:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-0:4/0 = 0
-2:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-0:5/0 = 0
-2:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dojf"]
-texture = ExtResource("36_b2iu2")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vsbss"]
-texture = ExtResource("37_06gli")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25atk"]
-texture = ExtResource("38_ulnnf")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nkj0l"]
-texture = ExtResource("39_cxo7r")
-0:0/0 = 0
-0:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pm3un"]
-texture = ExtResource("40_fc3e2")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v2a2"]
-texture = ExtResource("41_i58wl")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5cuv"]
-texture = ExtResource("42_23kk1")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sal1a"]
-texture = ExtResource("43_224pq")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7sexs"]
-texture = ExtResource("44_tyk5k")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfip7"]
-texture = ExtResource("45_50y58")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2nkhw"]
-texture = ExtResource("46_6u5wx")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aeuis"]
+texture = ExtResource("28_6jttq")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1489,22 +1173,338 @@ texture = ExtResource("46_6u5wx")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h463k"]
-texture = ExtResource("47_0dojf")
-0:0/0 = 0
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3y56"]
+texture = ExtResource("29_kyxqw")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d76j5"]
-texture = ExtResource("48_vsbss")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsb6k"]
+texture = ExtResource("30_nx5sj")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8i1g"]
+texture = ExtResource("31_0gbsq")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ds273"]
+texture = ExtResource("32_6qjen")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbj3c"]
+texture = ExtResource("33_iylfx")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3stxg"]
+texture = ExtResource("34_1gm6d")
 0:0/0 = 0
 1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_obj53"]
-texture = ExtResource("49_25atk")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4kagd"]
+texture = ExtResource("35_me2ms")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e46c2"]
+texture = ExtResource("36_xx07a")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vi8g"]
+texture = ExtResource("37_k78pr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe6ef"]
+texture = ExtResource("38_xn7lj")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xit51"]
+texture = ExtResource("39_dug2o")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+2:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+2:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+2:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rihsr"]
+texture = ExtResource("40_fr066")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_heksq"]
+texture = ExtResource("41_onw5c")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vs8j2"]
+texture = ExtResource("42_rg0wg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3g8n"]
+texture = ExtResource("43_666po")
 0:0/0 = 0
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bmqdm"]
-texture = ExtResource("50_nkj0l")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quw2n"]
+texture = ExtResource("44_2bok6")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81mwg"]
+texture = ExtResource("45_3abwh")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ubyc1"]
+texture = ExtResource("46_i3o0f")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wl15e"]
+texture = ExtResource("47_biar5")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oh7xb"]
+texture = ExtResource("48_rwqpg")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cf1hd"]
+texture = ExtResource("49_dqw07")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sois0"]
+texture = ExtResource("4_kt0nx")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fn60p"]
+texture = ExtResource("50_e3s7o")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydvst"]
+texture = ExtResource("51_d51rm")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t03an"]
+texture = ExtResource("52_cpqxj")
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1hvt"]
+texture = ExtResource("53_br6vx")
 11:0/0 = 0
 12:0/0 = 0
 13:0/0 = 0
@@ -1529,30 +1529,30 @@ texture = ExtResource("50_nkj0l")
 18:1/0 = 0
 19:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8mtlg"]
-texture = ExtResource("51_pm3un")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ub2v"]
+texture = ExtResource("54_bst7l")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bk0l"]
-texture = ExtResource("52_8v2a2")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e145j"]
+texture = ExtResource("55_8l24y")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gj2vh"]
-texture = ExtResource("53_s5cuv")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbn6f"]
+texture = ExtResource("56_hk8cv")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mutp"]
-texture = ExtResource("54_sal1a")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l5hi"]
+texture = ExtResource("57_tqr5b")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vyfge"]
-texture = ExtResource("55_7sexs")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krdeh"]
+texture = ExtResource("58_67qxd")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wm4vw"]
-texture = ExtResource("56_nfip7")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dqbe"]
+texture = ExtResource("59_3bfcg")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3l7l"]
-texture = ExtResource("57_2nkhw")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okqu1"]
+texture = ExtResource("60_u0m6d")
 4:1/0 = 0
 5:1/0 = 0
 7:1/0 = 0
@@ -1665,38 +1665,38 @@ texture = ExtResource("57_2nkhw")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_io517"]
-texture = ExtResource("58_h463k")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ceo8g"]
+texture = ExtResource("61_uu1si")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4c1y"]
-texture = ExtResource("59_d76j5")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo21j"]
+texture = ExtResource("62_vqdmj")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5sos"]
-texture = ExtResource("60_obj53")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_as6nn"]
+texture = ExtResource("63_e5wss")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aclkt"]
-texture = ExtResource("61_bmqdm")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ku5j"]
+texture = ExtResource("64_c5c4m")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdtq8"]
-texture = ExtResource("62_8mtlg")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dl04x"]
+texture = ExtResource("65_kc71a")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oq57f"]
-texture = ExtResource("63_5bk0l")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ku3xh"]
+texture = ExtResource("66_a6opk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7ip3"]
-texture = ExtResource("64_gj2vh")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gy0d5"]
+texture = ExtResource("67_fkg3r")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u738q"]
-texture = ExtResource("65_4mutp")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avxvm"]
+texture = ExtResource("68_qghbm")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ju7db"]
-texture = ExtResource("66_vyfge")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_anwi6"]
+texture = ExtResource("69_8htfk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5edl"]
-texture = ExtResource("67_wm4vw")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkn8d"]
+texture = ExtResource("70_o4cgj")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya53t"]
-texture = ExtResource("68_x3l7l")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6rfq"]
+texture = ExtResource("71_f31td")
 2:1/0 = 0
 3:1/0 = 0
 5:1/0 = 0
@@ -1818,14 +1818,14 @@ texture = ExtResource("68_x3l7l")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8guta"]
-texture = ExtResource("69_io517")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vd3bc"]
+texture = ExtResource("72_yjf6t")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rlfw7"]
-texture = ExtResource("70_c4c1y")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31na4"]
+texture = ExtResource("73_ebxqy")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2vy5"]
-texture = ExtResource("71_k5sos")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xo53l"]
+texture = ExtResource("74_o3j6n")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1837,8 +1837,8 @@ texture = ExtResource("71_k5sos")
 8:0/0 = 0
 9:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pdwb"]
-texture = ExtResource("72_aclkt")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44xnp"]
+texture = ExtResource("75_0e168")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1850,39 +1850,39 @@ texture = ExtResource("72_aclkt")
 8:0/0 = 0
 9:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kncks"]
-texture = ExtResource("73_hdtq8")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b28ad"]
+texture = ExtResource("76_c8jdy")
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ttut"]
-texture = ExtResource("74_oq57f")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8vwn"]
+texture = ExtResource("77_qbvpw")
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vaodj"]
-texture = ExtResource("75_v7ip3")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wlva"]
+texture = ExtResource("78_ctdps")
 0:0/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_boqte"]
-texture = ExtResource("76_u738q")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lsmru"]
-texture = ExtResource("77_ju7db")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkt3b"]
+texture = ExtResource("79_mbgrc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iee26"]
-texture = ExtResource("78_a5edl")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vryu4"]
+texture = ExtResource("80_6touv")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e5sq8"]
+texture = ExtResource("81_3uimb")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uxicm"]
-texture = ExtResource("79_ya53t")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tv2nk"]
+texture = ExtResource("82_it247")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1999,169 +1999,16 @@ texture = ExtResource("79_ya53t")
 2:11/0 = 0
 2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2ocv"]
-texture = ExtResource("80_8guta")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5e2kt"]
+texture = ExtResource("83_83n2s")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20drq"]
-texture = ExtResource("81_rlfw7")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x4sji"]
+texture = ExtResource("84_xex68")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3ett"]
-texture = ExtResource("82_v2vy5")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnlmj"]
-texture = ExtResource("83_3pdwb")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c22uu"]
+texture = ExtResource("85_akib5")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2313,8 +2160,161 @@ texture = ExtResource("83_3pdwb")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ei7g"]
-texture = ExtResource("84_kncks")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7b67i"]
+texture = ExtResource("86_s8ecu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13tvp"]
+texture = ExtResource("87_tc3f0")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2458,8 +2458,8 @@ texture = ExtResource("84_kncks")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2yx7c"]
-texture = ExtResource("85_5ttut")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eby2k"]
+texture = ExtResource("88_q06ep")
 0:6/0 = 0
 1:6/0 = 0
 2:6/0 = 0
@@ -2519,8 +2519,8 @@ texture = ExtResource("85_5ttut")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_niocw"]
-texture = ExtResource("86_vaodj")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y53wa"]
+texture = ExtResource("89_un2nk")
 0:9/0 = 0
 1:9/0 = 0
 2:9/0 = 0
@@ -2537,8 +2537,8 @@ texture = ExtResource("86_vaodj")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wq3uc"]
-texture = ExtResource("87_boqte")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_md2fj"]
+texture = ExtResource("90_g662w")
 0:9/0 = 0
 1:9/0 = 0
 2:9/0 = 0
@@ -2555,8 +2555,8 @@ texture = ExtResource("87_boqte")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajbb7"]
-texture = ExtResource("88_lsmru")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1s0ns"]
+texture = ExtResource("91_v0x48")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2615,8 +2615,8 @@ texture = ExtResource("88_lsmru")
 4:5/0 = 0
 5:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ra36"]
-texture = ExtResource("89_iee26")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uv6in"]
+texture = ExtResource("92_rlhm7")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2846,8 +2846,8 @@ texture = ExtResource("89_iee26")
 10:11/0 = 0
 11:11/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhtai"]
-texture = ExtResource("90_uxicm")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wm7qr"]
+texture = ExtResource("93_jo55f")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2999,8 +2999,8 @@ texture = ExtResource("90_uxicm")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwxss"]
-texture = ExtResource("91_h2ocv")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aivtt"]
+texture = ExtResource("94_qweg7")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -3914,29 +3914,29 @@ texture = ExtResource("91_h2ocv")
 22:23/0 = 0
 23:23/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l61h0"]
-texture = ExtResource("92_20drq")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4twc"]
+texture = ExtResource("95_3kr16")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fohog"]
-texture = ExtResource("93_l3ett")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gc88"]
+texture = ExtResource("96_0yxs2")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gsn8u"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3u7v8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlgqi"]
 texture = SubResource("CompressedTexture2D_gsn8u")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eh6sr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sw1i2"]
 texture = SubResource("CompressedTexture2D_gsn8u")
 margins = Vector2i(5, 3)
 separation = Vector2i(3, 0)
 texture_region_size = Vector2i(24, 25)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5bay"]
-texture = ExtResource("98_lgn6r")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqyn6"]
+texture = ExtResource("97_ithb1")
 1:0/0 = 0
 2:0/0 = 0
 5:0/0 = 0
@@ -3982,8 +3982,8 @@ texture = ExtResource("98_lgn6r")
 13:3/0 = 0
 14:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31ydn"]
-texture = ExtResource("99_dhsud")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1e6y"]
+texture = ExtResource("98_p1bj2")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
@@ -4063,8 +4063,8 @@ texture = ExtResource("99_dhsud")
 11:7/0 = 0
 12:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ip71u"]
-texture = ExtResource("100_atyr5")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c0qg5"]
+texture = ExtResource("99_ihcx7")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -4216,141 +4216,141 @@ texture = ExtResource("100_atyr5")
 13:9/0 = 0
 14:9/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_q85eq"]
+[sub_resource type="TileSet" id="TileSet_odfd5"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_atyr5")
-sources/0 = SubResource("TileSetAtlasSource_rmsd4")
-sources/1 = SubResource("TileSetAtlasSource_k10w1")
-sources/2 = SubResource("TileSetAtlasSource_wxplf")
-sources/3 = SubResource("TileSetAtlasSource_rid4u")
-sources/4 = SubResource("TileSetAtlasSource_6u5wx")
-sources/5 = SubResource("TileSetAtlasSource_2nkhw")
-sources/6 = SubResource("TileSetAtlasSource_x3l7l")
-sources/7 = SubResource("TileSetAtlasSource_ya53t")
-sources/8 = SubResource("TileSetAtlasSource_uxicm")
-sources/9 = SubResource("TileSetAtlasSource_bhtai")
-sources/10 = SubResource("TileSetAtlasSource_0d1sk")
-sources/11 = SubResource("TileSetAtlasSource_ouk3e")
-sources/12 = SubResource("TileSetAtlasSource_doedk")
-sources/13 = SubResource("TileSetAtlasSource_5dfsw")
-sources/14 = SubResource("TileSetAtlasSource_s24xf")
-sources/15 = SubResource("TileSetAtlasSource_gxavv")
-sources/16 = SubResource("TileSetAtlasSource_q5pf6")
-sources/17 = SubResource("TileSetAtlasSource_wt63d")
-sources/18 = SubResource("TileSetAtlasSource_gdexd")
-sources/19 = SubResource("TileSetAtlasSource_ddrpv")
-sources/20 = SubResource("TileSetAtlasSource_00q4w")
-sources/21 = SubResource("TileSetAtlasSource_ifekc")
-sources/22 = SubResource("TileSetAtlasSource_ep0vl")
-sources/23 = SubResource("TileSetAtlasSource_qcny0")
-sources/24 = SubResource("TileSetAtlasSource_k325t")
-sources/25 = SubResource("TileSetAtlasSource_y7qi0")
-sources/26 = SubResource("TileSetAtlasSource_fkyfr")
-sources/27 = SubResource("TileSetAtlasSource_47nra")
-sources/28 = SubResource("TileSetAtlasSource_2jxrb")
-sources/29 = SubResource("TileSetAtlasSource_rkbu5")
-sources/30 = SubResource("TileSetAtlasSource_b2iu2")
-sources/31 = SubResource("TileSetAtlasSource_06gli")
-sources/32 = SubResource("TileSetAtlasSource_ulnnf")
-sources/33 = SubResource("TileSetAtlasSource_cxo7r")
-sources/34 = SubResource("TileSetAtlasSource_fc3e2")
-sources/35 = SubResource("TileSetAtlasSource_i58wl")
-sources/36 = SubResource("TileSetAtlasSource_23kk1")
-sources/37 = SubResource("TileSetAtlasSource_224pq")
-sources/38 = SubResource("TileSetAtlasSource_tyk5k")
-sources/39 = SubResource("TileSetAtlasSource_50y58")
-sources/40 = SubResource("TileSetAtlasSource_0dojf")
-sources/41 = SubResource("TileSetAtlasSource_vsbss")
-sources/42 = SubResource("TileSetAtlasSource_25atk")
-sources/43 = SubResource("TileSetAtlasSource_nkj0l")
-sources/44 = SubResource("TileSetAtlasSource_pm3un")
-sources/45 = SubResource("TileSetAtlasSource_8v2a2")
-sources/46 = SubResource("TileSetAtlasSource_s5cuv")
-sources/47 = SubResource("TileSetAtlasSource_sal1a")
-sources/48 = SubResource("TileSetAtlasSource_7sexs")
-sources/49 = SubResource("TileSetAtlasSource_nfip7")
-sources/50 = SubResource("TileSetAtlasSource_h463k")
-sources/51 = SubResource("TileSetAtlasSource_d76j5")
-sources/52 = SubResource("TileSetAtlasSource_obj53")
-sources/53 = SubResource("TileSetAtlasSource_bmqdm")
-sources/54 = SubResource("TileSetAtlasSource_8mtlg")
-sources/55 = SubResource("TileSetAtlasSource_5bk0l")
-sources/56 = SubResource("TileSetAtlasSource_gj2vh")
-sources/57 = SubResource("TileSetAtlasSource_4mutp")
-sources/58 = SubResource("TileSetAtlasSource_vyfge")
-sources/59 = SubResource("TileSetAtlasSource_wm4vw")
-sources/60 = SubResource("TileSetAtlasSource_io517")
-sources/61 = SubResource("TileSetAtlasSource_c4c1y")
-sources/62 = SubResource("TileSetAtlasSource_k5sos")
-sources/63 = SubResource("TileSetAtlasSource_aclkt")
-sources/64 = SubResource("TileSetAtlasSource_hdtq8")
-sources/65 = SubResource("TileSetAtlasSource_oq57f")
-sources/66 = SubResource("TileSetAtlasSource_v7ip3")
-sources/67 = SubResource("TileSetAtlasSource_u738q")
-sources/68 = SubResource("TileSetAtlasSource_ju7db")
-sources/69 = SubResource("TileSetAtlasSource_a5edl")
-sources/70 = SubResource("TileSetAtlasSource_8guta")
-sources/71 = SubResource("TileSetAtlasSource_rlfw7")
-sources/72 = SubResource("TileSetAtlasSource_v2vy5")
-sources/73 = SubResource("TileSetAtlasSource_3pdwb")
-sources/74 = SubResource("TileSetAtlasSource_kncks")
-sources/75 = SubResource("TileSetAtlasSource_5ttut")
-sources/76 = SubResource("TileSetAtlasSource_vaodj")
-sources/77 = SubResource("TileSetAtlasSource_boqte")
-sources/78 = SubResource("TileSetAtlasSource_lsmru")
-sources/79 = SubResource("TileSetAtlasSource_iee26")
-sources/80 = SubResource("TileSetAtlasSource_h2ocv")
-sources/81 = SubResource("TileSetAtlasSource_20drq")
-sources/82 = SubResource("TileSetAtlasSource_l3ett")
-sources/83 = SubResource("TileSetAtlasSource_dnlmj")
-sources/84 = SubResource("TileSetAtlasSource_1ei7g")
-sources/85 = SubResource("TileSetAtlasSource_2yx7c")
-sources/86 = SubResource("TileSetAtlasSource_niocw")
-sources/87 = SubResource("TileSetAtlasSource_wq3uc")
-sources/88 = SubResource("TileSetAtlasSource_ajbb7")
-sources/89 = SubResource("TileSetAtlasSource_3ra36")
-sources/90 = SubResource("TileSetAtlasSource_mwxss")
-sources/91 = SubResource("TileSetAtlasSource_l61h0")
-sources/92 = SubResource("TileSetAtlasSource_fohog")
-sources/93 = SubResource("TileSetAtlasSource_3u7v8")
-sources/94 = SubResource("TileSetAtlasSource_eh6sr")
-sources/95 = SubResource("TileSetAtlasSource_t5bay")
-sources/97 = SubResource("TileSetAtlasSource_31ydn")
-sources/98 = SubResource("TileSetAtlasSource_ip71u")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_sowr8")
+sources/0 = SubResource("TileSetAtlasSource_gof6m")
+sources/1 = SubResource("TileSetAtlasSource_xdygo")
+sources/2 = SubResource("TileSetAtlasSource_isxxe")
+sources/3 = SubResource("TileSetAtlasSource_aeuis")
+sources/4 = SubResource("TileSetAtlasSource_xit51")
+sources/5 = SubResource("TileSetAtlasSource_sois0")
+sources/6 = SubResource("TileSetAtlasSource_okqu1")
+sources/7 = SubResource("TileSetAtlasSource_l6rfq")
+sources/8 = SubResource("TileSetAtlasSource_tv2nk")
+sources/9 = SubResource("TileSetAtlasSource_wm7qr")
+sources/10 = SubResource("TileSetAtlasSource_mmoak")
+sources/11 = SubResource("TileSetAtlasSource_sth4a")
+sources/12 = SubResource("TileSetAtlasSource_w4ni7")
+sources/13 = SubResource("TileSetAtlasSource_w4x4i")
+sources/14 = SubResource("TileSetAtlasSource_4ohu5")
+sources/15 = SubResource("TileSetAtlasSource_4ji6o")
+sources/16 = SubResource("TileSetAtlasSource_rkork")
+sources/17 = SubResource("TileSetAtlasSource_metmg")
+sources/18 = SubResource("TileSetAtlasSource_75846")
+sources/19 = SubResource("TileSetAtlasSource_057l4")
+sources/20 = SubResource("TileSetAtlasSource_cmvq6")
+sources/21 = SubResource("TileSetAtlasSource_nnmth")
+sources/22 = SubResource("TileSetAtlasSource_ppge2")
+sources/23 = SubResource("TileSetAtlasSource_f2dka")
+sources/24 = SubResource("TileSetAtlasSource_elsxa")
+sources/25 = SubResource("TileSetAtlasSource_fio2x")
+sources/26 = SubResource("TileSetAtlasSource_kwwad")
+sources/27 = SubResource("TileSetAtlasSource_715m2")
+sources/28 = SubResource("TileSetAtlasSource_aclqs")
+sources/29 = SubResource("TileSetAtlasSource_yl0la")
+sources/30 = SubResource("TileSetAtlasSource_o3y56")
+sources/31 = SubResource("TileSetAtlasSource_nsb6k")
+sources/32 = SubResource("TileSetAtlasSource_g8i1g")
+sources/33 = SubResource("TileSetAtlasSource_ds273")
+sources/34 = SubResource("TileSetAtlasSource_fbj3c")
+sources/35 = SubResource("TileSetAtlasSource_3stxg")
+sources/36 = SubResource("TileSetAtlasSource_4kagd")
+sources/37 = SubResource("TileSetAtlasSource_e46c2")
+sources/38 = SubResource("TileSetAtlasSource_2vi8g")
+sources/39 = SubResource("TileSetAtlasSource_pe6ef")
+sources/40 = SubResource("TileSetAtlasSource_rihsr")
+sources/41 = SubResource("TileSetAtlasSource_heksq")
+sources/42 = SubResource("TileSetAtlasSource_vs8j2")
+sources/43 = SubResource("TileSetAtlasSource_g3g8n")
+sources/44 = SubResource("TileSetAtlasSource_quw2n")
+sources/45 = SubResource("TileSetAtlasSource_81mwg")
+sources/46 = SubResource("TileSetAtlasSource_ubyc1")
+sources/47 = SubResource("TileSetAtlasSource_wl15e")
+sources/48 = SubResource("TileSetAtlasSource_oh7xb")
+sources/49 = SubResource("TileSetAtlasSource_cf1hd")
+sources/50 = SubResource("TileSetAtlasSource_fn60p")
+sources/51 = SubResource("TileSetAtlasSource_ydvst")
+sources/52 = SubResource("TileSetAtlasSource_t03an")
+sources/53 = SubResource("TileSetAtlasSource_y1hvt")
+sources/54 = SubResource("TileSetAtlasSource_2ub2v")
+sources/55 = SubResource("TileSetAtlasSource_e145j")
+sources/56 = SubResource("TileSetAtlasSource_qbn6f")
+sources/57 = SubResource("TileSetAtlasSource_0l5hi")
+sources/58 = SubResource("TileSetAtlasSource_krdeh")
+sources/59 = SubResource("TileSetAtlasSource_7dqbe")
+sources/60 = SubResource("TileSetAtlasSource_ceo8g")
+sources/61 = SubResource("TileSetAtlasSource_wo21j")
+sources/62 = SubResource("TileSetAtlasSource_as6nn")
+sources/63 = SubResource("TileSetAtlasSource_4ku5j")
+sources/64 = SubResource("TileSetAtlasSource_dl04x")
+sources/65 = SubResource("TileSetAtlasSource_ku3xh")
+sources/66 = SubResource("TileSetAtlasSource_gy0d5")
+sources/67 = SubResource("TileSetAtlasSource_avxvm")
+sources/68 = SubResource("TileSetAtlasSource_anwi6")
+sources/69 = SubResource("TileSetAtlasSource_tkn8d")
+sources/70 = SubResource("TileSetAtlasSource_vd3bc")
+sources/71 = SubResource("TileSetAtlasSource_31na4")
+sources/72 = SubResource("TileSetAtlasSource_xo53l")
+sources/73 = SubResource("TileSetAtlasSource_44xnp")
+sources/74 = SubResource("TileSetAtlasSource_b28ad")
+sources/75 = SubResource("TileSetAtlasSource_p8vwn")
+sources/76 = SubResource("TileSetAtlasSource_2wlva")
+sources/77 = SubResource("TileSetAtlasSource_rkt3b")
+sources/78 = SubResource("TileSetAtlasSource_vryu4")
+sources/79 = SubResource("TileSetAtlasSource_e5sq8")
+sources/80 = SubResource("TileSetAtlasSource_5e2kt")
+sources/81 = SubResource("TileSetAtlasSource_x4sji")
+sources/82 = SubResource("TileSetAtlasSource_c22uu")
+sources/83 = SubResource("TileSetAtlasSource_7b67i")
+sources/84 = SubResource("TileSetAtlasSource_13tvp")
+sources/85 = SubResource("TileSetAtlasSource_eby2k")
+sources/86 = SubResource("TileSetAtlasSource_y53wa")
+sources/87 = SubResource("TileSetAtlasSource_md2fj")
+sources/88 = SubResource("TileSetAtlasSource_1s0ns")
+sources/89 = SubResource("TileSetAtlasSource_uv6in")
+sources/90 = SubResource("TileSetAtlasSource_aivtt")
+sources/91 = SubResource("TileSetAtlasSource_u4twc")
+sources/92 = SubResource("TileSetAtlasSource_4gc88")
+sources/93 = SubResource("TileSetAtlasSource_jlgqi")
+sources/94 = SubResource("TileSetAtlasSource_sw1i2")
+sources/95 = SubResource("TileSetAtlasSource_kqyn6")
+sources/97 = SubResource("TileSetAtlasSource_c1e6y")
+sources/98 = SubResource("TileSetAtlasSource_c0qg5")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5qob"]
-atlas = ExtResource("94_dnlmj")
+atlas = ExtResource("100_emhb3")
 region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb5rj"]
-atlas = ExtResource("94_dnlmj")
+atlas = ExtResource("100_emhb3")
 region = Rect2(8, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7vvx"]
-atlas = ExtResource("94_dnlmj")
+atlas = ExtResource("100_emhb3")
 region = Rect2(16, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yeah"]
-atlas = ExtResource("94_dnlmj")
+atlas = ExtResource("100_emhb3")
 region = Rect2(24, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3iu2"]
-atlas = ExtResource("94_dnlmj")
+atlas = ExtResource("100_emhb3")
 region = Rect2(32, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ste63"]
-atlas = ExtResource("94_dnlmj")
+atlas = ExtResource("100_emhb3")
 region = Rect2(40, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c35c5"]
-atlas = ExtResource("94_dnlmj")
+atlas = ExtResource("100_emhb3")
 region = Rect2(48, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb5gm"]
-atlas = ExtResource("94_dnlmj")
+atlas = ExtResource("100_emhb3")
 region = Rect2(56, 0, 8, 8)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_50axv"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wwutu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -4395,78 +4395,78 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmsd4"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k10w1"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(0, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6u5wx"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dojf"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(48, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkj0l"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pm3un"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(16, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8v2a2"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5cuv"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(32, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sal1a"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7sexs"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(48, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vsbss"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(32, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_25atk"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(32, 176, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_obj53"]
-atlas = ExtResource("107_dhsud")
+atlas = ExtResource("103_yj4kx")
 region = Rect2(64, 32, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmqdm"]
-atlas = ExtResource("107_dhsud")
+atlas = ExtResource("103_yj4kx")
 region = Rect2(64, 96, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nfip7"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2nkhw"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(0, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhsud"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(96, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atyr5"]
-atlas = ExtResource("106_gsn8u")
+atlas = ExtResource("102_5g1f6")
 region = Rect2(96, 176, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_rmsd4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2fih7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -5265,14 +5265,14 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h463k"]
-atlas = ExtResource("107_dhsud")
+atlas = ExtResource("103_yj4kx")
 region = Rect2(64, 32, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d76j5"]
-atlas = ExtResource("107_dhsud")
+atlas = ExtResource("103_yj4kx")
 region = Rect2(64, 96, 32, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_obj53"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qqx5k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -5286,73 +5286,40 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="intro" type="Node2D" unique_id=1826120207]
-position = Vector2(77, -34)
+[node name="Level_3" type="Node2D" unique_id=1849523170]
 
-[node name="player" parent="." unique_id=1809962385 instance=ExtResource("1_ouq3x")]
-position = Vector2(1450, -222)
+[node name="player" parent="." unique_id=1809962385 instance=ExtResource("1_b2sut")]
+position = Vector2(1307, -218)
 
-[node name="TitleTrigger" type="Area2D" parent="." unique_id=1906915122]
+[node name="TitleTrigger" type="Area2D" parent="." unique_id=1678162817]
 position = Vector2(2103, 131)
 collision_mask = 3
-script = ExtResource("110_k10w1")
+script = ExtResource("2_ibro2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TitleTrigger" unique_id=1628813231]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TitleTrigger" unique_id=233368492]
 z_index = 4
 position = Vector2(192, -438.5)
-shape = SubResource("RectangleShape2D_k10w1")
+shape = SubResource("RectangleShape2D_nbmp1")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=609550876]
-script = ExtResource("1_rmsd4")
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1181804704]
+script = ExtResource("3_s2wl0")
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer2" unique_id=668284750]
-position = Vector2(821, -705)
-
-[node name="Label3" type="Label" parent="CanvasLayer2/Node2D" unique_id=898446852]
-offset_left = -113.0
-offset_top = -28.0
-offset_right = 127.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("99_0qorx")
-theme_override_font_sizes/font_size = 120
-text = "Echoes of
-the Past"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="CanvasLayer2/Node2D" unique_id=1354436010]
-offset_left = -108.0
-offset_top = -32.0
-offset_right = 372.0
-offset_bottom = 183.0
-theme_override_fonts/font = ExtResource("99_0qorx")
-theme_override_font_sizes/font_size = 120
-text = "Echoes of
-the Past"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=969582755]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1436769661]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=888053326]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1468503507]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -21.0
-offset_top = 225.0
-offset_right = -21.0
-offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("46_6u5wx")
+texture = ExtResource("4_kt0nx")
 metadata/_edit_use_anchors_ = true
 
-[node name="tile_sets" type="TileMap" parent="." unique_id=826209662]
+[node name="tile_sets" type="TileMap" parent="." unique_id=1754986491]
 texture_filter = 1
 position = Vector2(0, -1)
-tile_set = SubResource("TileSet_q85eq")
+tile_set = SubResource("TileSet_odfd5")
 format = 2
 layer_0/name = "midground"
 layer_0/z_index = 1
@@ -5368,478 +5335,463 @@ layer_5/name = "bg4"
 layer_6/name = "bg5"
 layer_7/name = "bg6"
 
-[node name="bird" type="AnimatedSprite2D" parent="." unique_id=2119170334]
+[node name="bird" type="AnimatedSprite2D" parent="." unique_id=1813063564]
 position = Vector2(296, 135)
-sprite_frames = SubResource("SpriteFrames_50axv")
+sprite_frames = SubResource("SpriteFrames_wwutu")
 autoplay = "default"
-frame_progress = 0.80804974
 
-[node name="movement_tutorial" type="Node2D" parent="." unique_id=948229601]
+[node name="movement_tutorial" type="Node2D" parent="." unique_id=1153230937]
 position = Vector2(58, -25)
 
-[node name="text" type="Node2D" parent="movement_tutorial" unique_id=161898424]
+[node name="text" type="Node2D" parent="movement_tutorial" unique_id=1497949428]
 position = Vector2(48, -5)
 
-[node name="Label3" type="Label" parent="movement_tutorial/text" unique_id=1746895793]
-offset_left = 4.0
-offset_top = -152.0
-offset_right = 244.0
-offset_bottom = -93.0
+[node name="Label3" type="Label" parent="movement_tutorial/text" unique_id=846040698]
+offset_left = -1.0
+offset_top = 19.0
+offset_right = 239.0
+offset_bottom = 78.0
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Movement"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="movement_tutorial/text" unique_id=1864114524]
-offset_left = -8.0
-offset_top = -176.0
-offset_right = 232.0
-offset_bottom = -117.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+[node name="Label2" type="Label" parent="movement_tutorial/text" unique_id=915016567]
+offset_top = 17.0
+offset_right = 240.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Movement"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="keys" type="Node2D" parent="movement_tutorial" unique_id=606260521]
+[node name="keys" type="Node2D" parent="movement_tutorial" unique_id=1933238540]
 
-[node name="a" type="AnimatedSprite2D" parent="movement_tutorial/keys" unique_id=206298672]
+[node name="a" type="AnimatedSprite2D" parent="movement_tutorial/keys" unique_id=1322874952]
 texture_filter = 1
-position = Vector2(81.00001, -67)
+position = Vector2(110.12, 81.119995)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"a"
-frame_progress = 0.25213695
 
-[node name="d" type="AnimatedSprite2D" parent="movement_tutorial/keys" unique_id=211756300]
+[node name="d" type="AnimatedSprite2D" parent="movement_tutorial/keys" unique_id=2101005311]
 texture_filter = 1
-position = Vector2(146, -53)
+position = Vector2(138.12003, 81.119995)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"d"
 autoplay = "d"
-frame_progress = 0.011429005
 
-[node name="OR" type="Label" parent="movement_tutorial/keys" unique_id=2017714908]
-offset_left = 46.0
-offset_top = -137.0
-offset_right = 286.0
-offset_bottom = -78.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+[node name="OR" type="Label" parent="movement_tutorial/keys" unique_id=177430789]
+offset_left = 51.0
+offset_top = 51.0
+offset_right = 291.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="left" type="AnimatedSprite2D" parent="movement_tutorial/keys" unique_id=1598334808]
+[node name="left" type="AnimatedSprite2D" parent="movement_tutorial/keys" unique_id=376912572]
 texture_filter = 1
-position = Vector2(196, -72)
+position = Vector2(203, 81)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"left"
 
-[node name="right" type="AnimatedSprite2D" parent="movement_tutorial/keys" unique_id=1228267627]
+[node name="right" type="AnimatedSprite2D" parent="movement_tutorial/keys" unique_id=1207145871]
 texture_filter = 1
-position = Vector2(256.00003, -46)
+position = Vector2(230.00003, 81)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"right"
 autoplay = "right"
 
-[node name="keys" type="Node2D" parent="." unique_id=257418960]
+[node name="keys" type="Node2D" parent="." unique_id=881143371]
 visible = false
 
-[node name="space" type="AnimatedSprite2D" parent="keys" unique_id=691115143]
+[node name="space" type="AnimatedSprite2D" parent="keys" unique_id=1842199525]
 position = Vector2(176, 104)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_obj53")
+sprite_frames = SubResource("SpriteFrames_qqx5k")
 autoplay = "default"
-frame_progress = 0.54199237
 
-[node name="w" type="AnimatedSprite2D" parent="keys" unique_id=7508792]
+[node name="w" type="AnimatedSprite2D" parent="keys" unique_id=216729268]
 visible = false
 texture_filter = 1
 position = Vector2(120.00001, 55)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"w"
 autoplay = "w"
-frame_progress = 0.15845674
 
-[node name="s" type="AnimatedSprite2D" parent="keys" unique_id=2093854241]
+[node name="s" type="AnimatedSprite2D" parent="keys" unique_id=201915730]
 visible = false
 texture_filter = 1
 position = Vector2(124.00001, 76)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"s"
 autoplay = "s"
-frame_progress = 0.23806062
 
-[node name="up" type="AnimatedSprite2D" parent="keys" unique_id=415568235]
+[node name="up" type="AnimatedSprite2D" parent="keys" unique_id=763335072]
 visible = false
 texture_filter = 1
 position = Vector2(236.00002, 55)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"up"
 autoplay = "up"
 
-[node name="down" type="AnimatedSprite2D" parent="keys" unique_id=1620873190]
+[node name="down" type="AnimatedSprite2D" parent="keys" unique_id=378676100]
 visible = false
 texture_filter = 1
 position = Vector2(240.00002, 76)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"down"
 autoplay = "down"
 
-[node name="jump" type="Node2D" parent="." unique_id=1318303015]
+[node name="jump" type="Node2D" parent="." unique_id=1634162891]
 position = Vector2(453, -25)
 
-[node name="text" type="Node2D" parent="jump" unique_id=1331841302]
+[node name="text" type="Node2D" parent="jump" unique_id=2119114316]
 position = Vector2(48, -5)
 
-[node name="Label3" type="Label" parent="jump/text" unique_id=325725073]
+[node name="Label3" type="Label" parent="jump/text" unique_id=1998935800]
 offset_left = -1.0
 offset_top = 19.0
 offset_right = 239.0
 offset_bottom = 78.0
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="jump/text" unique_id=280779974]
+[node name="Label2" type="Label" parent="jump/text" unique_id=2122944527]
 offset_top = 17.0
 offset_right = 240.0
 offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="keys" type="Node2D" parent="jump" unique_id=359886644]
+[node name="keys" type="Node2D" parent="jump" unique_id=1136778079]
 
-[node name="w" type="AnimatedSprite2D" parent="jump/keys" unique_id=2113299726]
+[node name="w" type="AnimatedSprite2D" parent="jump/keys" unique_id=95260476]
 texture_filter = 1
 position = Vector2(110.12, 81.119995)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"single_w"
 autoplay = "single_w"
 
-[node name="OR" type="Label" parent="jump/keys" unique_id=1266140794]
+[node name="OR" type="Label" parent="jump/keys" unique_id=966878212]
 offset_left = 17.0
 offset_top = 52.0
 offset_right = 257.0
 offset_bottom = 111.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="space" type="AnimatedSprite2D" parent="jump/keys" unique_id=1419632731]
+[node name="space" type="AnimatedSprite2D" parent="jump/keys" unique_id=1674311154]
 texture_filter = 1
 position = Vector2(175, 81)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"single_space"
 autoplay = "single_space"
 
-[node name="OR2" type="Label" parent="jump/keys" unique_id=1263131705]
+[node name="OR2" type="Label" parent="jump/keys" unique_id=2018559465]
 offset_left = 95.0
 offset_top = 53.0
 offset_right = 335.0
 offset_bottom = 112.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="up" type="AnimatedSprite2D" parent="jump/keys" unique_id=2080327038]
+[node name="up" type="AnimatedSprite2D" parent="jump/keys" unique_id=1529824839]
 texture_filter = 1
 position = Vector2(242.00003, 81)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"single_up"
 autoplay = "single_up"
 
-[node name="double_jump" type="Node2D" parent="." unique_id=1058448809]
+[node name="double_jump" type="Node2D" parent="." unique_id=39620586]
 position = Vector2(840, -26)
 
-[node name="text" type="Node2D" parent="double_jump" unique_id=1625834685]
+[node name="text" type="Node2D" parent="double_jump" unique_id=387074231]
 position = Vector2(48, -5)
 
-[node name="Label3" type="Label" parent="double_jump/text" unique_id=1296268119]
+[node name="Label3" type="Label" parent="double_jump/text" unique_id=1751613260]
 offset_left = -1.0
 offset_top = 19.0
 offset_right = 239.0
 offset_bottom = 78.0
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Double Jump!"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="double_jump/text" unique_id=1374640330]
+[node name="Label2" type="Label" parent="double_jump/text" unique_id=1371914129]
 offset_top = 17.0
 offset_right = 240.0
 offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Double Jump!"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="keys" type="Node2D" parent="double_jump" unique_id=316019891]
-script = ExtResource("108_atyr5")
+[node name="keys" type="Node2D" parent="double_jump" unique_id=1131185891]
+script = ExtResource("104_ymvrs")
 
-[node name="w" type="AnimatedSprite2D" parent="double_jump/keys" unique_id=1121703835]
+[node name="w" type="AnimatedSprite2D" parent="double_jump/keys" unique_id=666610915]
 texture_filter = 1
 position = Vector2(110.12, 81.119995)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"up"
 autoplay = "w"
-frame_progress = 0.61271626
 
-[node name="OR" type="Label" parent="double_jump/keys" unique_id=607785732]
+[node name="OR" type="Label" parent="double_jump/keys" unique_id=1201031960]
 offset_left = 17.0
 offset_top = 52.0
 offset_right = 257.0
 offset_bottom = 111.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="space" type="AnimatedSprite2D" parent="double_jump/keys" unique_id=2060543369]
+[node name="space" type="AnimatedSprite2D" parent="double_jump/keys" unique_id=1716308028]
 texture_filter = 1
 position = Vector2(175, 81)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"space"
 autoplay = "space"
-frame_progress = 0.78471667
 
-[node name="OR2" type="Label" parent="double_jump/keys" unique_id=416639301]
+[node name="OR2" type="Label" parent="double_jump/keys" unique_id=1203174929]
 offset_left = 95.0
 offset_top = 53.0
 offset_right = 335.0
 offset_bottom = 112.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="up" type="AnimatedSprite2D" parent="double_jump/keys" unique_id=655260857]
+[node name="up" type="AnimatedSprite2D" parent="double_jump/keys" unique_id=1031030986]
 texture_filter = 1
 position = Vector2(242.00003, 81)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"up"
 autoplay = "up"
-frame_progress = 0.22377951
 
-[node name="wall_jump" type="Node2D" parent="." unique_id=1149634632]
+[node name="wall_jump" type="Node2D" parent="." unique_id=694955491]
 z_index = 3
 position = Vector2(1178, -114)
 
-[node name="text" type="Node2D" parent="wall_jump" unique_id=145533884]
+[node name="text" type="Node2D" parent="wall_jump" unique_id=930830730]
 position = Vector2(48, -5)
 
-[node name="Label3" type="Label" parent="wall_jump/text" unique_id=613943239]
+[node name="Label3" type="Label" parent="wall_jump/text" unique_id=1153670083]
 offset_left = -1.0
 offset_top = 19.0
 offset_right = 239.0
 offset_bottom = 78.0
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Wall
 Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="wall_jump/text" unique_id=188949627]
+[node name="Label2" type="Label" parent="wall_jump/text" unique_id=781717774]
 offset_top = 17.0
 offset_right = 240.0
 offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Wall
 Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="keys" type="Node2D" parent="wall_jump" unique_id=346764778]
+[node name="keys" type="Node2D" parent="wall_jump" unique_id=1211362563]
 
-[node name="right" type="AnimatedSprite2D" parent="wall_jump/keys" unique_id=1221308243]
+[node name="right" type="AnimatedSprite2D" parent="wall_jump/keys" unique_id=1925027645]
 texture_filter = 1
 position = Vector2(140, 93)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"wall_jump_right"
 autoplay = "wall_jump_right"
 
-[node name="jump" type="AnimatedSprite2D" parent="wall_jump/keys" unique_id=96819728]
+[node name="jump" type="AnimatedSprite2D" parent="wall_jump/keys" unique_id=1105693784]
 texture_filter = 1
 position = Vector2(197, 93)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"wall_jump"
 autoplay = "wall_jump"
 
-[node name="Node2D" type="Node2D" parent="wall_jump/keys" unique_id=1546191082]
+[node name="Node2D" type="Node2D" parent="wall_jump/keys" unique_id=2082077078]
 
-[node name="PLUS" type="Label" parent="wall_jump/keys/Node2D" unique_id=1407995494]
+[node name="PLUS" type="Label" parent="wall_jump/keys/Node2D" unique_id=1188601719]
 offset_left = 47.0
 offset_top = 62.0
 offset_right = 287.0
 offset_bottom = 121.0
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PLUS2" type="Label" parent="wall_jump/keys/Node2D" unique_id=923085949]
+[node name="PLUS2" type="Label" parent="wall_jump/keys/Node2D" unique_id=1066612460]
 offset_left = 48.0
 offset_top = 61.0
 offset_right = 288.0
 offset_bottom = 120.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="wall_jump2" type="Node2D" parent="." unique_id=911705383]
+[node name="wall_jump2" type="Node2D" parent="." unique_id=1214559644]
 z_index = 3
 position = Vector2(984, -200)
 
-[node name="text" type="Node2D" parent="wall_jump2" unique_id=314714674]
+[node name="text" type="Node2D" parent="wall_jump2" unique_id=1649059159]
 position = Vector2(48, -5)
 
-[node name="Label3" type="Label" parent="wall_jump2/text" unique_id=1506511792]
+[node name="Label3" type="Label" parent="wall_jump2/text" unique_id=1575823007]
 offset_left = -1.0
 offset_top = 19.0
 offset_right = 239.0
 offset_bottom = 78.0
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Wall
 Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="wall_jump2/text" unique_id=65493451]
+[node name="Label2" type="Label" parent="wall_jump2/text" unique_id=1276568984]
 offset_top = 17.0
 offset_right = 240.0
 offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "Wall
 Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="keys" type="Node2D" parent="wall_jump2" unique_id=1514862127]
+[node name="keys" type="Node2D" parent="wall_jump2" unique_id=1007131796]
 
-[node name="left" type="AnimatedSprite2D" parent="wall_jump2/keys" unique_id=971559104]
+[node name="left" type="AnimatedSprite2D" parent="wall_jump2/keys" unique_id=1238840109]
 texture_filter = 1
 position = Vector2(140, 93)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"wall_jump_left"
 autoplay = "wall_jump_left"
 
-[node name="jump" type="AnimatedSprite2D" parent="wall_jump2/keys" unique_id=236056209]
+[node name="jump" type="AnimatedSprite2D" parent="wall_jump2/keys" unique_id=525461058]
 texture_filter = 1
 position = Vector2(197, 93)
 scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
+sprite_frames = SubResource("SpriteFrames_2fih7")
 animation = &"wall_jump"
 autoplay = "wall_jump"
 
-[node name="Node2D" type="Node2D" parent="wall_jump2/keys" unique_id=145496774]
+[node name="Node2D" type="Node2D" parent="wall_jump2/keys" unique_id=1018106376]
 
-[node name="PLUS" type="Label" parent="wall_jump2/keys/Node2D" unique_id=234253102]
+[node name="PLUS" type="Label" parent="wall_jump2/keys/Node2D" unique_id=1045301353]
 offset_left = 47.0
 offset_top = 62.0
 offset_right = 287.0
 offset_bottom = 121.0
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PLUS2" type="Label" parent="wall_jump2/keys/Node2D" unique_id=1388122386]
+[node name="PLUS2" type="Label" parent="wall_jump2/keys/Node2D" unique_id=662475488]
 offset_left = 48.0
 offset_top = 61.0
 offset_right = 288.0
 offset_bottom = 120.0
-theme_override_fonts/font = ExtResource("99_0qorx")
+theme_override_fonts/font = ExtResource("101_do440")
 theme_override_font_sizes/font_size = 32
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PressurePad" parent="." unique_id=1371886716 instance=ExtResource("102_is7aa")]
+[node name="PressurePad" parent="." unique_id=1371886716 instance=ExtResource("105_dljlf")]
 z_index = 5
 position = Vector2(1527, -211)
 
-[node name="echo_zone" parent="." unique_id=963310953 instance=ExtResource("103_3i668")]
+[node name="echo_zone" parent="." unique_id=963310953 instance=ExtResource("106_v2moy")]
 position = Vector2(1527, -225)
 scale = Vector2(0.58498925, 0.7493633)
 
-[node name="door" parent="." unique_id=836931204 instance=ExtResource("104_oyv6k")]
+[node name="door" parent="." unique_id=1324933565 instance=ExtResource("107_2tx57")]
 position = Vector2(1701, -234)
 
-[node name="Chandelier" parent="." unique_id=2027508574 instance=ExtResource("106_dhsud")]
+[node name="Chandelier" parent="." unique_id=2027508574 instance=ExtResource("108_6075v")]
 position = Vector2(2247, -414.5)
 scale = Vector2(1.28125, 1.2272727)
 
-[node name="Chandelier2" parent="." unique_id=1158396846 instance=ExtResource("106_dhsud")]
+[node name="Chandelier2" parent="." unique_id=1354829209 instance=ExtResource("108_6075v")]
 position = Vector2(2593, -410.5)
 scale = Vector2(1.28125, 1.2272727)
 
-[node name="Chandelier3" parent="." unique_id=453341406 instance=ExtResource("106_dhsud")]
+[node name="Chandelier3" parent="." unique_id=1510572109 instance=ExtResource("108_6075v")]
 position = Vector2(2954, -410.5)
 scale = Vector2(1.28125, 1.2272727)
 
-[node name="Chandelier4" parent="." unique_id=1309734061 instance=ExtResource("106_dhsud")]
+[node name="Chandelier4" parent="." unique_id=35574611 instance=ExtResource("108_6075v")]
 position = Vector2(3312, -410.5)
 scale = Vector2(1.28125, 1.2272727)
 
 [connection signal="body_entered" from="TitleTrigger" to="TitleTrigger" method="_on_body_entered"]
-[connection signal="body_entered" from="TitleTrigger" to="CanvasLayer2" method="_on_title_trigger_body_entered"]
-[connection signal="pad_activated" from="PressurePad" to="door" method="_on_pressure_pad_pad_activated"]
-[connection signal="pad_deactivated" from="PressurePad" to="door" method="_on_pressure_pad_pad_deactivated"]

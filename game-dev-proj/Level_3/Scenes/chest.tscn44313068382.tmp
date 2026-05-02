@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cc8m0vmka7i7u"]
+
+[ext_resource type="Texture2D" uid="uid://bmt0kvjcjoaxc" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/chests/brown_chest_closed.png" id="1_00aaq"]
+[ext_resource type="Script" uid="uid://bc1jmt6qdytfl" path="res://Level_3/Scenes/chest.gd" id="1_li2k7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li2k7"]
+atlas = ExtResource("1_00aaq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pf1e"]
+atlas = ExtResource("1_00aaq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5osny"]
+atlas = ExtResource("1_00aaq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8ieb"]
+atlas = ExtResource("1_00aaq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b2s4"]
+atlas = ExtResource("1_00aaq")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he6q0"]
+atlas = ExtResource("1_00aaq")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgno6"]
+atlas = ExtResource("1_00aaq")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj87k"]
+atlas = ExtResource("1_00aaq")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wxuva"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li2k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pf1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5osny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8ieb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b2s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he6q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgno6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj87k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_li2k7"]
+size = Vector2(11, 8)
+
+[node name="Chest" type="Area2D" unique_id=1217066136]
+script = ExtResource("1_li2k7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=704179228]
+sprite_frames = SubResource("SpriteFrames_wxuva")
+autoplay = "default"
+frame_progress = 0.9870436
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1547721651]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_li2k7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
