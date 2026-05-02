@@ -47,3 +47,11 @@ func _on_pressure_pad_pad_activated() -> void:
 
 func _on_pressure_pad_pad_deactivated() -> void:
 	trigger_close()
+
+
+func _on_pressure_pad_2_pad_activated() -> void:
+	trigger_open()
+
+
+func _on_pressure_pad_2_pad_deactivated() -> void:
+	trigger_close()

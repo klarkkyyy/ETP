@@ -27,6 +27,7 @@ var can_double_jump: bool = false
 var is_dead: bool = false
 var was_on_floor: bool = true
 var is_wall_sliding: bool = false
+var is_pushing: bool = false
 var wall_jump_timer: float = 0.0
 var run_dust_timer: float = 0.0
 var was_running: bool = false
@@ -46,7 +47,8 @@ func spawn_effect(scene: PackedScene, point: Marker2D = feet_point) -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
-
+	if Input.is_action_pressed("respawn"):
+		_respawn()
 	if wall_jump_timer > 0.0:
 		wall_jump_timer -= delta
 
@@ -55,6 +57,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if was_on_floor and not is_on_floor():
 			can_double_jump = true
+
 	if Input.is_action_just_pressed("jump"):
 		_jump_buffer_timer = JUMP_BUFFER_TIME
 	elif _jump_buffer_timer > 0.0:
@@ -65,6 +68,29 @@ func _physics_process(delta: float) -> void:
 		var wall_dir = Input.get_axis("left", "right")
 		if (wall_dir > 0 and get_wall_normal().x < 0) or (wall_dir < 0 and get_wall_normal().x > 0):
 			is_wall_sliding = true
+
+	# Detect push: on floor, pressing into a wall or moveable object, not wall sliding
+	is_pushing = false
+	var push_dir = Input.get_axis("left", "right")
+	if is_on_floor() and not is_wall_sliding and push_dir != 0:
+		# Case 1: pressing into a static wall
+		if is_on_wall():
+			var wall_normal = get_wall_normal()
+			if (push_dir > 0 and wall_normal.x < 0) or (push_dir < 0 and wall_normal.x > 0):
+				is_pushing = true
+				anim.flip_h = push_dir < 0
+		if not is_pushing:
+			for i in get_slide_collision_count():
+				var col = get_slide_collision(i)
+				var collider = col.get_collider()
+				if is_instance_valid(collider) and collider.is_in_group("moveable"):
+					var to_collider = (collider.global_position - global_position).normalized()
+					if (push_dir > 0 and to_collider.x > 0.3) or (push_dir < 0 and to_collider.x < -0.3):
+						is_pushing = true
+						anim.flip_h = push_dir < 0
+						if collider.has_method("receive_push"):
+							collider.receive_push(push_dir)
+						break
 
 	if not is_on_floor():
 		if is_wall_sliding:
@@ -101,7 +127,9 @@ func _physics_process(delta: float) -> void:
 	if wall_jump_timer <= 0.0:
 		if direction:
 			velocity.x = direction * SPEED
-			anim.flip_h = direction < 0
+			# Only update flip from movement when not pushing (push sets its own flip)
+			if not is_pushing:
+				anim.flip_h = direction < 0
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -118,7 +146,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	var move_dir := Input.get_axis("left", "right")
-	if is_on_floor() and abs(move_dir) > 0:
+	if is_on_floor() and abs(move_dir) > 0 and not is_pushing:
 		run_dust_timer -= delta
 		if run_dust_timer <= 0.0:
 			spawn_effect(RunDust, run_point_left if not anim.flip_h else run_point_right)
@@ -133,7 +161,12 @@ func _physics_process(delta: float) -> void:
 
 func update_animation() -> void:
 	if is_on_floor():
-		var move = Input.get_axis("left", "right") 
+		# Push animation takes priority over run/idle
+		if is_pushing:
+			if anim.animation != "push_forward":
+				anim.play("push_forward")
+			return
+		var move = Input.get_axis("left", "right")
 		if move != 0:
 			anim.play("run")
 		else:
@@ -172,10 +205,23 @@ func die() -> void:
 		return
 	is_dead = true
 	velocity = Vector2.ZERO
+	set_physics_process(false)
 	if current_echo_zone:
-		current_echo_zone.cancel_recording()
+		current_echo_zone.stop_recording()
+		current_echo_zone.player = null
+		current_echo_zone = null
 	anim.play("death")
 	await anim.animation_finished
+	_respawn()
+
+func _respawn() -> void:
+	is_dead = false
+	set_physics_process(true)
+	global_position = GameManager.get_respawn_position()
+	anim.play("idle")
+
+func _clear_all_echoes() -> void:
+	pass
 
 func _process(_delta: float) -> void:
 	if is_dead:

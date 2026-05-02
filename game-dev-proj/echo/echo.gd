@@ -1,7 +1,8 @@
-#door.gd
+#echo.gd
 extends Area2D
 
 @onready var anim: AnimatedSprite2D = $animations  
+@export var push_force: float = 180.0
 
 const TRAIL_LENGTH = 8      
 const TRAIL_INTERVAL = 3     
@@ -11,6 +12,7 @@ const SLOT_COLORS = [
 	Color(0.2, 0.2, 0.2),  
 ]
 
+var _last_echo_pos: Vector2 = Vector2.ZERO
 var _frames: Array = []         
 var _current_frame: int = 0
 var _is_active: bool = true    
@@ -21,6 +23,7 @@ var _slot_color: Color = SLOT_COLORS[0]
 func setup(recorded_frames: Array, use_distance_check: bool, slot: int = 0) -> void:
 	_frames = recorded_frames
 	_current_frame = 0
+	_last_echo_pos = recorded_frames[0]["pos"] if recorded_frames.size() > 0 else Vector2.ZERO
 	_is_active = not use_distance_check
 	_slot_color = SLOT_COLORS[clamp(slot, 0, SLOT_COLORS.size() - 1)]
 	call_deferred("_setup_trail")
@@ -55,6 +58,14 @@ func _physics_process(_delta: float) -> void:
 				area.on_echo_interact(self)
 
 	_current_frame = (_current_frame + 1) % _frames.size()
+	# Push any moveable objects the echo is overlapping
+	var move_delta = global_position - _last_echo_pos
+	if move_delta.length() >= 0.5:
+		var push_dir = move_delta.normalized()
+		for body in get_overlapping_bodies():
+			if is_instance_valid(body) and body.is_in_group("moveable"):
+				body.apply_central_force(push_dir * push_force)
+	_last_echo_pos = global_position
 
 func _update_echo_animation(frame_data: Dictionary) -> void:
 	if frame_data.has("anim"):

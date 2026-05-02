@@ -206,7 +206,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wt63d")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -234,7 +234,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ep0vl")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 7.0
 }, {
@@ -331,6 +331,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wt63d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5pf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxavv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s24xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dfsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doedk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouk3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d1sk")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ep0vl")
 }],
 "loop": true,
@@ -353,8 +382,8 @@ z_index = 5
 texture_filter = 1
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_pbfsw")
-animation = &"double_jump"
-autoplay = "idle"
+animation = &"death"
+autoplay = "spawn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1218160493]
 texture_filter = 1

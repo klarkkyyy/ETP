@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b6av733605oy1"]
+
+[ext_resource type="Script" uid="uid://byac7v6wcwpxo" path="res://scripts/save_point_.gd" id="1_lnrvy"]
+[ext_resource type="Texture2D" uid="uid://dmdnfsp27uicu" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Save Point/goddess_bench_saving_effect.png" id="1_xvfwu"]
+[ext_resource type="Texture2D" uid="uid://c5o34qij0k64q" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Save Point/goddess_bench_static.png" id="2_wiums"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0rt3"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q203c"]
+atlas = ExtResource("1_xvfwu")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuk0d"]
+atlas = ExtResource("1_xvfwu")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abvb2"]
+atlas = ExtResource("1_xvfwu")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5l6q"]
+atlas = ExtResource("1_xvfwu")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0yeg"]
+atlas = ExtResource("1_xvfwu")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbclq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q203c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuk0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abvb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5l6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0yeg")
+}],
+"loop": false,
+"name": &"active",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[node name="SavePoint" type="Area2D" unique_id=575922747]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_lnrvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=140204975]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_n0rt3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=79649127]
+z_index = 1
+position = Vector2(0, 3)
+scale = Vector2(0.875, 1)
+sprite_frames = SubResource("SpriteFrames_lbclq")
+animation = &"inactive"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1483084984]
+position = Vector2(0, 3)
+texture = ExtResource("2_wiums")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

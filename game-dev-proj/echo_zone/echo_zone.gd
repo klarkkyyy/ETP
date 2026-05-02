@@ -119,14 +119,22 @@ func _spawn_echo(slot: int, frames: Array) -> void:
 	echo_node.global_position = frames[0]["pos"]
 	active_echo_nodes[slot] = echo_node
 
+# REPLACE _on_body_exited with this:
 func _on_body_exited(body: Node) -> void:
 	if body == player:
-		if is_recording:
-			_finish_recording()
+		stop_recording()
 		if player.has_method("set_echo_zone"):
 			player.set_echo_zone(null)
 		player = null
-func cancel_recording() -> void:
-	is_recording = false
-	active_slot = -1
-	current_recording = []  
+
+func stop_recording() -> void:
+	if not is_recording:
+		return
+	_finish_recording()
+
+func finish_recording_on_death() -> void:
+	if not is_recording:
+		return
+	_finish_recording()
+	
+	
