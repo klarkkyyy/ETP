@@ -39,3 +39,7 @@ func close_door() -> void:
 
 func _on_pressure_pad_2_pad_activated() -> void:
 	pass # Replace with function body.
+
+
+func _on_pressure_pad_3_pad_activated() -> void:
+	pass # Replace with function body.

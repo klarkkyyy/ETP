@@ -5971,10 +5971,54 @@ texture = ExtResource("112_61rab")
 position = Vector2(-131, -8)
 shape = SubResource("RectangleShape2D_y3k61")
 
+[node name="AnimatableBody2D3" type="AnimatableBody2D" parent="." unique_id=1313859003]
+position = Vector2(2149, -551)
+script = ExtResource("104_5mdeb")
+move_type = 1
+distance = 70.0
+speed = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D3" unique_id=949231044]
+position = Vector2(175.00005, -0.9999943)
+scale = Vector2(1.204107, 1.0771495)
+texture = ExtResource("110_kd0db")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D3" unique_id=414637431]
+position = Vector2(175.5, -0.5)
+shape = SubResource("RectangleShape2D_uh5py")
+
+[node name="Area2D6" type="Area2D" parent="." unique_id=998434952]
+position = Vector2(2256, -467)
+collision_mask = 3
+script = ExtResource("111_kd0db")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D6" unique_id=1523190061]
+position = Vector2(-130.00009, -7)
+scale = Vector2(1.7499895, 2.125)
+texture = ExtResource("112_61rab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6" unique_id=359412569]
+position = Vector2(-131, -8)
+shape = SubResource("RectangleShape2D_y3k61")
+
+[node name="Area2D7" type="Area2D" parent="." unique_id=455022485]
+position = Vector2(2223, -467)
+collision_mask = 3
+script = ExtResource("111_kd0db")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D7" unique_id=2455249]
+position = Vector2(-130.00009, -7)
+scale = Vector2(1.7499895, 2.125)
+texture = ExtResource("112_61rab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7" unique_id=103578691]
+position = Vector2(-131, -8)
+shape = SubResource("RectangleShape2D_y3k61")
+
 [connection signal="body_entered" from="TitleTrigger" to="TitleTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="TitleTrigger" to="CanvasLayer2" method="_on_title_trigger_body_entered"]
 [connection signal="pad_activated" from="PressurePad" to="door" method="_on_pressure_pad_pad_activated"]
 [connection signal="pad_deactivated" from="PressurePad" to="door" method="_on_pressure_pad_pad_deactivated"]
-[connection signal="pad_activated" from="PressurePad2" to="door" method="_on_pressure_pad_pad_activated"]
 [connection signal="pad_activated" from="PressurePad2" to="door2" method="_on_pressure_pad_2_pad_activated"]
 [connection signal="pad_deactivated" from="PressurePad2" to="door" method="_on_pressure_pad_pad_deactivated"]
+[connection signal="pad_activated" from="PressurePad3" to="door3" method="_on_pressure_pad_3_pad_activated"]
