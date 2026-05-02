@@ -1,5 +1,4 @@
 
-https://github.com/user-attachments/assets/b9e874b7-2e7c-423d-8c8c-01c40b657329
 <h1 align = "center">Echoes of The Past</h1>
 <h2 align = "center">Repository for Game Development Final Project</h2>
 
