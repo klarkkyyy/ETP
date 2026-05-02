@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://devxkbbshfgoc"]
+
+[ext_resource type="Texture2D" uid="uid://dpl7v50i77y1y" path="res://assets/Grungy_Floor_Tileset_v1.0/Grungy_Floor_Tileset_v1.0/Floor_Tileset/chandelier_frames.png" id="1_6iikm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8dyy"]
+atlas = ExtResource("1_6iikm")
+region = Rect2(0, 0, 64, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04udh"]
+atlas = ExtResource("1_6iikm")
+region = Rect2(64, 0, 64, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xctjv"]
+atlas = ExtResource("1_6iikm")
+region = Rect2(128, 0, 64, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2t6k"]
+atlas = ExtResource("1_6iikm")
+region = Rect2(192, 0, 64, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6nle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8dyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04udh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xctjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2t6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Chandelier" type="AnimatedSprite2D" unique_id=2027508574]
+sprite_frames = SubResource("SpriteFrames_c6nle")
+autoplay = "default"
+frame_progress = 0.81376487
