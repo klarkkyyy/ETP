@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/b9e874b7-2e7c-423d-8c8c-01c40b657329
 <h1 align = "center">Echoes of The Past</h1>
 <h2 align = "center">Repository for Game Development Final Project</h2>
 
@@ -102,6 +104,23 @@
 
 <h4 align = "center"> Video Demo </h4>
 <video src="https://github.com/user-attachments/assets/be5ec943-f1e2-49bc-8b99-c58df5675517" width="600"></video>
+
+============================================================================================
+<h2 align = "center"> 5/2/2026 </h2>
+============================================================================================
+<h3 align = "center">Levels 1 & 2</h3>
+
+- "update: made level designs for level 1 & 2 + save mechanics, spikes, music & sfx"
+- levels 1 & 2 completions
+- added music & sfx
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1916" height="1024" alt="image" src="https://github.com/user-attachments/assets/01d67e78-eaf8-4ce9-ad96-da5170e0f9be" />
+
+
+<h4 align = "center"> Video Demo </h4>
+<video src="https://github.com/user-attachments/assets/0176dc1e-f00e-4860-9d59-b500e75532db"></video>
 
 
 
