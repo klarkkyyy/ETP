@@ -6,6 +6,7 @@ enum MoveType { HORIZONTAL, VERTICAL }
 @export var distance: float = 120.0       # how far it travels each direction
 @export var speed: float = 60.0           # pixels per second
 @export var wait_time: float = 0.5        # pause at each end
+@export var start_offset: float = 10.0
 
 var _start_pos: Vector2
 var _direction: int = 1
@@ -13,7 +14,7 @@ var _waiting: bool = false
 var _wait_timer: float = 0.0
 
 func _ready():
-	_start_pos = position
+	_start_pos = position + Vector2(50.0, 0.0)
 
 func _physics_process(delta: float) -> void:
 	if _waiting:

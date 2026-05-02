@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://dalbl4vkhawad"
+MusicManager="*uid://jcii2w2pbx3m"
+SoundManager="*uid://bi4x7c06b6hg"
 
 [dotnet]
 
@@ -30,6 +32,8 @@ echo_zone=""
 player=""
 lever=""
 camera=""
+box=""
+teleport=""
 
 [input]
 

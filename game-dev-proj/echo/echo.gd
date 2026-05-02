@@ -40,7 +40,10 @@ var _interactables: Array = []
 func _physics_process(_delta: float) -> void:
 	if not _is_active or _frames.size() == 0:
 		return
-
+	# Move the echo's physical platform with it
+	if $EchoPlatform:
+		$EchoPlatform.global_position = global_position
+		
 	_trail_counter += 1
 	if _trail_counter >= TRAIL_INTERVAL:
 		_trail_counter = 0

@@ -22,7 +22,21 @@ const RunDust = preload("res://effects/run.tscn")
 const StopDust = preload("res://effects/stop.tscn")
 const DoubleJumpDust = preload("res://effects/double_jump.tscn")
 const WallJumpDust = preload("res://effects/wall_jump.tscn")
+# ── Sound paths ──────────────────────────────────────────────────────────────
+const SFX_JUMP = "res://audio/sfx/jump.wav"
+const SFX_LAND = "res://audio/sfx/land.wav"
+const SFX_WALL_SLIDE = "res://audio/sfx/wall_slide.wav"
+const SFX_STEP_GRASS = "res://audio/sfx/step_grass.wav"
+const SFX_STEP_ROCK = "res://audio/sfx/step_rock.wav"
+const SFX_STEP_WOOD = "res://audio/sfx/step_wood.wav"
 
+# ── Step config ──────────────────────────────────────────────────────────────
+@export var step_interval: float = 0.28  # tweak — lower = faster steps
+
+# ── Sound state ──────────────────────────────────────────────────────────────
+var _step_timer: float = 0.0
+var _current_surface: String = "rock"  # default surface
+var _was_wall_sliding: bool = false
 var can_double_jump: bool = false
 var is_dead: bool = false
 var was_on_floor: bool = true
@@ -33,6 +47,7 @@ var run_dust_timer: float = 0.0
 var was_running: bool = false
 var current_echo_zone: Node = null
 var _jump_buffer_timer: float = 0.0
+var _surface_stack: Array = []
 
 func _ready() -> void:
 	print("run_point_left: ", run_point_left)
@@ -104,6 +119,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			can_double_jump = true
 			_jump_buffer_timer = 0.0
+			SoundManager.play(SFX_JUMP)
 			spawn_effect(AfterJumpDust)
 			anim.play("before_or_after_jump")
 		elif is_wall_sliding:
@@ -120,6 +136,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = DOUBLE_JUMP_VELOCITY
 			can_double_jump = false
 			_jump_buffer_timer = 0.0
+			SoundManager.play(SFX_JUMP)
 			spawn_effect(DoubleJumpDust)
 			anim.play("double_jump")
 
@@ -144,7 +161,13 @@ func _physics_process(delta: float) -> void:
 		floor_snap_length = 0.0
 	floor_max_angle = deg_to_rad(50.0)
 	move_and_slide()
-
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if is_instance_valid(collider) and collider.is_in_group("box"):
+			if collider.is_on_wall():
+				# Box is pinned — stop player horizontal velocity too
+				velocity.x = 0.0
 	var move_dir := Input.get_axis("left", "right")
 	if is_on_floor() and abs(move_dir) > 0 and not is_pushing:
 		run_dust_timer -= delta
@@ -158,6 +181,31 @@ func _physics_process(delta: float) -> void:
 			spawn_effect(StopDust, run_point_left if not anim.flip_h else run_point_right)
 		was_running = false
 	update_animation()
+	
+	# ── Step sounds ──────────────────────────────────────────────────────────────
+	if is_on_floor() and abs(velocity.x) > 10.0:
+		_step_timer -= delta
+		if _step_timer <= 0.0:
+			_step_timer = step_interval
+			_play_step()
+	else:
+		_step_timer = 0.0  # reset so first step plays immediately on next run
+
+	# ── Wall slide sound — only on first frame of slide ──────────────────────────
+	if is_wall_sliding and not _was_wall_sliding:
+		SoundManager.play(SFX_WALL_SLIDE)
+	_was_wall_sliding = is_wall_sliding
+	
+func _play_step() -> void:
+	match _current_surface:
+		"grass":
+			SoundManager.play(SFX_STEP_GRASS)
+		"rock":
+			SoundManager.play(SFX_STEP_ROCK)
+		"wood":
+			SoundManager.play(SFX_STEP_WOOD)
+		_:
+			SoundManager.play(SFX_STEP_ROCK)  # fallback
 
 func update_animation() -> void:
 	if is_on_floor():
@@ -190,6 +238,7 @@ func update_animation() -> void:
 				anim.play("jump_down")
 
 func _on_landed() -> void:
+	SoundManager.play(SFX_LAND)
 	spawn_effect(BeforeJumpDust)
 	anim.play("before_or_after_jump_pt2")
 	await anim.animation_finished
@@ -229,3 +278,13 @@ func _process(_delta: float) -> void:
 
 func set_echo_zone(zone) -> void:
 	current_echo_zone = zone
+
+func set_surface(surface: String) -> void:
+	_current_surface = surface
+
+func clear_surface(surface: String) -> void:
+	_surface_stack.erase(surface)
+	if _surface_stack.is_empty():
+		_current_surface = "rock"  # fallback
+	else:
+		_current_surface = _surface_stack.back()
