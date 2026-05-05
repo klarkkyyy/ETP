@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dj1q6bsnoyy2h"]
+
+[ext_resource type="Texture2D" uid="uid://v4bg5ry3ctnd" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/tileset_dungeon.png" id="1_wjhbi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wgje"]
+size = Vector2(24, 4)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=1640606608]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1058667152]
+position = Vector2(0, -9)
+texture = ExtResource("1_wjhbi")
+region_enabled = true
+region_rect = Rect2(75, 32, 26, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1059954064]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_0wgje")
+one_way_collision = true
