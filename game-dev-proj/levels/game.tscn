@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://o0gyaaduj6p3" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/ground_spikes_static.png" id="28_aqvkm"]
 [ext_resource type="Script" uid="uid://bvrmb5k81t47d" path="res://scripts/teleport_b.gd" id="28_d2kut"]
 [ext_resource type="Texture2D" uid="uid://brnm43vh84u17" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.6/props/teleport_stone_with_effect.png" id="29_d2kut"]
-[ext_resource type="Script" path="res://spike.gd" id="29_snx7r"]
+[ext_resource type="Script" uid="uid://ditus7c382q1v" path="res://spike.gd" id="29_snx7r"]
 [ext_resource type="Texture2D" uid="uid://bvulsalaytf2d" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/bg_00_boss_room.png" id="30_ilpwg"]
 [ext_resource type="Texture2D" uid="uid://cr5bu4pxt2en5" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/bg_01_boss_room.png" id="31_2g653"]
 [ext_resource type="Texture2D" uid="uid://d0qknlct3w5lo" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/library/tileset_library.png" id="32_1fd23"]
@@ -6828,7 +6828,7 @@ layer_6/name = "bg5"
 layer_7/name = "bg6"
 
 [node name="player" parent="." unique_id=1809962385 instance=ExtResource("127_vywgh")]
-position = Vector2(2403, -396)
+position = Vector2(-22, 115)
 
 [node name="CameraFollowZone" type="Area2D" parent="." unique_id=1038036420]
 z_index = -10
