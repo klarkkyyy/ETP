@@ -1,27 +1,47 @@
 [gd_scene format=3 uid="uid://bq0bi24aosxga"]
 
-[ext_resource type="Texture2D" uid="uid://00n784w4lgjg" path="res://Level_3/Assets/craftpix-net-169442-free-2d-top-down-pixel-dungeon-asset-pack/Tiled_files/trap_animation.png" id="1_1gqyx"]
 [ext_resource type="Script" uid="uid://cq4x64blpptc" path="res://Level_3/Scenes/trap1.gd" id="1_rrjoy"]
+[ext_resource type="Texture2D" uid="uid://legjtp4pf2ae" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/traps/floor_spike_loop_anim.png" id="2_rrjoy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrjoy"]
-atlas = ExtResource("1_1gqyx")
-region = Rect2(69, 0, 69, 99)
+atlas = ExtResource("2_rrjoy")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa1vm"]
-atlas = ExtResource("1_1gqyx")
-region = Rect2(69, 99, 69, 99)
+atlas = ExtResource("2_rrjoy")
+region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ey82h"]
-atlas = ExtResource("1_1gqyx")
-region = Rect2(69, 198, 69, 99)
+atlas = ExtResource("2_rrjoy")
+region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxh2m"]
-atlas = ExtResource("1_1gqyx")
-region = Rect2(69, 297, 69, 99)
+atlas = ExtResource("2_rrjoy")
+region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8f3s"]
-atlas = ExtResource("1_1gqyx")
-region = Rect2(69, 396, 69, 99)
+atlas = ExtResource("2_rrjoy")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrv0y"]
+atlas = ExtResource("2_rrjoy")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai6om"]
+atlas = ExtResource("2_rrjoy")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce15f"]
+atlas = ExtResource("2_rrjoy")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6514v"]
+atlas = ExtResource("2_rrjoy")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n6vn"]
+atlas = ExtResource("2_rrjoy")
+region = Rect2(224, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xrv0y"]
 animations = [{
@@ -40,25 +60,41 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r8f3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrv0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai6om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce15f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6514v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n6vn")
 }],
 "loop": false,
 "name": &"default",
-"speed": 15.0
+"speed": 11.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ai6om"]
-size = Vector2(38, 9)
+size = Vector2(15, 19.25)
 
 [node name="trap1" type="Area2D" unique_id=812422155]
+position = Vector2(0, -9)
 script = ExtResource("1_rrjoy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=605973531]
-position = Vector2(34, -17)
-scale = Vector2(0.5, 0.5)
+position = Vector2(37.5, -14.5)
+scale = Vector2(0.93749994, 1.1875)
 sprite_frames = SubResource("SpriteFrames_xrv0y")
-frame = 4
+frame = 9
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603918386]
-position = Vector2(37, -9)
+position = Vector2(37.5, -14.375)
 shape = SubResource("RectangleShape2D_ai6om")

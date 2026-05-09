@@ -16,41 +16,28 @@ func _ready():
 	uses_left = max_uses
 
 func activate_trap():
-	# 1. If it's broken, stop immediately
+	# Don't activate if broken OR if still recharging
 	if is_broken:
 		print("Trap is broken!")
 		return
-	
-	# 2. If it's still recharging, stop immediately
 	if recharge_timer > 0:
-		print("Trap is recharging: ", snapped(recharge_timer, 0.1), "s remaining")
+		print("Trap is recharging! Seconds left: ", snapped(recharge_timer, 0.1))
 		return
 		
-	# 3. Play animation
 	is_active = true
-	sprite.stop() 
-	sprite.frame = 0 
 	sprite.play("default")
 	print("Trap Spiking! Uses remaining: ", uses_left)
 
 func deactivate_trap():
-	# If it's already broken, don't start a recharge timer
-	if is_broken:
-		is_active = false
-		return
-
 	is_active = false
 	sprite.stop()
 	sprite.frame = 0
 	damage_timer = 0.0
 	
-	# ONLY start recharge if we have uses left and aren't already recharging
-	if uses_left > 0 and recharge_timer <= 0:
+	# Start the 5-second recharge cooldown only after it's deactivated
+	if not is_broken:
 		recharge_timer = recharge_time
-		print("5 second recharge started...")
-		
-		
-		
+
 func _physics_process(delta: float):
 	# Handle the 5-second recharge timer
 	if recharge_timer > 0:

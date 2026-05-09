@@ -102,7 +102,7 @@
 [ext_resource type="Texture2D" uid="uid://bwbmyesbouje1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/alchemy_room_bg_00.png" id="100_atyr5"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="102_is7aa"]
 [ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="103_3i668"]
-[ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="104_oyv6k"]
+[ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://Level_3/Scenes/door.tscn" id="104_oyv6k"]
 [ext_resource type="PackedScene" uid="uid://devxkbbshfgoc" path="res://scenes/chandelier.tscn" id="106_dhsud"]
 [ext_resource type="Texture2D" uid="uid://gm3v62ao0tmx" path="res://assets/keys/KeyboardMouseUI_AssetPack/Keyboard Letters and Symbols.png" id="106_gsn8u"]
 [ext_resource type="Texture2D" uid="uid://cd7wnv8d7dh3x" path="res://assets/keys/KeyboardMouseUI_AssetPack/Keyboard Extras.png" id="107_dhsud"]

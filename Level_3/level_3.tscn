@@ -117,7 +117,7 @@
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="105_dljlf"]
 [ext_resource type="PackedScene" uid="uid://deleub2s8xvsg" path="res://Level_3/Scenes/fire_2.tscn" id="105_g1uuj"]
 [ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="106_v2moy"]
-[ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="107_2tx57"]
+[ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://Level_3/Scenes/door.tscn" id="107_2tx57"]
 [ext_resource type="PackedScene" uid="uid://bc2mhijv801ou" path="res://Level_3/Scenes/Fire.tscn" id="119_r1lbg"]
 [ext_resource type="PackedScene" uid="uid://cc8m0vmka7i7u" path="res://Level_3/Scenes/chest.tscn" id="120_taapo"]
 [ext_resource type="PackedScene" uid="uid://dj1q6bsnoyy2h" path="res://Level_3/Scenes/platform3.tscn" id="122_xt4yk"]
@@ -8839,7 +8839,7 @@ _data = {
 position = Vector2(4, -546)
 
 [node name="player" parent="." unique_id=1809962385 instance=ExtResource("1_b2sut")]
-position = Vector2(550, 159)
+position = Vector2(547, 166)
 
 [node name="BG MUSIC" type="AudioStreamPlayer2D" parent="player" unique_id=1787246475]
 stream = ExtResource("2_t1ka2")

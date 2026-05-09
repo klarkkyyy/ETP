@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://q1r11djh7xs2"]
+
+[ext_resource type="Script" uid="uid://cfoyhybrt6bd4" path="res://Level_3/Scenes/ArrowTrap.gd" id="1_2857b"]
+[ext_resource type="Texture2D" uid="uid://csv0fvslntj88" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/traps/spear_trap_shooting_left_anim.png" id="2_2857b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wej56"]
+atlas = ExtResource("2_2857b")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjyp4"]
+atlas = ExtResource("2_2857b")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6f0g"]
+atlas = ExtResource("2_2857b")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbfs5"]
+atlas = ExtResource("2_2857b")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo5p5"]
+atlas = ExtResource("2_2857b")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgf3c"]
+atlas = ExtResource("2_2857b")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hndtc"]
+atlas = ExtResource("2_2857b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxsbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wej56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjyp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6f0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbfs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo5p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgf3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hndtc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxx0t"]
+size = Vector2(15, 19.25)
+
+[node name="Arrow Trap" type="Area2D" unique_id=1085988153]
+script = ExtResource("1_2857b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1051801402]
+position = Vector2(37.5, -14.5)
+scale = Vector2(0.93749994, 1.1875)
+sprite_frames = SubResource("SpriteFrames_yxsbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=367647054]
+position = Vector2(37.5, -14.375)
+shape = SubResource("RectangleShape2D_lxx0t")
