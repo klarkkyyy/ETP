@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cpschvsy16n1q"]
+
+[ext_resource type="Script" uid="uid://o7xqs72qb68w" path="res://scripts/title_layer.gd" id="3_s2wl0"]
+
+[node name="Level_3" type="Node2D" unique_id=1849523170]
+position = Vector2(4, -546)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=246008323]
+script = ExtResource("3_s2wl0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=287048173]
+layer = -1

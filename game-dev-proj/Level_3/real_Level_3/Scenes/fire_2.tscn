@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://deleub2s8xvsg"]
+
+[ext_resource type="Texture2D" uid="uid://ign1ekytbwle" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_03_with_effect_anim.png" id="1_v1nxq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4rsp"]
+atlas = ExtResource("1_v1nxq")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1uuj"]
+atlas = ExtResource("1_v1nxq")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cp8h"]
+atlas = ExtResource("1_v1nxq")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab4qa"]
+atlas = ExtResource("1_v1nxq")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2sut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4rsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1uuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cp8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab4qa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ibro2"]
+a = Vector2(0, -23)
+
+[node name="Fire2" type="Area2D" unique_id=446221220]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1565077323]
+sprite_frames = SubResource("SpriteFrames_b2sut")
+autoplay = "default"
+frame_progress = 0.32922497
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794260117]
+shape = SubResource("SegmentShape2D_ibro2")

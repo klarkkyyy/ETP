@@ -14,11 +14,11 @@ var _current_room_rect: Rect2
 
 func _ready() -> void:
 	add_to_group("camera")
+	await get_tree().process_frame
 	player = get_tree().get_first_node_in_group("player")
 	if player:
 		_target_pos = player.global_position + follow_offset
 		global_position = _target_pos
-		print("Camera found player: ", player.name)
 	else:
 		print("ERROR: Camera could not find player")
 

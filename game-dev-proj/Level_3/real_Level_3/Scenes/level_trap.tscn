@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cvu15jvpb8sje"]
+
+[ext_resource type="Texture2D" uid="uid://du7tpsampcjfh" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/traps/spear_left_anim.png" id="1_d3lqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnx4m"]
+size = Vector2(46, 11)
+
+[node name="ArrowTrap" type="Area2D" unique_id=1085988153]
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=74460617]
+position = Vector2(37.5, -14.5)
+scale = Vector2(0.93749994, 1.1875)
+texture = ExtResource("1_d3lqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583410886]
+position = Vector2(38, -14.5)
+shape = SubResource("RectangleShape2D_nnx4m")

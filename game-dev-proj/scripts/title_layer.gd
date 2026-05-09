@@ -6,11 +6,11 @@ var tween: Tween
 
 func _ready():
 	await get_tree().process_frame
-	title_container.modulate.a = 0
-	# Push offscreen to the right initially
-	title_container.position.x = get_viewport().get_visible_rect().size.x + 100
-	# Set your desired vertical position here (tweak 200 to taste)
-	title_container.position.y = 200
+	#title_container.modulate.a = 0
+	## Push offscreen to the right initially
+	#title_container.position.x = get_viewport().get_visible_rect().size.x + 100
+	## Set your desired vertical position here (tweak 200 to taste)
+	#title_container.position.y = 200
 
 func play_intro():
 	print("play_intro() called!")
