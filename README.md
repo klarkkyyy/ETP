@@ -105,19 +105,21 @@
 <video src="https://github.com/user-attachments/assets/be5ec943-f1e2-49bc-8b99-c58df5675517" width="600"></video>
 
 ===========================================================================================
-<h2 align = "center"> 5/9/2026 </h2>
+<h2 align = "center"> 5/2/2026 </h2>
 ===========================================================================================
-<h3 align = "center">Level 3 + Boss Level</h3>
+<h3 align = "center">Levels 1 & 2</h3>
 
-- "update: addded level 3 + boss level"
+- "update: made level designs for level 1 & 2 + save mechanics, spikes, music & sfx"
+- levels 1 & 2 completions
+- added music & sfx
 
 <h4 align = "center">Image Sample</h4>
 
-<img width="1916" height="1024" alt="image" src="https://github.com/user-attachments/assets/8fe411cb-112e-4ad1-b997-b7a86f935ed6" />
+<img width="1916" height="1024" alt="image" src="https://github.com/user-attachments/assets/01d67e78-eaf8-4ce9-ad96-da5170e0f9be" />
 
 
 <h4 align = "center"> Video Demo </h4>
-<video src="https://github.com/user-attachments/assets/b61d6708-a138-4697-8688-e4235e6e52fc"></video>
+<video src="https://github.com/user-attachments/assets/0176dc1e-f00e-4860-9d59-b500e75532db"></video>
 
 
 
