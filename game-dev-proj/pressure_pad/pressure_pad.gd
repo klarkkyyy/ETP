@@ -8,6 +8,8 @@ var _player_count: int = 0
 var _echo_count: int = 0
 var is_pressed: bool = false
 
+const SFX_PRESS = "res://audio/sfx/button.wav"
+@onready var sfx = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	add_to_group("pressure_pad")
@@ -19,7 +21,7 @@ func _ready() -> void:
 func on_echo_enter(_echo: Area2D) -> void:
 	_echo_count += 1
 	_evaluate()
-
+	
 
 func on_echo_exit(_echo: Area2D) -> void:
 	_echo_count = max(0, _echo_count - 1)
@@ -27,7 +29,9 @@ func on_echo_exit(_echo: Area2D) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
+		
 		_player_count += 1
+		sfx.play()
 		_evaluate()
 
 
@@ -42,6 +46,7 @@ func _evaluate() -> void:
 		return
 	is_pressed = should_press
 	if is_pressed:
+		SoundManager.play(SFX_PRESS, -10)
 		emit_signal("pad_activated")
 		_on_activated()
 	else:

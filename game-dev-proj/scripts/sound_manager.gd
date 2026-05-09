@@ -17,5 +17,4 @@ func play(sound_path: String, volume_db: float = 0.0, pitch: float = 1.0) -> voi
 	player.volume_db = volume_db
 	player.pitch_scale = pitch
 	player.play()
-	# Auto-free when done
 	player.finished.connect(player.queue_free)

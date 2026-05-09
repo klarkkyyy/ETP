@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://erfusub34tde" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/lever & button/floor_lever_left_to_right_anim.png" id="1_ncfea"]
 [ext_resource type="Script" uid="uid://b5ohg8nnv60v" path="res://lever/lever.gd" id="1_qxmkn"]
 [ext_resource type="Texture2D" uid="uid://xy862qu7r1bp" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/lever & button/floor_lever_right_to_left_anim.png" id="2_qxmkn"]
+[ext_resource type="AudioStream" uid="uid://clv1v0dywydfb" path="res://audio/sfx/lever_on.mp3" id="4_uayp4"]
+[ext_resource type="AudioStream" uid="uid://bk30ma3mryddl" path="res://audio/sfx/lever_off.mp3" id="5_6bvf8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8di2w"]
 size = Vector2(12, 18)
@@ -102,6 +104,14 @@ shape = SubResource("RectangleShape2D_8di2w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1100855179]
 sprite_frames = SubResource("SpriteFrames_i6swn")
 animation = &"right_left"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=162541187]
+stream = ExtResource("4_uayp4")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=782825606]
+stream = ExtResource("5_6bvf8")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

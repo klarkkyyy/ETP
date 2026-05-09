@@ -7,6 +7,9 @@ signal pad_deactivated()
 var is_pressed: bool = false
 var _player_nearby: bool = false
 
+@onready var SFX_ON = $AudioStreamPlayer2D
+@onready var SFX_OFF = $AudioStreamPlayer2D2
+
 func _ready() -> void:
 	add_to_group("lever")
 	if not body_entered.is_connected(_on_body_entered):
@@ -40,10 +43,12 @@ func _toggle() -> void:
 
 
 func _on_activated() -> void:
+	SFX_ON.play()
 	$AnimatedSprite2D.speed_scale = 1.0
 	$AnimatedSprite2D.play("left_right")
 
 func _on_deactivated() -> void:
+	SFX_OFF.play()
 	$AnimatedSprite2D.speed_scale = 1.0
 	$AnimatedSprite2D.play("right_left")
 

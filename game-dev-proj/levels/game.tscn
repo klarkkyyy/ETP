@@ -133,6 +133,7 @@
 [ext_resource type="Texture2D" uid="uid://v4bg5ry3ctnd" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/tileset_dungeon.png" id="126_v00gy"]
 [ext_resource type="PackedScene" uid="uid://cuwr4wewgnml4" path="res://player/player.tscn" id="127_vywgh"]
 [ext_resource type="Script" uid="uid://o8447jotsinw" path="res://scripts/surface_detecor.gd" id="133_gvg12"]
+[ext_resource type="PackedScene" uid="uid://chl7xlx16gkbd" path="res://Level_3/level_3.tscn" id="134_qc6ov"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5qob"]
 atlas = ExtResource("3_46f1x")
@@ -5631,22 +5632,6 @@ size = Vector2(67, 20)
 position = Vector2(77, -34)
 script = ExtResource("1_f7ob7")
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1587930007]
-position = Vector2(-23, 128)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1919152387 groups=["camera"]]
-position = Vector2(-182, -147)
-scale = Vector2(0.901, 0.416)
-zoom = Vector2(2.535, 2.535)
-limit_left = -17
-limit_top = -830
-limit_right = 3607
-limit_bottom = 161
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-script = ExtResource("2_h1nvv")
-
 [node name="tutorial" type="Node" parent="." unique_id=902031845]
 
 [node name="bird" type="AnimatedSprite2D" parent="tutorial" unique_id=2119170334]
@@ -6091,6 +6076,80 @@ text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="start" type="Node" parent="." unique_id=2108778095]
+
+[node name="SpawnPoint" type="Marker2D" parent="start" unique_id=1587930007]
+position = Vector2(68, 96)
+
+[node name="Camera2D" type="Camera2D" parent="start" unique_id=1919152387 groups=["camera"]]
+position = Vector2(-105, -181)
+scale = Vector2(0.901, 0.416)
+zoom = Vector2(2.535, 2.535)
+limit_left = -17
+limit_top = -1718
+limit_right = 3607
+limit_bottom = 161
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("2_h1nvv")
+
+[node name="TitleTrigger" type="Area2D" parent="start" unique_id=1906915122]
+position = Vector2(2180, 97)
+collision_mask = 3
+script = ExtResource("11_o51jq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start/TitleTrigger" unique_id=1628813231]
+z_index = 4
+position = Vector2(-182, -472.5)
+shape = SubResource("RectangleShape2D_k10w1")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="start" unique_id=609550876]
+script = ExtResource("12_ohhyw")
+
+[node name="Node2D" type="Node2D" parent="start/CanvasLayer2" unique_id=668284750]
+position = Vector2(821, -705)
+
+[node name="Label3" type="Label" parent="start/CanvasLayer2/Node2D" unique_id=898446852]
+offset_left = -113.0
+offset_top = -28.0
+offset_right = 127.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
+theme_override_fonts/font = ExtResource("4_624ej")
+theme_override_font_sizes/font_size = 120
+text = "Echoes of
+the Past"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="start/CanvasLayer2/Node2D" unique_id=1354436010]
+offset_left = -108.0
+offset_top = -32.0
+offset_right = 372.0
+offset_bottom = 183.0
+theme_override_fonts/font = ExtResource("4_624ej")
+theme_override_font_sizes/font_size = 120
+text = "Echoes of
+the Past"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="background" type="CanvasLayer" parent="start" unique_id=969582755]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="start/background" unique_id=888053326]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_ylegh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Level_3" parent="start" unique_id=1849523170 instance=ExtResource("134_qc6ov")]
+position = Vector2(497, -1578)
+
 [node name="outside" type="Node" parent="." unique_id=134848936]
 
 [node name="PressurePad" parent="outside" unique_id=1371886716 instance=ExtResource("8_qc6ov")]
@@ -6106,59 +6165,6 @@ sample_every_frames = 1
 
 [node name="door" parent="outside" unique_id=836931204 instance=ExtResource("10_rsl3e")]
 position = Vector2(1778, -268)
-
-[node name="TitleTrigger" type="Area2D" parent="." unique_id=1906915122]
-position = Vector2(2103, 131)
-collision_mask = 3
-script = ExtResource("11_o51jq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TitleTrigger" unique_id=1628813231]
-z_index = 4
-position = Vector2(-182, -472.5)
-shape = SubResource("RectangleShape2D_k10w1")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=609550876]
-script = ExtResource("12_ohhyw")
-
-[node name="Node2D" type="Node2D" parent="CanvasLayer2" unique_id=668284750]
-position = Vector2(821, -705)
-
-[node name="Label3" type="Label" parent="CanvasLayer2/Node2D" unique_id=898446852]
-offset_left = -113.0
-offset_top = -28.0
-offset_right = 127.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 120
-text = "Echoes of
-the Past"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="CanvasLayer2/Node2D" unique_id=1354436010]
-offset_left = -108.0
-offset_top = -32.0
-offset_right = 372.0
-offset_bottom = 183.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 120
-text = "Echoes of
-the Past"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="background" type="CanvasLayer" parent="." unique_id=969582755]
-layer = -1
-
-[node name="TextureRect" type="TextureRect" parent="background" unique_id=888053326]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("13_ylegh")
-metadata/_edit_use_anchors_ = true
 
 [node name="level 1" type="Node" parent="." unique_id=1197014677]
 
@@ -6657,6 +6663,7 @@ position = Vector2(27.5, 7)
 shape = SubResource("RectangleShape2D_32c6u")
 
 [node name="roomBox" type="CollisionShape2D" parent="level 2/room2" unique_id=527289575]
+position = Vector2(9, 0)
 shape = SubResource("RectangleShape2D_5dxco")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="level 2/room2" unique_id=1943821929]
@@ -6801,6 +6808,9 @@ visible = false
 position = Vector2(2190.5, -625)
 shape = SubResource("RectangleShape2D_gvg12")
 
+[node name="level 3" type="Node2D" parent="." unique_id=1209263495]
+position = Vector2(2637, -901)
+
 [node name="tile_sets" type="TileMap" parent="." unique_id=826209662]
 z_index = -10
 texture_filter = 1
@@ -6828,270 +6838,284 @@ layer_6/name = "bg5"
 layer_7/name = "bg6"
 
 [node name="player" parent="." unique_id=1809962385 instance=ExtResource("127_vywgh")]
-position = Vector2(-22, 115)
+position = Vector2(2079, -288)
 
-[node name="CameraFollowZone" type="Area2D" parent="." unique_id=1038036420]
+[node name="camera_movement" type="Node" parent="." unique_id=928061347]
+
+[node name="CameraFollowZone" type="Area2D" parent="camera_movement" unique_id=1038036420]
 z_index = -10
+position = Vector2(77, -34)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("25_ujt7e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFollowZone" unique_id=353287360]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_movement/CameraFollowZone" unique_id=353287360]
 position = Vector2(1040, -103.5)
 shape = SubResource("RectangleShape2D_5dfsw")
 
-[node name="grass" type="Area2D" parent="." unique_id=1166784773]
-position = Vector2(-86, 144)
+[node name="grass" type="Area2D" parent="camera_movement" unique_id=1166784773]
+position = Vector2(-9, 110)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("133_gvg12")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="grass" unique_id=86359657]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_movement/grass" unique_id=86359657]
 position = Vector2(563, 0)
 shape = SubResource("RectangleShape2D_qc6ov")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="grass" unique_id=1791920923]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="camera_movement/grass" unique_id=1791920923]
 position = Vector2(654, -37)
 shape = SubResource("RectangleShape2D_a7gts")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="grass" unique_id=842253438]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="camera_movement/grass" unique_id=842253438]
 position = Vector2(718, -52)
 shape = SubResource("RectangleShape2D_a7gts")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="grass" unique_id=1956026747]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="camera_movement/grass" unique_id=1956026747]
 position = Vector2(782, -67)
 shape = SubResource("RectangleShape2D_a7gts")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="grass" unique_id=1630629390]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="camera_movement/grass" unique_id=1630629390]
 position = Vector2(1182.5, -65.5)
 shape = SubResource("RectangleShape2D_rsl3e")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="grass" unique_id=1699691788]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="camera_movement/grass" unique_id=1699691788]
 position = Vector2(1295, -147)
 shape = SubResource("RectangleShape2D_rsl3e")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="grass" unique_id=1605372715]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="camera_movement/grass" unique_id=1605372715]
 position = Vector2(1152, -358)
 shape = SubResource("RectangleShape2D_o51jq")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="grass" unique_id=1032072510]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="camera_movement/grass" unique_id=1032072510]
 position = Vector2(1500.75, -387)
 shape = SubResource("RectangleShape2D_o51jq")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="grass" unique_id=2143178446]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="camera_movement/grass" unique_id=2143178446]
 position = Vector2(1615, -209)
 shape = SubResource("RectangleShape2D_o51jq")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="grass" unique_id=1498359711]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="camera_movement/grass" unique_id=1498359711]
 position = Vector2(1597, -271)
 shape = SubResource("RectangleShape2D_a7gts")
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="grass" unique_id=348336952]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="camera_movement/grass" unique_id=348336952]
 position = Vector2(1677.5, -309)
 shape = SubResource("RectangleShape2D_a7gts")
 
-[node name="rock" type="Area2D" parent="." unique_id=274478641]
+[node name="rock" type="Area2D" parent="camera_movement" unique_id=274478641]
+position = Vector2(77, -34)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("133_gvg12")
 surface_type = "rock"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rock" unique_id=1839300466]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1839300466]
 position = Vector2(1704.5, -204)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="rock" unique_id=1544972701]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1544972701]
 position = Vector2(1759.9999, -226.00003)
 rotation = -0.77563673
 shape = SubResource("RectangleShape2D_ylegh")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="rock" unique_id=629957501]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="camera_movement/rock" unique_id=629957501]
 position = Vector2(1737, -274.99997)
 rotation = 0.0015968829
 shape = SubResource("RectangleShape2D_ylegh")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="rock" unique_id=369651989]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="camera_movement/rock" unique_id=369651989]
 position = Vector2(1737.0001, -353.00003)
 rotation = 0.0015968829
 shape = SubResource("RectangleShape2D_ylegh")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="rock" unique_id=267253796]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="camera_movement/rock" unique_id=267253796]
 position = Vector2(1825, -258.00003)
 rotation = -0.77563673
 shape = SubResource("RectangleShape2D_ylegh")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="rock" unique_id=349669566]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="camera_movement/rock" unique_id=349669566]
 position = Vector2(1815, -234)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="rock" unique_id=1380773623]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1380773623]
 position = Vector2(2063.5, -267)
 shape = SubResource("RectangleShape2D_73y2x")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="rock" unique_id=1447319325]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1447319325]
 position = Vector2(2136, -333)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="rock" unique_id=1191574119]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1191574119]
 position = Vector2(2216, -334)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="rock" unique_id=1734569395]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1734569395]
 position = Vector2(2401, -367)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="rock" unique_id=2102903087]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="camera_movement/rock" unique_id=2102903087]
 position = Vector2(2371, -268)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="rock" unique_id=948462579]
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="camera_movement/rock" unique_id=948462579]
 position = Vector2(2324, -218)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="rock" unique_id=1501059065]
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1501059065]
 position = Vector2(2223, -158)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="rock" unique_id=1088893781]
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1088893781]
 position = Vector2(2301, -126)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D15" type="CollisionShape2D" parent="rock" unique_id=1520216573]
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1520216573]
 position = Vector2(2399, -126)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D16" type="CollisionShape2D" parent="rock" unique_id=1422328080]
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1422328080]
 position = Vector2(2497, -126)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D17" type="CollisionShape2D" parent="rock" unique_id=329570766]
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="camera_movement/rock" unique_id=329570766]
 position = Vector2(2595, -126)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D18" type="CollisionShape2D" parent="rock" unique_id=242173737]
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="camera_movement/rock" unique_id=242173737]
 position = Vector2(2625, -265)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D19" type="CollisionShape2D" parent="rock" unique_id=783283065]
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="camera_movement/rock" unique_id=783283065]
 position = Vector2(2723, -264)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D20" type="CollisionShape2D" parent="rock" unique_id=1735378349]
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1735378349]
 position = Vector2(2723.2676, -300.41693)
 rotation = -0.77563673
 shape = SubResource("RectangleShape2D_ylegh")
 
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="rock" unique_id=1266161679]
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1266161679]
 position = Vector2(2675, -375)
 rotation = 0.7582698
 shape = SubResource("RectangleShape2D_akdic")
 
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="rock" unique_id=258699725]
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="camera_movement/rock" unique_id=258699725]
 position = Vector2(2796, -319)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D23" type="CollisionShape2D" parent="rock" unique_id=242389632]
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="camera_movement/rock" unique_id=242389632]
 position = Vector2(2851, -318)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D24" type="CollisionShape2D" parent="rock" unique_id=1728763016]
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1728763016]
 position = Vector2(2921, -294.99988)
 rotation = 0.7582698
 shape = SubResource("RectangleShape2D_akdic")
 
-[node name="CollisionShape2D25" type="CollisionShape2D" parent="rock" unique_id=238494264]
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="camera_movement/rock" unique_id=238494264]
 position = Vector2(2994, -272)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D26" type="CollisionShape2D" parent="rock" unique_id=1619376556]
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1619376556]
 position = Vector2(2818, -401)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D27" type="CollisionShape2D" parent="rock" unique_id=354077300]
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="camera_movement/rock" unique_id=354077300]
 position = Vector2(2847, -381)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D28" type="CollisionShape2D" parent="rock" unique_id=2056504283]
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="camera_movement/rock" unique_id=2056504283]
 position = Vector2(3044, -381)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D29" type="CollisionShape2D" parent="rock" unique_id=8088243]
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="camera_movement/rock" unique_id=8088243]
 position = Vector2(3110, -356.99988)
 rotation = 0.7582698
 shape = SubResource("RectangleShape2D_akdic")
 
-[node name="CollisionShape2D30" type="CollisionShape2D" parent="rock" unique_id=1870083537]
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1870083537]
 position = Vector2(3135, -347)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D31" type="CollisionShape2D" parent="rock" unique_id=1212809008]
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1212809008]
 position = Vector2(3103, -266)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D32" type="CollisionShape2D" parent="rock" unique_id=756810929]
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="camera_movement/rock" unique_id=756810929]
 position = Vector2(3329, -267)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D33" type="CollisionShape2D" parent="rock" unique_id=1551275701]
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1551275701]
 position = Vector2(3329, -384)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D34" type="CollisionShape2D" parent="rock" unique_id=1741298301]
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1741298301]
 position = Vector2(3312, -545)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D35" type="CollisionShape2D" parent="rock" unique_id=1360844134]
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1360844134]
 position = Vector2(3409, -545)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D36" type="CollisionShape2D" parent="rock" unique_id=115050602]
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="camera_movement/rock" unique_id=115050602]
 position = Vector2(3507, -545)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D37" type="CollisionShape2D" parent="rock" unique_id=1659572343]
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1659572343]
 position = Vector2(1737, -542)
 shape = SubResource("RectangleShape2D_o51jq")
 
-[node name="CollisionShape2D38" type="CollisionShape2D" parent="rock" unique_id=1223622142]
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1223622142]
 position = Vector2(1859, -466)
 shape = SubResource("RectangleShape2D_73y2x")
 
-[node name="CollisionShape2D39" type="CollisionShape2D" parent="rock" unique_id=1760959161]
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1760959161]
 position = Vector2(2561, -463)
 shape = SubResource("RectangleShape2D_73y2x")
 
-[node name="CollisionShape2D40" type="CollisionShape2D" parent="rock" unique_id=527524616]
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="camera_movement/rock" unique_id=527524616]
 position = Vector2(2778, -737)
 shape = SubResource("RectangleShape2D_73y2x")
 
-[node name="CollisionShape2D41" type="CollisionShape2D" parent="rock" unique_id=412383123]
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="camera_movement/rock" unique_id=412383123]
 position = Vector2(2559, -714.00006)
 rotation = -0.77563673
 shape = SubResource("RectangleShape2D_ylegh")
 
-[node name="CollisionShape2D42" type="CollisionShape2D" parent="rock" unique_id=1594495064]
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1594495064]
 position = Vector2(2525, -703)
 shape = SubResource("RectangleShape2D_ohhyw")
 
-[node name="CollisionShape2D43" type="CollisionShape2D" parent="rock" unique_id=1805716416]
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1805716416]
 position = Vector2(2454, -681.00006)
 rotation = -0.77563673
 shape = SubResource("RectangleShape2D_ylegh")
 
-[node name="CollisionShape2D44" type="CollisionShape2D" parent="rock" unique_id=1023923032]
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="camera_movement/rock" unique_id=1023923032]
 position = Vector2(2406, -632.9999)
 rotation = -0.77563673
 shape = SubResource("RectangleShape2D_ylegh")
 
-[node name="CollisionShape2D45" type="CollisionShape2D" parent="rock" unique_id=662284538]
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="camera_movement/rock" unique_id=662284538]
 position = Vector2(1689, -737)
 shape = SubResource("RectangleShape2D_o51jq")
 
+[node name="CameraFollowZone" type="Area2D" parent="." unique_id=1813408077]
+z_index = -10
+position = Vector2(461, -1394)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("25_ujt7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFollowZone" unique_id=474617485]
+position = Vector2(1040, -103.5)
+shape = SubResource("RectangleShape2D_5dfsw")
+
+[connection signal="body_entered" from="start/TitleTrigger" to="start/TitleTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="start/TitleTrigger" to="start/CanvasLayer2" method="_on_title_trigger_body_entered"]
 [connection signal="pad_activated" from="outside/PressurePad" to="outside/door" method="_on_pressure_pad_pad_activated"]
 [connection signal="pad_deactivated" from="outside/PressurePad" to="outside/door" method="_on_pressure_pad_pad_deactivated"]
-[connection signal="body_entered" from="TitleTrigger" to="TitleTrigger" method="_on_body_entered"]
-[connection signal="body_entered" from="TitleTrigger" to="CanvasLayer2" method="_on_title_trigger_body_entered"]
 [connection signal="pad_activated" from="level 1/lever" to="outside/door" method="_on_lever_pad_activated"]
 [connection signal="pad_deactivated" from="level 1/lever" to="outside/door" method="_on_lever_pad_deactivated"]
 [connection signal="pad_activated" from="level 1/roomSections/room1/PressurePad" to="level 1/roomSections/room1/door" method="_on_pressure_pad_pad_activated"]

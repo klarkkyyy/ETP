@@ -29,6 +29,7 @@ const SFX_WALL_SLIDE = "res://audio/sfx/wall_slide.wav"
 const SFX_STEP_GRASS = "res://audio/sfx/step_grass.wav"
 const SFX_STEP_ROCK = "res://audio/sfx/step_rock.wav"
 const SFX_STEP_WOOD = "res://audio/sfx/step_wood.wav"
+const SFX_DEATH = "res://audio/sfx/death.mp3"
 
 # ── Step config ──────────────────────────────────────────────────────────────
 @export var step_interval: float = 0.28  # tweak — lower = faster steps
@@ -50,8 +51,12 @@ var _jump_buffer_timer: float = 0.0
 var _surface_stack: Array = []
 
 func _ready() -> void:
-	print("run_point_left: ", run_point_left)
-	print("run_point_right: ", run_point_right)
+	is_dead = true
+	set_physics_process(false)
+	anim.play("spawn")
+	await anim.animation_finished
+	is_dead = false
+	set_physics_process(true)
 
 func spawn_effect(scene: PackedScene, point: Marker2D = feet_point) -> void:
 	var effect = scene.instantiate()
@@ -59,11 +64,13 @@ func spawn_effect(scene: PackedScene, point: Marker2D = feet_point) -> void:
 	effect.global_position = point.global_position
 	effect.scale.x = -1 if anim.flip_h else 1
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("respawn") and not is_dead:
+		die()
+
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
-	if Input.is_action_pressed("respawn"):
-		_respawn()
 	if wall_jump_timer > 0.0:
 		wall_jump_timer -= delta
 
@@ -260,14 +267,21 @@ func die() -> void:
 		current_echo_zone.player = null
 		current_echo_zone = null
 	anim.play("death")
+	SoundManager.play(SFX_DEATH, -7)
 	await anim.animation_finished
+	await get_tree().create_timer(0.2).timeout
 	_respawn()
 
 func _respawn() -> void:
+	is_dead = true          
+	await get_tree().create_timer(0.25).timeout            
+	set_physics_process(false)
+	global_position = GameManager.get_respawn_position()
+	velocity = Vector2.ZERO
+	anim.play("spawn")
+	await anim.animation_finished
 	is_dead = false
 	set_physics_process(true)
-	global_position = GameManager.get_respawn_position()
-	anim.play("idle")
 
 func _clear_all_echoes() -> void:
 	pass

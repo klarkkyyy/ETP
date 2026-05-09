@@ -120,6 +120,8 @@
 [ext_resource type="PackedScene" uid="uid://dixk3eh340wtn" path="res://Level_3/Scenes/platform2.tscn" id="107_ab4qa"]
 [ext_resource type="PackedScene" uid="uid://bc2mhijv801ou" path="res://Level_3/Scenes/Fire.tscn" id="119_r1lbg"]
 [ext_resource type="PackedScene" uid="uid://cc8m0vmka7i7u" path="res://Level_3/Scenes/chest.tscn" id="120_taapo"]
+[ext_resource type="Script" uid="uid://bmvk46guvchkp" path="res://scripts/camera_follow_zone.gd" id="121_t1ka2"]
+[ext_resource type="Script" uid="uid://bgnjfvgotb052" path="res://scripts/camera.gd" id="122_xt4yk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h463k"]
 atlas = ExtResource("103_yj4kx")
@@ -8677,6 +8679,9 @@ _data = {
 &"move2": SubResource("Animation_q62gb")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt4yk"]
+size = Vector2(2234, 697)
+
 [node name="Level_3" type="Node2D" unique_id=1849523170]
 position = Vector2(11, -206)
 
@@ -8863,6 +8868,30 @@ scale = Vector2(0.58498925, 0.7493633)
 [node name="door2" parent="PressurePad2/echo_zone2" unique_id=1894013791 instance=ExtResource("107_2tx57")]
 position = Vector2(179.49048, -10.675781)
 scale = Vector2(1.7094331, 1.3344661)
+
+[node name="CameraFollowZone" type="Area2D" parent="." unique_id=1975017951]
+z_index = -10
+position = Vector2(551, 71)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("121_t1ka2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFollowZone" unique_id=1516990900]
+position = Vector2(1040, -103.5)
+shape = SubResource("RectangleShape2D_xt4yk")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=910005723 groups=["camera"]]
+position = Vector2(-105, -181)
+scale = Vector2(0.901, 0.416)
+zoom = Vector2(2.535, 2.535)
+limit_left = -17
+limit_top = -1718
+limit_right = 3607
+limit_bottom = 161
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("122_xt4yk")
 
 [connection signal="pad_activated" from="PressurePad" to="door" method="_on_pressure_pad_pad_activated"]
 [connection signal="pad_deactivated" from="PressurePad" to="door" method="_on_pressure_pad_pad_deactivated"]

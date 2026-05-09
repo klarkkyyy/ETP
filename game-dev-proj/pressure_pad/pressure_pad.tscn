@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://725tqv22ss41" path="res://pressure_pad/pressure_pad.gd" id="1_waxrb"]
 [ext_resource type="Texture2D" uid="uid://hxwrqqtbv7go" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/miscellaneous sprites/buttom_pressed.png" id="2_yfon2"]
 [ext_resource type="Texture2D" uid="uid://b41xfogu1c8no" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/miscellaneous sprites/buttom.png" id="3_6a24s"]
+[ext_resource type="AudioStream" uid="uid://buhe30yxxiag1" path="res://audio/sfx/button.wav" id="4_yfon2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cvfs"]
 size = Vector2(12, 4)
@@ -47,6 +48,10 @@ position = Vector2(-1.1920929e-07, 0)
 scale = Vector2(0.8125, 1)
 sprite_frames = SubResource("SpriteFrames_cxnt0")
 animation = &"unpressed"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=732696675]
+stream = ExtResource("4_yfon2")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

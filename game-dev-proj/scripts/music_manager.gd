@@ -8,10 +8,9 @@ var _fade_speed: float = 0.2  # how fast volume fades in/out
 
 func _ready() -> void:
 	add_child(player)
-	player.volume_db = 0.0
+	player.volume_db = -80
 
-func play(track_path: String, fade: bool = true) -> void:
-	# Don't restart if same track is already playing
+func play(track_path: String, fade: bool = true, target_db: float = -6.0) -> void:
 	if _current_track == track_path and player.playing:
 		return
 	_current_track = track_path
@@ -20,7 +19,7 @@ func play(track_path: String, fade: bool = true) -> void:
 	player.stream = load(track_path)
 	player.play()
 	if fade:
-		_fade_in()
+		_fade_in(target_db)
 
 func stop(fade: bool = true) -> void:
 	if fade:
@@ -33,7 +32,7 @@ func _fade_out() -> void:
 	tween.tween_property(player, "volume_db", -80.0, _fade_speed)
 	await tween.finished
 
-func _fade_in() -> void:
+func _fade_in(target_db: float = -25.0) -> void:
 	player.volume_db = -80.0
 	var tween = create_tween()
-	tween.tween_property(player, "volume_db", -6.0, _fade_speed)
+	tween.tween_property(player, "volume_db", target_db, _fade_speed)

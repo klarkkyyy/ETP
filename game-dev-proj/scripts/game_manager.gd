@@ -2,7 +2,7 @@ extends Node
 
 var checkpoint_position: Vector2 = Vector2.ZERO
 var has_checkpoint: bool = false
-var level_spawn: Vector2 = Vector2.ZERO  # set this when the level loads
+var level_spawn: Vector2 = Vector2.ZERO 
 
 func set_checkpoint(pos: Vector2) -> void:
 	checkpoint_position = pos
