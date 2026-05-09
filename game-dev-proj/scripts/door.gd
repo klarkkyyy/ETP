@@ -3,18 +3,21 @@ extends Node2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var col: CollisionShape2D = $StaticBody2D/CollisionShape2D
-
+@onready var sfx = $AudioStreamPlayer2D
+@onready var sfx2 = $AudioStreamPlayer2D2
 var is_open: bool = false
 var _active_triggers: int = 0  
 
 func trigger_open() -> void:
 	_active_triggers += 1
 	if _active_triggers == 1:
+		sfx.play()
 		open_door()
 
 func trigger_close() -> void:
 	_active_triggers = max(0, _active_triggers - 1)
 	if _active_triggers == 0:
+		sfx2.play()
 		close_door()
 
 func open_door() -> void:

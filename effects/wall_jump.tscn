@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://tun5gf1tsfg1"]
+
+[ext_resource type="Texture2D" uid="uid://dxvjf2nojkbtp" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Effects/dust_from_run_stop_anim.png" id="1_v07na"]
+[ext_resource type="Script" uid="uid://dx0jl6cb5ip7x" path="res://scripts/wall_jump.gd" id="2_h4je7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4je7"]
+atlas = ExtResource("1_v07na")
+region = Rect2(0, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70f4y"]
+atlas = ExtResource("1_v07na")
+region = Rect2(4, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn83h"]
+atlas = ExtResource("1_v07na")
+region = Rect2(8, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtr80"]
+atlas = ExtResource("1_v07na")
+region = Rect2(12, 0, 4, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecrmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4je7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70f4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn83h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtr80")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="WallJump" type="AnimatedSprite2D" unique_id=2018746236]
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_ecrmh")
+frame = 3
+frame_progress = 1.0
+script = ExtResource("2_h4je7")

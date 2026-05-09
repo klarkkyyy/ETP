@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bq0bi24aosxga"]
+
+[ext_resource type="Texture2D" uid="uid://00n784w4lgjg" path="res://Level_3/Assets/craftpix-net-169442-free-2d-top-down-pixel-dungeon-asset-pack/Tiled_files/trap_animation.png" id="1_1gqyx"]
+[ext_resource type="Script" uid="uid://cq4x64blpptc" path="res://Level_3/Scenes/trap1.gd" id="1_rrjoy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrjoy"]
+atlas = ExtResource("1_1gqyx")
+region = Rect2(69, 0, 69, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa1vm"]
+atlas = ExtResource("1_1gqyx")
+region = Rect2(69, 99, 69, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey82h"]
+atlas = ExtResource("1_1gqyx")
+region = Rect2(69, 198, 69, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxh2m"]
+atlas = ExtResource("1_1gqyx")
+region = Rect2(69, 297, 69, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8f3s"]
+atlas = ExtResource("1_1gqyx")
+region = Rect2(69, 396, 69, 99)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrv0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrjoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa1vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey82h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxh2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8f3s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai6om"]
+size = Vector2(38, 9)
+
+[node name="trap1" type="Area2D" unique_id=812422155]
+script = ExtResource("1_rrjoy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=605973531]
+position = Vector2(34, -17)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xrv0y")
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603918386]
+position = Vector2(37, -9)
+shape = SubResource("RectangleShape2D_ai6om")

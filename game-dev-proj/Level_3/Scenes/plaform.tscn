@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bmypt6iiywrh7"]
+
+[ext_resource type="Texture2D" uid="uid://dkhmj5xiyes1u" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/miscellaneous sprites/wood_slab_left.png" id="1_qfpfv"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_w27t5"]
+a = Vector2(7, -2)
+b = Vector2(-8, -2)
+
+[sub_resource type="Animation" id="Animation_qfpfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Platform1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(899, 198)]
+}
+
+[sub_resource type="Animation" id="Animation_w27t5"]
+resource_name = "move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(73, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8el6"]
+_data = {
+&"RESET": SubResource("Animation_qfpfv"),
+&"move": SubResource("Animation_w27t5")
+}
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=1782415275]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=503135153]
+texture = ExtResource("1_qfpfv")
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1548486884]
+shape = SubResource("SegmentShape2D_w27t5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=415810880]
+libraries/ = SubResource("AnimationLibrary_m8el6")
