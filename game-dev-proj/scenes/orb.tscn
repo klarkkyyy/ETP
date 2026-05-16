@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://becesa4m2cstt"]
+
+[ext_resource type="Script" uid="uid://smv1rmwpkey1" path="res://scripts/orb.gd" id="1_lf2rn"]
+[ext_resource type="Texture2D" uid="uid://bm5fa2vp7ti2e" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Boss/static-vertical-idle-effect sprites/lord_wizard_attack_orb_anim.png" id="2_ie6yp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyxv1"]
+atlas = ExtResource("2_ie6yp")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24wb3"]
+atlas = ExtResource("2_ie6yp")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcq80"]
+atlas = ExtResource("2_ie6yp")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncukd"]
+atlas = ExtResource("2_ie6yp")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msiah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyxv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24wb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcq80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncukd")
+}],
+"loop": true,
+"name": &"boss_orb",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_imfe0"]
+
+[node name="attack_orb" type="Area2D" unique_id=1523704894]
+z_index = 78
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_lf2rn")
+
+[node name="orb" type="AnimatedSprite2D" parent="." unique_id=2017985991]
+sprite_frames = SubResource("SpriteFrames_msiah")
+animation = &"boss_orb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=502046360]
+shape = SubResource("CircleShape2D_imfe0")

@@ -6,7 +6,7 @@ extends Area2D
 @export var sample_every_frames: int = 1
 
 const EchoScene = preload("res://echo/echo.tscn")  
-
+const SFX_CLEAR = "res://audio/sfx/clear.mp3"
 
 var player: CharacterBody2D = null
 var is_recording: bool = false
@@ -51,6 +51,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	for slot in range(1, max_echoes + 1):
 		if event.is_action_pressed("echo_slot_%d" % slot):
+			if not GameManager.is_echo_unlocked(slot):
+				print("Echo slot ", slot, " is locked")
+				return
 			if player:
 				_handle_slot_press(slot - 1)
 			else:
@@ -61,22 +64,24 @@ func _remove_echo(slot: int) -> void:
 	if slot >= active_echo_nodes.size():
 		return
 	if is_instance_valid(active_echo_nodes[slot]):
-		active_echo_nodes[slot].queue_free()
+		active_echo_nodes[slot].die() 
 		active_echo_nodes[slot] = null
 func _start_recording(slot: int) -> void:
 	current_recording = []
 	_frame_counter = 0
 	active_slot = slot
 	is_recording = true
+	EchoFlash.flash_start(slot + 1)
 
 func _clear_all_echoes() -> void:
 	is_recording = false
 	active_slot = -1
 	current_recording = []
-
+	
 	for echo_node in active_echo_nodes:
 		if is_instance_valid(echo_node):
-			echo_node.queue_free()
+			SoundManager.play(SFX_CLEAR, -12, 0.9)
+			echo_node.die() 
 	active_echo_nodes.clear()
 	emit_signal("echoes_cleared")
 
@@ -103,6 +108,7 @@ func _finish_recording() -> void:
 		active_slot = -1
 		current_recording = []
 		return
+	EchoFlash.flash_stop(active_slot + 1)
 	_spawn_echo(active_slot, current_recording.duplicate(true))
 	emit_signal("echo_saved", active_slot + 1)
 	active_slot = -1
@@ -112,10 +118,10 @@ func _spawn_echo(slot: int, frames: Array) -> void:
 	while active_echo_nodes.size() <= slot:
 		active_echo_nodes.append(null)
 	if is_instance_valid(active_echo_nodes[slot]):
-		active_echo_nodes[slot].queue_free()
+		active_echo_nodes[slot].die()
 	var echo_node = EchoScene.instantiate()
-	get_parent().add_child(echo_node)    
-	echo_node.setup(frames, activation_range > 0.0, slot) 
+	get_parent().add_child(echo_node)
+	echo_node.setup(frames, activation_range > 0.0, slot)
 	echo_node.global_position = frames[0]["pos"]
 	active_echo_nodes[slot] = echo_node
 

@@ -16,10 +16,7 @@ func _ready() -> void:
 	add_to_group("camera")
 	await get_tree().process_frame
 	player = get_tree().get_first_node_in_group("player")
-	if player:
-		_target_pos = player.global_position + follow_offset
-		global_position = _target_pos
-	else:
+	if not player:
 		print("ERROR: Camera could not find player")
 
 func _process(delta: float) -> void:

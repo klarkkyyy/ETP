@@ -7,6 +7,7 @@ extends Area2D
 var _triggered: bool = false
 
 func _ready() -> void:
+	MusicManager.play(track_path)
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:

@@ -57,6 +57,11 @@ func _ready() -> void:
 	await anim.animation_finished
 	is_dead = false
 	set_physics_process(true)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	for zone in get_tree().get_nodes_in_group("room_zone"):
+		if zone.has_method("_check_if_player_inside"):
+			zone._check_if_player_inside()
 
 func spawn_effect(scene: PackedScene, point: Marker2D = feet_point) -> void:
 	var effect = scene.instantiate()
@@ -251,7 +256,7 @@ func _on_landed() -> void:
 	await anim.animation_finished
 	anim.play("before_or_after_jump")
 
-func take_hit() -> void:
+func take_damage() -> void:
 	anim.play("hit")
 	await anim.animation_finished
 	anim.play("idle")

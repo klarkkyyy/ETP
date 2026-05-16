@@ -1,12 +1,15 @@
 #pressure_pad.gd
 extends Area2D
 
+@export var linked_trap: NodePath = ""
+
 signal pad_activated()
 signal pad_deactivated()
 
 var _player_count: int = 0
 var _echo_count: int = 0
 var is_pressed: bool = false
+var _trap_node = null
 
 const SFX_PRESS = "res://audio/sfx/button.wav"
 @onready var sfx = $AudioStreamPlayer2D
@@ -17,6 +20,9 @@ func _ready() -> void:
 		body_entered.connect(_on_body_entered)
 	if not body_exited.is_connected(_on_body_exited):
 		body_exited.connect(_on_body_exited)
+	# Get the trap node if linked
+	if not linked_trap.is_empty():
+		_trap_node = get_node(linked_trap)
 
 func on_echo_enter(_echo: Area2D) -> void:
 	_echo_count += 1
@@ -29,7 +35,7 @@ func on_echo_exit(_echo: Area2D) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		
+		SoundManager.play(SFX_PRESS, -10)
 		_player_count += 1
 		sfx.play()
 		_evaluate()
@@ -46,12 +52,15 @@ func _evaluate() -> void:
 		return
 	is_pressed = should_press
 	if is_pressed:
-		SoundManager.play(SFX_PRESS, -10)
 		emit_signal("pad_activated")
 		_on_activated()
+		if _trap_node and _trap_node.has_method("activate_trap"):
+			_trap_node.activate_trap()
 	else:
 		emit_signal("pad_deactivated")
 		_on_deactivated()
+		if _trap_node and _trap_node.has_method("deactivate_trap"):
+			_trap_node.deactivate_trap()
 
 func _on_activated() -> void:
 	if $AnimatedSprite2D.sprite_frames.has_animation("pressed"):

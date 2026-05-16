@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bad8n0e3pbh48"]
+
+[ext_resource type="Script" uid="uid://bsnfmxium65qe" path="res://scripts/collectible.gd" id="1_1bvof"]
+[ext_resource type="Texture2D" uid="uid://b7vipeubl3w4v" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup_destroyed.png" id="1_bg0du"]
+[ext_resource type="Texture2D" uid="uid://bvyiial3euyn8" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup.png" id="2_1bvof"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgwpb"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q5wa"]
+atlas = ExtResource("1_bg0du")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfvfw"]
+atlas = ExtResource("1_bg0du")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gf53"]
+atlas = ExtResource("1_bg0du")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kndp"]
+atlas = ExtResource("1_bg0du")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kcvk"]
+atlas = ExtResource("1_bg0du")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61xon"]
+atlas = ExtResource("1_bg0du")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdovl"]
+atlas = ExtResource("2_1bvof")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wwxg"]
+atlas = ExtResource("2_1bvof")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0kc1"]
+atlas = ExtResource("2_1bvof")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hukdg"]
+atlas = ExtResource("2_1bvof")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64nel"]
+atlas = ExtResource("2_1bvof")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raunr"]
+atlas = ExtResource("2_1bvof")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8mrvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q5wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfvfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gf53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kndp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kcvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61xon")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdovl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wwxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0kc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hukdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64nel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raunr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdovl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdovl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdovl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="echo3" type="Area2D" unique_id=1435435790]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_1bvof")
+value = 3
+unlocks_echo_slot = 3
+sfx_path = "res://audio/sfx/pickup.mp3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1344000873]
+shape = SubResource("RectangleShape2D_sgwpb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1464063855]
+sprite_frames = SubResource("SpriteFrames_8mrvf")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.08406147
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

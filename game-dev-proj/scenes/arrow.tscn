@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b4nym0f1chjiw"]
+
+[ext_resource type="Script" uid="uid://bu38j73rhjl21" path="res://scripts/arrow_projectile.gd" id="1_qv28m"]
+[ext_resource type="Texture2D" uid="uid://bdsl857xga8et" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/traps/spear_right_anim.png" id="2_23jat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnx4m"]
+size = Vector2(15.994146, 5.0193796)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ifc"]
+atlas = ExtResource("2_23jat")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ckq1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ifc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Arrow" type="Area2D" unique_id=1085988153]
+rotation = 3.1396534
+script = ExtResource("1_qv28m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583410886]
+position = Vector2(-1.1920929e-07, -5.9604645e-08)
+scale = Vector2(0.8834316, 0.948132)
+shape = SubResource("RectangleShape2D_nnx4m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1234420395]
+rotation = 3.1414282
+scale = Vector2(0.85454565, 0.39718315)
+sprite_frames = SubResource("SpriteFrames_7ckq1")

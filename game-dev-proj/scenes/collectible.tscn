@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://b3ere7ptpxdbd"]
+
+[ext_resource type="Script" uid="uid://bsnfmxium65qe" path="res://scripts/collectible.gd" id="1_mqn1v"]
+[ext_resource type="Texture2D" uid="uid://ywmgaowaxlef" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/props/picking_item_effect_anim.png" id="2_j83r4"]
+[ext_resource type="Texture2D" uid="uid://odvxlfahkalg" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/props/amethyst_shard_anim.png" id="3_wf8qp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqn1v"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mawt"]
+atlas = ExtResource("2_j83r4")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvb7d"]
+atlas = ExtResource("2_j83r4")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dasyi"]
+atlas = ExtResource("2_j83r4")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dei4v"]
+atlas = ExtResource("2_j83r4")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d06ja"]
+atlas = ExtResource("2_j83r4")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qas65"]
+atlas = ExtResource("2_j83r4")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3c7i"]
+atlas = ExtResource("2_j83r4")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3mc6"]
+atlas = ExtResource("3_wf8qp")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sah2y"]
+atlas = ExtResource("3_wf8qp")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn4em"]
+atlas = ExtResource("3_wf8qp")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk024"]
+atlas = ExtResource("3_wf8qp")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4x68"]
+atlas = ExtResource("3_wf8qp")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y82pn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mawt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvb7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dasyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dei4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d06ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qas65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3c7i")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3mc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sah2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn4em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk024")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4x68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3mc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3mc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3mc6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.3
+}]
+
+[node name="echo1" type="Area2D" unique_id=647330654]
+scale = Vector2(0.9804259, 1.0057011)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_mqn1v")
+sfx_path = "res://audio/sfx/pickup.mp3"
+float_amplitude = 2.0
+float_speed = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=606199505]
+shape = SubResource("RectangleShape2D_mqn1v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1959634972]
+sprite_frames = SubResource("SpriteFrames_y82pn")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.9585593
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

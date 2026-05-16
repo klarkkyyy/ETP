@@ -206,7 +206,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wt63d")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -344,7 +344,7 @@ height = 15.0000305
 
 [node name="Echo" type="Area2D" unique_id=1920671557]
 z_index = 4
-position = Vector2(267, 3)
+position = Vector2(353, 26)
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_83bat")
@@ -355,17 +355,17 @@ z_index = 5
 texture_filter = 1
 position = Vector2(1, -2)
 sprite_frames = SubResource("SpriteFrames_mbb5l")
-animation = &"double_jump"
+animation = &"death"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1951133631]
 position = Vector2(0, -1.0000076)
 scale = Vector2(0.901, 0.416)
 zoom = Vector2(2.225, 2.225)
-limit_left = -17
-limit_top = -658
-limit_right = 3512
-limit_bottom = 161
+limit_left = -99999
+limit_top = 99999
+limit_right = 999999
+limit_bottom = -99999
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

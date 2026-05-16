@@ -1,5 +1,7 @@
 extends Area2D
 
+const ArrowScene = preload("res://scenes/arrow.tscn")
+
 @onready var sprite = $AnimatedSprite2D
 @export var damage_amount: float = 20.0
 @export var damage_cooldown: float = 0.6
@@ -12,31 +14,42 @@ var uses_left: int = 2
 var recharge_timer: float = 0.0
 var is_broken: bool = false
 
+@export var arrow_direction: Vector2 = Vector2.RIGHT  # set per trap in inspector
+@onready var spawn_point: Marker2D = $Marker2D
+
 func _ready():
 	uses_left = max_uses
+	
 
 func activate_trap():
-	# 1. Check if broken
 	if is_broken:
 		print("Trap is broken!")
 		return
-	
-	# 2. Check if still recharging
 	if recharge_timer > 0:
 		print("Trap is still recharging: ", snapped(recharge_timer, 0.1), "s remaining")
 		return
 		
-	# 3. FORCE RESTART THE ANIMATION
 	is_active = true
-	sprite.stop()       # Stop any current progress
-	sprite.frame = 0    # Reset to the first frame (hidden/flat)
+	sprite.stop()
+	sprite.frame = 0
 	sprite.play("default")
-	print("Trap Spiking! Animation should now play.")
+
+	print("Arrow spawn node: ", spawn_point)
+	print("Arrow direction set to: ", arrow_direction.normalized())
+
+	if spawn_point and ArrowScene:
+		var arrow = ArrowScene.instantiate()
+		arrow.direction = arrow_direction.normalized()
+		get_parent().add_child(arrow)
+		arrow.global_position = spawn_point.global_position
+		print("Arrow spawned at: ", arrow.global_position)
+	else:
+		print("FAILED — spawn_point: ", spawn_point, " | ArrowScene: ", ArrowScene)
 
 func deactivate_trap():
 	is_active = false
-	sprite.stop()       # Stop the spikes
-	sprite.frame = 0    # Set back to the flat frame
+	sprite.stop()     
+	sprite.frame = 0
 	damage_timer = 0.0
 	
 	# Start the 5-second recharge cooldown
@@ -82,3 +95,21 @@ func _break_trap():
 	sprite.frame = 0
 	sprite.modulate = Color(0.3, 0.3, 0.3) # Darken to show it's dead
 	print("Trap is now PERMANENTLY disabled.")
+
+func on_echo_enter(echo: Area2D) -> void:
+	activate_trap()
+
+func on_echo_exit(echo: Area2D) -> void:
+	pass
+
+
+func _on_arrow_button_pad_activated() -> void:
+	activate_trap()
+
+
+func _on_arrow_button_2_pad_activated() -> void:
+	activate_trap()
+
+
+func _on_arrow_button_3_pad_activated() -> void:
+	activate_trap()

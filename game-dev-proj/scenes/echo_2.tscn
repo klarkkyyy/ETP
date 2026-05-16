@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://6pj75ribi2aq"]
+
+[ext_resource type="Script" uid="uid://bsnfmxium65qe" path="res://scripts/collectible.gd" id="1_60p2q"]
+[ext_resource type="Texture2D" uid="uid://cdcajmx8tb2rs" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/marker_sigil_powerup_destroyed.png" id="1_sytb3"]
+[ext_resource type="Texture2D" uid="uid://b1g3pmpws55ed" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/marker_sigil_powerup_on_player.png" id="2_60p2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ih7b"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60p2q"]
+atlas = ExtResource("1_sytb3")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ih7b"]
+atlas = ExtResource("1_sytb3")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yagb6"]
+atlas = ExtResource("1_sytb3")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imk4s"]
+atlas = ExtResource("1_sytb3")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy8hi"]
+atlas = ExtResource("1_sytb3")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35hbw"]
+atlas = ExtResource("2_60p2q")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1joxf"]
+atlas = ExtResource("2_60p2q")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru1o1"]
+atlas = ExtResource("2_60p2q")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unp5s"]
+atlas = ExtResource("2_60p2q")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysq6d"]
+atlas = ExtResource("2_60p2q")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuyg4"]
+atlas = ExtResource("2_60p2q")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yagb6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60p2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ih7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yagb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imk4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy8hi")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35hbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1joxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru1o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unp5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysq6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuyg4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="echo2" type="Area2D" unique_id=561766641]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_60p2q")
+value = 2
+unlocks_echo_slot = 2
+sfx_path = "res://audio/sfx/pickup.mp3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=921476107]
+shape = SubResource("RectangleShape2D_0ih7b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1381178376]
+sprite_frames = SubResource("SpriteFrames_yagb6")
+animation = &"idle"
+autoplay = "idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

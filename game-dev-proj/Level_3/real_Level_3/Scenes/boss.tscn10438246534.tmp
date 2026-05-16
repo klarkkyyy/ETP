@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bg453oekjibhn" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Boss/static-vertical-idle-effect sprites/lord_wizard_before_emerging_anim.png" id="9_v0vew"]
 [ext_resource type="Texture2D" uid="uid://c2rc5mx7c67ad" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Boss/facing left animations/lord_wizard_run_left_anim.png" id="10_prktg"]
 [ext_resource type="Texture2D" uid="uid://cpco3n7hah01g" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Boss/facing right animations/lord_wizard_run_right_anim.png" id="11_5ysct"]
-[ext_resource type="Texture2D" uid="uid://ckqurhc3jmbn8" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/boss hud/health_bar_icon_complete.png" id="12_prktg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7j3ma"]
 atlas = ExtResource("2_ot7cr")
@@ -517,7 +516,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wyxv1")
 }],
-"loop": false,
+"loop": true,
 "name": &"before_emerging",
 "speed": 5.0
 }, {
@@ -826,13 +825,22 @@ _data = {
 [node name="Boss" type="CharacterBody2D" unique_id=1455991431]
 z_index = 15
 position = Vector2(441, 0)
-collision_mask = 3
 script = ExtResource("1_ic4sp")
+speed = null
+gravity = null
+idle_time = null
+walk_time = null
+max_health = null
+melee_range = null
+attack_cooldown = null
+orb_speed = null
+melee_damage = null
+orb_damage = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=209548972]
 position = Vector2(0, -23)
 sprite_frames = SubResource("SpriteFrames_2gh60")
-animation = &"Moving Right"
+animation = &"before_emerging"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1863911810]
@@ -840,21 +848,10 @@ position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_twp71")
 
 [node name="WallDetector" type="RayCast2D" parent="." unique_id=2006508032]
-target_position = Vector2(10, 0)
+target_position = Vector2(40, 0)
 
 [node name="LedgeDetector" type="RayCast2D" parent="." unique_id=1856141056]
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 60)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=8125907]
 libraries/ = SubResource("AnimationLibrary_6rqlx")
-
-[node name="BossHealthBar" type="TextureProgressBar" parent="." unique_id=429051821]
-z_index = 4
-offset_left = -39.0
-offset_top = -58.0
-offset_right = 121.0
-offset_bottom = -42.0
-scale = Vector2(0.5, 0.5)
-value = 100.0
-texture_progress = ExtResource("12_prktg")
-metadata/_edit_use_anchors_ = true

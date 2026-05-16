@@ -19,6 +19,7 @@ var _is_active: bool = true
 var _trail_nodes: Array = []
 var _trail_counter: int = 0
 var _slot_color: Color = SLOT_COLORS[0]
+var _can_absorb_orb: bool = true
 
 func setup(recorded_frames: Array, use_distance_check: bool, slot: int = 0) -> void:
 	_frames = recorded_frames
@@ -110,8 +111,11 @@ signal echo_entered_pad(echo: Area2D)
 signal echo_exited_pad(echo: Area2D)
 
 func _ready() -> void:
+	add_to_group("echo")
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
+
+
 
 func _setup_trail() -> void:
 	for t in _trail_nodes:
@@ -137,8 +141,15 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("pressure_pad") or area.is_in_group("switch"):
 		area.on_echo_enter(self)
 	if area.is_in_group("lever"):
-		_interactables.append(area) 
+		_interactables.append(area)
+	if area.is_in_group("orb") and _can_absorb_orb:
+		_absorb_orb(area)
 	emit_signal("echo_entered_pad", self)
+	
+func _absorb_orb(orb: Area2D) -> void:
+	_can_absorb_orb = false
+	orb.queue_free()
+	die()
 
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("pressure_pad") or area.is_in_group("switch"):
@@ -147,3 +158,16 @@ func _on_area_exited(area: Area2D) -> void:
 		_interactables.erase(area)
 	emit_signal("echo_exited_pad", self)
 	
+func die() -> void:
+	# Stop physics and interactions immediately
+	set_physics_process(false)
+	_is_active = false
+	# Hide trail
+	for trail in _trail_nodes:
+		trail.visible = false
+	# Play death animation then free
+	if anim and anim.sprite_frames.has_animation("death"):
+		anim.visible = true
+		anim.play("death")
+		await anim.animation_finished
+	queue_free()
