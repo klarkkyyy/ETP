@@ -136,8 +136,22 @@
 <h4 align = "center"> Video Demo </h4>
 <video src="https://github.com/user-attachments/assets/b61d6708-a138-4697-8688-e4235e6e52fc"></video>
 
+===========================================================================================
+<h2 align = "center"> 9/25/2026 </h2>
+===========================================================================================
+<h3 align = "center">Level 4: The Echo Vault</h3>
 
+- "update: added level 4 + spike crushers, routed level 3 -> level 4 -> boss"
+- Level 3's portal now leads into Level 4, and Level 4's exit portal leads to the boss
+- Three puzzle sections that build on each other:
+  - **The Twin Gates**: two echoes hold two pressure pads to open two gates in a row
+  - **The Relay**: only one echo allowed; record it holding pad 1, then pad 2, and slip through each gate while its pad is pressed, riding elevators over a spike pit
+  - **The Vault**: three echoes; one pad on the floor, one on a pillar reached by wall-jumping, one on an island in a spike pit
+- Moving spike crushers over the pads add danger (echoes pass through them, the player doesn't)
+- cleanup: removed the old duplicate Godot project from the repo root; `game-dev-proj/` is now the only project
 
+<h4 align = "center">Image Sample</h4>
 
-
-
+<img width="1152" height="648" alt="Level 4 - The Twin Gates" src="docs/level_4/twin_gates.png" />
+<img width="1152" height="648" alt="Level 4 - The Relay" src="docs/level_4/relay.png" />
+<img width="1152" height="648" alt="Level 4 - The Vault" src="docs/level_4/vault.png" />
