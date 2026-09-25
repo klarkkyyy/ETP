@@ -113,3 +113,7 @@ func _on_arrow_button_2_pad_activated() -> void:
 
 func _on_arrow_button_3_pad_activated() -> void:
 	activate_trap()
+
+
+func _on_arrow_button_4_pad_activated() -> void:
+	activate_trap()

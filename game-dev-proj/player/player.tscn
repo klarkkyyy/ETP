@@ -369,6 +369,7 @@ radius = 4.5
 height = 14.999985
 
 [node name="player" type="CharacterBody2D" unique_id=1809962385 groups=["player"]]
+z_index = 40
 position = Vector2(227, 37)
 collision_layer = 2
 collision_mask = 9

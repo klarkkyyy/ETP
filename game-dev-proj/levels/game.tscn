@@ -196,7 +196,6 @@
 [ext_resource type="Texture2D" uid="uid://bm3tbhcdwlvdw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/sewer_bg_00.png" id="175_jtpn8"]
 [ext_resource type="Texture2D" uid="uid://biyfoqk68jo3k" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/sewer_tileset.png" id="176_5rx34"]
 [ext_resource type="PackedScene" uid="uid://q1r11djh7xs2" path="res://Level_3/real_Level_3/Scenes/ArrowTrap.tscn" id="177_bvd67"]
-[ext_resource type="PackedScene" uid="uid://j1q6hfx5lx70" path="res://Level_3/real_Level_3/Scenes/LevelFInal.tscn" id="178_6vp0y"]
 [ext_resource type="Script" uid="uid://b5dgyltqf8d5h" path="res://Level_3/real_Level_3/Scenes/Trap3.gd" id="179_2ncpx"]
 [ext_resource type="PackedScene" uid="uid://b3ere7ptpxdbd" path="res://scenes/collectible.tscn" id="189_k1ron"]
 [ext_resource type="PackedScene" uid="uid://b5j2jcqhr40s0" path="res://scenes/arrow_trap.tscn" id="196_5cbs1"]
@@ -25352,7 +25351,7 @@ shape = SubResource("RectangleShape2D_0d1sk")
 position = Vector2(138, -225)
 
 [node name="TeleportB" type="Area2D" parent="level 1/roomSections/room3" unique_id=287013565 groups=["teleport"]]
-position = Vector2(1079, -485)
+position = Vector2(-1570, -224)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("28_d2kut")
@@ -25445,6 +25444,20 @@ position = Vector2(86.393654, 28.483986)
 scale = Vector2(1.9795375, 2.0036583)
 sprite_frames = SubResource("SpriteFrames_bvd67")
 autoplay = "default"
+
+[node name="Chest" parent="level 1/roomSections/room3" unique_id=1217066136 instance=ExtResource("150_ie5ra")]
+z_index = 1
+position = Vector2(-175, 47)
+scale = Vector2(-1.009082, 0.9701853)
+
+[node name="E" type="AnimatedSprite2D" parent="level 1/roomSections/room3" unique_id=613635279]
+texture_filter = 1
+position = Vector2(140, -255)
+scale = Vector2(1.1972557, 1.2209457)
+sprite_frames = SubResource("SpriteFrames_rmsd4")
+animation = &"E"
+autoplay = "E"
+frame_progress = 0.62689793
 
 [node name="room4" type="Area2D" parent="level 1/roomSections" unique_id=1620324680]
 z_index = 1
@@ -25904,6 +25917,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Level_3" unique_id=36310374]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26035,9 +26049,10 @@ position = Vector2(2029, 231)
 [node name="Fire" parent="Level_3/Fire" unique_id=2076235328 instance=ExtResource("149_wlh10")]
 position = Vector2(39, 0)
 
-[node name="Chest" parent="Level_3" unique_id=1217066136 instance=ExtResource("150_ie5ra")]
+[node name="Chest" parent="Level_3" unique_id=80280989 instance=ExtResource("150_ie5ra")]
 z_index = 1
 position = Vector2(120, 95)
+scale = Vector2(-1.0755287, 1.0690364)
 
 [node name="PressurePad2" parent="Level_3" unique_id=321927065 instance=ExtResource("8_qc6ov")]
 z_index = 5
@@ -26427,7 +26442,7 @@ z_index = 4
 position = Vector2(82, -1)
 
 [node name="SavePoint2" parent="Level_3" unique_id=898560370 instance=ExtResource("17_g03c5")]
-z_index = 19
+z_index = 4
 position = Vector2(531, 181)
 
 [node name="boss" type="Node2D" parent="." unique_id=344282284]
@@ -26456,14 +26471,17 @@ position = Vector2(100, -7.9999695)
 linked_trap = NodePath("..")
 
 [node name="echo_zone" parent="boss/trap1" unique_id=962946368 instance=ExtResource("9_a7gts")]
-visible = false
-modulate = Color(1, 1, 1, 0.27058825)
+modulate = Color(1, 1, 1, 0.09803922)
 z_index = 1
 position = Vector2(-53, -322)
 scale = Vector2(10.961603, 15.248046)
 max_echoes = 3
 activation_range = 600.0
 sample_every_frames = 1
+
+[node name="Portalend" parent="boss/trap1" unique_id=1089770287 instance=ExtResource("153_gx38i")]
+position = Vector2(-404, -532)
+script = null
 
 [node name="Trapno2" parent="boss" unique_id=175205352 instance=ExtResource("151_e7tvt")]
 z_index = 2
@@ -26472,6 +26490,7 @@ script = ExtResource("152_8uugn")
 
 [node name="Boss" parent="boss" unique_id=1455991431 groups=["boss"] instance=ExtResource("153_vdifd")]
 z_index = 2
+teleport_zone = NodePath("../boss_tp3")
 
 [node name="BossHealthBar2" type="TextureProgressBar" parent="boss/Boss" unique_id=898934812]
 visible = false
@@ -26569,9 +26588,6 @@ position = Vector2(354, 43)
 z_index = 21
 position = Vector2(787, 474)
 
-[node name="Lever" parent="boss" unique_id=893165983 instance=ExtResource("178_6vp0y")]
-position = Vector2(732, 416)
-
 [node name="PressurePadTrap" parent="boss" unique_id=1797334140 instance=ExtResource("8_qc6ov")]
 z_index = 9
 position = Vector2(-3, 477.00003)
@@ -26612,7 +26628,7 @@ position = Vector2(0.5, 4.5)
 shape = SubResource("RectangleShape2D_abych")
 
 [node name="boss_tp2" type="Area2D" parent="boss" unique_id=54029775 groups=["boss_teleport_zone"]]
-position = Vector2(400, 243)
+position = Vector2(401, 260)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss/boss_tp2" unique_id=2098630316]
 position = Vector2(0.5, 4.5)
@@ -26666,16 +26682,16 @@ position = Vector2(6602, -1174)
 position = Vector2(6628, -1174)
 
 [node name="Platform5" parent="boss/platforms" unique_id=1502762201 instance=ExtResource("19_7tfec")]
-position = Vector2(6565, -1252)
+position = Vector2(6574, -1266)
 
 [node name="Platform6" parent="boss/platforms" unique_id=1074316199 instance=ExtResource("19_7tfec")]
-position = Vector2(6591, -1252)
+position = Vector2(6600, -1266)
 
 [node name="Platform7" parent="boss/platforms" unique_id=1284196221 instance=ExtResource("19_7tfec")]
-position = Vector2(6617, -1252)
+position = Vector2(6626, -1266)
 
 [node name="Platform8" parent="boss/platforms" unique_id=1187062894 instance=ExtResource("19_7tfec")]
-position = Vector2(6643, -1252)
+position = Vector2(6652, -1266)
 
 [node name="Platform9" parent="boss/platforms" unique_id=1765246451 instance=ExtResource("19_7tfec")]
 position = Vector2(6336, -1165)
@@ -26699,16 +26715,16 @@ position = Vector2(6388, -1275)
 position = Vector2(6414, -1275)
 
 [node name="Platform21" parent="boss/platforms" unique_id=1053662440 instance=ExtResource("19_7tfec")]
-position = Vector2(6442, -1331)
+position = Vector2(6443, -1314)
 
 [node name="Platform22" parent="boss/platforms" unique_id=1779933562 instance=ExtResource("19_7tfec")]
-position = Vector2(6468, -1331)
+position = Vector2(6469, -1314)
 
 [node name="Platform23" parent="boss/platforms" unique_id=738506347 instance=ExtResource("19_7tfec")]
-position = Vector2(6494, -1331)
+position = Vector2(6495, -1314)
 
 [node name="Platform24" parent="boss/platforms" unique_id=173743377 instance=ExtResource("19_7tfec")]
-position = Vector2(6520, -1331)
+position = Vector2(6521, -1314)
 
 [node name="FallingPlatform3" parent="boss/platforms" unique_id=2033759702 instance=ExtResource("26_h1nvv")]
 position = Vector2(6703, -1148)
@@ -26722,23 +26738,17 @@ position = Vector2(6218, -1154)
 [node name="FallingPlatform6" parent="boss/platforms" unique_id=91429174 instance=ExtResource("26_h1nvv")]
 position = Vector2(6250, -1154)
 
-[node name="arrowButton" parent="boss" unique_id=888162504 instance=ExtResource("23_cyga8")]
+[node name="arrowButton1" parent="boss" unique_id=888162504 instance=ExtResource("23_cyga8")]
 z_index = 56
 position = Vector2(119, 339)
 
-[node name="ArrowTrap" parent="boss" unique_id=809885888 instance=ExtResource("196_5cbs1")]
+[node name="ArrowTrap1" parent="boss" unique_id=809885888 instance=ExtResource("196_5cbs1")]
 z_index = 49
 position = Vector2(184, 296)
 
 [node name="arrowButton2" parent="boss" unique_id=1855633535 instance=ExtResource("23_cyga8")]
 z_index = 72
-position = Vector2(354, 364)
-linked_trap = NodePath("../Arrow Trap2")
-
-[node name="Arrow Trap2" parent="boss" unique_id=1627924059 instance=ExtResource("177_bvd67")]
-z_index = 26
-position = Vector2(303, 362)
-rotation = -1.5730106
+position = Vector2(329, 307)
 
 [node name="arrowButton3" parent="boss" unique_id=670361839 instance=ExtResource("23_cyga8")]
 z_index = 56
@@ -26747,6 +26757,20 @@ position = Vector2(31, 478)
 [node name="ArrowTrap3" parent="boss" unique_id=1360804596 instance=ExtResource("196_5cbs1")]
 z_index = 49
 position = Vector2(-24, 451)
+
+[node name="arrowButton4" parent="boss" unique_id=1146243652 instance=ExtResource("23_cyga8")]
+z_index = 56
+position = Vector2(673, 339)
+rotation = 0.001020612
+
+[node name="ArrowTrap4" parent="boss" unique_id=1284430099 instance=ExtResource("196_5cbs1")]
+z_index = 49
+position = Vector2(616, 298)
+rotation = -3.141019
+
+[node name="ArrowTrap2" parent="boss" unique_id=1084182357 instance=ExtResource("196_5cbs1")]
+z_index = 49
+position = Vector2(263, 262)
 
 [node name="tile_sets" type="TileMap" parent="." unique_id=826209662]
 z_index = -10
@@ -26776,7 +26800,7 @@ layer_6/name = "bg5"
 layer_7/name = "bg6"
 
 [node name="player" parent="." unique_id=486669476 instance=ExtResource("127_vywgh")]
-position = Vector2(6581, -1180)
+position = Vector2(-3, 83)
 
 [node name="camera_movement" type="Node" parent="." unique_id=928061347]
 
@@ -27073,13 +27097,13 @@ position = Vector2(1040, -103.5)
 shape = SubResource("RectangleShape2D_5dfsw")
 
 [node name="Teleport" parent="." unique_id=1213288900 instance=ExtResource("27_624ej")]
-position = Vector2(4388, -996)
+position = Vector2(2633, -753)
 this_id = "teleport_c"
 destination_id = "teleport_d"
 
 [node name="Teleport2" parent="." unique_id=159672063 instance=ExtResource("27_624ej")]
 z_index = 2
-position = Vector2(6055, -1295)
+position = Vector2(1229, -1698)
 this_id = "teleport_d"
 destination_id = "teleport_c"
 
@@ -27139,7 +27163,8 @@ scale = Vector2(1.1812389, 1)
 [connection signal="body_entered" from="boss/Trapno2" to="boss/Trapno2" method="_on_body_entered"]
 [connection signal="body_entered" from="boss/Trap3Final" to="boss/Trap3Final" method="_on_body_entered"]
 [connection signal="pad_activated" from="boss/Trap3Final/PressurePadTrap" to="boss/Trap3Final" method="_on_pressure_pad_pad_activated"]
-[connection signal="pad_activated" from="boss/arrowButton" to="boss/ArrowTrap" method="_on_arrow_button_pad_activated"]
-[connection signal="body_entered" from="boss/ArrowTrap" to="." method="_on_arrow_trap_body_entered"]
-[connection signal="pad_activated" from="boss/arrowButton2" to="boss/Arrow Trap2" method="_on_arrow_button_2_pad_activated"]
+[connection signal="pad_activated" from="boss/arrowButton1" to="boss/ArrowTrap1" method="_on_arrow_button_pad_activated"]
+[connection signal="body_entered" from="boss/ArrowTrap1" to="." method="_on_arrow_trap_body_entered"]
+[connection signal="pad_activated" from="boss/arrowButton2" to="boss/ArrowTrap2" method="_on_arrow_button_2_pad_activated"]
 [connection signal="pad_activated" from="boss/arrowButton3" to="boss/ArrowTrap3" method="_on_arrow_button_3_pad_activated"]
+[connection signal="pad_activated" from="boss/arrowButton4" to="boss/ArrowTrap4" method="_on_arrow_button_4_pad_activated"]
