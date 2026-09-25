@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://dd6foli25twi"]
 
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/arch corridor/arch_corridor_tileset.png" id="96_blbc2"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/alchemy_room_bg_00.png" id="97_7d6ao"]
+[ext_resource type="Texture2D" uid="uid://cp4xbvaclnr2u" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/arch corridor/arch_corridor_tileset.png" id="96_blbc2"]
+[ext_resource type="Texture2D" uid="uid://bwbmyesbouje1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/alchemy_room_bg_00.png" id="97_7d6ao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_05af1"]
 texture = ExtResource("96_blbc2")

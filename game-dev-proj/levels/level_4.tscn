@@ -1,17 +1,17 @@
 [gd_scene format=4 uid="uid://b8jxsb6s564me"]
 
 [ext_resource type="TileSet" uid="uid://dd6foli25twi" path="res://levels/level_4_tileset.tres" id="1_8hlpj"]
-[ext_resource type="Script" path="res://scripts/camera_follow_zone.gd" id="2_qhnv2"]
-[ext_resource type="PackedScene" path="res://Level_3/real_Level_3/Scenes/portal.tscn" id="3_vru0x"]
-[ext_resource type="PackedScene" path="res://scenes/save_point .tscn" id="4_5oqfd"]
-[ext_resource type="FontFile" path="res://assets/fonts/BoldPixels.ttf" id="5_8mt0c"]
-[ext_resource type="PackedScene" path="res://scenes/candle_light.tscn" id="6_dp2yl"]
-[ext_resource type="PackedScene" path="res://scenes/spike.tscn" id="7_a7qdg"]
-[ext_resource type="PackedScene" path="res://echo_zone/echo_zone.tscn" id="8_g1ha7"]
-[ext_resource type="PackedScene" path="res://pressure_pad/pressure_pad.tscn" id="9_52a3b"]
-[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="10_3ff1r"]
-[ext_resource type="Script" path="res://moving_platform.gd" id="11_cmohj"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/arch corridor/arch_corridor_tileset.png" id="12_bv8dl"]
+[ext_resource type="Script" uid="uid://bmvk46guvchkp" path="res://scripts/camera_follow_zone.gd" id="2_qhnv2"]
+[ext_resource type="PackedScene" uid="uid://bbwmf64bqm4g4" path="res://Level_3/real_Level_3/Scenes/portal.tscn" id="3_vru0x"]
+[ext_resource type="PackedScene" uid="uid://b6av733605oy1" path="res://scenes/save_point .tscn" id="4_5oqfd"]
+[ext_resource type="FontFile" uid="uid://cas05dooal7th" path="res://assets/fonts/BoldPixels.ttf" id="5_8mt0c"]
+[ext_resource type="PackedScene" uid="uid://c0evu2thl5ney" path="res://scenes/candle_light.tscn" id="6_dp2yl"]
+[ext_resource type="PackedScene" uid="uid://bmx0casu34uy8" path="res://scenes/spike.tscn" id="7_a7qdg"]
+[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="8_g1ha7"]
+[ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="9_52a3b"]
+[ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="10_3ff1r"]
+[ext_resource type="Script" uid="uid://8vmykixs6pyu" path="res://moving_platform.gd" id="11_cmohj"]
+[ext_resource type="Texture2D" uid="uid://cp4xbvaclnr2u" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/arch corridor/arch_corridor_tileset.png" id="12_bv8dl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hlpj"]
 size = Vector2(3232, 704)
@@ -64,9 +64,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_8mt0c")
 theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "LEVEL 4
 The Echo Vault"
 horizontal_alignment = 1
@@ -173,9 +173,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_8mt0c")
 theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Two gates.
 Two echoes."
 horizontal_alignment = 1
@@ -321,9 +321,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_8mt0c")
 theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "One echo. Two gates.
 Time your recording."
 horizontal_alignment = 1
@@ -422,9 +422,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_8mt0c")
 theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Three gates.
 Three echoes."
 horizontal_alignment = 1
@@ -450,9 +450,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_8mt0c")
 theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Stuck? [F] returns
 to the checkpoint"
 horizontal_alignment = 1
@@ -489,9 +489,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_8mt0c")
 theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "[E] Face the boss"
 horizontal_alignment = 1
 vertical_alignment = 1
