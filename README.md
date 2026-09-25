@@ -155,8 +155,3 @@
 <img width="1152" height="648" alt="Level 4 - The Twin Gates" src="docs/level_4/twin_gates.png" />
 <img width="1152" height="648" alt="Level 4 - The Relay" src="docs/level_4/relay.png" />
 <img width="1152" height="648" alt="Level 4 - The Vault" src="docs/level_4/vault.png" />
-<img width="1152" height="648" alt="Level 4 - Exit to the boss" src="docs/level_4/exit.png" />
-
-
-<h4 align = "center"> Video Demo </h4>
-<!-- Add the Level 4 demo video here: edit README.md on GitHub and drag the video file in. -->
