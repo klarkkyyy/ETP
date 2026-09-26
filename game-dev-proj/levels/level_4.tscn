@@ -16,10 +16,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hlpj"]
 size = Vector2(3232, 704)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oqfd"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mt0c"]
+size = Vector2(48, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhnv2"]
 size = Vector2(48, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vru0x"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp2yl"]
 size = Vector2(48, 16)
 
 [node name="Level_4" type="Node2D" unique_id=1536460853]
@@ -48,7 +57,7 @@ shape = SubResource("RectangleShape2D_8hlpj")
 [node name="Start" type="Node2D" parent="." unique_id=1201788971]
 
 [node name="PortalIn" parent="Start" unique_id=1639456268 instance=ExtResource("3_vru0x")]
-position = Vector2(88, 648)
+position = Vector2(90, 657)
 collision_mask = 2
 this_id = "teleport_l4_in"
 destination_id = "teleport_f"
@@ -119,9 +128,8 @@ position = Vector2(616, 652)
 position = Vector2(744, 333)
 
 [node name="EchoZone" parent="S1_TwinGates" unique_id=963310953 instance=ExtResource("8_g1ha7")]
-modulate = Color(1, 1, 1, 0.12)
-position = Vector2(1048, 304)
-scale = Vector2(7.5414014, 5.39759)
+position = Vector2(920, 402)
+scale = Vector2(0.58498925, 0.7493633)
 max_echoes = 2
 activation_range = 600.0
 sample_every_frames = 1
@@ -140,7 +148,6 @@ position = Vector2(1477, 328)
 
 [node name="SpikeCrusher" type="AnimatableBody2D" parent="S1_TwinGates" unique_id=1167550686]
 position = Vector2(1110, 220)
-collision_layer = 0
 collision_mask = 0
 script = ExtResource("11_cmohj")
 move_type = 1
@@ -164,6 +171,9 @@ rotation = 3.1415927
 [node name="Spike3" parent="S1_TwinGates/SpikeCrusher" unique_id=427509439 instance=ExtResource("7_a7qdg")]
 position = Vector2(16, 12)
 rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="S1_TwinGates/SpikeCrusher" unique_id=1969073568]
+shape = SubResource("RectangleShape2D_5oqfd")
 
 [node name="Hint" type="Node2D" parent="S1_TwinGates" unique_id=1100134849]
 position = Vector2(1000, 224)
@@ -199,16 +209,20 @@ position = Vector2(808, 344)
 [node name="Candle2" parent="S1_TwinGates" unique_id=2029334710 instance=ExtResource("6_dp2yl")]
 position = Vector2(1288, 344)
 
+[node name="EchoZone2" parent="S1_TwinGates" unique_id=633578588 instance=ExtResource("8_g1ha7")]
+position = Vector2(1160, 242)
+scale = Vector2(0.58498925, 0.7493633)
+max_echoes = 2
+
 [node name="S2_Relay" type="Node2D" parent="." unique_id=328090489]
 
 [node name="SavePoint" parent="S2_Relay" unique_id=401263780 instance=ExtResource("4_5oqfd")]
 position = Vector2(1560, 333)
 
 [node name="EchoZone" parent="S2_Relay" unique_id=1687610348 instance=ExtResource("8_g1ha7")]
-modulate = Color(1, 1, 1, 0.12)
-position = Vector2(1744, 288)
-scale = Vector2(4.89172, 3.0843372)
-max_echoes = 1
+position = Vector2(1608, 338)
+scale = Vector2(0.58498925, 0.7493633)
+max_echoes = 2
 activation_range = 600.0
 sample_every_frames = 1
 
@@ -226,7 +240,6 @@ position = Vector2(2325, 120)
 
 [node name="SpikeCrusher" type="AnimatableBody2D" parent="S2_Relay" unique_id=890906179]
 position = Vector2(1766, 268)
-collision_layer = 0
 collision_mask = 0
 script = ExtResource("11_cmohj")
 move_type = 1
@@ -250,6 +263,9 @@ rotation = 3.1415927
 [node name="Spike3" parent="S2_Relay/SpikeCrusher" unique_id=1441098314 instance=ExtResource("7_a7qdg")]
 position = Vector2(16, 12)
 rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="S2_Relay/SpikeCrusher" unique_id=1917630925]
+shape = SubResource("RectangleShape2D_8mt0c")
 
 [node name="Spike_130" parent="S2_Relay" unique_id=310566703 instance=ExtResource("7_a7qdg")]
 position = Vector2(2088, 444)
@@ -282,7 +298,7 @@ position = Vector2(2216, 444)
 position = Vector2(2232, 444)
 
 [node name="Elevator1" type="AnimatableBody2D" parent="S2_Relay" unique_id=2006229039]
-position = Vector2(2070, 304)
+position = Vector2(2070, 296)
 script = ExtResource("11_cmohj")
 move_type = 1
 distance = 56.0
@@ -298,12 +314,12 @@ region_rect = Rect2(16, 80, 48, 16)
 shape = SubResource("RectangleShape2D_qhnv2")
 
 [node name="Elevator2" type="AnimatableBody2D" parent="S2_Relay" unique_id=1252736870]
-position = Vector2(2150, 272)
+position = Vector2(2150, 248)
 script = ExtResource("11_cmohj")
 move_type = 1
 distance = 56.0
 speed = 40.0
-wait_time = 0.6
+wait_time = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="S2_Relay/Elevator2" unique_id=957890280]
 texture = ExtResource("12_bv8dl")
@@ -324,8 +340,8 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_8mt0c")
 theme_override_font_sizes/font_size = 12
-text = "One echo. Two gates.
-Time your recording."
+text = "Hold both gates.
+Then ride up."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -336,10 +352,15 @@ offset_right = 160.0
 offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("5_8mt0c")
 theme_override_font_sizes/font_size = 12
-text = "One echo. Two gates.
-Time your recording."
+text = "Hold both gates.
+Then ride up."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EchoZone2" parent="S2_Relay" unique_id=491740821 instance=ExtResource("8_g1ha7")]
+position = Vector2(1896, 338)
+scale = Vector2(0.58498925, 0.7493633)
+max_echoes = 2
 
 [node name="S3_Vault" type="Node2D" parent="." unique_id=319782416]
 
@@ -347,9 +368,8 @@ vertical_alignment = 1
 position = Vector2(2424, 125)
 
 [node name="EchoZone" parent="S3_Vault" unique_id=822040475 instance=ExtResource("8_g1ha7")]
-modulate = Color(1, 1, 1, 0.12)
-position = Vector2(2712, 256)
-scale = Vector2(7.9490447, 9.253012)
+position = Vector2(2472, 434)
+scale = Vector2(0.58498925, 0.7493633)
 max_echoes = 3
 activation_range = 600.0
 sample_every_frames = 1
@@ -389,7 +409,6 @@ position = Vector2(2824, 444)
 
 [node name="SpikeCrusher" type="AnimatableBody2D" parent="S3_Vault" unique_id=1190573919]
 position = Vector2(2694, 360)
-collision_layer = 0
 collision_mask = 0
 script = ExtResource("11_cmohj")
 move_type = 1
@@ -413,6 +432,9 @@ rotation = 3.1415927
 [node name="Spike3" parent="S3_Vault/SpikeCrusher" unique_id=668297078 instance=ExtResource("7_a7qdg")]
 position = Vector2(16, 12)
 rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="S3_Vault/SpikeCrusher" unique_id=426475559]
+shape = SubResource("RectangleShape2D_dp2yl")
 
 [node name="Hint" type="Node2D" parent="S3_Vault" unique_id=767668488]
 position = Vector2(2472, 224)
@@ -469,6 +491,16 @@ text = "Stuck? [F] returns
 to the checkpoint"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EchoZone2" parent="S3_Vault" unique_id=553010089 instance=ExtResource("8_g1ha7")]
+position = Vector2(2616, 274)
+scale = Vector2(0.58498925, 0.7493633)
+max_echoes = 3
+
+[node name="EchoZone3" parent="S3_Vault" unique_id=491735917 instance=ExtResource("8_g1ha7")]
+position = Vector2(2744, 386)
+scale = Vector2(0.58498925, 0.7493633)
+max_echoes = 3
 
 [node name="Exit" type="Node2D" parent="." unique_id=295466403]
 
