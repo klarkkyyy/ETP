@@ -1,0 +1,59 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://spike_trap/spike_trap.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/tileset_dungeon.png" id="2_dungeon"]
+[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Traps/ground_spikes_static.png" id="3_spikes"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]
+size = Vector2(44, 9)
+
+[node name="SpikeTrap" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Chain" type="Line2D" parent="."]
+points = PackedVector2Array(0, 8, 0, 16)
+width = 2.0
+default_color = Color(0.23, 0.2, 0.22, 1)
+
+[node name="Mount" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 8)
+texture = ExtResource("2_dungeon")
+region_enabled = true
+region_rect = Rect2(128, 0, 16, 16)
+
+[node name="Weight" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="Slab" type="Sprite2D" parent="Weight"]
+texture_filter = 1
+texture = ExtResource("2_dungeon")
+region_enabled = true
+region_rect = Rect2(64, 32, 48, 16)
+
+[node name="Spike1" type="Sprite2D" parent="Weight"]
+texture_filter = 1
+position = Vector2(-16, 12)
+rotation = 3.1415927
+texture = ExtResource("3_spikes")
+
+[node name="Spike2" type="Sprite2D" parent="Weight"]
+texture_filter = 1
+position = Vector2(0, 12)
+rotation = 3.1415927
+texture = ExtResource("3_spikes")
+
+[node name="Spike3" type="Sprite2D" parent="Weight"]
+texture_filter = 1
+position = Vector2(16, 12)
+rotation = 3.1415927
+texture = ExtResource("3_spikes")
+
+[node name="Hitbox" type="Area2D" parent="Weight"]
+collision_layer = 0
+collision_mask = 18
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weight/Hitbox"]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_hit")

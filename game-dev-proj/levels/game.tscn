@@ -202,6 +202,7 @@
 [ext_resource type="Script" uid="uid://dglq3743c0u6n" path="res://scripts/echo_flash.gd" id="199_tpkc6"]
 [ext_resource type="PackedScene" uid="uid://6pj75ribi2aq" path="res://scenes/echo_2.tscn" id="200_n4lpa"]
 [ext_resource type="PackedScene" uid="uid://b8jxsb6s564me" path="res://levels/level_4.tscn" id="201_lvl4"]
+[ext_resource type="PackedScene" path="res://levels/level_5.tscn" id="202_lvl5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5qob"]
 atlas = ExtResource("3_46f1x")
@@ -25331,7 +25332,7 @@ autoplay = "default"
 [node name="Portal" parent="level 1/roomSections/room3" unique_id=1639456268 instance=ExtResource("153_gx38i")]
 position = Vector2(3465, -747)
 this_id = "teleport_g"
-destination_id = "teleport_l4_out"
+destination_id = "teleport_l5_out"
 sets_checkpoint = true
 
 [node name="echoStand2" type="Area2D" parent="level 1/roomSections/room3" unique_id=1484640648]
@@ -27085,6 +27086,9 @@ scale = Vector2(1.1812389, 1)
 
 [node name="Level_4" parent="." unique_id=1440740404 instance=ExtResource("201_lvl4")]
 position = Vector2(800, -3232)
+
+[node name="Level_5" parent="." unique_id=1440740405 instance=ExtResource("202_lvl5")]
+position = Vector2(4400, -3232)
 
 [connection signal="body_entered" from="start/TitleTrigger" to="start/TitleTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="start/TitleTrigger" to="start/CanvasLayer2" method="_on_title_trigger_body_entered"]

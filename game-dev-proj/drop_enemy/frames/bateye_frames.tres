@@ -1,0 +1,128 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/going right animations/bateye_attacking_loop_right_anim.png" id="1_potpc"]
+[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/death animation/bateye_death_anim.png" id="1_yajja"]
+[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/going right animations/bateye_run_right_anim.png" id="2_potpc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5427p"]
+atlas = ExtResource("1_potpc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56snk"]
+atlas = ExtResource("1_potpc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it0h0"]
+atlas = ExtResource("1_potpc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc635"]
+atlas = ExtResource("1_potpc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i5ry"]
+atlas = ExtResource("1_yajja")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cni1f"]
+atlas = ExtResource("1_yajja")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsowj"]
+atlas = ExtResource("1_yajja")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h4lo"]
+atlas = ExtResource("1_yajja")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu587"]
+atlas = ExtResource("1_yajja")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2pdn"]
+atlas = ExtResource("1_yajja")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmwtx"]
+atlas = ExtResource("2_potpc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gypp0"]
+atlas = ExtResource("2_potpc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyo7l"]
+atlas = ExtResource("2_potpc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q22sp"]
+atlas = ExtResource("2_potpc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebe3s"]
+atlas = ExtResource("2_potpc")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5427p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56snk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it0h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc635")
+}],
+"loop": 1,
+"name": &"chase",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i5ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cni1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsowj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h4lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xu587")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2pdn")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmwtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gypp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyo7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q22sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebe3s")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 10.0
+}]
