@@ -7,6 +7,7 @@ extends Area2D
 @export var this_id: String = "teleport_a"
 @export var destination_id: String = "teleport_b"
 @export var is_locked: bool = false  # lock until puzzle is solved etc.
+@export var sets_checkpoint: bool = false  # arriving here makes it the respawn point
 
 signal teleport_used(destination_id: String, player: Node)
 
@@ -41,6 +42,8 @@ func receive_player(player: Node) -> void:
 	# Called by the origin teleport to place the player here
 	if player:
 		player.global_position = global_position
+		if sets_checkpoint:
+			GameManager.set_checkpoint(global_position)
 		print("Player arrived at: ", this_id)
 
 func _get_player() -> Node:
