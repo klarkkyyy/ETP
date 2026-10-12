@@ -155,3 +155,50 @@
 <img width="1152" height="648" alt="Level 4 - The Twin Gates" src="docs/level_4/twin_gates.png" />
 <img width="1152" height="648" alt="Level 4 - The Relay" src="docs/level_4/relay.png" />
 <img width="1152" height="648" alt="Level 4 - The Vault" src="docs/level_4/vault.png" />
+
+===========================================================================================
+<h2 align = "center"> 10/13/2026 </h2>
+===========================================================================================
+<h3 align = "center">Level 5: The Undercroft</h3>
+
+- "update: added level 5, routed level 4 -> level 5 -> boss"
+- Enemies that nothing can hurt except falling spikes: lure them under ceiling spike traps and drop the spikes from a pressure pad
+- Four sections:
+  - **First Drop**: time a spike drop onto a patrolling rat
+  - **Under the Spikes**: the button sits under the trap, so an echo has to press it
+  - **The Belfry**: stepping stones over a spike pit with two traps and flying Bateyes
+  - **Twin Weights**: one trap, two buttons; an echo holds one while you press the other
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 5 - First Drop" src="docs/level_5/first_drop.png" />
+<img width="1152" height="648" alt="Level 5 - Under the Spikes" src="docs/level_5/under_the_spikes.png" />
+<img width="1152" height="648" alt="Level 5 - The Belfry" src="docs/level_5/belfry.png" />
+<img width="1152" height="648" alt="Level 5 - Twin Weights" src="docs/level_5/twin_weights.png" />
+
+<h3 align = "center">Level 6: The Gauntlet</h3>
+
+- "update: added level 6 after the first boss, new trap set, decorated levels 2-6"
+- Beating the boss opens a portal in the arena that leads to Level 6
+- A longer, harder level in the boss-room tileset, with new traps: rotating/swinging blades, rolling floor spikes, slab crushers, spear launchers and timed trapdoors
+- Seven sections:
+  - **Pendulum Hall**: swinging axes and a twin-blade wheel over spike pits
+  - **Spike Tide**: a wave of floor spikes rolls across the room; the safe islands are in the spear launcher's line of fire
+  - **Echo Relay**: three gates that stay open only while their pads are held; all three echoes needed
+  - **Crusher Row**: six slabs slam down in a staggered wave
+  - **The Climb**: a double-jump shaft with spinning blades and spears aimed at the ledges
+  - **Slaughter Pit**: drop spike traps on the pit's enemies, one of them with an echo's help
+  - **Final Gauntlet**: a blade-lined drop, timed trapdoors, moving platforms under axes and a two-echo door
+- Background decor (banners, chains, paintings, shields, sconces, furniture) added to Levels 2, 3, 4 and 6
+- Run a level scene on its own (F6) to start the game at that level (Levels 3-6)
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 6 - Start" src="docs/level_6/start.png" />
+<img width="1152" height="648" alt="Level 6 - Pendulum Hall" src="docs/level_6/pendulum_hall.png" />
+<img width="1152" height="648" alt="Level 6 - Spike Tide" src="docs/level_6/spike_tide.png" />
+<img width="1152" height="648" alt="Level 6 - Echo Relay" src="docs/level_6/echo_relay.png" />
+<img width="1152" height="648" alt="Level 6 - Crusher Row" src="docs/level_6/crusher_row.png" />
+<img width="1152" height="648" alt="Level 6 - The Climb" src="docs/level_6/the_climb.png" />
+<img width="1152" height="648" alt="Level 6 - Slaughter Pit" src="docs/level_6/slaughter_pit.png" />
+<img width="1152" height="648" alt="Level 6 - Final Gauntlet" src="docs/level_6/final_gauntlet.png" />

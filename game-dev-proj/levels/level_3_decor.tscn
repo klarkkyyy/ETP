@@ -1,0 +1,599 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/3candle_light.tscn" id="1_evavh"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="2_cri28"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_red_tapestry_static.png" id="3_rrulr"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_01_static.png" id="4_lcjny"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/red_static_drapery.png" id="5_jgqoc"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/blue_static_tapestry.png" id="6_y1vlq"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_00.png" id="7_ml3hw"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_00_static.png" id="8_d6500"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_01.png" id="9_asrkm"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_painting_00.png" id="10_q31n0"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_01_static.png" id="11_ljaxm"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/alchemy_room_tileset.png" id="12_gc6cj"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_00.png" id="13_a67fu"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/skulls_00_static.png" id="14_hesxd"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/armor_stand_static.png" id="15_jjy3b"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/table_and_chair_static.png" id="16_knbii"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/weapon_rack_00.png" id="17_3slqq"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_01.png" id="18_l6kkl"]
+
+[node name="Level3Decor" type="Node2D" unique_id=1171635479]
+
+[node name="Sconce_96_5" parent="." unique_id=1411518172 instance=ExtResource("1_evavh")]
+position = Vector2(1544, 40)
+
+[node name="Sconce_109_5" parent="." unique_id=1365821003 instance=ExtResource("1_evavh")]
+position = Vector2(1752, 40)
+
+[node name="Sconce_119_5" parent="." unique_id=1523853361 instance=ExtResource("1_evavh")]
+position = Vector2(1912, 40)
+
+[node name="Sconce_130_5" parent="." unique_id=2139022908 instance=ExtResource("1_evavh")]
+position = Vector2(2088, 40)
+
+[node name="Sconce_135_5" parent="." unique_id=1516741014 instance=ExtResource("1_evavh")]
+position = Vector2(2168, 40)
+
+[node name="Sconce_151_5" parent="." unique_id=1008871424 instance=ExtResource("1_evavh")]
+position = Vector2(2424, 40)
+
+[node name="Sconce_25_8" parent="." unique_id=1786634709 instance=ExtResource("1_evavh")]
+position = Vector2(408, 88)
+
+[node name="Sconce_36_8" parent="." unique_id=58662092 instance=ExtResource("1_evavh")]
+position = Vector2(584, 88)
+
+[node name="Sconce_45_8" parent="." unique_id=1478585166 instance=ExtResource("1_evavh")]
+position = Vector2(728, 88)
+
+[node name="Sconce_58_8" parent="." unique_id=1746084814 instance=ExtResource("1_evavh")]
+position = Vector2(936, 88)
+
+[node name="Sconce_67_8" parent="." unique_id=2136150446 instance=ExtResource("1_evavh")]
+position = Vector2(1080, 88)
+
+[node name="Hang_96_-10" type="Sprite2D" parent="." unique_id=689880406]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1544, -144)
+texture = ExtResource("2_cri28")
+
+[node name="Hang_103_-10" type="Sprite2D" parent="." unique_id=545212848]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1656, -144)
+texture = ExtResource("3_rrulr")
+
+[node name="Hang_3_-5" type="Sprite2D" parent="." unique_id=237502308]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(56, -72)
+texture = ExtResource("4_lcjny")
+
+[node name="Hang_12_-5" type="Sprite2D" parent="." unique_id=985119163]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(200, -64)
+texture = ExtResource("5_jgqoc")
+
+[node name="Hang_19_-5" type="Sprite2D" parent="." unique_id=1449448678]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(312, -64)
+texture = ExtResource("6_y1vlq")
+
+[node name="Hang_27_-5" type="Sprite2D" parent="." unique_id=1491464684]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(440, -64)
+texture = ExtResource("2_cri28")
+
+[node name="Hang_34_-5" type="Sprite2D" parent="." unique_id=523333459]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(552, -64)
+texture = ExtResource("3_rrulr")
+
+[node name="Hang_39_-5" type="Sprite2D" parent="." unique_id=1296594989]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(632, -72)
+texture = ExtResource("4_lcjny")
+
+[node name="Hang_48_-5" type="Sprite2D" parent="." unique_id=657933804]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(776, -64)
+texture = ExtResource("5_jgqoc")
+
+[node name="Hang_56_-5" type="Sprite2D" parent="." unique_id=471299839]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(904, -64)
+texture = ExtResource("6_y1vlq")
+
+[node name="Hang_65_-5" type="Sprite2D" parent="." unique_id=1226583211]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1048, -64)
+texture = ExtResource("2_cri28")
+
+[node name="Hang_72_-5" type="Sprite2D" parent="." unique_id=1334187306]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1160, -64)
+texture = ExtResource("3_rrulr")
+
+[node name="WallArt_97_5" type="Sprite2D" parent="." unique_id=2101430294]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1560, 16)
+texture = ExtResource("7_ml3hw")
+
+[node name="WallArt_108_5" type="Sprite2D" parent="." unique_id=1872031035]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1736, 16)
+texture = ExtResource("8_d6500")
+
+[node name="WallArt_118_5" type="Sprite2D" parent="." unique_id=575737392]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1896, 16)
+texture = ExtResource("9_asrkm")
+
+[node name="WallArt_26_8" type="Sprite2D" parent="." unique_id=605502964]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(424, 64)
+texture = ExtResource("10_q31n0")
+
+[node name="WallArt_40_8" type="Sprite2D" parent="." unique_id=537490592]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(648, 64)
+texture = ExtResource("11_ljaxm")
+
+[node name="WallArt_53_8" type="Sprite2D" parent="." unique_id=1427187289]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(856, 64)
+texture = ExtResource("7_ml3hw")
+
+[node name="WallArt_65_8" type="Sprite2D" parent="." unique_id=15515536]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1048, 64)
+texture = ExtResource("8_d6500")
+
+[node name="Rug_110_5" type="Sprite2D" parent="." unique_id=414149523]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1760, 93)
+texture = ExtResource("12_gc6cj")
+region_enabled = true
+region_rect = Rect2(80, 128, 64, 6)
+
+[node name="Rug_143_5" type="Sprite2D" parent="." unique_id=1065222914]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2288, 93)
+texture = ExtResource("12_gc6cj")
+region_enabled = true
+region_rect = Rect2(80, 128, 64, 6)
+
+[node name="Rug_45_8" type="Sprite2D" parent="." unique_id=2141804203]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(720, 141)
+texture = ExtResource("12_gc6cj")
+region_enabled = true
+region_rect = Rect2(80, 128, 64, 6)
+
+[node name="Rug_194_8" type="Sprite2D" parent="." unique_id=1688682880]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3104, 141)
+texture = ExtResource("12_gc6cj")
+region_enabled = true
+region_rect = Rect2(80, 128, 64, 6)
+
+[node name="Rug_157_14" type="Sprite2D" parent="." unique_id=848723133]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2512, 237)
+texture = ExtResource("12_gc6cj")
+region_enabled = true
+region_rect = Rect2(80, 128, 64, 6)
+
+[node name="Prop_196_4" type="Sprite2D" parent="." unique_id=722379923]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3144, 72)
+texture = ExtResource("13_a67fu")
+
+[node name="Prop_96_5" type="Sprite2D" parent="." unique_id=496979145]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1544, 92)
+texture = ExtResource("14_hesxd")
+flip_h = true
+
+[node name="Prop_100_5" type="Sprite2D" parent="." unique_id=731013632]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1608, 80)
+texture = ExtResource("15_jjy3b")
+
+[node name="Prop_104_5" type="Sprite2D" parent="." unique_id=553187844]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1672, 92)
+texture = ExtResource("16_knbii")
+
+[node name="Prop_112_5" type="Sprite2D" parent="." unique_id=589008580]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1800, 88)
+texture = ExtResource("17_3slqq")
+flip_h = true
+
+[node name="Prop_116_5" type="Sprite2D" parent="." unique_id=2100974225]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1864, 88)
+texture = ExtResource("18_l6kkl")
+
+[node name="Prop_121_5" type="Sprite2D" parent="." unique_id=81837872]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1944, 88)
+texture = ExtResource("13_a67fu")
+
+[node name="Prop_135_5" type="Sprite2D" parent="." unique_id=1282992689]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2168, 92)
+texture = ExtResource("14_hesxd")
+flip_h = true
+
+[node name="Prop_139_5" type="Sprite2D" parent="." unique_id=2066255850]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2232, 80)
+texture = ExtResource("15_jjy3b")
+
+[node name="Prop_147_5" type="Sprite2D" parent="." unique_id=389039868]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2360, 92)
+texture = ExtResource("16_knbii")
+flip_h = true
+
+[node name="Prop_17_8" type="Sprite2D" parent="." unique_id=1246928531]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(280, 136)
+texture = ExtResource("17_3slqq")
+flip_h = true
+
+[node name="Prop_21_8" type="Sprite2D" parent="." unique_id=755424311]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(344, 136)
+texture = ExtResource("18_l6kkl")
+
+[node name="Prop_30_8" type="Sprite2D" parent="." unique_id=804416450]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(488, 136)
+texture = ExtResource("13_a67fu")
+flip_h = true
+
+[node name="Prop_37_8" type="Sprite2D" parent="." unique_id=716175890]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(600, 140)
+texture = ExtResource("14_hesxd")
+flip_h = true
+
+[node name="Prop_42_8" type="Sprite2D" parent="." unique_id=1187710310]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(680, 128)
+texture = ExtResource("15_jjy3b")
+
+[node name="Prop_48_8" type="Sprite2D" parent="." unique_id=1140804231]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(776, 140)
+texture = ExtResource("16_knbii")
+flip_h = true
+
+[node name="Prop_56_8" type="Sprite2D" parent="." unique_id=1823264699]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(904, 136)
+texture = ExtResource("17_3slqq")
+
+[node name="Prop_60_8" type="Sprite2D" parent="." unique_id=1598961524]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(968, 136)
+texture = ExtResource("18_l6kkl")
+
+[node name="Prop_71_8" type="Sprite2D" parent="." unique_id=1670334839]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1144, 136)
+texture = ExtResource("13_a67fu")
+flip_h = true
+
+[node name="Prop_126_14" type="Sprite2D" parent="." unique_id=252041354]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2024, 236)
+texture = ExtResource("14_hesxd")
+
+[node name="WallArt_210_-9" type="Sprite2D" parent="." unique_id=1175841325]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3368, -136)
+texture = ExtResource("9_asrkm")
+
+[node name="WallSconce_220_-9" parent="." unique_id=1348225575 instance=ExtResource("1_evavh")]
+position = Vector2(3528, -136)
+
+[node name="WallArt_105_-4" type="Sprite2D" parent="." unique_id=334418529]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1688, -56)
+texture = ExtResource("10_q31n0")
+
+[node name="WallSconce_135_-4" parent="." unique_id=758693828 instance=ExtResource("1_evavh")]
+position = Vector2(2168, -56)
+
+[node name="WallArt_205_-4" type="Sprite2D" parent="." unique_id=1556994611]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3288, -56)
+texture = ExtResource("11_ljaxm")
+
+[node name="WallSconce_215_-4" parent="." unique_id=246748381 instance=ExtResource("1_evavh")]
+position = Vector2(3448, -56)
+
+[node name="WallArt_225_-4" type="Sprite2D" parent="." unique_id=2056750610]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3608, -56)
+texture = ExtResource("7_ml3hw")
+
+[node name="WallArt_30_1" type="Sprite2D" parent="." unique_id=805834859]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(488, 24)
+texture = ExtResource("8_d6500")
+
+[node name="WallSconce_60_1" parent="." unique_id=320125486 instance=ExtResource("1_evavh")]
+position = Vector2(968, 24)
+
+[node name="WallSconce_100_1" parent="." unique_id=670120071 instance=ExtResource("1_evavh")]
+position = Vector2(1608, 24)
+
+[node name="WallArt_130_1" type="Sprite2D" parent="." unique_id=458420538]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2088, 24)
+texture = ExtResource("9_asrkm")
+
+[node name="WallArt_210_1" type="Sprite2D" parent="." unique_id=672676392]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3368, 24)
+texture = ExtResource("10_q31n0")
+
+[node name="WallSconce_220_1" parent="." unique_id=275871535 instance=ExtResource("1_evavh")]
+position = Vector2(3528, 24)
+
+[node name="WallArt_205_6" type="Sprite2D" parent="." unique_id=1556714841]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3288, 104)
+texture = ExtResource("11_ljaxm")
+
+[node name="WallSconce_215_6" parent="." unique_id=340888490 instance=ExtResource("1_evavh")]
+position = Vector2(3448, 104)
+
+[node name="WallArt_225_6" type="Sprite2D" parent="." unique_id=1839384441]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3608, 104)
+texture = ExtResource("7_ml3hw")
+
+[node name="WallArt_210_11" type="Sprite2D" parent="." unique_id=1606425280]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3368, 184)
+texture = ExtResource("8_d6500")
+
+[node name="WallSconce_220_11" parent="." unique_id=435463196 instance=ExtResource("1_evavh")]
+position = Vector2(3528, 184)
+
+[node name="WallArt_205_16" type="Sprite2D" parent="." unique_id=1585663569]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3288, 264)
+texture = ExtResource("9_asrkm")
+
+[node name="WallSconce_215_16" parent="." unique_id=254061157 instance=ExtResource("1_evavh")]
+position = Vector2(3448, 264)
+
+[node name="WallArt_225_16" type="Sprite2D" parent="." unique_id=1974323933]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3608, 264)
+texture = ExtResource("10_q31n0")
+
+[node name="FillArt_157_21" type="Sprite2D" parent="." unique_id=1425101098]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2520, 344)
+texture = ExtResource("7_ml3hw")
+
+[node name="FillArt_74_1" type="Sprite2D" parent="." unique_id=1157740741]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1192, 24)
+texture = ExtResource("8_d6500")
+
+[node name="FillArt_123_-6" type="Sprite2D" parent="." unique_id=1006899290]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1976, -88)
+texture = ExtResource("9_asrkm")
+
+[node name="FillArt_110_21" type="Sprite2D" parent="." unique_id=305402014]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1768, 344)
+texture = ExtResource("10_q31n0")
+
+[node name="FillArt_119_21" type="Sprite2D" parent="." unique_id=1414242565]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1912, 344)
+texture = ExtResource("11_ljaxm")
+
+[node name="FillArt_180_21" type="Sprite2D" parent="." unique_id=15759106]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2888, 344)
+texture = ExtResource("7_ml3hw")
+
+[node name="FillArt_140_21" type="Sprite2D" parent="." unique_id=2086358607]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2248, 344)
+texture = ExtResource("8_d6500")
+
+[node name="FillArt_100_21" type="Sprite2D" parent="." unique_id=1577886793]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1608, 344)
+texture = ExtResource("9_asrkm")
+
+[node name="FillArt_131_-8" type="Sprite2D" parent="." unique_id=390202367]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2104, -120)
+texture = ExtResource("10_q31n0")
+
+[node name="FillArt_171_21" type="Sprite2D" parent="." unique_id=881887961]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2744, 344)
+texture = ExtResource("11_ljaxm")
+
+[node name="FillArt_202_11" type="Sprite2D" parent="." unique_id=1753745309]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3240, 184)
+texture = ExtResource("7_ml3hw")
+
+[node name="FillArt_210_21" type="Sprite2D" parent="." unique_id=396379379]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3368, 344)
+texture = ExtResource("8_d6500")
+
+[node name="FillArt_229_10" type="Sprite2D" parent="." unique_id=1875349099]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3672, 168)
+texture = ExtResource("9_asrkm")
+
+[node name="FillArt_203_-10" type="Sprite2D" parent="." unique_id=1304829321]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3256, -152)
+texture = ExtResource("10_q31n0")
+
+[node name="FillArt_149_21" type="Sprite2D" parent="." unique_id=206159470]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2392, 344)
+texture = ExtResource("11_ljaxm")
+
+[node name="FillArt_229_-8" type="Sprite2D" parent="." unique_id=1402786369]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3672, -120)
+texture = ExtResource("7_ml3hw")
+
+[node name="FillArt_196_21" type="Sprite2D" parent="." unique_id=1224296312]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3144, 344)
+texture = ExtResource("8_d6500")
+
+[node name="FillArt_176_12" type="Sprite2D" parent="." unique_id=1534210162]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2824, 200)
+texture = ExtResource("9_asrkm")
+
+[node name="FillArt_229_2" type="Sprite2D" parent="." unique_id=1582933083]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3672, 40)
+texture = ExtResource("10_q31n0")
+
+[node name="FillArt_130_21" type="Sprite2D" parent="." unique_id=1751192199]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(2088, 344)
+texture = ExtResource("11_ljaxm")
+
+[node name="FillArt_117_-5" type="Sprite2D" parent="." unique_id=609898243]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1880, -72)
+texture = ExtResource("7_ml3hw")
+
+[node name="FillArt_220_20" type="Sprite2D" parent="." unique_id=26543405]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3528, 328)
+texture = ExtResource("8_d6500")
+
+[node name="FillArt_94_21" type="Sprite2D" parent="." unique_id=1638979920]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(1512, 344)
+texture = ExtResource("9_asrkm")
+
+[node name="FillArt_190_21" type="Sprite2D" parent="." unique_id=384454581]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3048, 344)
+texture = ExtResource("10_q31n0")
+
+[node name="FillArt_202_21" type="Sprite2D" parent="." unique_id=959073356]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3240, 344)
+texture = ExtResource("11_ljaxm")
+
+[node name="FillArt_229_21" type="Sprite2D" parent="." unique_id=1319039778]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3672, 344)
+texture = ExtResource("7_ml3hw")
+
+[node name="FillArt_202_1" type="Sprite2D" parent="." unique_id=725376273]
+modulate = Color(0.7, 0.7, 0.78, 1)
+texture_filter = 1
+position = Vector2(3240, 24)
+texture = ExtResource("8_d6500")

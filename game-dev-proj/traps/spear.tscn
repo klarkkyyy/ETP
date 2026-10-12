@@ -1,0 +1,71 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://traps/spear.gd" id="1_7hk8q"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/traps/spear_right_anim.png" id="2_6egp8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cuqp"]
+atlas = ExtResource("2_6egp8")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4mlc"]
+atlas = ExtResource("2_6egp8")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4vxj"]
+atlas = ExtResource("2_6egp8")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhpib"]
+atlas = ExtResource("2_6egp8")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfq6y"]
+atlas = ExtResource("2_6egp8")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2wti"]
+atlas = ExtResource("2_6egp8")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8uts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cuqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4mlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4vxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhpib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfq6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2wti")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kq23"]
+size = Vector2(8, 4)
+
+[node name="Spear" type="Area2D" unique_id=702273484]
+collision_layer = 0
+collision_mask = 3
+monitorable = false
+script = ExtResource("1_7hk8q")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=525163523]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_x8uts")
+animation = &"fly"
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1735491970]
+shape = SubResource("RectangleShape2D_0kq23")

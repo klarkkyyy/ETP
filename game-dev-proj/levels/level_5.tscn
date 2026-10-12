@@ -1,41 +1,44 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://xslbuf06tr2u"]
 
-[ext_resource type="TileSet" path="res://levels/level_5_tileset.tres" id="1_hv08k"]
-[ext_resource type="Script" path="res://scripts/camera_follow_zone.gd" id="2_p0827"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_01.png" id="3_8wqug"]
-[ext_resource type="PackedScene" path="res://Level_3/real_Level_3/Scenes/portal.tscn" id="3_brp6y"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/armor_stand_static.png" id="4_1a4ff"]
-[ext_resource type="PackedScene" path="res://scenes/save_point .tscn" id="4_mgx0j"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/brown_fallen_chair.png" id="5_5fr5s"]
-[ext_resource type="FontFile" path="res://assets/fonts/BoldPixels.ttf" id="5_k3t65"]
-[ext_resource type="PackedScene" path="res://scenes/candle_light.tscn" id="6_bon8i"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="6_ddx28"]
-[ext_resource type="PackedScene" path="res://pressure_pad/pressure_pad.tscn" id="7_av2kh"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_00_static.png" id="7_ddx28"]
-[ext_resource type="PackedScene" path="res://scenes/3candle_light.tscn" id="8_00dlp"]
+[ext_resource type="Script" uid="uid://crby7l8sjefqr" path="res://scripts/level_standalone.gd" id="1_ddx28"]
+[ext_resource type="TileSet" uid="uid://b0gh3qfmw40c6" path="res://levels/level_5_tileset.tres" id="1_hv08k"]
+[ext_resource type="Script" uid="uid://bmvk46guvchkp" path="res://scripts/camera_follow_zone.gd" id="2_p0827"]
+[ext_resource type="Texture2D" uid="uid://ws42cpu4n3uc" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_01.png" id="3_8wqug"]
+[ext_resource type="PackedScene" uid="uid://bbwmf64bqm4g4" path="res://Level_3/real_Level_3/Scenes/portal.tscn" id="3_brp6y"]
+[ext_resource type="Texture2D" uid="uid://ddlndpybr76u3" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/armor_stand_static.png" id="4_1a4ff"]
+[ext_resource type="PackedScene" uid="uid://b6av733605oy1" path="res://scenes/save_point .tscn" id="4_mgx0j"]
+[ext_resource type="Texture2D" uid="uid://3tb7b16s461o" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/brown_fallen_chair.png" id="5_5fr5s"]
+[ext_resource type="FontFile" uid="uid://cas05dooal7th" path="res://assets/fonts/BoldPixels.ttf" id="5_k3t65"]
+[ext_resource type="PackedScene" uid="uid://c0evu2thl5ney" path="res://scenes/candle_light.tscn" id="6_bon8i"]
+[ext_resource type="Texture2D" uid="uid://dhk56q0n8k0wk" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="6_ddx28"]
+[ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="7_av2kh"]
+[ext_resource type="Texture2D" uid="uid://dtjaomp2paubi" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_00_static.png" id="7_ddx28"]
+[ext_resource type="PackedScene" uid="uid://d2bxq7a1oo3ln" path="res://scenes/3candle_light.tscn" id="8_00dlp"]
 [ext_resource type="PackedScene" path="res://spike_trap/spike_trap.tscn" id="8_mmy2b"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_red_tapestry_static.png" id="8_pqyxy"]
+[ext_resource type="Texture2D" uid="uid://bcqmh4d3q16jd" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_red_tapestry_static.png" id="8_pqyxy"]
 [ext_resource type="PackedScene" path="res://drop_enemy/ratto.tscn" id="9_cekp2"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_00.png" id="9_yf8q3"]
-[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="10_mlk23"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/red_static_drapery.png" id="10_pqyxy"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/skulls_00_static.png" id="10_yes0v"]
-[ext_resource type="Script" path="res://drop_enemy/enemy_clear_trigger.gd" id="11_b36k0"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_01_static.png" id="11_yf8q3"]
-[ext_resource type="PackedScene" path="res://echo_zone/echo_zone.tscn" id="12_aacai"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_01.png" id="12_vqvhr"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/blue_static_tapestry.png" id="13_n48b1"]
+[ext_resource type="Texture2D" uid="uid://c4a1owjqlmw8" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_00.png" id="9_yf8q3"]
+[ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="10_mlk23"]
+[ext_resource type="Texture2D" uid="uid://dww434uva5a2c" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/red_static_drapery.png" id="10_pqyxy"]
+[ext_resource type="Texture2D" uid="uid://dp4xkr2t3x75c" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/skulls_00_static.png" id="10_yes0v"]
+[ext_resource type="Script" uid="uid://u36gdo7v1evn" path="res://drop_enemy/enemy_clear_trigger.gd" id="11_b36k0"]
+[ext_resource type="Texture2D" uid="uid://bb6v7kivmywo7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_01_static.png" id="11_yf8q3"]
+[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="12_aacai"]
+[ext_resource type="Texture2D" uid="uid://b8p3ohd2mybp3" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_01.png" id="12_vqvhr"]
+[ext_resource type="Texture2D" uid="uid://dcyuv0w8tsob6" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/blue_static_tapestry.png" id="13_n48b1"]
 [ext_resource type="PackedScene" path="res://drop_enemy/spike_slug.tscn" id="13_pggb5"]
-[ext_resource type="PackedScene" path="res://scenes/spike.tscn" id="14_idjb0"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_02.png" id="14_l2jsg"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/white_static_drapery.png" id="14_yes0v"]
+[ext_resource type="PackedScene" uid="uid://bmx0casu34uy8" path="res://scenes/spike.tscn" id="14_idjb0"]
+[ext_resource type="Texture2D" uid="uid://c5t0crhil5qgk" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_02.png" id="14_l2jsg"]
+[ext_resource type="Texture2D" uid="uid://civ04p6ifaccw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/white_static_drapery.png" id="14_yes0v"]
 [ext_resource type="PackedScene" path="res://drop_enemy/bateye.tscn" id="15_8wqug"]
-[ext_resource type="Script" path="res://spike_trap/all_pads_trigger.gd" id="16_00dlp"]
+[ext_resource type="Script" uid="uid://bmxa30lbw0ysj" path="res://spike_trap/all_pads_trigger.gd" id="16_00dlp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fr5s"]
 size = Vector2(3040, 768)
 
 [node name="Level_5" type="Node2D" unique_id=103028475]
+script = ExtResource("1_ddx28")
+start = NodePath("Start/PortalIn")
 
 [node name="Backdrop" type="TileMapLayer" parent="." unique_id=636674698]
 z_index = -99
@@ -77,9 +80,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "LEVEL 5
 The Undercroft"
 horizontal_alignment = 1
@@ -136,9 +139,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Nothing can hurt them.
 Except falling spikes."
 horizontal_alignment = 1
@@ -164,9 +167,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Drop them just before
 it walks underneath"
 horizontal_alignment = 1
@@ -228,9 +231,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "This button is under the spikes.
 Let an echo press it."
 horizontal_alignment = 1
@@ -256,9 +259,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "[1] record, step on,
 step back, [1] stop"
 horizontal_alignment = 1
@@ -388,9 +391,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Spikes fall through
 anything below them."
 horizontal_alignment = 1
@@ -462,9 +465,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Two buttons, one drop.
 Both must be held at once."
 horizontal_alignment = 1
@@ -490,9 +493,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Echo on the left: [1], wait, [1]
 then press the right one"
 horizontal_alignment = 1
@@ -532,9 +535,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "[E] Face the boss"
 horizontal_alignment = 1
 vertical_alignment = 1

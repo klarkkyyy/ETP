@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://traps/blade_trap.gd" id="1_c5xhb"]
+[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Usable Items/shuriken_powerup_throwed.png" id="2_l0cfn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fpna"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cskk"]
+atlas = ExtResource("2_l0cfn")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd3vm"]
+atlas = ExtResource("2_l0cfn")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2emgc"]
+atlas = ExtResource("2_l0cfn")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_807m7"]
+atlas = ExtResource("2_l0cfn")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7t4v"]
+atlas = ExtResource("2_l0cfn")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4adq"]
+atlas = ExtResource("2_l0cfn")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vxgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cskk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd3vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2emgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_807m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7t4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4adq")
+}],
+"loop": 1,
+"name": &"spin",
+"speed": 18.0
+}]
+
+[node name="BladeTrap" type="Node2D" unique_id=587890850]
+script = ExtResource("1_c5xhb")
+
+[node name="Rod" type="Line2D" parent="." unique_id=97768804]
+width = 3.0
+default_color = Color(0.5, 0.47, 0.56, 1)
+
+[node name="Chain" type="Line2D" parent="." unique_id=1511928102]
+points = PackedVector2Array(0, 0, 0, 48)
+width = 2.0
+default_color = Color(0.45, 0.42, 0.5, 1)
+
+[node name="Hub" type="Polygon2D" parent="." unique_id=191708031]
+color = Color(0.3, 0.27, 0.36, 1)
+polygon = PackedVector2Array(5, 0, 3.535534, 3.535534, -2.1855695e-07, 5, -3.535534, 3.535534, -5, -4.371139e-07, -3.5355341, -3.5355334, 5.9624405e-08, -5, 3.5355332, -3.5355344)
+
+[node name="Blade" type="Area2D" parent="." unique_id=1336759025]
+position = Vector2(0, 48)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="Blade" unique_id=1240409323]
+shape = SubResource("CircleShape2D_8fpna")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Blade" unique_id=1066491423]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7vxgs")
+animation = &"spin"

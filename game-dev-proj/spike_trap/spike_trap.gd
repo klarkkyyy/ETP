@@ -55,6 +55,8 @@ func _tip_offset() -> float:
 
 func _find_floor() -> void:
 	await get_tree().physics_frame
+	if not is_inside_tree():
+		return   # removed meanwhile (e.g. a level run on its own swapping to the game)
 	var tip := weight.global_position + Vector2(0, _tip_offset())
 	var query := PhysicsRayQueryParameters2D.create(tip, tip + Vector2(0, 2000), 1)
 	var hit := get_world_2d().direct_space_state.intersect_ray(query)
