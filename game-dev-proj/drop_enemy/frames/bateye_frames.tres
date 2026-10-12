@@ -1,8 +1,8 @@
-[gd_resource type="SpriteFrames" format=3]
+[gd_resource type="SpriteFrames" format=3 uid="uid://2fu5p8s3rlx7"]
 
-[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/going right animations/bateye_attacking_loop_right_anim.png" id="1_potpc"]
-[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/death animation/bateye_death_anim.png" id="1_yajja"]
-[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/going right animations/bateye_run_right_anim.png" id="2_potpc"]
+[ext_resource type="Texture2D" uid="uid://crojcds6ip0k5" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/going right animations/bateye_attacking_loop_right_anim.png" id="1_potpc"]
+[ext_resource type="Texture2D" uid="uid://cppw601fepj4t" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/death animation/bateye_death_anim.png" id="1_yajja"]
+[ext_resource type="Texture2D" uid="uid://cyrrelspsvm8b" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Bateye/going right animations/bateye_run_right_anim.png" id="2_potpc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5427p"]
 atlas = ExtResource("1_potpc")

@@ -1,7 +1,7 @@
-[gd_resource type="TileSet" format=3]
+[gd_resource type="TileSet" format=3 uid="uid://b0gh3qfmw40c6"]
 
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/bg_00_dungeon.png" id="1_mb3hq"]
-[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/tileset_dungeon.png" id="2_ebufk"]
+[ext_resource type="Texture2D" uid="uid://bqql24qi0v6i7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/bg_00_dungeon.png" id="1_mb3hq"]
+[ext_resource type="Texture2D" uid="uid://v4bg5ry3ctnd" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/tileset_dungeon.png" id="2_ebufk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dav7"]
 texture = ExtResource("1_mb3hq")

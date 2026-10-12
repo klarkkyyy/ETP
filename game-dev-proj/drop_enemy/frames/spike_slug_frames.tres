@@ -1,8 +1,8 @@
-[gd_resource type="SpriteFrames" format=3]
+[gd_resource type="SpriteFrames" format=3 uid="uid://q5jclwvj36mp"]
 
-[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Spike Slug/death animations/spikeslug_death_anim.png" id="1_ijf7v"]
-[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Spike Slug/going right animations/spikeslug_attack_right_anim.png" id="1_p4jjc"]
-[ext_resource type="Texture2D" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Spike Slug/going right animations/spikeslug_run_right_anim.png" id="2_p4jjc"]
+[ext_resource type="Texture2D" uid="uid://cf7coehkxp0t3" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Spike Slug/death animations/spikeslug_death_anim.png" id="1_ijf7v"]
+[ext_resource type="Texture2D" uid="uid://dbaw4rqnmbxb1" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Spike Slug/going right animations/spikeslug_attack_right_anim.png" id="1_p4jjc"]
+[ext_resource type="Texture2D" uid="uid://dib718heeubvq" path="res://assets/_PAID_VERSION_WOO/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Enemies/Spike Slug/going right animations/spikeslug_run_right_anim.png" id="2_p4jjc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpyh2"]
 atlas = ExtResource("1_p4jjc")

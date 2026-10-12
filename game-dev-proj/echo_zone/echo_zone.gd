@@ -27,6 +27,13 @@ func _ready() -> void:
 		body_exited.connect(_on_body_exited)
 
 func _physics_process(_delta: float) -> void:
+	# Dying clears the player's link to this zone. Respawning at a checkpoint
+	# inside the zone fires no new body_entered, so pick the player back up here.
+	if player == null:
+		for body in get_overlapping_bodies():
+			if body.is_in_group("player") and not body.get("is_dead"):
+				_on_body_entered(body)
+				break
 	if is_recording and player:
 		_frame_counter += 1
 		if _frame_counter >= sample_every_frames:
