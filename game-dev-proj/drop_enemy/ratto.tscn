@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://drop_enemy/drop_enemy.tscn" id="1_base"]
+
+[node name="Ratto" instance=ExtResource("1_base")]
+speed = 60.0
+turn_pause = 0.3

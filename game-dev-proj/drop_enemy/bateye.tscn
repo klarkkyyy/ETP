@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://drop_enemy/drop_enemy.tscn" id="1_base"]
+[ext_resource type="SpriteFrames" path="res://drop_enemy/frames/bateye_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bat"]
+size = Vector2(11, 9)
+
+[node name="Bateye" instance=ExtResource("1_base")]
+speed = 55.0
+turn_pause = 0.2
+bob_height = 6.0
+bob_speed = 4.0
+aggro_height = 100.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_frames")
+offset = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_bat")
