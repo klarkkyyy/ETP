@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://crby7l8sjefqr" path="res://scripts/level_standalone.gd" id="1_mcn6t"]
 [ext_resource type="TileSet" uid="uid://cuwvqnynqoaqs" path="res://levels/level_6_tileset.tres" id="1_qrqi0"]
-[ext_resource type="Script" uid="uid://cx03wj5e6rivo" path="res://scripts/camera_bounds_zone.gd" id="2_nfqkv"]
 [ext_resource type="PackedScene" uid="uid://bbwmf64bqm4g4" path="res://Level_3/real_Level_3/Scenes/portal.tscn" id="3_mcn6t"]
+[ext_resource type="Script" uid="uid://da3gcnla1dcg4" path="res://scripts/camera_section_zone.gd" id="3_wyj1r"]
 [ext_resource type="PackedScene" uid="uid://b6av733605oy1" path="res://scenes/save_point .tscn" id="4_wyj1r"]
 [ext_resource type="FontFile" uid="uid://cas05dooal7th" path="res://assets/fonts/BoldPixels.ttf" id="5_binf7"]
 [ext_resource type="PackedScene" uid="uid://c0evu2thl5ney" path="res://scenes/candle_light.tscn" id="6_fgij4"]
@@ -43,6 +43,33 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b1pi"]
 size = Vector2(5120, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyj1r"]
+size = Vector2(320, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_binf7"]
+size = Vector2(736, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgij4"]
+size = Vector2(832, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf5iv"]
+size = Vector2(672, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwwbs"]
+size = Vector2(624, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1el"]
+size = Vector2(288, 576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wes5d"]
+size = Vector2(736, 272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqyc8"]
+size = Vector2(128, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmua5"]
+size = Vector2(864, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrqi0"]
 size = Vector2(496, 224)
@@ -87,10 +114,111 @@ tile_set = ExtResource("1_qrqi0")
 position = Vector2(2560, 384)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("2_nfqkv")
+script = ExtResource("3_wyj1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFollowZone" unique_id=668733561]
 shape = SubResource("RectangleShape2D_7b1pi")
+
+[node name="CameraSections" type="Node2D" parent="." unique_id=1047471249]
+
+[node name="Start" type="Area2D" parent="CameraSections" unique_id=1768197297]
+position = Vector2(192, 632)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-176, -88, 352, 176)
+keep_inside = Rect2(-192, -632, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/Start" unique_id=549486229]
+shape = SubResource("RectangleShape2D_wyj1r")
+
+[node name="S1_PendulumHall" type="Area2D" parent="CameraSections" unique_id=775447281]
+position = Vector2(720, 616)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-384, -136, 768, 272)
+keep_inside = Rect2(-720, -616, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S1_PendulumHall" unique_id=2114862510]
+shape = SubResource("RectangleShape2D_binf7")
+
+[node name="S2_SpikeTide" type="Area2D" parent="CameraSections" unique_id=1942447735]
+position = Vector2(1504, 624)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-432, -96, 864, 192)
+keep_inside = Rect2(-1504, -624, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S2_SpikeTide" unique_id=783878500]
+shape = SubResource("RectangleShape2D_fgij4")
+
+[node name="S3_EchoRelay" type="Area2D" parent="CameraSections" unique_id=1932122068]
+position = Vector2(2256, 592)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-352, -128, 704, 256)
+keep_inside = Rect2(-2256, -592, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S3_EchoRelay" unique_id=377235458]
+shape = SubResource("RectangleShape2D_nf5iv")
+
+[node name="S4_CrusherRow" type="Area2D" parent="CameraSections" unique_id=1163412261]
+position = Vector2(2904, 672)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-328, -48, 656, 96)
+keep_inside = Rect2(-2904, -672, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S4_CrusherRow" unique_id=905584307]
+shape = SubResource("RectangleShape2D_fwwbs")
+
+[node name="S5_TheClimb" type="Area2D" parent="CameraSections" unique_id=554724978]
+position = Vector2(3360, 416)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-160, -304, 320, 608)
+keep_inside = Rect2(-3360, -416, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S5_TheClimb" unique_id=1980843971]
+shape = SubResource("RectangleShape2D_bg1el")
+
+[node name="S6_SlaughterPit" type="Area2D" parent="CameraSections" unique_id=420770231]
+position = Vector2(3872, 184)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-384, -152, 768, 304)
+keep_inside = Rect2(-3872, -184, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S6_SlaughterPit" unique_id=307164416]
+shape = SubResource("RectangleShape2D_wes5d")
+
+[node name="S7_DropShaft" type="Area2D" parent="CameraSections" unique_id=2086003032]
+position = Vector2(4304, 344)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-80, -216, 160, 432)
+keep_inside = Rect2(-4304, -344, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_DropShaft" unique_id=1241744875]
+shape = SubResource("RectangleShape2D_eqyc8")
+
+[node name="S7_FinalHall" type="Area2D" parent="CameraSections" unique_id=36362953]
+position = Vector2(4672, 640)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-448, -112, 896, 224)
+keep_inside = Rect2(-4672, -640, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_FinalHall" unique_id=1040935290]
+shape = SubResource("RectangleShape2D_tmua5")
 
 [node name="Start" type="Node2D" parent="." unique_id=102594224]
 
@@ -112,9 +240,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "LEVEL 6
 The Gauntlet"
 horizontal_alignment = 1
@@ -199,9 +327,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "The blades keep time.
 So should you."
 horizontal_alignment = 1
@@ -395,9 +523,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Ride the low tide.
 The islands won't hide you from spears."
 horizontal_alignment = 1
@@ -470,9 +598,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Three gates. Three echoes.
 Every pad must be held."
 horizontal_alignment = 1
@@ -498,9 +626,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "[1] [2] [3]: walk to a pad, wait there, stop"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -558,9 +686,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Watch the cracks."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -624,9 +752,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Up."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -712,9 +840,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Left button drops the left spikes.
 The right one needs two hands."
 horizontal_alignment = 1
@@ -919,9 +1047,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Last door. Two echoes."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -957,9 +1085,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "You survived the Gauntlet.
 To be continued..."
 horizontal_alignment = 1
