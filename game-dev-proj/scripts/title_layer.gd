@@ -38,3 +38,8 @@ func play_intro():
 	tween.tween_property(title_container, "position:x", -600.0, 3) \
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.parallel().tween_property(title_container, "modulate:a", 0.0, 8)
+
+	# Keep guide echoes quiet until the title has slid off screen, so their
+	# dialogue doesn't pause the game and cover it.
+	StoryDirector.hold_guides = true
+	tween.parallel().tween_callback(func(): StoryDirector.hold_guides = false).set_delay(3.0)

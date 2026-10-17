@@ -3,8 +3,9 @@
 # e.g. one held by an echo and one by the player. Releasing any pad lets go.
 #
 # Add it to a plain Node, list the pads and the target (spike_trap.tscn or
-# anything with activate_trap()/deactivate_trap()) in the Inspector, and leave
-# the pads' own linked_trap empty so they don't fire the trap on their own.
+# anything with activate_trap()/deactivate_trap(), or a door.tscn, which is
+# opened/closed with trigger_open()/trigger_close()) in the Inspector, and leave
+# the pads' own linked_trap/door connections empty so they don't act alone.
 extends Node
 
 signal all_pressed()
@@ -34,7 +35,11 @@ func _update() -> void:
 		emit_signal("all_pressed")
 		if t and t.has_method("activate_trap"):
 			t.activate_trap()
+		elif t and t.has_method("trigger_open"):
+			t.trigger_open()
 	else:
 		emit_signal("released")
 		if t and t.has_method("deactivate_trap"):
 			t.deactivate_trap()
+		elif t and t.has_method("trigger_close"):
+			t.trigger_close()

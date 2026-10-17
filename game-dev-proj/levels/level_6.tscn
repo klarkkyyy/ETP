@@ -558,6 +558,12 @@ sample_every_frames = 1
 position = Vector2(192, -98)
 shape = SubResource("RectangleShape2D_qrqi0")
 
+[node name="EchoZonePadB" parent="S3_EchoRelay" unique_id=1713684863 instance=ExtResource("11_eqyc8")]
+position = Vector2(2120, 592)
+max_echoes = 3
+activation_range = 600.0
+sample_every_frames = 1
+
 [node name="PadA" parent="S3_EchoRelay" unique_id=1371886716 instance=ExtResource("12_tmua5")]
 position = Vector2(2008, 702)
 
