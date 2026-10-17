@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://crby7l8sjefqr" path="res://scripts/level_standalone.gd" id="1_ddx28"]
 [ext_resource type="TileSet" uid="uid://b0gh3qfmw40c6" path="res://levels/level_5_tileset.tres" id="1_hv08k"]
-[ext_resource type="Script" uid="uid://bmvk46guvchkp" path="res://scripts/camera_follow_zone.gd" id="2_p0827"]
 [ext_resource type="Texture2D" uid="uid://ws42cpu4n3uc" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_01.png" id="3_8wqug"]
 [ext_resource type="PackedScene" uid="uid://bbwmf64bqm4g4" path="res://Level_3/real_Level_3/Scenes/portal.tscn" id="3_brp6y"]
+[ext_resource type="Script" uid="uid://da3gcnla1dcg4" path="res://scripts/camera_section_zone.gd" id="3_ddx28"]
 [ext_resource type="Texture2D" uid="uid://ddlndpybr76u3" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/armor_stand_static.png" id="4_1a4ff"]
 [ext_resource type="PackedScene" uid="uid://b6av733605oy1" path="res://scenes/save_point .tscn" id="4_mgx0j"]
 [ext_resource type="Texture2D" uid="uid://3tb7b16s461o" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/brown_fallen_chair.png" id="5_5fr5s"]
@@ -36,6 +36,24 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fr5s"]
 size = Vector2(3040, 768)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddx28"]
+size = Vector2(304, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00dlp"]
+size = Vector2(544, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqyxy"]
+size = Vector2(480, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf8q3"]
+size = Vector2(736, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yes0v"]
+size = Vector2(688, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e2wr"]
+size = Vector2(240, 176)
+
 [node name="Level_5" type="Node2D" unique_id=103028475]
 script = ExtResource("1_ddx28")
 start = NodePath("Start/PortalIn")
@@ -56,10 +74,78 @@ tile_set = ExtResource("1_hv08k")
 position = Vector2(1520, 384)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("2_p0827")
+script = ExtResource("3_ddx28")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraFollowZone" unique_id=1326020868]
 shape = SubResource("RectangleShape2D_5fr5s")
+
+[node name="CameraSections" type="Node2D" parent="." unique_id=667221279]
+
+[node name="Start" type="Area2D" parent="CameraSections" unique_id=811410385]
+position = Vector2(184, 544)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_ddx28")
+bounds = Rect2(-168, -80, 336, 160)
+keep_inside = Rect2(-184, -544, 3040, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/Start" unique_id=516341000]
+shape = SubResource("RectangleShape2D_ddx28")
+
+[node name="S1_FirstDrop" type="Area2D" parent="CameraSections" unique_id=1105678575]
+position = Vector2(608, 544)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_ddx28")
+bounds = Rect2(-288, -144, 576, 288)
+keep_inside = Rect2(-608, -544, 3040, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S1_FirstDrop" unique_id=1910180252]
+shape = SubResource("RectangleShape2D_00dlp")
+
+[node name="S2_UnderTheSpikes" type="Area2D" parent="CameraSections" unique_id=852478432]
+position = Vector2(1120, 600)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_ddx28")
+bounds = Rect2(-256, -136, 512, 272)
+keep_inside = Rect2(-1120, -600, 3040, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S2_UnderTheSpikes" unique_id=844700564]
+shape = SubResource("RectangleShape2D_pqyxy")
+
+[node name="S3_Belfry" type="Area2D" parent="CameraSections" unique_id=78149144]
+position = Vector2(1728, 592)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_ddx28")
+bounds = Rect2(-384, -160, 768, 320)
+keep_inside = Rect2(-1728, -592, 3040, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S3_Belfry" unique_id=478833961]
+shape = SubResource("RectangleShape2D_yf8q3")
+
+[node name="S4_TwinWeights" type="Area2D" parent="CameraSections" unique_id=2085721632]
+position = Vector2(2440, 624)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_ddx28")
+bounds = Rect2(-360, -144, 720, 288)
+keep_inside = Rect2(-2440, -624, 3040, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S4_TwinWeights" unique_id=1651614930]
+shape = SubResource("RectangleShape2D_yes0v")
+
+[node name="Exit" type="Area2D" parent="CameraSections" unique_id=392624238]
+position = Vector2(2904, 664)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_ddx28")
+bounds = Rect2(-136, -104, 272, 208)
+keep_inside = Rect2(-2904, -664, 3040, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/Exit" unique_id=1781303648]
+shape = SubResource("RectangleShape2D_0e2wr")
 
 [node name="Start" type="Node2D" parent="." unique_id=758123050]
 
@@ -80,9 +166,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "LEVEL 5
 The Undercroft"
 horizontal_alignment = 1
@@ -139,9 +225,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Nothing can hurt them.
 Except falling spikes."
 horizontal_alignment = 1
@@ -167,9 +253,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Drop them just before
 it walks underneath"
 horizontal_alignment = 1
@@ -231,9 +317,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "This button is under the spikes.
 Let an echo press it."
 horizontal_alignment = 1
@@ -259,9 +345,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "[1] record, step on,
 step back, [1] stop"
 horizontal_alignment = 1
@@ -391,9 +477,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Spikes fall through
 anything below them."
 horizontal_alignment = 1
@@ -465,9 +551,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Two buttons, one drop.
 Both must be held at once."
 horizontal_alignment = 1
@@ -493,9 +579,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "Echo on the left: [1], wait, [1]
 then press the right one"
 horizontal_alignment = 1
@@ -535,9 +621,9 @@ offset_left = -159.0
 offset_top = -28.0
 offset_right = 161.0
 offset_bottom = 32.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("5_k3t65")
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "[E] Face the boss"
 horizontal_alignment = 1
 vertical_alignment = 1
