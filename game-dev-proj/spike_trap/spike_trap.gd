@@ -40,6 +40,7 @@ var _timer: float = 0.0
 var _held: bool = false
 var _queued: bool = false
 var _disabled: bool = false
+var _floor_found: bool = false
 
 func _ready() -> void:
 	_rest_y = weight.position.y
@@ -53,17 +54,28 @@ func _ready() -> void:
 func _tip_offset() -> float:
 	return 16.0
 
+## The level's tile collision can take a few frames to exist after loading,
+## so keep looking for a while; a drop also re-measures if this never found it.
 func _find_floor() -> void:
-	await get_tree().physics_frame
-	if not is_inside_tree():
-		return   # removed meanwhile (e.g. a level run on its own swapping to the game)
+	_drop_y = _rest_y + 160.0   # fallback until the floor is found
+	for i in 30:
+		await get_tree().physics_frame
+		if not is_inside_tree():
+			return   # removed meanwhile (e.g. a level run on its own swapping to the game)
+		if _measure_floor():
+			return
+
+## Casts down from the spike tips; sets the drop point on the first hit.
+## Call from a physics frame (the space must not be locked).
+func _measure_floor() -> bool:
 	var tip := weight.global_position + Vector2(0, _tip_offset())
+	tip.y += (_rest_y - weight.position.y) * global_scale.y   # measure from the rest position
 	var query := PhysicsRayQueryParameters2D.create(tip, tip + Vector2(0, 2000), 1)
 	var hit := get_world_2d().direct_space_state.intersect_ray(query)
 	if hit:
 		_drop_y = _rest_y + (hit.position.y - tip.y) / global_scale.y
-	else:
-		_drop_y = _rest_y + 160.0
+		_floor_found = true
+	return _floor_found
 
 func activate_trap() -> void:
 	_held = true
@@ -98,6 +110,8 @@ func _physics_process(delta: float) -> void:
 			weight.position.x = randf_range(-1.0, 1.0)
 			if _timer <= 0.0:
 				weight.position.x = 0.0
+				if fall_distance <= 0.0 and not _floor_found:
+					_measure_floor()
 				state = State.FALLING
 				_velocity = 0.0
 				hitbox.monitoring = true
