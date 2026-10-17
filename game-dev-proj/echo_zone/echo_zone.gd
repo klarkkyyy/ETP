@@ -55,6 +55,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("clear_echoes"):
 		_clear_all_echoes()
 		return
+	# Zones can overlap (e.g. a small zone on one pad inside a big puzzle
+	# zone); only the one Ren is linked to answers the echo keys.
+	if player and player.get("current_echo_zone") != self:
+		return
 
 	for slot in range(1, max_echoes + 1):
 		if event.is_action_pressed("echo_slot_%d" % slot):
@@ -95,6 +99,10 @@ func _clear_all_echoes() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		player = body
+		# Don't take over from an overlapping zone that is mid-recording.
+		var current = player.get("current_echo_zone")
+		if current and current != self and is_instance_valid(current) and current.is_recording:
+			return
 		if player.has_method("set_echo_zone"):
 			player.set_echo_zone(self)
 
@@ -136,9 +144,16 @@ func _spawn_echo(slot: int, frames: Array) -> void:
 func _on_body_exited(body: Node) -> void:
 	if body == player:
 		stop_recording()
-		if player.has_method("set_echo_zone"):
+		var linked: bool = player.get("current_echo_zone") == self
+		if linked and player.has_method("set_echo_zone"):
 			player.set_echo_zone(null)
 		player = null
+		# Still inside an overlapping zone? Hand Ren back to it.
+		if linked:
+			for zone in get_tree().get_nodes_in_group("echo_zone"):
+				if zone != self and zone.overlaps_body(body):
+					zone._on_body_entered(body)
+					break
 
 func stop_recording() -> void:
 	if not is_recording:
