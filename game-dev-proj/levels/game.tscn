@@ -24250,6 +24250,9 @@ size = Vector2(447, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akdic"]
 size = Vector2(67, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2ledge"]
+size = Vector2(26, 6)
+
 [node name="game" type="Node2D" unique_id=1826120207]
 position = Vector2(77, -34)
 script = ExtResource("1_f7ob7")
@@ -25525,19 +25528,27 @@ z_index = 5
 position = Vector2(-136, -76.99994)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="level 2/room1" unique_id=962288827]
-position = Vector2(-68, 61.00006)
+position = Vector2(-92.75, 61.0001)
 script = ExtResource("26_ikqub")
-distance = 180.0
+distance = 155
 speed = 80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="level 2/room1/AnimatableBody2D" unique_id=1765202905]
-position = Vector2(175.00005, -0.9999943)
-scale = Vector2(1.204107, 1.0771495)
-texture = ExtResource("27_ik8yx")
+position = Vector2(170.5, -6)
+texture = ExtResource("32_1fd23")
+region_enabled = true
+region_rect = Rect2(111.36584, 127.14015, 16.695656, 8.939529)
+
+[node name="Sprite2D2" type="Sprite2D" parent="level 2/room1/AnimatableBody2D" unique_id=1958548100]
+position = Vector2(181.5, -6)
+texture = ExtResource("32_1fd23")
+region_enabled = true
+region_rect = Rect2(146.36661, 127.14015, 13.604431, 8.939529)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level 2/room1/AnimatableBody2D" unique_id=1623824683]
-position = Vector2(175.5, -0.5)
-shape = SubResource("RectangleShape2D_ihc68")
+position = Vector2(175.5, -6)
+shape = SubResource("RectangleShape2D_l2ledge")
+one_way_collision = true
 
 [node name="AnimatableBody2D2" type="AnimatableBody2D" parent="level 2/room1" unique_id=1499016552]
 position = Vector2(-68, 61.00006)
@@ -25546,13 +25557,21 @@ speed = 100.0
 wait_time = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="level 2/room1/AnimatableBody2D2" unique_id=1393754694]
-position = Vector2(117.73439, -110.734406)
-scale = Vector2(1.1582048, 1.0917946)
-texture = SubResource("CompressedTexture2D_8a34h")
+position = Vector2(113, -116.5)
+texture = ExtResource("32_1fd23")
+region_enabled = true
+region_rect = Rect2(111.36584, 127.14015, 16.695656, 8.939529)
+
+[node name="Sprite2D2" type="Sprite2D" parent="level 2/room1/AnimatableBody2D2" unique_id=311439263]
+position = Vector2(124, -116.5)
+texture = ExtResource("32_1fd23")
+region_enabled = true
+region_rect = Rect2(146.36661, 127.14015, 13.604431, 8.939529)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level 2/room1/AnimatableBody2D2" unique_id=622906568]
-position = Vector2(118, -111)
-shape = SubResource("RectangleShape2D_ihc68")
+position = Vector2(118, -116.5)
+shape = SubResource("RectangleShape2D_l2ledge")
+one_way_collision = true
 
 [node name="echo_zone2" parent="level 2/room1" unique_id=604142420 instance=ExtResource("9_a7gts")]
 position = Vector2(-135, -91)
@@ -25616,20 +25635,28 @@ position = Vector2(-229, 186)
 shape = SubResource("RectangleShape2D_fb1su")
 
 [node name="AnimatableBody2D3" type="AnimatableBody2D" parent="level 2/room2" unique_id=1825104051]
-position = Vector2(-238, 111)
+position = Vector2(-245, 111)
 script = ExtResource("26_ikqub")
 move_type = 1
 distance = 70.0
 speed = 80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="level 2/room2/AnimatableBody2D3" unique_id=1461681893]
-position = Vector2(175.00005, -0.9999943)
-scale = Vector2(1.204107, 1.0771495)
-texture = ExtResource("27_ik8yx")
+position = Vector2(170.5, -6)
+texture = ExtResource("32_1fd23")
+region_enabled = true
+region_rect = Rect2(111.36584, 127.14015, 16.695656, 8.939529)
+
+[node name="Sprite2D2" type="Sprite2D" parent="level 2/room2/AnimatableBody2D3" unique_id=531016169]
+position = Vector2(181.5, -6)
+texture = ExtResource("32_1fd23")
+region_enabled = true
+region_rect = Rect2(146.36661, 127.14015, 13.604431, 8.939529)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level 2/room2/AnimatableBody2D3" unique_id=2141554793]
-position = Vector2(175.5, -0.5)
-shape = SubResource("RectangleShape2D_ihc68")
+position = Vector2(175.5, -6)
+shape = SubResource("RectangleShape2D_l2ledge")
+one_way_collision = true
 
 [node name="door2" parent="level 2/room2" unique_id=130163872 instance=ExtResource("148_guhls")]
 position = Vector2(0, 173)
