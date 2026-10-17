@@ -21,6 +21,7 @@ GameManager="*uid://dalbl4vkhawad"
 MusicManager="*uid://jcii2w2pbx3m"
 SoundManager="*uid://bi4x7c06b6hg"
 EchoFlash="*uid://dglq3743c0u6n"
+StoryDirector="*res://story/story_director.gd"
 
 [dotnet]
 
