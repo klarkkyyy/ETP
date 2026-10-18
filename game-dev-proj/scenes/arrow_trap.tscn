@@ -64,6 +64,8 @@ animations = [{
 size = Vector2(15, 16)
 
 [node name="ArrowTrap" type="Area2D" unique_id=809885888]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_q67bl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=508325937]

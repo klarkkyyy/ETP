@@ -23,6 +23,8 @@ animations = [{
 
 [node name="Arrow" type="Area2D" unique_id=1085988153]
 rotation = 3.1396534
+collision_layer = 0
+collision_mask = 17
 script = ExtResource("1_qv28m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583410886]

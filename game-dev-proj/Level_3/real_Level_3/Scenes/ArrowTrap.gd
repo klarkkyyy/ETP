@@ -1,119 +1,57 @@
+# ArrowTrap.gd — spear launcher in the boss arena. A pressure pad arms it
+# through its `linked_trap`: it fires when pressed and keeps firing every
+# `recharge_time` while the pad stays held. Shoots along `arrow_direction`,
+# turned by the node's rotation (a launcher rotated 180° shoots left).
+# A spear that hits the boss spends the launcher for `spent_time`.
 extends Area2D
 
 const ArrowScene = preload("res://scenes/arrow.tscn")
+const SPENT_TINT := Color(0.45, 0.4, 0.55, 0.7)
 
 @onready var sprite = $AnimatedSprite2D
 @export var damage_amount: float = 20.0
-@export var damage_cooldown: float = 0.6
-@export var max_uses: int = 2 # Trap only works twice
-@export var recharge_time: float = 5.0 # 5 seconds between uses
+@export var recharge_time: float = 2.0
+@export var spent_time: float = 10.0
+@export var arrow_direction: Vector2 = Vector2.RIGHT
 
-var is_active: bool = false
-var damage_timer: float = 0.0
-var uses_left: int = 2
-var recharge_timer: float = 0.0
-var is_broken: bool = false
-
-@export var arrow_direction: Vector2 = Vector2.RIGHT  # set per trap in inspector
-@onready var spawn_point: Marker2D = $Marker2D
-
-func _ready():
-	uses_left = max_uses
-	
+var _armed: bool = false
+var _cooldown: float = 0.0
 
 func activate_trap():
-	if is_broken:
-		print("Trap is broken!")
-		return
-	if recharge_timer > 0:
-		print("Trap is still recharging: ", snapped(recharge_timer, 0.1), "s remaining")
-		return
-		
-	is_active = true
-	sprite.stop()
-	sprite.frame = 0
-	sprite.play("default")
-
-	print("Arrow spawn node: ", spawn_point)
-	print("Arrow direction set to: ", arrow_direction.normalized())
-
-	if spawn_point and ArrowScene:
-		var arrow = ArrowScene.instantiate()
-		arrow.direction = arrow_direction.normalized()
-		get_parent().add_child(arrow)
-		arrow.global_position = spawn_point.global_position
-		print("Arrow spawned at: ", arrow.global_position)
-	else:
-		print("FAILED — spawn_point: ", spawn_point, " | ArrowScene: ", ArrowScene)
+	_armed = true
+	_try_fire()
 
 func deactivate_trap():
-	is_active = false
-	sprite.stop()     
-	sprite.frame = 0
-	damage_timer = 0.0
-	
-	# Start the 5-second recharge cooldown
-	if not is_broken and uses_left > 0:
-		recharge_timer = recharge_time
-		print("Trap deactivated. 5 second recharge started...")
+	_armed = false
+
+func is_ready() -> bool:
+	return _cooldown <= 0.0
+
+## Called by its spear when it hits the boss.
+func spend():
+	_cooldown = maxf(_cooldown, spent_time)
+	sprite.modulate = SPENT_TINT
 
 func _physics_process(delta: float):
-	# Handle the 5-second recharge timer
-	if recharge_timer > 0:
-		recharge_timer -= delta
-		# Visual feedback: make the trap slightly transparent while recharging
-		sprite.modulate.a = 0.5 
-	else:
-		if not is_broken:
-			sprite.modulate.a = 1.0 # Fully visible when ready
-
-	if not is_active or is_broken:
+	if _cooldown <= 0.0:
 		return
-		
-	# Handle internal damage ticking (if boss stands on it)
-	if damage_timer > 0:
-		damage_timer -= delta
+	_cooldown -= delta
+	if _cooldown <= 0.0:
+		sprite.modulate = Color.WHITE
+		_try_fire()
+
+func _try_fire():
+	if not _armed or _cooldown > 0.0:
 		return
-
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		if body.name == "Boss" or body.is_in_group("boss"):
-			if body.has_method("take_damage"):
-				body.take_damage(damage_amount)
-				damage_timer = damage_cooldown 
-				
-				# Count this as one use
-				uses_left -= 1
-				
-				if uses_left <= 0:
-					_break_trap()
-
-func _break_trap():
-	is_broken = true
-	is_active = false
+	_cooldown = recharge_time
+	sprite.modulate.a = 0.5  # dim while recharging
 	sprite.stop()
-	sprite.frame = 0
-	sprite.modulate = Color(0.3, 0.3, 0.3) # Darken to show it's dead
-	print("Trap is now PERMANENTLY disabled.")
-
-func on_echo_enter(echo: Area2D) -> void:
-	activate_trap()
-
-func on_echo_exit(echo: Area2D) -> void:
-	pass
-
-
-func _on_arrow_button_pad_activated() -> void:
-	activate_trap()
-
-
-func _on_arrow_button_2_pad_activated() -> void:
-	activate_trap()
-
-
-func _on_arrow_button_3_pad_activated() -> void:
-	activate_trap()
-
-
-func _on_arrow_button_4_pad_activated() -> void:
-	activate_trap()
+	sprite.play("default")
+	var dir := arrow_direction.rotated(global_rotation).normalized()
+	var arrow = ArrowScene.instantiate()
+	arrow.direction = dir
+	arrow.damage = damage_amount
+	arrow.source = self
+	arrow.position = get_parent().to_local(global_position + dir * 8.0)
+	# Often called from a pad's body_entered, mid physics step.
+	get_parent().add_child.call_deferred(arrow)

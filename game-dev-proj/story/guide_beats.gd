@@ -130,6 +130,7 @@ const MECHANICS := {
 		{"who": "@", "text": "Ren! Psst. Don't try to hit it. Nothing you do can hurt a guardian."},
 		{"who": "@", "text": "But its arena can. See the pads? They fire the traps. Put an echo on a pad while it's standing underneath."},
 		{"who": "@", "text": "And those glowing orbs it throws? An echo will swallow one for you. The echo's gone after, so record a new one."},
+		{"who": "@", "text": "This whole level is an echo zone. Use it to your advantage."},
 		{"who": "Ren", "text": "You came all the way down here to tell me that?"},
 		{"who": "@", "text": "I got this far once. I'd like to see someone get further."},
 	]},
