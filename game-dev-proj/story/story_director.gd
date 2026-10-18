@@ -41,7 +41,7 @@ const BOSS_BEATS := {
 	],
 }
 
-const BOSS_BEAT_DELAY := 2.5  # seconds after the boss is freed, so the portal fades in first
+const BOSS_BEAT_DELAY := 0.3  # seconds after the boss is freed (its death animation has played and the portal has faded in by then)
 
 const ARRIVAL_CUTSCENE := "res://story/arrival_cutscene.gd"
 const GUIDES := preload("res://story/guide_beats.gd")

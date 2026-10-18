@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bq0bi24aosxga"]
 
-[ext_resource type="Script" uid="uid://cq4x64blpptc" path="res://Level_3/Scenes/trap1.gd" id="1_rrjoy"]
+[ext_resource type="Script" uid="uid://cq4x64blpptc" path="res://Level_3/real_Level_3/Scenes/trap1.gd" id="1_rrjoy"]
 [ext_resource type="Texture2D" uid="uid://legjtp4pf2ae" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.4/traps/floor_spike_loop_anim.png" id="2_rrjoy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrjoy"]
@@ -86,14 +86,14 @@ size = Vector2(15, 19.25)
 
 [node name="trap1" type="Area2D" unique_id=812422155]
 position = Vector2(0, -9)
+collision_layer = 0
+collision_mask = 16
 script = ExtResource("1_rrjoy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=605973531]
 position = Vector2(37.5, -14.5)
 scale = Vector2(0.93749994, 1.1875)
 sprite_frames = SubResource("SpriteFrames_xrv0y")
-frame = 9
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603918386]
 position = Vector2(37.5, -14.375)

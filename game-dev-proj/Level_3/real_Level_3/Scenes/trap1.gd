@@ -1,91 +1,71 @@
+# trap1.gd — floor spikes in the boss arena. A pressure pad arms it through
+# its `linked_trap`; while the pad is held (by the player or an echo) the spikes
+# keep cycling, and a cycle that catches the boss surfaced over it hurts it.
+# A trap that lands a hit is spent for `spent_time`, so the player has to use
+# the others in the meantime.
 extends Area2D
 
 @onready var sprite = $AnimatedSprite2D
 @export var damage_amount: float = 20.0
-@export var damage_cooldown: float = 0.6
-@export var max_uses: int = 2 # Trap only works twice
-@export var recharge_time: float = 5.0 # 5 seconds between uses
+@export var recharge_time: float = 1.2
+@export var spent_time: float = 10.0
 
-var is_active: bool = false
-var damage_timer: float = 0.0
-var uses_left: int = 2
-var recharge_timer: float = 0.0
-var is_broken: bool = false
+# Animation frames where the spikes are out of the floor.
+const SPIKES_UP_FROM := 1
+const SPIKES_UP_TO := 4
+const SPENT_TINT := Color(0.45, 0.4, 0.55, 0.7)
+
+var _armed: bool = false
+var _cycling: bool = false
+var _landed: bool = false
+var _cooldown: float = 0.0
 
 func _ready():
-	uses_left = max_uses
+	sprite.animation_finished.connect(_on_cycle_finished)
+	_show_ready()
 
 func activate_trap():
-	# 1. If it's broken, stop immediately
-	if is_broken:
-		print("Trap is broken!")
-		return
-	
-	# 2. If it's still recharging, stop immediately
-	if recharge_timer > 0:
-		print("Trap is recharging: ", snapped(recharge_timer, 0.1), "s remaining")
-		return
-		
-	# 3. Play animation
-	is_active = true
-	sprite.stop() 
-	sprite.frame = 0 
-	sprite.play("default")
-	print("Trap Spiking! Uses remaining: ", uses_left)
+	_armed = true
+	_try_fire()
 
 func deactivate_trap():
-	# If it's already broken, don't start a recharge timer
-	if is_broken:
-		is_active = false
-		return
+	_armed = false
 
-	is_active = false
-	sprite.stop()
-	sprite.frame = 0
-	damage_timer = 0.0
-	
-	# ONLY start recharge if we have uses left and aren't already recharging
-	if uses_left > 0 and recharge_timer <= 0:
-		recharge_timer = recharge_time
-		print("5 second recharge started...")
-		
-		
-		
+func is_ready() -> bool:
+	return not _cycling and _cooldown <= 0.0
+
 func _physics_process(delta: float):
-	# Handle the 5-second recharge timer
-	if recharge_timer > 0:
-		recharge_timer -= delta
-		# Visual feedback: make the trap slightly transparent while recharging
-		sprite.modulate.a = 0.5 
+	if _cooldown > 0.0:
+		_cooldown -= delta
+		if _cooldown <= 0.0:
+			sprite.modulate = Color.WHITE
+			_try_fire()
+	if not _cycling or _landed:
+		return
+	if sprite.frame < SPIKES_UP_FROM or sprite.frame > SPIKES_UP_TO:
+		return
+	for body in get_overlapping_bodies():
+		if body.is_in_group("boss") and body.has_method("take_damage"):
+			_landed = body.take_damage(damage_amount)
+
+func _try_fire():
+	if not _armed or not is_ready():
+		return
+	_cycling = true
+	_landed = false
+	sprite.play("default")
+
+func _on_cycle_finished():
+	_cycling = false
+	_show_ready()
+	if _landed:
+		_cooldown = spent_time
+		sprite.modulate = SPENT_TINT
 	else:
-		if not is_broken:
-			sprite.modulate.a = 1.0 # Fully visible when ready
+		_cooldown = recharge_time
+		sprite.modulate.a = 0.45  # dim while recharging
 
-	if not is_active or is_broken:
-		return
-		
-	# Handle internal damage ticking (if boss stands on it)
-	if damage_timer > 0:
-		damage_timer -= delta
-		return
-
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		if body.name == "Boss" or body.is_in_group("boss"):
-			if body.has_method("take_damage"):
-				body.take_damage(damage_amount)
-				damage_timer = damage_cooldown 
-				
-				# Count this as one use
-				uses_left -= 1
-				
-				if uses_left <= 0:
-					_break_trap()
-
-func _break_trap():
-	is_broken = true
-	is_active = false
+# Rest on the first frame (spike tips just showing) so the trap is visible.
+func _show_ready():
 	sprite.stop()
 	sprite.frame = 0
-	sprite.modulate = Color(0.3, 0.3, 0.3) # Darken to show it's dead
-	print("Trap is now PERMANENTLY disabled.")

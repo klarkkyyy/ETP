@@ -40,11 +40,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_imfe0"]
+radius = 6.0
 
 [node name="attack_orb" type="Area2D" unique_id=1523704894]
 z_index = 78
 collision_layer = 8
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_lf2rn")
 
 [node name="orb" type="AnimatedSprite2D" parent="." unique_id=2017985991]
