@@ -1080,7 +1080,7 @@ position = Vector2(4984, 696)
 position = Vector2(5063, 705)
 collision_mask = 2
 this_id = "teleport_l6_out"
-destination_id = "teleport_l6_boss"
+destination_id = "teleport_l7_in"
 sets_checkpoint = true
 
 [node name="Hint" type="Node2D" parent="Exit" unique_id=2086572923]
