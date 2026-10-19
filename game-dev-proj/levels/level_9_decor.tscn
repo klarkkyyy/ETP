@@ -1,8 +1,6 @@
 [gd_scene format=3]
 
 [ext_resource type="Texture2D" uid="uid://biyfoqk68jo3k" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/sewer_tileset.png" id="1_sewer"]
-[ext_resource type="Texture2D" uid="uid://db8l2fb2iusj2" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/waterfall_top_tile.png" id="2_falltop"]
-[ext_resource type="Texture2D" uid="uid://dkbcaxsv1lak" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/waterfall_middle_tile.png" id="3_fallmid"]
 
 [node name="Level9Decor" type="Node2D" unique_id=388664935]
 z_index = -20
@@ -126,21 +124,3 @@ position = Vector2(1640, 440)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(224, 96, 16, 16)
-
-[node name="Waterfall_176_8" type="Node2D" parent="." unique_id=336691358]
-position = Vector2(2824, 128)
-
-[node name="Top" type="Sprite2D" parent="Waterfall_176_8" unique_id=1524370858]
-modulate = Color(0.55, 0.85, 0.82, 0.85)
-texture_filter = 1
-position = Vector2(0, 8)
-texture = ExtResource("2_falltop")
-
-[node name="Stream" type="Sprite2D" parent="Waterfall_176_8" unique_id=419907754]
-modulate = Color(0.55, 0.85, 0.82, 0.7)
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(0, 176)
-texture = ExtResource("3_fallmid")
-region_enabled = true
-region_rect = Rect2(0, 0, 16, 320)
