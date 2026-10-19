@@ -250,11 +250,11 @@
 - New mechanic, **water levels**: valves raise and lower the water in a channel, a tank or a pit. Water still drowns you, but crates float on it, so a filling tank or pit lifts them (and you)
 - Uses the **echo-pushable crates**: push them onto valves, hide behind them from spears, ride them up on the water
 - Five sections:
-  - **The Spillway**: push the crate onto the drain valve to empty a flooded channel, then cross its floor past spears, floor spikes and an axe
-  - **The Ballast Tank**: leave an echo on the fill valve, drop onto the crates and ride the rising water to the top, past spear launchers
-  - **The Crate Corridor**: a launcher sweeps the corridor; push a crate ahead of you as a shield, and grab the second one when the first drops into the pit
-  - **The Raft Pit**: flood the spiked pit with an echo on the valve; the crates on its floor float up into a path between spinning blades
-  - **The Last Sluice**: pull the lever to open the exit, then climb a grate, a ferry platform and a wall-jump chimney while the flood comes up
+  - **The Spillway**: push the crate onto the drain valve to empty a flooded channel, then cross its floor past two spear lines, two waves of floor spikes and two axes
+  - **The Ballast Tank**: leave an echo on the fill valve, drop onto the crates and ride the rising water to the top, dodging five spear launchers and a blade
+  - **The Crate Corridor**: launchers sweep the corridor low and high; push a crate ahead of you as a shield, then time the pit jump to reach the second one
+  - **The Raft Pit**: flood the spiked pit with an echo on the valve; the crates on its floor float up into a path of double jumps between four blades and a spear line
+  - **The Last Sluice**: pull the lever to open the exit, then climb rotten grates, a ferry platform and a wall-jump chimney while the flood comes up fast
 - For now the exit portal returns to the boss arena until Level 10 is made
 
 <h4 align = "center">Image Sample</h4>
