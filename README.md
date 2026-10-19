@@ -227,19 +227,41 @@
 - New mechanic, the **rising flood**: pulling the floodgate lever opens the way out and starts the water rising behind you. It drowns you if it catches you, and drains back below your checkpoint when you respawn so every attempt gets the same head start
 - New to these levels: **rotten grates** that give way a moment after you land on them
 - Seven sections:
-  - **The Overflow**: rotten grates over a spiked floor, under swinging axes
-  - **Sluice Run**: crushers on a beat, then pits under a spear launcher that fires at jump height
-  - **The Pump Room**: leave an echo on each valve to hold two pipe bridges over a spiked chasm, dodging spears and a blade
+  - **The Overflow**: rotten grates over a spiked floor, under swinging axes and a spear line from the far wall
+  - **Sluice Run**: crushers on a fast beat, then pits under a quick spear launcher that fires at jump height
+  - **The Pump Room**: leave an echo on each valve to hold two pipe bridges over a spiked chasm, dodging spears and two blades
   - **The Rat Warren**: lure three rats under the spike weights; the last weight needs an echo on one button and you on the other
-  - **The Drop**: a long fall past spinning blades
-  - **Floodgate Gallery**: trapdoors and a wave of floor spikes to the floodgate lever
-  - **The Rising**: board the lift and wall-jump up the chimney while the water climbs
+  - **The Drop**: a long fall past four fast spinning blades
+  - **Floodgate Gallery**: five trapdoors and a fast wave of floor spikes to the floodgate lever
+  - **The Rising**: board the lift between spears and wall-jump up a chimney crossed by a spear line while the water climbs fast
 - The Warden has a few words when you arrive and when the floodgate opens
 - Echo zones sit only on the buttons that need an echo, and the rooms where you watch a pit (the Warren, the Pump Room, the Overflow) fit on one screen
-- For now the exit portal returns to the boss arena, like Level 6 and 7 did, until Level 9 is made
 
 <h4 align = "center">Image Sample</h4>
 
 <img width="1152" height="648" alt="Level 8 - The Pump Room" src="docs/level_8/pump_room.png" />
 <img width="1152" height="648" alt="Level 8 - The Rat Warren" src="docs/level_8/rat_warren.png" />
 <img width="1152" height="648" alt="Level 8 - The Rising" src="docs/level_8/the_rising.png" />
+
+<h3 align = "center">Level 9: The Sluiceworks</h3>
+
+- "update: added level 9 after level 8"
+- Level 8's exit portal now leads into Level 9: a deeper, murkier part of the sewer where the water does what you tell it, if you can hold it there
+- New mechanic, **water levels**: valves raise and lower the water in a channel, a tank or a pit. Water still drowns you, but crates float on it, so a filling tank or pit lifts them (and you)
+- Uses the **echo-pushable crates**: push them onto valves, hide behind them from spears, ride them up on the water
+- Eight sections:
+  - **The Spillway**: push the crate onto the drain valve to empty a flooded channel, then cross its floor past two spear lines, two waves of floor spikes and two axes
+  - **The Ballast Tank**: leave an echo on the fill valve, drop onto the crates and ride the rising water to the top, dodging five spear launchers and a blade
+  - **The Crate Corridor**: launchers sweep the corridor low and high; push a crate ahead of you as a shield, then time the pit jump to reach the second one
+  - **The Raft Pit**: flood the spiked pit with an echo on the valve; the crates on its floor float up into a path of double jumps between four blades and a spear line
+  - **The Last Sluice**: pull the lever to open the exit, then climb rotten grates, a ferry platform and a wall-jump chimney while the flood comes up fast
+  - **The Crusher Gallery**: out of the top of the chimney into a low gallery under four crushers falling in a wave; wait in the gaps between them
+  - **The Spear Shaft**: double jump up a narrow shaft of staggered ledges while two spear lines cross it
+  - **The Rotten Bridge**: run a line of rotten grates over a spiked trough without stopping, timed through four swinging blades, then drop past a spinning blade to the exit
+- For now the exit portal returns to the boss arena until Level 10 is made
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 9 - The Ballast Tank" src="docs/level_9/ballast_tank.png" />
+<img width="1152" height="648" alt="Level 9 - The Last Sluice" src="docs/level_9/last_sluice.png" />
+<img width="1152" height="648" alt="Level 9 - The Rotten Bridge" src="docs/level_9/rotten_bridge.png" />
