@@ -29,19 +29,18 @@ const CAST := {
 
 ## Played when Ren picks up the echo stone for that slot.
 const ECHO_UNLOCKS := {
-	1: {"guide": "Mira", "lines": [
-		{"who": "@", "text": "Hey! Over here. Don't be scared."},
-		{"who": "Ren", "text": "What... what ARE you? You don't have a face."},
-		{"who": "@", "text": "Rude. I used to. You lose it, the longer you stay. My name's Mira."},
-		{"who": "@", "text": "I came from your world too, more or less. Different year, though. 2009. Bus crash."},
-		{"who": "Ren", "text": "So there are others. Did anyone make it home?"},
-		{"who": "@", "text": "...Not that I know of. When you fail in the Reach, you don't leave. You stay. Like me."},
-		{"who": "Ren", "text": "And the voice in the dark? The Warden?"},
-		{"who": "@", "text": "He was here before any of us. Nobody knows who he was. He never says."},
-		{"who": "@", "text": "Anyway! That stone you grabbed lets you do something we can't anymore: leave a piece of yourself behind."},
-		{"who": "@", "text": "Inside an echo zone, press 1 to start recording. Move, jump, stand somewhere. Press 1 again to stop."},
-		{"who": "@", "text": "Your echo will repeat exactly what you did, over and over. It's solid, too. It can hold things down, and you can stand on it."},
-		{"who": "@", "text": "Mess it up? Press R to wipe your echoes and try again. Trust me, you'll need that button."},
+	# The opening area has the stone, an echo zone, a pad and a lever close
+	# together, so Mira covers all of them in one short beat; `covers` marks
+	# those mechanics' own beats as already told.
+	1: {"guide": "Mira", "covers": ["echo_zone", "pressure_pad", "lever"], "lines": [
+		{"who": "@", "text": "Hey! Over here. Don't be scared. I'm Mira. I fell in here too, a long time ago."},
+		{"who": "Ren", "text": "You don't have a face."},
+		{"who": "@", "text": "You lose it, the longer you stay. When you fail in the Reach, you don't leave."},
+		{"who": "Ren", "text": "And the Warden?"},
+		{"who": "@", "text": "Here before any of us. Nobody knows who he was. Anyway! That stone lets you leave an echo behind."},
+		{"who": "@", "text": "Where the air hums, that's an echo zone. Press 1 to record, 1 again to stop. Your echo repeats it forever."},
+		{"who": "@", "text": "Pads and levers need someone on them. Let your echo do it while you go on."},
+		{"who": "@", "text": "Messed up? R wipes your echoes."},
 	]},
 	2: {"guide": "Hollis", "lines": [
 		{"who": "@", "text": "A second stone. Huh. You're further along than I ever got."},

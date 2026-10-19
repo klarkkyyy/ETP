@@ -180,6 +180,9 @@ func _on_echo_stone(body: Node, stone: Node) -> void:
 	# the pickup animation play before it starts.
 	var beat: Dictionary = GUIDES.ECHO_UNLOCKS[slot]
 	play("echo:%d" % slot, beat["lines"], {"name": beat["guide"], "near": null, "delay": 0.8})
+	# mechanics this beat already explained don't get their own guide
+	for key in beat.get("covers", []):
+		seen["guide:" + key] = true
 
 
 func _process(delta: float) -> void:
