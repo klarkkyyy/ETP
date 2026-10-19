@@ -3,6 +3,7 @@
 # living in game.tscn, so beats are added here as data:
 #   ARRIVAL_BEATS: teleport this_id -> lines, played when the player teleports there.
 #   BOSS_BEATS:    boss node name   -> lines, played after that boss dies.
+#   EVENT_BEATS:   key -> lines, played when a level calls event(key).
 #   Guide echoes (story/guide_beats.gd): other fallen people who appear the
 #   first time Ren meets a mechanic or picks up an echo stone.
 # Each beat plays once per run (reset by the intro on NEW GAME).
@@ -33,6 +34,12 @@ const ARRIVAL_BEATS := {
 		{"who": WARDEN, "text": "The Crucible. The Reach melts down whatever it can't break, and remakes it."},
 		{"who": WARDEN, "text": "Keep moving. Stand still too long and it will start on you."},
 	],
+	# Level 7 exit -> Level 8.
+	"teleport_l8_in": [
+		{"who": HERO, "text": "Water. I can hear it everywhere."},
+		{"who": WARDEN, "text": "The Cistern. Everything the Reach washes away ends up down here."},
+		{"who": WARDEN, "text": "The way out is at the bottom, through the floodgate. Mind what you let in."},
+	],
 }
 
 const BOSS_BEATS := {
@@ -44,6 +51,13 @@ const BOSS_BEATS := {
 		{"who": WARDEN, "text": "Look. A door has opened. Beyond it lies the Gauntlet."},
 		{"who": HERO, "text": "How much further until I'm home?"},
 		{"who": WARDEN, "text": "Further than you'd like. Closer than you think."},
+	],
+}
+
+const EVENT_BEATS := {
+	# Level 8: the floodgate lever starts the water rising.
+	"floodgate": [
+		{"who": WARDEN, "text": "The water's coming in. Climb, Ren. Don't look down, don't stop."},
 	],
 }
 
@@ -225,6 +239,12 @@ func _on_teleport_used(destination_id: String, _player: Node) -> void:
 	# Emitted just before the player is moved; let them land first.
 	await get_tree().create_timer(0.6).timeout
 	play("arrive:" + destination_id, ARRIVAL_BEATS[destination_id])
+
+
+## Plays the EVENT_BEATS entry for `key` (once per run), for level scripts.
+func event(key: String) -> void:
+	if EVENT_BEATS.has(key):
+		play("event:" + key, EVENT_BEATS[key])
 
 
 func _on_boss_gone(boss_name: String, boss: Node) -> void:

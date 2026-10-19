@@ -219,3 +219,25 @@
 <img width="1152" height="648" alt="Level 7 - Sawmill" src="docs/level_7/sawmill.png" />
 <img width="1152" height="648" alt="Level 7 - Echo Door" src="docs/level_7/echo_door.png" />
 <img width="1152" height="648" alt="Level 7 - Summit" src="docs/level_7/summit.png" />
+
+<h3 align = "center">Level 8: The Cistern</h3>
+
+- "update: added level 8 after level 7"
+- Level 7's exit portal now leads down into Level 8; the Cistern is the deepest level so far, in the sewer tileset with water, pipes and waterfalls
+- New mechanic, the **rising flood**: pulling the floodgate lever opens the way out and starts the water rising behind you. It drowns you if it catches you, and drains back below your checkpoint when you respawn so every attempt gets the same head start
+- New to these levels: **rotten grates** that give way a moment after you land on them
+- Seven sections:
+  - **The Overflow**: rotten grates over a spiked floor, under swinging axes
+  - **Sluice Run**: crushers on a beat, then pits under a spear launcher that fires at jump height
+  - **The Pump Room**: leave an echo on each valve to hold two pipe bridges over a spiked chasm, dodging spears and a blade
+  - **The Rat Warren**: lure three rats under the spike weights; the last weight needs an echo on one button and you on the other
+  - **The Drop**: a long fall past spinning blades
+  - **Floodgate Gallery**: trapdoors and a wave of floor spikes to the floodgate lever
+  - **The Rising**: board the lift and wall-jump up the chimney while the water climbs
+- The Warden has a few words when you arrive and when the floodgate opens
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 8 - The Pump Room" src="docs/level_8/pump_room.png" />
+<img width="1152" height="648" alt="Level 8 - The Rat Warren" src="docs/level_8/rat_warren.png" />
+<img width="1152" height="648" alt="Level 8 - The Rising" src="docs/level_8/the_rising.png" />

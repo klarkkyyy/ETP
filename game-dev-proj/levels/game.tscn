@@ -205,6 +205,7 @@
 [ext_resource type="PackedScene" uid="uid://xslbuf06tr2u" path="res://levels/level_5.tscn" id="202_lvl5"]
 [ext_resource type="PackedScene" uid="uid://bwcajjxl0tsyj" path="res://levels/level_6.tscn" id="206_jtpn8"]
 [ext_resource type="PackedScene" uid="uid://dfmnhj3wqfs8w" path="res://levels/level_7.tscn" id="207_lvl7"]
+[ext_resource type="PackedScene" path="res://levels/level_8.tscn" id="208_lvl8"]
 [ext_resource type="Script" uid="uid://bmxa30lbw0ysj" path="res://spike_trap/all_pads_trigger.gd" id="all_pads_trigger"]
 [ext_resource type="Script" path="res://scripts/switch_platforms.gd" id="300_swplat"]
 
@@ -27133,6 +27134,9 @@ position = Vector2(813, -4587)
 
 [node name="Level_7" parent="." unique_id=1574206331 instance=ExtResource("207_lvl7")]
 position = Vector2(6300, -4587)
+
+[node name="Level_8" parent="." unique_id=1685310742 instance=ExtResource("208_lvl8")]
+position = Vector2(11820, -4587)
 
 [connection signal="body_entered" from="start/TitleTrigger" to="start/TitleTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="start/TitleTrigger" to="start/CanvasLayer2" method="_on_title_trigger_body_entered"]
