@@ -71,20 +71,11 @@ size = Vector2(128, 400)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmua5"]
 size = Vector2(864, 192)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrqi0"]
-size = Vector2(496, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfqkv"]
-size = Vector2(176, 64)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xffna"]
 size = Vector2(46, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a72r"]
 size = Vector2(46, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcn6t"]
-size = Vector2(96, 128)
 
 [node name="Level_6" type="Node2D" unique_id=738299174]
 script = ExtResource("1_mcn6t")
@@ -549,14 +540,10 @@ vertical_alignment = 1
 position = Vector2(1944, 685)
 
 [node name="EchoZone" parent="S3_EchoRelay" unique_id=963310953 instance=ExtResource("11_eqyc8")]
-position = Vector2(1976, 690)
+position = Vector2(2008, 690)
 max_echoes = 3
 activation_range = 600.0
 sample_every_frames = 1
-
-[node name="PuzzleArea" type="CollisionShape2D" parent="S3_EchoRelay/EchoZone" unique_id=1613573464]
-position = Vector2(192, -98)
-shape = SubResource("RectangleShape2D_qrqi0")
 
 [node name="EchoZonePadB" parent="S3_EchoRelay" unique_id=1713684863 instance=ExtResource("11_eqyc8")]
 position = Vector2(2120, 592)
@@ -626,6 +613,12 @@ vertical_alignment = 1
 
 [node name="HintHow" type="Node2D" parent="S3_EchoRelay" unique_id=1930827713]
 position = Vector2(2248, 544)
+
+[node name="EchoZonePadC" parent="S3_EchoRelay" unique_id=170618376 instance=ExtResource("11_eqyc8")]
+position = Vector2(2376, 690)
+max_echoes = 3
+activation_range = 600.0
+sample_every_frames = 1
 
 [node name="Shadow" type="Label" parent="S3_EchoRelay/HintHow" unique_id=1077645908]
 offset_left = -159.0
@@ -803,14 +796,10 @@ pads = Array[NodePath]([NodePath("../Button2Echo"), NodePath("../Button2You")])
 target = NodePath("../SpikeTrap2")
 
 [node name="EchoZone" parent="S6_SlaughterPit" unique_id=1548956466 instance=ExtResource("11_eqyc8")]
-position = Vector2(3608, 178)
+position = Vector2(3640, 178)
 max_echoes = 1
 activation_range = 600.0
 sample_every_frames = 1
-
-[node name="PuzzleArea" type="CollisionShape2D" parent="S6_SlaughterPit/EchoZone" unique_id=1353985263]
-position = Vector2(-16, -18)
-shape = SubResource("RectangleShape2D_nfqkv")
 
 [node name="Ratto" parent="S6_SlaughterPit" unique_id=1747214149 instance=ExtResource("18_evty8")]
 position = Vector2(3856, 320)
@@ -1028,10 +1017,6 @@ max_echoes = 2
 activation_range = 600.0
 sample_every_frames = 1
 
-[node name="PuzzleArea" type="CollisionShape2D" parent="S7_FinalGauntlet/EchoZone" unique_id=268278940]
-position = Vector2(24, -50)
-shape = SubResource("RectangleShape2D_mcn6t")
-
 [node name="PadFloor" parent="S7_FinalGauntlet" unique_id=235121465 instance=ExtResource("12_tmua5")]
 position = Vector2(4840, 702)
 
@@ -1047,6 +1032,12 @@ pads = Array[NodePath]([NodePath("../PadFloor"), NodePath("../PadShelf")])
 
 [node name="Hint" type="Node2D" parent="S7_FinalGauntlet" unique_id=710597275]
 position = Vector2(4872, 576)
+
+[node name="EchoZoneShelf" parent="S7_FinalGauntlet" unique_id=259308500 instance=ExtResource("11_eqyc8")]
+position = Vector2(4888, 626)
+max_echoes = 3
+activation_range = 600.0
+sample_every_frames = 1
 
 [node name="Shadow" type="Label" parent="S7_FinalGauntlet/Hint" unique_id=91474820]
 offset_left = -159.0
@@ -1095,7 +1086,7 @@ theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 10
 theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 text = "You survived the Gauntlet.
-To be continued..."
+The Crucible is next."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1107,7 +1098,7 @@ offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("5_binf7")
 theme_override_font_sizes/font_size = 10
 text = "You survived the Gauntlet.
-To be continued..."
+The Crucible is next."
 horizontal_alignment = 1
 vertical_alignment = 1
 
