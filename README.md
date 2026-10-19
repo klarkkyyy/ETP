@@ -235,6 +235,8 @@
   - **Floodgate Gallery**: trapdoors and a wave of floor spikes to the floodgate lever
   - **The Rising**: board the lift and wall-jump up the chimney while the water climbs
 - The Warden has a few words when you arrive and when the floodgate opens
+- Echo zones sit only on the buttons that need an echo, and the rooms where you watch a pit (the Warren, the Pump Room, the Overflow) fit on one screen
+- For now the exit portal returns to the boss arena, like Level 6 and 7 did, until Level 9 is made
 
 <h4 align = "center">Image Sample</h4>
 
