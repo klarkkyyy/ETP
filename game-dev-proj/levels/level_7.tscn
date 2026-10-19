@@ -800,7 +800,7 @@ patrol_right = 144.0
 start_direction = -1
 
 [node name="Bateye" parent="S7_Arena" unique_id=382623604 instance=ExtResource("14_c7jkg")]
-position = Vector2(3700, 540)
+position = Vector2(3700, 688)
 patrol_left = -152.0
 patrol_right = 152.0
 start_direction = -1
@@ -811,7 +811,7 @@ position = Vector2(3925, 680)
 
 [node name="ClearTrigger" type="Node" parent="S7_Arena" unique_id=1462093639]
 script = ExtResource("20_gmu14")
-enemies = Array[NodePath]([NodePath("../Ratto"), NodePath("../SpikeSlug")])
+enemies = Array[NodePath]([NodePath("../Ratto"), NodePath("../SpikeSlug"), NodePath("../Bateye")])
 doors = Array[NodePath]([NodePath("../Gate")])
 
 [node name="Hint" type="Node2D" parent="S7_Arena" unique_id=304694845]
