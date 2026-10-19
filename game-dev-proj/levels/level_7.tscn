@@ -789,12 +789,12 @@ vertical_alignment = 1
 position = Vector2(3400, 685)
 
 [node name="Ratto" parent="S7_Arena" unique_id=781339953 instance=ExtResource("18_evty8")]
-position = Vector2(3560, 688)
+position = Vector2(3560, 704)
 patrol_left = -152.0
 patrol_right = 152.0
 
 [node name="SpikeSlug" parent="S7_Arena" unique_id=2079763768 instance=ExtResource("19_jvg3e")]
-position = Vector2(3770, 688)
+position = Vector2(3770, 704)
 patrol_left = -144.0
 patrol_right = 144.0
 start_direction = -1
@@ -815,7 +815,7 @@ enemies = Array[NodePath]([NodePath("../Ratto"), NodePath("../SpikeSlug")])
 doors = Array[NodePath]([NodePath("../Gate")])
 
 [node name="Hint" type="Node2D" parent="S7_Arena" unique_id=304694845]
-position = Vector2(3700, 520)
+position = Vector2(3500, 560)
 
 [node name="SpikeTrap1" parent="S7_Arena" unique_id=1654974054 instance=ExtResource("60_spiketrap")]
 position = Vector2(3592, 512)
