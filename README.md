@@ -236,10 +236,29 @@
   - **The Rising**: board the lift and wall-jump up the chimney while the water climbs
 - The Warden has a few words when you arrive and when the floodgate opens
 - Echo zones sit only on the buttons that need an echo, and the rooms where you watch a pit (the Warren, the Pump Room, the Overflow) fit on one screen
-- For now the exit portal returns to the boss arena, like Level 6 and 7 did, until Level 9 is made
 
 <h4 align = "center">Image Sample</h4>
 
 <img width="1152" height="648" alt="Level 8 - The Pump Room" src="docs/level_8/pump_room.png" />
 <img width="1152" height="648" alt="Level 8 - The Rat Warren" src="docs/level_8/rat_warren.png" />
 <img width="1152" height="648" alt="Level 8 - The Rising" src="docs/level_8/the_rising.png" />
+
+<h3 align = "center">Level 9: The Sluiceworks</h3>
+
+- "update: added level 9 after level 8"
+- Level 8's exit portal now leads into Level 9: a deeper, murkier part of the sewer where the water does what you tell it, if you can hold it there
+- New mechanic, **water levels**: valves raise and lower the water in a channel, a tank or a pit. Water still drowns you, but crates float on it, so a filling tank or pit lifts them (and you)
+- Uses the **echo-pushable crates**: push them onto valves, hide behind them from spears, ride them up on the water
+- Five sections:
+  - **The Spillway**: push the crate onto the drain valve to empty a flooded channel, then cross its floor past spears, floor spikes and an axe
+  - **The Ballast Tank**: leave an echo on the fill valve, drop onto the crates and ride the rising water to the top, past spear launchers
+  - **The Crate Corridor**: a launcher sweeps the corridor; push a crate ahead of you as a shield, and grab the second one when the first drops into the pit
+  - **The Raft Pit**: flood the spiked pit with an echo on the valve; the crates on its floor float up into a path between spinning blades
+  - **The Last Sluice**: pull the lever to open the exit, then climb a grate, a ferry platform and a wall-jump chimney while the flood comes up
+- For now the exit portal returns to the boss arena until Level 10 is made
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 9 - The Ballast Tank" src="docs/level_9/ballast_tank.png" />
+<img width="1152" height="648" alt="Level 9 - The Raft Pit" src="docs/level_9/raft_pit.png" />
+<img width="1152" height="648" alt="Level 9 - The Last Sluice" src="docs/level_9/last_sluice.png" />

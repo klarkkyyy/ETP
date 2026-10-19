@@ -40,6 +40,11 @@ const ARRIVAL_BEATS := {
 		{"who": WARDEN, "text": "The Cistern. Everything the Reach washes away ends up down here."},
 		{"who": WARDEN, "text": "The way out is at the bottom, through the floodgate. Mind what you let in."},
 	],
+	# Level 8 exit -> Level 9.
+	"teleport_l9_in": [
+		{"who": HERO, "text": "Valves. Tanks. Someone built all this to move the water around."},
+		{"who": WARDEN, "text": "The Sluiceworks. Here the water does what you tell it, if you can hold it there."},
+	],
 }
 
 const BOSS_BEATS := {
@@ -58,6 +63,11 @@ const EVENT_BEATS := {
 	# Level 8: the floodgate lever starts the water rising.
 	"floodgate": [
 		{"who": WARDEN, "text": "The water's coming in. Climb, Ren. Don't look down, don't stop."},
+	],
+	# Level 9: the last sluice lever opens the exit and lets the water in.
+	"lastsluice": [
+		{"who": HERO, "text": "Not again!"},
+		{"who": WARDEN, "text": "Again. Up, Ren. You know how this goes."},
 	],
 }
 
