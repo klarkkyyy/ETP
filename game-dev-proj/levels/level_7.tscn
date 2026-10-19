@@ -22,14 +22,15 @@
 [ext_resource type="Script" uid="uid://8vmykixs6pyu" path="res://moving_platform.gd" id="22_8ybhb"]
 [ext_resource type="Texture2D" uid="uid://dke2x52e5hutx" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/boss room/tileset_boss_room.png" id="23_vk65v"]
 [ext_resource type="TileSet" uid="uid://bo4kbwr0am3b1" path="res://levels/level_7_tileset.tres" id="50_ts7"]
+[ext_resource type="PackedScene" path="res://spike_trap/spike_trap.tscn" id="60_spiketrap"]
+[ext_resource type="PackedScene" uid="uid://d2bxq7a1oo3ln" path="res://scenes/3candle_light.tscn" id="70_candles"]
 [ext_resource type="Texture2D" uid="uid://dhk56q0n8k0wk" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="70_chain0"]
 [ext_resource type="Texture2D" uid="uid://oipaevqdfsb0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_01_static.png" id="70_chain1"]
+[ext_resource type="PackedScene" path="res://levels/level_7_decor.tscn" id="70_decor"]
 [ext_resource type="Texture2D" uid="uid://dww434uva5a2c" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/red_static_drapery.png" id="70_drapery"]
 [ext_resource type="Texture2D" uid="uid://dfyirxtfnaj5b" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/roof_hanging_vase_00.png" id="70_vase0"]
 [ext_resource type="Texture2D" uid="uid://83ftlcaescfp" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/roof_hanging_vase_01.png" id="70_vase1"]
-[ext_resource type="PackedScene" uid="uid://d2bxq7a1oo3ln" path="res://scenes/3candle_light.tscn" id="70_candles"]
-[ext_resource type="PackedScene" path="res://levels/level_7_decor.tscn" id="70_decor"]
-[ext_resource type="PackedScene" path="res://spike_trap/spike_trap.tscn" id="60_spiketrap"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7_1"]
 size = Vector2(5120, 768)
 
@@ -659,6 +660,12 @@ max_echoes = 2
 activation_range = 600.0
 sample_every_frames = 1
 
+[node name="EchoZone" parent="S5_EchoDoor/EchoZone" unique_id=963310953 instance=ExtResource("11_eqyc8")]
+position = Vector2(-45, 60)
+max_echoes = 2
+activation_range = 600.0
+sample_every_frames = 1
+
 [node name="PadFloor" parent="S5_EchoDoor" unique_id=1136676992 instance=ExtResource("12_tmua5")]
 position = Vector2(2408, 702)
 
@@ -817,20 +824,6 @@ doors = Array[NodePath]([NodePath("../Gate")])
 [node name="Hint" type="Node2D" parent="S7_Arena" unique_id=304694845]
 position = Vector2(3500, 560)
 
-[node name="SpikeTrap1" parent="S7_Arena" unique_id=1654974054 instance=ExtResource("60_spiketrap")]
-position = Vector2(3592, 512)
-
-[node name="SpikeTrap2" parent="S7_Arena" unique_id=887001829 instance=ExtResource("60_spiketrap")]
-position = Vector2(3760, 512)
-
-[node name="Button1" parent="S7_Arena" unique_id=2097555262 instance=ExtResource("12_tmua5")]
-position = Vector2(3656, 590)
-linked_trap = NodePath("../SpikeTrap1")
-
-[node name="Button2" parent="S7_Arena" unique_id=1014243236 instance=ExtResource("12_tmua5")]
-position = Vector2(3832, 638)
-linked_trap = NodePath("../SpikeTrap2")
-
 [node name="Shadow" type="Label" parent="S7_Arena/Hint" unique_id=2041461999]
 offset_left = -159.0
 offset_top = -28.0
@@ -855,6 +848,20 @@ text = "Only the spikes can hurt them.
 Drop the weights to open the gate."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SpikeTrap1" parent="S7_Arena" unique_id=1654974054 instance=ExtResource("60_spiketrap")]
+position = Vector2(3592, 512)
+
+[node name="SpikeTrap2" parent="S7_Arena" unique_id=887001829 instance=ExtResource("60_spiketrap")]
+position = Vector2(3760, 512)
+
+[node name="Button1" parent="S7_Arena" unique_id=2097555262 instance=ExtResource("12_tmua5")]
+position = Vector2(3656, 590)
+linked_trap = NodePath("../SpikeTrap1")
+
+[node name="Button2" parent="S7_Arena" unique_id=1014243236 instance=ExtResource("12_tmua5")]
+position = Vector2(3832, 638)
+linked_trap = NodePath("../SpikeTrap2")
 
 [node name="S8_Chimney" type="Node2D" parent="." unique_id=1573431644]
 
