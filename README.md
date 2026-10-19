@@ -227,13 +227,13 @@
 - New mechanic, the **rising flood**: pulling the floodgate lever opens the way out and starts the water rising behind you. It drowns you if it catches you, and drains back below your checkpoint when you respawn so every attempt gets the same head start
 - New to these levels: **rotten grates** that give way a moment after you land on them
 - Seven sections:
-  - **The Overflow**: rotten grates over a spiked floor, under swinging axes
-  - **Sluice Run**: crushers on a beat, then pits under a spear launcher that fires at jump height
-  - **The Pump Room**: leave an echo on each valve to hold two pipe bridges over a spiked chasm, dodging spears and a blade
+  - **The Overflow**: rotten grates over a spiked floor, under swinging axes and a spear line from the far wall
+  - **Sluice Run**: crushers on a fast beat, then pits under a quick spear launcher that fires at jump height
+  - **The Pump Room**: leave an echo on each valve to hold two pipe bridges over a spiked chasm, dodging spears and two blades
   - **The Rat Warren**: lure three rats under the spike weights; the last weight needs an echo on one button and you on the other
-  - **The Drop**: a long fall past spinning blades
-  - **Floodgate Gallery**: trapdoors and a wave of floor spikes to the floodgate lever
-  - **The Rising**: board the lift and wall-jump up the chimney while the water climbs
+  - **The Drop**: a long fall past four fast spinning blades
+  - **Floodgate Gallery**: five trapdoors and a fast wave of floor spikes to the floodgate lever
+  - **The Rising**: board the lift between spears and wall-jump up a chimney crossed by a spear line while the water climbs fast
 - The Warden has a few words when you arrive and when the floodgate opens
 - Echo zones sit only on the buttons that need an echo, and the rooms where you watch a pit (the Warren, the Pump Room, the Overflow) fit on one screen
 
