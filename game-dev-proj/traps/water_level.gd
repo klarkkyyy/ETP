@@ -17,6 +17,7 @@ const SFX_FLOW = "res://audio/sfx/stone_door.mp3"
 @export var speed: float = 40.0          # px/s
 @export var start_full: bool = true
 @export var depth: float = 1200.0        # how far the water body reaches below the surface
+@export var drown_margin_left: float = 0.0  # px at the left edge that don't drown (a ledge overhanging the water)
 
 var surface: float
 var _target: float
@@ -72,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	if _player.get("is_dead"):
 		return
 	var p := to_local(_player.global_position)
-	if p.x >= 0.0 and p.x <= width and p.y > surface + 2.0:
+	if p.x >= drown_margin_left and p.x <= width and p.y > surface + 2.0:
 		_player.die()
 
 func _process(_delta: float) -> void:

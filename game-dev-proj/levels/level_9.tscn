@@ -223,7 +223,7 @@ position = Vector2(416, 1168)
 script = ExtResource("30_water")
 width = 448.0
 low = 8.0
-high = -64.0
+high = -58.0
 speed = 48.0
 
 [node name="TideA_31" parent="S1_Spillway" unique_id=120238987 instance=ExtResource("10_floor_spikes")]
@@ -335,13 +335,14 @@ position = Vector2(1050, 1192)
 position = Vector2(1032, 1192)
 
 [node name="Tank" type="Node2D" parent="S2_BallastTank" unique_id=1920350041]
-position = Vector2(1014, 1200)
+position = Vector2(1008, 1200)
 script = ExtResource("30_water")
-width = 154.0
+width = 160.0
 low = 8.0
-high = -704.0
+high = -698.0
 speed = 48.0
 start_full = false
+drown_margin_left = 6.0
 
 [node name="LauncherA" parent="S2_BallastTank" unique_id=198360902 instance=ExtResource("11_launcher")]
 position = Vector2(1014, 976)
