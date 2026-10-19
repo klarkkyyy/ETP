@@ -249,16 +249,19 @@
 - Level 8's exit portal now leads into Level 9: a deeper, murkier part of the sewer where the water does what you tell it, if you can hold it there
 - New mechanic, **water levels**: valves raise and lower the water in a channel, a tank or a pit. Water still drowns you, but crates float on it, so a filling tank or pit lifts them (and you)
 - Uses the **echo-pushable crates**: push them onto valves, hide behind them from spears, ride them up on the water
-- Five sections:
+- Eight sections:
   - **The Spillway**: push the crate onto the drain valve to empty a flooded channel, then cross its floor past two spear lines, two waves of floor spikes and two axes
   - **The Ballast Tank**: leave an echo on the fill valve, drop onto the crates and ride the rising water to the top, dodging five spear launchers and a blade
   - **The Crate Corridor**: launchers sweep the corridor low and high; push a crate ahead of you as a shield, then time the pit jump to reach the second one
   - **The Raft Pit**: flood the spiked pit with an echo on the valve; the crates on its floor float up into a path of double jumps between four blades and a spear line
   - **The Last Sluice**: pull the lever to open the exit, then climb rotten grates, a ferry platform and a wall-jump chimney while the flood comes up fast
+  - **The Crusher Gallery**: out of the top of the chimney into a low gallery under four crushers falling in a wave; wait in the gaps between them
+  - **The Spear Shaft**: double jump up a narrow shaft of staggered ledges while two spear lines cross it
+  - **The Rotten Bridge**: run a line of rotten grates over a spiked trough without stopping, timed through four swinging blades, then drop past a spinning blade to the exit
 - For now the exit portal returns to the boss arena until Level 10 is made
 
 <h4 align = "center">Image Sample</h4>
 
 <img width="1152" height="648" alt="Level 9 - The Ballast Tank" src="docs/level_9/ballast_tank.png" />
-<img width="1152" height="648" alt="Level 9 - The Raft Pit" src="docs/level_9/raft_pit.png" />
 <img width="1152" height="648" alt="Level 9 - The Last Sluice" src="docs/level_9/last_sluice.png" />
+<img width="1152" height="648" alt="Level 9 - The Rotten Bridge" src="docs/level_9/rotten_bridge.png" />
