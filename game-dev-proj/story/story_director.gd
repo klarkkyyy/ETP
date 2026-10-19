@@ -27,6 +27,12 @@ const ARRIVAL_BEATS := {
 		{"who": WARDEN, "text": "Your echoes are not just memories. Use them. Let your past fight beside you."},
 		{"who": HERO, "text": "...Okay. Okay. Let's do this."},
 	],
+	# Level 6 exit -> Level 7.
+	"teleport_l7_in": [
+		{"who": HERO, "text": "It's so hot in here. What is this place?"},
+		{"who": WARDEN, "text": "The Crucible. The Reach melts down whatever it can't break, and remakes it."},
+		{"who": WARDEN, "text": "Keep moving. Stand still too long and it will start on you."},
+	],
 }
 
 const BOSS_BEATS := {

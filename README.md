@@ -202,3 +202,33 @@
 <img width="1152" height="648" alt="Level 6 - The Climb" src="docs/level_6/the_climb.png" />
 <img width="1152" height="648" alt="Level 6 - Slaughter Pit" src="docs/level_6/slaughter_pit.png" />
 <img width="1152" height="648" alt="Level 6 - Final Gauntlet" src="docs/level_6/final_gauntlet.png" />
+
+<h3 align = "center">Level 7: The Crucible</h3>
+
+- "update: added level 7 after level 6"
+- Level 6's exit portal now leads to Level 7 (and Level 7's entrance leads back)
+- Layout by Geirmane; rebuilt in the alchemy-room tileset with backdrop and pillar layers, sconces, hanging chains and drapery, and alchemy furniture (crucibles, cabinets, potion benches)
+- Ten sections:
+  - **Sawmill**: axes and a blade wheel over a floor of spikes
+  - **Tower**: a climb past spear launchers and spinning blades
+  - **Skybridge**: two crusher rows over spike pits, with axes in the gaps
+  - **Drop Shaft**: a fall between two blades
+  - **Echo Door**: record an echo on the shelf pad, then hold the floor pad yourself to open the arch
+  - **Cellar**: crushers on a beat, then pits
+  - **Arena**: the gate stays shut until the wardens are dead
+  - **Chimney**: a second, longer climb through spears and spinners
+  - **Summit**: moving platforms, axes and trapdoors to the exit
+- The Warden has a few words when you arrive
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 7 - Start" src="docs/level_7/start.png" />
+<img width="1152" height="648" alt="Level 7 - Sawmill" src="docs/level_7/sawmill.png" />
+<img width="1152" height="648" alt="Level 7 - Tower" src="docs/level_7/tower.png" />
+<img width="1152" height="648" alt="Level 7 - Skybridge" src="docs/level_7/skybridge.png" />
+<img width="1152" height="648" alt="Level 7 - Drop Shaft" src="docs/level_7/drop_shaft.png" />
+<img width="1152" height="648" alt="Level 7 - Echo Door" src="docs/level_7/echo_door.png" />
+<img width="1152" height="648" alt="Level 7 - Cellar" src="docs/level_7/cellar.png" />
+<img width="1152" height="648" alt="Level 7 - Arena" src="docs/level_7/arena.png" />
+<img width="1152" height="648" alt="Level 7 - Chimney" src="docs/level_7/chimney.png" />
+<img width="1152" height="648" alt="Level 7 - Summit" src="docs/level_7/summit.png" />
