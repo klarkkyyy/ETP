@@ -172,7 +172,6 @@
 <h4 align = "center">Image Sample</h4>
 
 <img width="1152" height="648" alt="Level 5 - First Drop" src="docs/level_5/first_drop.png" />
-<img width="1152" height="648" alt="Level 5 - Under the Spikes" src="docs/level_5/under_the_spikes.png" />
 <img width="1152" height="648" alt="Level 5 - The Belfry" src="docs/level_5/belfry.png" />
 <img width="1152" height="648" alt="Level 5 - Twin Weights" src="docs/level_5/twin_weights.png" />
 
@@ -194,13 +193,8 @@
 
 <h4 align = "center">Image Sample</h4>
 
-<img width="1152" height="648" alt="Level 6 - Start" src="docs/level_6/start.png" />
 <img width="1152" height="648" alt="Level 6 - Pendulum Hall" src="docs/level_6/pendulum_hall.png" />
-<img width="1152" height="648" alt="Level 6 - Spike Tide" src="docs/level_6/spike_tide.png" />
 <img width="1152" height="648" alt="Level 6 - Echo Relay" src="docs/level_6/echo_relay.png" />
-<img width="1152" height="648" alt="Level 6 - Crusher Row" src="docs/level_6/crusher_row.png" />
-<img width="1152" height="648" alt="Level 6 - The Climb" src="docs/level_6/the_climb.png" />
-<img width="1152" height="648" alt="Level 6 - Slaughter Pit" src="docs/level_6/slaughter_pit.png" />
 <img width="1152" height="648" alt="Level 6 - Final Gauntlet" src="docs/level_6/final_gauntlet.png" />
 
 <h3 align = "center">Level 7: The Crucible</h3>
@@ -222,13 +216,6 @@
 
 <h4 align = "center">Image Sample</h4>
 
-<img width="1152" height="648" alt="Level 7 - Start" src="docs/level_7/start.png" />
 <img width="1152" height="648" alt="Level 7 - Sawmill" src="docs/level_7/sawmill.png" />
-<img width="1152" height="648" alt="Level 7 - Tower" src="docs/level_7/tower.png" />
-<img width="1152" height="648" alt="Level 7 - Skybridge" src="docs/level_7/skybridge.png" />
-<img width="1152" height="648" alt="Level 7 - Drop Shaft" src="docs/level_7/drop_shaft.png" />
 <img width="1152" height="648" alt="Level 7 - Echo Door" src="docs/level_7/echo_door.png" />
-<img width="1152" height="648" alt="Level 7 - Cellar" src="docs/level_7/cellar.png" />
-<img width="1152" height="648" alt="Level 7 - Arena" src="docs/level_7/arena.png" />
-<img width="1152" height="648" alt="Level 7 - Chimney" src="docs/level_7/chimney.png" />
 <img width="1152" height="648" alt="Level 7 - Summit" src="docs/level_7/summit.png" />
