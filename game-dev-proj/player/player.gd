@@ -100,24 +100,25 @@ func _physics_process(delta: float) -> void:
 	is_pushing = false
 	var push_dir = Input.get_axis("left", "right")
 	if is_on_floor() and not is_wall_sliding and push_dir != 0:
-		# Case 1: pressing into a static wall
-		if is_on_wall():
+		# Case 1: pressing into a moveable object. Checked first: a crate also
+		# counts as a wall, and it should be pushed, not just leaned on.
+		for i in get_slide_collision_count():
+			var col = get_slide_collision(i)
+			var collider = col.get_collider()
+			if is_instance_valid(collider) and collider.is_in_group("moveable"):
+				var to_collider = (collider.global_position - global_position).normalized()
+				if (push_dir > 0 and to_collider.x > 0.3) or (push_dir < 0 and to_collider.x < -0.3):
+					is_pushing = true
+					anim.flip_h = push_dir < 0
+					if collider.has_method("receive_push"):
+						collider.receive_push(push_dir)
+					break
+		# Case 2: pressing into a static wall
+		if not is_pushing and is_on_wall():
 			var wall_normal = get_wall_normal()
 			if (push_dir > 0 and wall_normal.x < 0) or (push_dir < 0 and wall_normal.x > 0):
 				is_pushing = true
 				anim.flip_h = push_dir < 0
-		if not is_pushing:
-			for i in get_slide_collision_count():
-				var col = get_slide_collision(i)
-				var collider = col.get_collider()
-				if is_instance_valid(collider) and collider.is_in_group("moveable"):
-					var to_collider = (collider.global_position - global_position).normalized()
-					if (push_dir > 0 and to_collider.x > 0.3) or (push_dir < 0 and to_collider.x < -0.3):
-						is_pushing = true
-						anim.flip_h = push_dir < 0
-						if collider.has_method("receive_push"):
-							collider.receive_push(push_dir)
-						break
 
 	if not is_on_floor():
 		if is_wall_sliding:

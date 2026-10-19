@@ -115,6 +115,13 @@ const MECHANICS := {
 		{"who": "@", "text": "Lever. Press E next to it."},
 		{"who": "@", "text": "Your echo can pull it too, if you record yourself doing it. Now THAT'S engineering."},
 	]},
+	"box": {"paths": ["res://scenes/box.tscn"], "requires_echo": 1,
+		"guide": "Hollis", "lines": [
+		{"who": "@", "text": "Crates! Push them, stand on them, stack them. Best building blocks in the Reach."},
+		{"who": "@", "text": "Your echo can push them too. Record yourself shoving one. When you stop, the crate goes back where it was..."},
+		{"who": "@", "text": "...and your echo does the shoving for you. Every time it loops. Your hands stay free."},
+		{"who": "@", "text": "Lost one down a pit? Wipe your echoes and they all come home."},
+	]},
 	"arrow_trap": {"paths": ["res://scenes/arrow_trap.tscn", "res://Level_3/real_Level_3/Scenes/ArrowTrap.tscn"],
 		"guide": "Kit", "lines": [
 		{"who": "@", "text": "Arrows! They shoot on a beat. Watch them once before you run. That's what I didn't do."},

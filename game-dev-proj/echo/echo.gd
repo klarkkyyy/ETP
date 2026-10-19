@@ -4,7 +4,10 @@ extends Area2D
 @onready var anim: AnimatedSprite2D = $animations  
 @export var push_force: float = 180.0
 
-const TRAIL_LENGTH = 8      
+const MAX_PUSH_STEP = 4.0   # px per frame; Ren runs ~1.7, a wall jump ~3.3
+const CRATE_HALF = 8.0      # half the width of a crate (box.tscn)
+const ECHO_HALF = 4.5       # half the width of Ren's body
+const TRAIL_LENGTH = 8
 const TRAIL_INTERVAL = 3     
 const SLOT_COLORS = [
 	Color(0.4, 0.8, 1.0), 
@@ -62,14 +65,25 @@ func _physics_process(_delta: float) -> void:
 				area.on_echo_interact(self)
 
 	_current_frame = (_current_frame + 1) % _frames.size()
-	# Push any moveable objects the echo is overlapping
+	# Push crates the echo walks into, the way Ren pushed them while recording.
+	# A bigger step than a run frame is the loop starting over, not a push.
 	var move_delta = global_position - _last_echo_pos
-	if move_delta.length() >= 0.5:
-		var push_dir = move_delta.normalized()
-		for body in get_overlapping_bodies():
-			if is_instance_valid(body) and body.is_in_group("moveable"):
-				body.apply_central_force(push_dir * push_force)
+	if absf(move_delta.x) >= 0.5 and absf(move_delta.x) < MAX_PUSH_STEP:
+		var dir := signf(move_delta.x)
+		for body in get_tree().get_nodes_in_group("moveable"):
+			if not is_instance_valid(body):
+				continue
+			if body.has_method("receive_push"):
+				if _touching(body, dir):
+					body.receive_push(dir)
+			elif body is RigidBody2D and overlaps_body(body):
+				body.apply_central_force(move_delta.normalized() * push_force)
 	_last_echo_pos = global_position
+
+## True when a crate is right against the echo's side in the direction it's moving.
+func _touching(box: Node2D, dir: float) -> bool:
+	var d := box.global_position - global_position
+	return absf(d.y) < 12.0 and d.x * dir > 0.0 and absf(d.x) < CRATE_HALF + ECHO_HALF + 3.0
 
 func _update_echo_animation(frame_data: Dictionary) -> void:
 	if frame_data.has("anim"):

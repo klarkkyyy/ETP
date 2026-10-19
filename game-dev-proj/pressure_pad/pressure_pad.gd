@@ -8,6 +8,7 @@ signal pad_deactivated()
 
 var _player_count: int = 0
 var _echo_count: int = 0
+var _box_count: int = 0   # crates (scripts/box.gd) weigh a pad down too
 var is_pressed: bool = false
 var _trap_node = null
 
@@ -16,6 +17,7 @@ const SFX_PRESS = "res://audio/sfx/button.wav"
 
 func _ready() -> void:
 	add_to_group("pressure_pad")
+	collision_mask |= 1   # crates sit on the world layer
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
 	if not body_exited.is_connected(_on_body_exited):
@@ -39,15 +41,21 @@ func _on_body_entered(body: Node) -> void:
 		_player_count += 1
 		sfx.play()
 		_evaluate()
+	elif body.is_in_group("box"):
+		_box_count += 1
+		_evaluate()
 
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
 		_player_count = max(0, _player_count - 1)
 		_evaluate()
+	elif body.is_in_group("box"):
+		_box_count = max(0, _box_count - 1)
+		_evaluate()
 
 func _evaluate() -> void:
-	var should_press = (_player_count + _echo_count) > 0
+	var should_press = (_player_count + _echo_count + _box_count) > 0
 	if should_press == is_pressed:
 		return
 	is_pressed = should_press

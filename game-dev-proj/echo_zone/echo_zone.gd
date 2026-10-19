@@ -12,8 +12,9 @@ var player: CharacterBody2D = null
 var is_recording: bool = false
 var active_slot: int = -1            
 var current_recording: Array = []
-var active_echo_nodes: Array = []      
+var active_echo_nodes: Array = []
 var _frame_counter: int = 0
+var _crates_at_start: Dictionary = {}  # crate -> global position when the recording began
 
 signal echo_saved(slot: int)
 signal echoes_cleared()
@@ -82,6 +83,10 @@ func _start_recording(slot: int) -> void:
 	_frame_counter = 0
 	active_slot = slot
 	is_recording = true
+	# remember where the crates are, so the echo can redo any pushing (see _finish_recording)
+	_crates_at_start.clear()
+	for crate in get_tree().get_nodes_in_group("box"):
+		_crates_at_start[crate] = crate.global_position
 	EchoFlash.flash_start(slot + 1)
 
 func _clear_all_echoes() -> void:
@@ -119,6 +124,12 @@ func _finish_recording() -> void:
 	if not is_recording:
 		return
 	is_recording = false
+	# Crates Ren pushed while recording go back, and his echo pushes them instead.
+	for crate in _crates_at_start:
+		if is_instance_valid(crate):
+			crate.global_position = _crates_at_start[crate]
+			crate.velocity = Vector2.ZERO
+	_crates_at_start.clear()
 	if current_recording.size() < 2:
 		active_slot = -1
 		current_recording = []

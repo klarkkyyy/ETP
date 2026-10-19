@@ -6,7 +6,8 @@
 # When the player dies it drains back to reset_gap below their respawn point
 # (never lower than where it started) and waits `grace` seconds before rising
 # again, so every attempt at the climb gets the same head start. A respawn
-# out of the water's reach drains it until the player comes back.
+# out of the water's reach drains it until the player comes back. Crates
+# (scripts/box.gd) in the water float on its surface.
 extends Node2D
 
 const SFX_START = "res://audio/sfx/stone_door.mp3"
@@ -87,6 +88,10 @@ func _physics_process(delta: float) -> void:
 	if rising and surface > top:
 		surface = max(top, surface - rise_speed * delta)
 		_place()
+	for crate in get_tree().get_nodes_in_group("box"):
+		var c := to_local(crate.global_position)
+		if c.x >= 0.0 and c.x <= width and crate.has_method("float_on"):
+			crate.float_on(global_position.y + surface)
 	if p.x >= 0.0 and p.x <= width and p.y > surface + 2.0:
 		_player.die()
 
