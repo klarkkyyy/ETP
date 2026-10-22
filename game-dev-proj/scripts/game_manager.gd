@@ -47,29 +47,16 @@ func is_echo_unlocked(slot: int) -> bool:
 
 # ── Echo stars ───────────────────────────────────────────────────────────────
 # Per level: the fewest echoes it was cleared with, and whether it earned a star
-# (cleared at or under its echo par). Kept on disk across sessions.
-const STARS_FILE = "user://echo_stars.cfg"
+# (cleared at or under its echo goal). Saved by SaveManager.
 var level_best: Dictionary = {}   # level name -> fewest echoes used
 var level_stars: Dictionary = {}  # level name -> true
-
-func _ready() -> void:
-	var cfg := ConfigFile.new()
-	if cfg.load(STARS_FILE) == OK:
-		for level in cfg.get_sections():
-			level_best[level] = cfg.get_value(level, "best", 0)
-			if cfg.get_value(level, "star", false):
-				level_stars[level] = true
+var boss_defeated: bool = false
 
 ## Records a clear; returns the best (fewest) echo count for that level.
 func record_level_clear(level: String, used: int, star: bool) -> int:
 	level_best[level] = mini(level_best.get(level, used), used)
 	if star:
 		level_stars[level] = true
-	var cfg := ConfigFile.new()
-	for l in level_best:
-		cfg.set_value(l, "best", level_best[l])
-		cfg.set_value(l, "star", level_stars.get(l, false))
-	cfg.save(STARS_FILE)
 	return level_best[level]
 
 func has_star(level: String) -> bool:
@@ -77,3 +64,15 @@ func has_star(level: String) -> bool:
 
 func star_count() -> int:
 	return level_stars.size()
+
+## Forgets the whole run: a new game, a Continue (before loading the save),
+## or quitting to the menu.
+func reset_progress() -> void:
+	checkpoint_position = Vector2.ZERO
+	has_checkpoint = false
+	pending_teleport_id = ""
+	for slot in echo_unlocks:
+		echo_unlocks[slot] = false
+	level_best.clear()
+	level_stars.clear()
+	boss_defeated = false
