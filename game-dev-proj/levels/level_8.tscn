@@ -613,10 +613,10 @@ position = Vector2(2264, 636)
 position = Vector2(2280, 636)
 
 [node name="ValveA" parent="S3_PumpRoom" unique_id=645025252 instance=ExtResource("13_pad")]
-position = Vector2(1624, 542)
+position = Vector2(1611, 542)
 
 [node name="ValveB" parent="S3_PumpRoom" unique_id=747083558 instance=ExtResource("13_pad")]
-position = Vector2(2024, 494)
+position = Vector2(2015, 494)
 
 [node name="SlabA0" type="StaticBody2D" parent="S3_PumpRoom" unique_id=82270515]
 position = Vector2(1736, 548)
