@@ -11,6 +11,11 @@ extends Area2D
 
 signal teleport_used(destination_id: String, player: Node)
 
+## Optional: called with this teleport when it is used. Returning true holds
+## the teleport, and whoever set this fires it later with go() (a level's exit
+## waits for its level-clear screen).
+var hold_until: Callable
+
 const SFX_TELEPORT = "res://audio/sfx/teleport.mp3"
 
 var _player_nearby: bool = false
@@ -30,6 +35,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		_do_teleport()
 
 func _do_teleport() -> void:
+	if hold_until.is_valid() and hold_until.call(self):
+		return
+	go()
+
+func go() -> void:
 	var all_teleports = get_tree().get_nodes_in_group("teleport")
 	for tp in all_teleports:
 		if tp.this_id == destination_id:

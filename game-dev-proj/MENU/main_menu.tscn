@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://02u7mq5w3gsw"]
 
+[ext_resource type="Script" uid="uid://gs71jhcrt2ym" path="res://MENU/main_menu.gd" id="menu_script"]
 [ext_resource type="FontFile" uid="uid://cti2sr76bngeo" path="res://MENU/nostalgic_letter/Nostalgic Letter.otf" id="1_du1em"]
 [ext_resource type="FontFile" uid="uid://cas05dooal7th" path="res://assets/fonts/BoldPixels.ttf" id="1_ecigt"]
 [ext_resource type="Script" uid="uid://bfb1ff3uk1vw1" path="res://MENU/button.gd" id="2_o6dma"]
@@ -133,6 +134,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_oilck")
 
 [node name="MainMenu" type="Node2D" unique_id=1299423309]
+script = ExtResource("menu_script")
 
 [node name="Button" type="Button" parent="." unique_id=22449713]
 anchors_preset = 8

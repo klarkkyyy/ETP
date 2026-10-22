@@ -23,6 +23,9 @@ SoundManager="*uid://bi4x7c06b6hg"
 EchoFlash="*uid://dglq3743c0u6n"
 Echoes="*res://echo/echoes.gd"
 StoryDirector="*res://story/story_director.gd"
+SaveManager="*res://scripts/save_manager.gd"
+LevelClear="*res://scripts/level_clear.gd"
+PauseMenu="*res://scripts/pause_menu.gd"
 DisplayManager="*res://scripts/display_manager.gd"
 
 [display]

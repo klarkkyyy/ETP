@@ -4,7 +4,8 @@
 # HUD. Reaching a new checkpoint or respawning (dying, or F) gives every slot
 # back, and so does R, which also wipes the echoes. Levels with an echo par
 # (level_standalone.gd) count every echo recorded in a run, re-recordings
-# included, and award a star for clearing at or under par.
+# included, plus deaths and time, and award a star for clearing at or under
+# par (shown as the "goal"); level_clear.gd shows the result.
 # During the boss fight the budget is lifted (`unlimited`).
 extends Node
 
@@ -42,12 +43,12 @@ var _player_was_dead := false
 var _run_level: String = ""
 var _run_par: int = -1
 var _run_used: int = 0
+var _run_deaths: int = 0
+var _run_time: float = 0.0
 
 var _hud: CanvasLayer
 var _icons: Array[Panel] = []
 var _run_label: Label
-var _banner: Label
-var _banner_tween: Tween
 
 
 func _ready() -> void:
@@ -57,7 +58,7 @@ func _ready() -> void:
 	GameManager.player_teleported.connect(func(_from, _to): stop_recording())
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player):
 		player = get_tree().get_first_node_in_group("player") as CharacterBody2D
 		_player_was_dead = false
@@ -67,7 +68,11 @@ func _physics_process(_delta: float) -> void:
 	var dead: bool = player.get("is_dead")
 	if _player_was_dead and not dead:
 		refill()  # respawned at the checkpoint
+	if dead and not _player_was_dead and _run_level != "":
+		_run_deaths += 1
 	_player_was_dead = dead
+	if _run_level != "":
+		_run_time += delta
 
 	if is_recording and not dead:
 		var sprite: AnimatedSprite2D = player.get_node("animations")
@@ -190,12 +195,18 @@ func clear_echoes() -> void:
 
 
 # ── Level runs and stars ──────────────────────────────────────────────────────
-## A level with an echo par started: count echoes from here.
+## A level with an echo par started: count echoes, deaths and time from here.
 func begin_run(level_name: String, par: int) -> void:
 	_run_level = level_name
 	_run_par = par
 	_run_used = 0
+	_run_deaths = 0
+	_run_time = 0.0
 	clear_echoes()
+
+## The scored level being played, or "".
+func run_level() -> String:
+	return _run_level
 
 ## Left a level without clearing it (back through its entrance).
 func abort_run(level_name: String) -> void:
@@ -203,20 +214,48 @@ func abort_run(level_name: String) -> void:
 		_run_level = ""
 		_update_hud()
 
-## Cleared the level: score it against par and show the banner.
-func end_run(level_name: String) -> void:
+## Cleared the level: scores it against par and returns the result
+## ({} if that level wasn't being scored).
+func end_run(level_name: String) -> Dictionary:
 	if _run_level != level_name:
-		return
+		return {}
 	_run_level = ""
 	var star: bool = _run_used <= _run_par
 	var best: int = GameManager.record_level_clear(level_name, _run_used, star)
-	var title := level_name.replace("_", " ")
-	var text := "%s clear\nEchoes used: %d   Goal: %d\n" % [title, _run_used, _run_par]
-	text += "Star earned!" if star else "Use %d or fewer echoes for a star" % _run_par
-	if best < _run_used:
-		text += "\nBest: %d" % best
-	show_banner(text, Color(1.0, 0.85, 0.35) if star else Color(0.9, 0.9, 0.95))
 	_update_hud()
+	return {"level": level_name, "used": _run_used, "goal": _run_par, "star": star,
+		"best": best, "deaths": _run_deaths, "time": _run_time}
+
+## The run in progress, for the save file ({} when none).
+func get_run_state() -> Dictionary:
+	if _run_level == "":
+		return {}
+	return {"level": _run_level, "goal": _run_par, "used": _run_used,
+		"deaths": _run_deaths, "time": _run_time}
+
+## Picks a saved run back up (Continue).
+func restore_run(state: Dictionary) -> void:
+	if state.is_empty():
+		return
+	_run_level = state["level"]
+	_run_par = int(state["goal"])
+	_run_used = int(state["used"])
+	_run_deaths = int(state.get("deaths", 0))
+	_run_time = float(state.get("time", 0.0))
+	_update_hud()
+
+## Forgets everything: new game, Continue, back to the menu.
+func reset_all() -> void:
+	is_recording = false
+	active_slot = -1
+	_recording = []
+	for i in MAX_SLOTS:
+		if is_instance_valid(_echo_nodes[i]):
+			_echo_nodes[i].queue_free()
+		_echo_nodes[i] = null
+	_run_level = ""
+	unlimited = false
+	refill()
 
 
 # ── HUD ───────────────────────────────────────────────────────────────────────
@@ -278,18 +317,6 @@ func _build_hud() -> void:
 	_run_label.add_theme_constant_override("outline_size", 4)
 	_hud.add_child(_run_label)
 
-	_banner = Label.new()
-	_banner.set_anchors_preset(Control.PRESET_CENTER_TOP)
-	_banner.offset_left = -260
-	_banner.offset_right = 260
-	_banner.offset_top = 70
-	_banner.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_banner.add_theme_font_override("font", FONT)
-	_banner.add_theme_font_size_override("font_size", 20)
-	_banner.add_theme_color_override("font_outline_color", Color(0.04, 0.04, 0.08))
-	_banner.add_theme_constant_override("outline_size", 6)
-	_banner.modulate.a = 0.0
-	_hud.add_child(_banner)
 	_update_hud()
 
 func _set_icon_alpha(slot: int, alpha: float) -> void:
@@ -323,13 +350,3 @@ func _shake_icon(slot: int) -> void:
 	var tw := box.create_tween()
 	for dx in [-3.0, 3.0, -2.0, 0.0]:
 		tw.tween_property(box, "rotation_degrees", dx * 3.0, 0.04)
-
-func show_banner(text: String, color: Color = Color.WHITE) -> void:
-	_banner.text = text
-	_banner.add_theme_color_override("font_color", color)
-	if _banner_tween:
-		_banner_tween.kill()
-	_banner_tween = _banner.create_tween()
-	_banner_tween.tween_property(_banner, "modulate:a", 1.0, 0.3)
-	_banner_tween.tween_interval(3.5)
-	_banner_tween.tween_property(_banner, "modulate:a", 0.0, 0.6)

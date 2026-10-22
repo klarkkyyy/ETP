@@ -144,6 +144,12 @@ func reset() -> void:
 	_queue.clear()
 
 
+## Stops the beat that is playing and drops the queued ones (leaving the game).
+func cancel() -> void:
+	_queue.clear()
+	box.cancel()
+
+
 func _on_node_added(node: Node) -> void:
 	if arrival_pending and node.name == "game" and node.get_parent() == get_tree().root:
 		arrival_pending = false
@@ -339,11 +345,16 @@ func _play_beat(lines: Array, guide: Dictionary) -> void:
 		lines = lines.map(func(l): return {"who": guide["name"] if l["who"] == "@" else l["who"], "text": l["text"]})
 		ghost = _spawn_ghost(player, look, guide.get("near"))
 	tree.paused = true
+	# the fades wait on a timer, not the tween: if the game is left mid-beat the
+	# ghost is freed with it, and a tween on it would never finish
 	if ghost:
-		await create_tween().tween_property(ghost, "modulate:a", 1.0, 0.5).finished
+		create_tween().tween_property(ghost, "modulate:a", 1.0, 0.5)
+		await tree.create_timer(0.5).timeout
 	await box.run(lines)
-	if ghost:
-		await create_tween().tween_property(ghost, "modulate:a", 0.0, 0.5).finished
+	if is_instance_valid(ghost):
+		create_tween().tween_property(ghost, "modulate:a", 0.0, 0.5)
+		await tree.create_timer(0.5).timeout
+	if is_instance_valid(ghost):
 		ghost.queue_free()
 	# Let the key that closed the box go stale so the player doesn't jump.
 	await tree.create_timer(0.15).timeout

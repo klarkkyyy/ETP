@@ -1,6 +1,8 @@
 #level_standalone.gd
 # Put on the root of a level scene that game.tscn instances (level_3/4/5/6).
-# Inside the game it does nothing. Run on its own (Run Current Scene, F6) the
+# Inside the game, a level with an echo par scores its runs: arriving through
+# its entrance starts one, and its exit portal waits for the level-clear
+# screen (Continue goes through, Retry reloads the level). Run on its own (Run Current Scene, F6) the
 # level has no player or camera, so it loads the real game world instead and
 # drops the player at the level's start, with the checkpoint set there, the
 # echo slots a player would have by now, and the camera following them.
@@ -26,6 +28,7 @@ func _ready() -> void:
 	if get_tree().current_scene != self:
 		if echo_par >= 0:
 			GameManager.player_teleported.connect(_on_player_teleported)
+			_hook_exit.call_deferred()
 		return
 	# this copy is only a stand-in until the game loads; keep it still and unseen
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -50,10 +53,59 @@ func _exit_id() -> String:
 func _on_player_teleported(from_id: String, to_id: String) -> void:
 	if to_id == _entry_id():
 		Echoes.begin_run(name, echo_par)
-	elif from_id == _exit_id():
-		Echoes.end_run(name)
 	elif from_id == _entry_id():
 		Echoes.abort_run(name)
+
+func _hook_exit() -> void:
+	for tp in get_tree().get_nodes_in_group("teleport"):
+		if tp.this_id == _exit_id() and is_ancestor_of(tp):
+			tp.hold_until = _on_exit_used
+
+## The exit portal was used: show the level-clear screen and hold the portal.
+func _on_exit_used(tp: Node) -> bool:
+	var result := Echoes.end_run(name)
+	if result.is_empty():
+		return false  # not a scored run (came in some other way): just go
+	LevelClear.open(result, _continue_through.bind(tp), retry)
+	return true
+
+func _continue_through(tp: Node) -> void:
+	tp.go()
+	# progress is saved at the next level's door
+	var player := get_tree().get_first_node_in_group("player") as Node2D
+	if player:
+		GameManager.set_checkpoint(player.global_position)
+	SaveManager.save()
+
+func _start_node() -> Node2D:
+	if start_in_game != "":
+		return get_tree().current_scene.get_node(start_in_game)
+	return get_node(start)
+
+## Reloads this level fresh (gates, crates, traps, enemies) and puts Ren back
+## at its start with the run's echoes, deaths and time at zero.
+func retry() -> void:
+	var fresh: Node2D = load(scene_file_path).instantiate()
+	var parent := get_parent()
+	var index := get_index()
+	var level_name := name
+	name = level_name + "_old"  # frees the name for the fresh copy
+	fresh.name = level_name
+	fresh.transform = transform
+	parent.add_child(fresh)
+	parent.move_child(fresh, index)
+	queue_free()
+	fresh._restart.call_deferred()
+
+func _restart() -> void:
+	var start_pos := _start_node().global_position
+	var player := get_tree().get_first_node_in_group("player") as CharacterBody2D
+	if player:
+		player.global_position = start_pos
+		player.velocity = Vector2.ZERO
+	Echoes.begin_run(name, echo_par)
+	GameManager.set_checkpoint(start_pos)
+	SaveManager.save()
 
 ## Starts the scored run when the level is played on its own (F6).
 func begin_echo_run() -> void:

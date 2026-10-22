@@ -39,6 +39,7 @@ var _blip: AudioStreamPlayer
 var _blip_pitch := 1.0
 var _blip_counter := 0
 var _pause := 0.0
+var _cancelled := false
 
 
 func _init() -> void:
@@ -188,9 +189,21 @@ func say(who: String, text: String) -> void:
 
 ## Runs a list of {"who": ..., "text": ...} lines, then hides the box.
 func run(lines: Array) -> void:
+	_cancelled = false
 	for line in lines:
 		await say(line.get("who", ""), line["text"])
+		if _cancelled:
+			break
 	hide_box()
+
+
+## Ends the conversation now (leaving the game mid-dialogue).
+func cancel() -> void:
+	_cancelled = true
+	_typing = false
+	_waiting = false
+	hide_box()
+	line_finished.emit()
 
 
 func _process(delta: float) -> void:
