@@ -24726,7 +24726,7 @@ script = ExtResource("11_o51jq")
 
 [node name="title_zone" type="CollisionShape2D" parent="start/TitleTrigger" unique_id=1628813231]
 z_index = 4
-position = Vector2(-182, -472.5)
+position = Vector2(70, -472.5)
 shape = SubResource("RectangleShape2D_k10w1")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="start" unique_id=609550876]
@@ -24917,6 +24917,7 @@ autoplay = "idle"
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="outside/echo" unique_id=1524391846]
+enabled = false
 position = Vector2(0, -1.0000076)
 scale = Vector2(0.901, 0.416)
 zoom = Vector2(2.225, 2.225)

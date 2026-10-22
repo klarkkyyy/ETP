@@ -359,6 +359,7 @@ animation = &"death"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1951133631]
+enabled = false
 position = Vector2(0, -1.0000076)
 scale = Vector2(0.901, 0.416)
 zoom = Vector2(2.225, 2.225)

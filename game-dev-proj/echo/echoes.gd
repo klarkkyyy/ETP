@@ -87,7 +87,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not is_instance_valid(player) or player.get("is_dead"):
+	if not is_instance_valid(player) or player.get("is_dead") or player.get("controls_locked"):
 		return
 	if event.is_action_pressed("clear_echoes"):
 		clear_echoes()

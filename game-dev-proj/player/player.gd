@@ -15,6 +15,7 @@ const WALL_JUMP_VELOCITY_Y = -250.0
 const WALL_JUMP_LOCKOUT = 0.15
 const RUN_DUST_INTERVAL = 0.15
 const JUMP_BUFFER_TIME = 0.1
+const COYOTE_TIME = 0.1  # after walking or sliding off a ledge, a jump still counts as a ground jump
 
 const AfterJumpDust = preload("res://effects/after_jump_dust.tscn")
 const BeforeJumpDust = preload("res://effects/before_jump_dust.tscn")
@@ -47,7 +48,11 @@ var wall_jump_timer: float = 0.0
 var run_dust_timer: float = 0.0
 var was_running: bool = false
 var _jump_buffer_timer: float = 0.0
+var _coyote_timer: float = 0.0
 var _surface_stack: Array = []
+## While true Ren ignores movement, jump and respawn input (gravity still
+## applies), e.g. while the game title is on screen.
+var controls_locked: bool = false
 
 func _ready() -> void:
 	is_dead = true
@@ -69,7 +74,7 @@ func spawn_effect(scene: PackedScene, point: Marker2D = feet_point) -> void:
 	effect.scale.x = -1 if anim.flip_h else 1
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("respawn") and not is_dead:
+	if event.is_action_pressed("respawn") and not is_dead and not controls_locked:
 		die()
 
 func _physics_process(delta: float) -> void:
@@ -80,24 +85,26 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		can_double_jump = false
+		_coyote_timer = COYOTE_TIME
 	else:
 		if was_on_floor and not is_on_floor():
 			can_double_jump = true
+		_coyote_timer -= delta
 
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and not controls_locked:
 		_jump_buffer_timer = JUMP_BUFFER_TIME
 	elif _jump_buffer_timer > 0.0:
 		_jump_buffer_timer -= delta
 
 	is_wall_sliding = false
 	if is_on_wall() and not is_on_floor() and velocity.y > 20.0:
-		var wall_dir = Input.get_axis("left", "right")
+		var wall_dir = _move_axis()
 		if (wall_dir > 0 and get_wall_normal().x < 0) or (wall_dir < 0 and get_wall_normal().x > 0):
 			is_wall_sliding = true
 
 	# Detect push: on floor, pressing into a wall or moveable object, not wall sliding
 	is_pushing = false
-	var push_dir = Input.get_axis("left", "right")
+	var push_dir = _move_axis()
 	if is_on_floor() and not is_wall_sliding and push_dir != 0:
 		# Case 1: pressing into a moveable object. Checked first: a crate also
 		# counts as a wall, and it should be pushed, not just leaned on.
@@ -127,10 +134,11 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta
 
 	if _jump_buffer_timer > 0.0:
-		if is_on_floor():
+		if is_on_floor() or _coyote_timer > 0.0:
 			velocity.y = JUMP_VELOCITY
 			can_double_jump = true
 			_jump_buffer_timer = 0.0
+			_coyote_timer = 0.0
 			SoundManager.play(SFX_JUMP)
 			spawn_effect(AfterJumpDust)
 			anim.play("before_or_after_jump")
@@ -144,7 +152,6 @@ func _physics_process(delta: float) -> void:
 			spawn_effect(WallJumpDust)
 			anim.play("before_or_after_jump")
 		elif can_double_jump:
-			print("double jump triggered | vel.y: ", velocity.y, " | can_double: ", can_double_jump)
 			velocity.y = DOUBLE_JUMP_VELOCITY
 			can_double_jump = false
 			_jump_buffer_timer = 0.0
@@ -152,7 +159,7 @@ func _physics_process(delta: float) -> void:
 			spawn_effect(DoubleJumpDust)
 			anim.play("double_jump")
 
-	var direction := Input.get_axis("left", "right")
+	var direction := _move_axis()
 	if wall_jump_timer <= 0.0:
 		if direction:
 			velocity.x = direction * SPEED
@@ -180,7 +187,7 @@ func _physics_process(delta: float) -> void:
 			if collider.is_on_wall():
 				# Box is pinned — stop player horizontal velocity too
 				velocity.x = 0.0
-	var move_dir := Input.get_axis("left", "right")
+	var move_dir := _move_axis()
 	if is_on_floor() and abs(move_dir) > 0 and not is_pushing:
 		run_dust_timer -= delta
 		if run_dust_timer <= 0.0:
@@ -208,6 +215,9 @@ func _physics_process(delta: float) -> void:
 		SoundManager.play(SFX_WALL_SLIDE)
 	_was_wall_sliding = is_wall_sliding
 	
+func _move_axis() -> float:
+	return 0.0 if controls_locked else Input.get_axis("left", "right")
+
 func _play_step() -> void:
 	match _current_surface:
 		"grass":
@@ -226,7 +236,7 @@ func update_animation() -> void:
 			if anim.animation != "push_forward":
 				anim.play("push_forward")
 			return
-		var move = Input.get_axis("left", "right")
+		var move = _move_axis()
 		if move != 0:
 			anim.play("run")
 		else:

@@ -148,6 +148,7 @@ position = Vector2(1312, 336)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-368, -48, 736, 104)
 keep_inside = Rect2(-1312, -336, 3200, 1536)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S2_SluiceRun" unique_id=459677988]
@@ -158,6 +159,7 @@ position = Vector2(1968, 520)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-384, -128, 800, 248)
 keep_inside = Rect2(-1968, -520, 3200, 1536)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S3_PumpRoom" unique_id=1388401974]
@@ -168,6 +170,7 @@ position = Vector2(2720, 432)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-336, -112, 640, 224)
 keep_inside = Rect2(-2720, -432, 3200, 1536)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S4_RatWarren" unique_id=995982245]
@@ -188,6 +191,7 @@ position = Vector2(2656, 1336)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-520, -56, 1032, 112)
 keep_inside = Rect2(-2656, -1336, 3200, 1536)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S6_Floodgate" unique_id=1072967233]
@@ -198,6 +202,7 @@ position = Vector2(2024, 1072)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-104, -320, 216, 640)
 keep_inside = Rect2(-2024, -1072, 3200, 1536)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_Rising" unique_id=422812576]
