@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" path="res://traps/blade_trap.tscn" id="8_fwwbs"]
 [ext_resource type="PackedScene" path="res://traps/floor_spikes.tscn" id="9_bg1el"]
 [ext_resource type="PackedScene" path="res://traps/spear_launcher.tscn" id="10_wes5d"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="11_eqyc8"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="12_tmua5"]
 [ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="13_va8ov"]
 [ext_resource type="PackedScene" path="res://drop_enemy/bateye.tscn" id="14_c7jkg"]
@@ -80,6 +79,7 @@ size = Vector2(46, 8)
 [node name="Level_6" type="Node2D" unique_id=738299174]
 script = ExtResource("1_mcn6t")
 start = NodePath("Start/PortalIn")
+echo_par = 6
 
 [node name="Backdrop" type="TileMapLayer" parent="." unique_id=471540098]
 modulate = Color(0.75, 0.72, 0.85, 1)
@@ -539,18 +539,6 @@ vertical_alignment = 1
 [node name="SavePoint" parent="S3_EchoRelay" unique_id=697470446 instance=ExtResource("4_wyj1r")]
 position = Vector2(1944, 685)
 
-[node name="EchoZone" parent="S3_EchoRelay" unique_id=963310953 instance=ExtResource("11_eqyc8")]
-position = Vector2(2008, 690)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
-[node name="EchoZonePadB" parent="S3_EchoRelay" unique_id=1713684863 instance=ExtResource("11_eqyc8")]
-position = Vector2(2120, 592)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="PadA" parent="S3_EchoRelay" unique_id=1371886716 instance=ExtResource("12_tmua5")]
 position = Vector2(2008, 702)
 
@@ -613,12 +601,6 @@ vertical_alignment = 1
 
 [node name="HintHow" type="Node2D" parent="S3_EchoRelay" unique_id=1930827713]
 position = Vector2(2248, 544)
-
-[node name="EchoZonePadC" parent="S3_EchoRelay" unique_id=170618376 instance=ExtResource("11_eqyc8")]
-position = Vector2(2376, 690)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="Shadow" type="Label" parent="S3_EchoRelay/HintHow" unique_id=1077645908]
 offset_left = -159.0
@@ -794,12 +776,6 @@ position = Vector2(4088, 190)
 script = ExtResource("17_egco7")
 pads = Array[NodePath]([NodePath("../Button2Echo"), NodePath("../Button2You")])
 target = NodePath("../SpikeTrap2")
-
-[node name="EchoZone" parent="S6_SlaughterPit" unique_id=1548956466 instance=ExtResource("11_eqyc8")]
-position = Vector2(3640, 178)
-max_echoes = 1
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="Ratto" parent="S6_SlaughterPit" unique_id=1747214149 instance=ExtResource("18_evty8")]
 position = Vector2(3856, 320)
@@ -1011,12 +987,6 @@ swing_deg = 32.0
 period = 2.6
 phase = 0.4
 
-[node name="EchoZone" parent="S7_FinalGauntlet" unique_id=237636269 instance=ExtResource("11_eqyc8")]
-position = Vector2(4840, 690)
-max_echoes = 2
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="PadFloor" parent="S7_FinalGauntlet" unique_id=235121465 instance=ExtResource("12_tmua5")]
 position = Vector2(4840, 702)
 
@@ -1032,12 +1002,6 @@ pads = Array[NodePath]([NodePath("../PadFloor"), NodePath("../PadShelf")])
 
 [node name="Hint" type="Node2D" parent="S7_FinalGauntlet" unique_id=710597275]
 position = Vector2(4872, 576)
-
-[node name="EchoZoneShelf" parent="S7_FinalGauntlet" unique_id=259308500 instance=ExtResource("11_eqyc8")]
-position = Vector2(4888, 626)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="Shadow" type="Label" parent="S7_FinalGauntlet/Hint" unique_id=91474820]
 offset_left = -159.0

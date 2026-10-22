@@ -139,7 +139,6 @@
 [ext_resource type="PackedScene" uid="uid://fwgxe2rppjx0" path="res://Level_3/Scenes/boss.tscn" id="116_1m88f"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="116_7eux1"]
 [ext_resource type="PackedScene" uid="uid://bq0bi24aosxga" path="res://Level_3/Scenes/trap1.tscn" id="117_i25hr"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="117_wad81"]
 [ext_resource type="PackedScene" uid="uid://dj1q6bsnoyy2h" path="res://Level_3/Scenes/platform3.tscn" id="121_ylkop"]
 [ext_resource type="PackedScene" uid="uid://q1r11djh7xs2" path="res://Level_3/Scenes/ArrowTrap.tscn" id="141_ti2yu"]
 [ext_resource type="PackedScene" uid="uid://j1q6hfx5lx70" path="res://Level_3/Scenes/LevelFInal.tscn" id="142_8auup"]
@@ -9399,11 +9398,6 @@ position = Vector2(100, -7.9999695)
 script = ExtResource("113_14yb5")
 trap_to_activate = NodePath("..")
 
-[node name="echo_zone" parent="trap1" unique_id=141134725 instance=ExtResource("117_wad81")]
-z_index = 1
-position = Vector2(100, -22)
-scale = Vector2(0.58498925, 0.7493633)
-
 [node name="Trapno2" parent="." unique_id=151202466 instance=ExtResource("117_i25hr")]
 z_index = 2
 position = Vector2(41, 486)
@@ -9534,11 +9528,6 @@ position = Vector2(-3, 477.00003)
 script = ExtResource("113_14yb5")
 trap_to_activate = NodePath("../Trapno2")
 
-[node name="echo_zone" parent="." unique_id=963310953 instance=ExtResource("117_wad81")]
-z_index = 1
-position = Vector2(-3, 463)
-scale = Vector2(0.58498925, 0.7493633)
-
 [node name="Trap3Final" parent="." unique_id=988038295 instance=ExtResource("117_i25hr")]
 z_index = 2
 position = Vector2(219, 485)
@@ -9549,11 +9538,6 @@ z_index = 9
 position = Vector2(100, -7.9999695)
 script = ExtResource("113_14yb5")
 trap_to_activate = NodePath("..")
-
-[node name="echo_zone" parent="Trap3Final" unique_id=2004658916 instance=ExtResource("117_wad81")]
-z_index = 1
-position = Vector2(100, -22)
-scale = Vector2(0.58498925, 0.7493633)
 
 [connection signal="body_entered" from="trap1" to="trap1" method="_on_body_entered"]
 [connection signal="pad_activated" from="trap1/PressurePadTrap" to="trap1" method="_on_pressure_pad_pad_activated"]

@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" path="res://traps/blade_trap.tscn" id="9_blade"]
 [ext_resource type="PackedScene" path="res://traps/floor_spikes.tscn" id="10_floor_spikes"]
 [ext_resource type="PackedScene" path="res://traps/spear_launcher.tscn" id="11_launcher"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="12_echo_zone"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="13_pad"]
 [ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="14_door"]
 [ext_resource type="PackedScene" path="res://traps/crusher.tscn" id="15_crusher"]
@@ -67,6 +66,7 @@ size = Vector2(46, 8)
 [node name="Level_9" type="Node2D" unique_id=1004300727]
 script = ExtResource("1_standalone")
 start = NodePath("Start/PortalIn")
+echo_par = 2
 
 [node name="Backdrop" type="TileMapLayer" parent="." unique_id=1326869687]
 modulate = Color(0.4, 0.5, 0.46, 1)
@@ -391,12 +391,6 @@ vertical_alignment = 1
 [node name="FillValve" parent="S2_BallastTank" unique_id=1967172096 instance=ExtResource("13_pad")]
 position = Vector2(1000, 1102)
 
-[node name="EchoZone" parent="S2_BallastTank" unique_id=460735624 instance=ExtResource("12_echo_zone")]
-position = Vector2(1000, 1090)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="Crate" parent="S2_BallastTank" unique_id=861569418 instance=ExtResource("29_box")]
 position = Vector2(1050, 1192)
 
@@ -611,12 +605,6 @@ position = Vector2(2168, 764)
 
 [node name="FillValve" parent="S4_RaftPit" unique_id=864988028 instance=ExtResource("13_pad")]
 position = Vector2(1608, 638)
-
-[node name="EchoZone" parent="S4_RaftPit" unique_id=422670110 instance=ExtResource("12_echo_zone")]
-position = Vector2(1608, 626)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="Raft0" parent="S4_RaftPit" unique_id=1381635464 instance=ExtResource("29_box")]
 position = Vector2(1800, 760)

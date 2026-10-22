@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" path="res://traps/blade_trap.tscn" id="9_blade"]
 [ext_resource type="PackedScene" path="res://traps/floor_spikes.tscn" id="10_floor_spikes"]
 [ext_resource type="PackedScene" path="res://traps/spear_launcher.tscn" id="11_launcher"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="12_echo_zone"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="13_pad"]
 [ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="14_door"]
 [ext_resource type="PackedScene" path="res://traps/crusher.tscn" id="15_crusher"]
@@ -84,6 +83,7 @@ size = Vector2(46, 8)
 [node name="Level_8" type="Node2D" unique_id=496847129]
 script = ExtResource("1_standalone")
 start = NodePath("Start/PortalIn")
+echo_par = 3
 
 [node name="Backdrop" type="TileMapLayer" parent="." unique_id=805453426]
 modulate = Color(0.5, 0.58, 0.6, 1)
@@ -613,18 +613,6 @@ position = Vector2(1624, 542)
 [node name="ValveB" parent="S3_PumpRoom" unique_id=747083558 instance=ExtResource("13_pad")]
 position = Vector2(2024, 494)
 
-[node name="EchoZoneA" parent="S3_PumpRoom" unique_id=481998247 instance=ExtResource("12_echo_zone")]
-position = Vector2(1624, 530)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
-[node name="EchoZoneB" parent="S3_PumpRoom" unique_id=583039484 instance=ExtResource("12_echo_zone")]
-position = Vector2(2024, 482)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="SlabA0" type="StaticBody2D" parent="S3_PumpRoom" unique_id=82270515]
 position = Vector2(1736, 548)
 
@@ -757,12 +745,6 @@ linked_trap = NodePath("../Trap1")
 
 [node name="ButtonEcho" parent="S4_RatWarren" unique_id=827016006 instance=ExtResource("13_pad")]
 position = Vector2(2488, 430)
-
-[node name="EchoZone" parent="S4_RatWarren" unique_id=744044098 instance=ExtResource("12_echo_zone")]
-position = Vector2(2488, 418)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="Button2" parent="S4_RatWarren" unique_id=1806148214 instance=ExtResource("13_pad")]
 position = Vector2(2792, 382)

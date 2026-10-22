@@ -158,8 +158,6 @@
 [ext_resource type="Texture2D" uid="uid://j85d2eq5ivrb" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_left.png" id="141_1noql"]
 [ext_resource type="Texture2D" uid="uid://bt3su3adj0xa0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_mid.png" id="142_vtfiu"]
 [ext_resource type="Texture2D" uid="uid://dqjagq6hac7ye" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/User Interface/char hud/health bar/health_bar_icon_right.png" id="143_74wjo"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="157_r8enm"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_785by"]
 atlas = ExtResource("2_ml1t7")
 region = Rect2(0, 0, 16, 16)
@@ -6316,10 +6314,6 @@ format = 2
 [node name="char" type="TileMap" parent="ui" unique_id=1434441154]
 tile_set = SubResource("TileSet_mldwc")
 format = 2
-
-[node name="echo_zone" parent="." unique_id=1591741099 instance=ExtResource("157_r8enm")]
-position = Vector2(5.0000005, 29)
-scale = Vector2(0.807623, 0.8036635)
 
 [node name="coin" type="AnimatedSprite2D" parent="." unique_id=610490293]
 z_index = 5

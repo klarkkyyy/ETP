@@ -467,6 +467,7 @@ func _frame_camera(on: bool) -> void:
 	var framed := not _cam_saved.is_empty()
 	if cam == null or on == framed:
 		return
+	Echoes.unlimited = on  # the fight runs on free echoes
 	if on:
 		_cam_saved = [cam.zoom, cam.limit_top, cam.limit_bottom, cam.limit_left, cam.limit_right]
 		var r := (get_parent() as Node2D).global_transform * camera_rect

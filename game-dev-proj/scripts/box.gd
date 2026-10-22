@@ -1,7 +1,7 @@
 #box.gd
 # A crate Ren can push, stand on and stack. Echoes push it too: when a
 # recording ends, crates go back to where they were when it started
-# (echo_zone.gd), so the echo re-enacts the push on every loop. A crate is
+# (echoes.gd), so the echo re-enacts the push on every loop. A crate is
 # solid on the world layer, so it stops spears; it weighs down pressure pads
 # and floats on a rising flood. It returns to its start when Ren respawns or
 # clears his echoes, so one lost in a pit can't lock a room.
@@ -21,12 +21,7 @@ func _ready() -> void:
 	add_to_group("box")
 	add_to_group("moveable")
 	home = global_position
-	_hook_echo_zones.call_deferred()
-
-func _hook_echo_zones() -> void:
-	for zone in get_tree().get_nodes_in_group("echo_zone"):
-		if zone.has_signal("echoes_cleared") and not zone.echoes_cleared.is_connected(_on_echoes_cleared):
-			zone.echoes_cleared.connect(_on_echoes_cleared)
+	Echoes.echoes_cleared.connect(_on_echoes_cleared)
 
 func _physics_process(delta: float) -> void:
 	_watch_respawn()

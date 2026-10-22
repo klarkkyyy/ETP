@@ -14,8 +14,18 @@ const GAME := "res://levels/game.tscn"
 @export var start_in_game: String = ""
 @export var unlock_echoes: int = 3
 
+@export_group("Echo par")
+## Clear the level with this many echoes or fewer for a star. -1: no star.
+@export var echo_par: int = -1
+## Arriving here starts the scored run ("" = teleport_lN_in, from the level's name).
+@export var entry_teleport: String = ""
+## Leaving through this teleport clears the level ("" = teleport_lN_out).
+@export var exit_teleport: String = ""
+
 func _ready() -> void:
 	if get_tree().current_scene != self:
+		if echo_par >= 0:
+			GameManager.player_teleported.connect(_on_player_teleported)
 		return
 	# this copy is only a stand-in until the game loads; keep it still and unseen
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -27,6 +37,28 @@ func _ready() -> void:
 	boot.unlock_echoes = unlock_echoes
 	get_tree().root.add_child.call_deferred(boot)
 	get_tree().change_scene_to_file.call_deferred(GAME)
+
+func _level_number() -> String:
+	return name.get_slice("_", 1)
+
+func _entry_id() -> String:
+	return entry_teleport if entry_teleport != "" else "teleport_l%s_in" % _level_number()
+
+func _exit_id() -> String:
+	return exit_teleport if exit_teleport != "" else "teleport_l%s_out" % _level_number()
+
+func _on_player_teleported(from_id: String, to_id: String) -> void:
+	if to_id == _entry_id():
+		Echoes.begin_run(name, echo_par)
+	elif from_id == _exit_id():
+		Echoes.end_run(name)
+	elif from_id == _entry_id():
+		Echoes.abort_run(name)
+
+## Starts the scored run when the level is played on its own (F6).
+func begin_echo_run() -> void:
+	if echo_par >= 0:
+		Echoes.begin_run(name, echo_par)
 
 ## Lives on the tree root, so it survives the scene change and finishes the job.
 class Boot extends Node:
@@ -56,6 +88,9 @@ class Boot extends Node:
 		player.global_position = target.global_position
 		player.velocity = Vector2.ZERO
 		GameManager.set_checkpoint(target.global_position)
+		var level := game.get_node_or_null(NodePath(level_name))
+		if level and level.has_method("begin_echo_run"):
+			level.begin_echo_run()
 		var cam := tree.get_first_node_in_group("camera") as Camera2D
 		if cam:
 			cam.set_follow_mode()

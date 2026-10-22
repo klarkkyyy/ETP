@@ -29,18 +29,19 @@ const CAST := {
 
 ## Played when Ren picks up the echo stone for that slot.
 const ECHO_UNLOCKS := {
-	# The opening area has the stone, an echo zone, a pad and a lever close
-	# together, so Mira covers all of them in one short beat; `covers` marks
-	# those mechanics' own beats as already told.
-	1: {"guide": "Mira", "covers": ["echo_zone", "pressure_pad", "lever"], "lines": [
+	# The opening area has the stone, a pad and a lever close together, so
+	# Mira covers all of them in one short beat; `covers` marks those
+	# mechanics' own beats as already told.
+	1: {"guide": "Mira", "covers": ["pressure_pad", "lever"], "lines": [
 		{"who": "@", "text": "Hey! Over here. Don't be scared. I'm Mira. I fell in here too, a long time ago."},
 		{"who": "Ren", "text": "You don't have a face."},
 		{"who": "@", "text": "You lose it, the longer you stay. When you fail in the Reach, you don't leave."},
 		{"who": "Ren", "text": "And the Warden?"},
 		{"who": "@", "text": "Here before any of us. Nobody knows who he was. Anyway! That stone lets you leave an echo behind."},
-		{"who": "@", "text": "Where the air hums, that's an echo zone. Press 1 to record, 1 again to stop. Your echo repeats it forever."},
+		{"who": "@", "text": "Press 1 to record, 1 again to stop. Anywhere you like. Your echo repeats it forever."},
+		{"who": "@", "text": "But each echo only works once. See them, top left? Used ones go grey. A new lantern gives them all back."},
 		{"who": "@", "text": "Pads and levers need someone on them. Let your echo do it while you go on."},
-		{"who": "@", "text": "Messed up? R wipes your echoes."},
+		{"who": "@", "text": "Messed up? R wipes your echoes and gives them all back."},
 	]},
 	2: {"guide": "Hollis", "lines": [
 		{"who": "@", "text": "A second stone. Huh. You're further along than I ever got."},
@@ -75,11 +76,6 @@ const MECHANICS := {
 		"guide": "Old Tomas", "lines": [
 		{"who": "@", "text": "See that lantern? Walk past it and the Reach remembers you there."},
 		{"who": "@", "text": "Fall, and you start again from the last one. Stuck somewhere? Press F to go back to it."},
-	]},
-	"echo_zone": {"paths": ["res://echo_zone/echo_zone.tscn"], "on_enter": true, "requires_echo": 1,
-		"guide": "Kit", "lines": [
-		{"who": "@", "text": "Ooh, feel that? It hums! That's an echo zone."},
-		{"who": "@", "text": "You can only record echoes inside one. Outside, it's just boring regular you."},
 	]},
 	"pressure_pad": {"paths": ["res://pressure_pad/pressure_pad.tscn"], "requires_echo": 1,
 		"guide": "Hollis", "lines": [
@@ -136,7 +132,7 @@ const MECHANICS := {
 		{"who": "@", "text": "Ren! Psst. Don't try to hit it. Nothing you do can hurt a guardian."},
 		{"who": "@", "text": "But its arena can. See the pads? They fire the traps. Put an echo on a pad while it's standing underneath."},
 		{"who": "@", "text": "And those glowing orbs it throws? An echo will swallow one for you. The echo's gone after, so record a new one."},
-		{"who": "@", "text": "This whole level is an echo zone. Use it to your advantage."},
+		{"who": "@", "text": "And in here your echoes never run out. Record as many as you like. Use it to your advantage."},
 		{"who": "Ren", "text": "You came all the way down here to tell me that?"},
 		{"who": "@", "text": "I got this far once. I'd like to see someone get further."},
 	]},
