@@ -9,9 +9,9 @@ class_name LevelList
 const THUMBS = "res://MENU/level_thumbs/%s.png"
 
 const LEVELS = [
-	{"id": "level_1", "label": "LEVEL 1", "start": "level 1/roomSections/room1/SavePoint2"},
-	{"id": "level_2", "label": "LEVEL 2", "start": "level 2/room1/SavePoint2"},
-	{"id": "level_3", "label": "LEVEL 3", "level": "Level_3"},
+	{"id": "level_1", "label": "LEVEL 1", "start": "level 1/roomSections/room1/SavePoint2", "goal": true},
+	{"id": "level_2", "label": "LEVEL 2", "start": "level 2/room1/SavePoint2", "goal": true},
+	{"id": "level_3", "label": "LEVEL 3", "level": "Level_3", "goal": true},
 	{"id": "level_4", "label": "LEVEL 4", "level": "Level_4", "goal": true},
 	{"id": "level_5", "label": "LEVEL 5", "level": "Level_5", "goal": true},
 	{"id": "boss", "label": "BOSS", "start": "boss/SavePoint2"},
@@ -50,7 +50,9 @@ static func start_position(game: Node, id: String) -> Vector2:
 		return game.get_node(NodePath(e["level"]))._start_node().global_position
 	return game.get_node(NodePath(e["start"])).global_position
 
-## The star for a goal level (GameManager keys its stars by the level node's name).
-static func has_star(id: String) -> bool:
-	var e := entry(id)
-	return e.has("goal") and GameManager.has_star(e["level"])
+## The name a goal level's runs, stars and records are kept under: the level
+## node's name for levels 4-9, the id for levels 1-3 (EarlyLevels).
+static func run_name(id: String) -> String:
+	if EarlyLevels.LEVELS.has(id):
+		return id
+	return entry(id).get("level", id)

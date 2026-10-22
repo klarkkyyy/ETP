@@ -111,6 +111,8 @@ func _restart() -> void:
 func begin_echo_run() -> void:
 	if echo_par >= 0:
 		Echoes.begin_run(name, echo_par)
+	else:
+		LevelClear.early.begin(LevelList.id_for(self))  # Level 3 is scored by EarlyLevels
 
 ## Lives on the tree root, so it survives the scene change and finishes the job.
 class Boot extends Node:

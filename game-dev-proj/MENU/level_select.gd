@@ -2,7 +2,7 @@
 # CONTINUE's screen: a grid of level tiles (a screenshot with the level's
 # name under it), old flash-game style. Reached levels can be started from
 # their beginning; the rest are locked. Levels with an echo goal show their
-# star. "Resume from last lantern" picks up exactly where the save left off.
+# star, and cleared levels their fastest time and fewest deaths. "Resume from last lantern" picks up exactly where the save left off.
 extends CanvasLayer
 
 signal closed
@@ -37,9 +37,10 @@ func _ready() -> void:
 	grid.add_theme_constant_override("h_separation", 12)
 	grid.add_theme_constant_override("v_separation", 10)
 	col.add_child(grid)
-	var unlocked: Array = SaveManager.load_data().get("levels_unlocked", [])
+	var data := SaveManager.load_data()
+	var unlocked: Array = data.get("levels_unlocked", [])
 	for e in LevelList.LEVELS:
-		grid.add_child(_tile(e, e["id"] in unlocked))
+		grid.add_child(_tile(e, e["id"] in unlocked, data))
 
 	var back := MenuStyle.button("Back")
 	back.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -49,9 +50,10 @@ func _ready() -> void:
 	_first.grab_focus()
 
 
-func _tile(e: Dictionary, open: bool) -> Button:
+## `data` is the save: the star and records come from it (the menu has no game loaded).
+func _tile(e: Dictionary, open: bool, data: Dictionary) -> Button:
 	var b := Button.new()
-	b.custom_minimum_size = TILE + Vector2(12, 40)
+	b.custom_minimum_size = TILE + Vector2(12, 60)
 	b.disabled = not open
 	b.focus_mode = Control.FOCUS_ALL if open else Control.FOCUS_NONE
 	for state in ["normal", "hover", "pressed", "focus", "disabled"]:
@@ -95,11 +97,19 @@ func _tile(e: Dictionary, open: bool) -> Button:
 	row.add_theme_constant_override("separation", 6)
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_child(MenuStyle.label(e["label"], 18, MenuStyle.TEXT if open else MenuStyle.DIM))
+	var run := LevelList.run_name(e["id"])
 	if e.has("goal"):
 		var star := Star.new()
-		star.earned = LevelList.has_star(e["id"])
+		star.earned = data.get("level_stars", {}).get(run, false)
 		row.add_child(star)
 	box.add_child(row)
+	# the level's records: fastest clear and fewest deaths
+	var times: Dictionary = data.get("level_time", {})
+	var record := "-"
+	if times.has(run):
+		record = "%s   %d deaths" % [MenuStyle.format_time(times[run]),
+			int(data.get("level_deaths", {}).get(run, 0))]
+	box.add_child(MenuStyle.label(record, 14, MenuStyle.DIM))
 	return b
 
 

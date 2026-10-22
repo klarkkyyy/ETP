@@ -25992,6 +25992,7 @@ z_index = 4
 position = Vector2(993, 181)
 
 [node name="PressurePadB" parent="Level_3" unique_id=1257370366 instance=ExtResource("8_qc6ov")]
+z_index = 5
 position = Vector2(1025, 198)
 
 [node name="ExitGate" type="Node" parent="Level_3" unique_id=1310515102]

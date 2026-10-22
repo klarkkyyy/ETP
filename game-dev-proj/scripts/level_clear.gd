@@ -1,12 +1,20 @@
 #level_clear.gd (autoload "LevelClear")
-# The screen after a scored level (4-9): echoes used against the goal, the
-# star, best, deaths and time, then Continue (through the exit portal) or
-# Retry (the level again, fresh). The game is paused while it is up.
+# The screen after a level: echoes used against the goal, the star, deaths
+# and time, the level's records (fewest echoes, fewest deaths, fastest time),
+# then Continue (through the exit portal) or Retry (the level again, fresh).
+# Levels 4-9 open it from level_standalone.gd, levels 1-3 from EarlyLevels (a
+# child of this node). The game is paused while it is up.
 extends Node
 
 var _layer: CanvasLayer
 var _on_continue: Callable
 var _on_retry: Callable
+var early: EarlyLevels
+
+
+func _ready() -> void:
+	early = EarlyLevels.new()
+	add_child(early)
 
 
 func is_open() -> bool:
@@ -34,8 +42,12 @@ func open(result: Dictionary, on_continue: Callable, on_retry: Callable) -> void
 		col.add_child(MenuStyle.label("Star earned!", 22, MenuStyle.GOLD))
 	else:
 		col.add_child(MenuStyle.label("Use %d or fewer echoes for a star" % result["goal"], 18, MenuStyle.DIM))
-	col.add_child(MenuStyle.label("Best: %d   Deaths: %d   Time: %s" % [result["best"], result["deaths"],
-		MenuStyle.format_time(result["time"])], 18, MenuStyle.DIM))
+	col.add_child(MenuStyle.label("Deaths: %d   Time: %s" % [result["deaths"],
+		MenuStyle.format_time(result["time"])], 20))
+	if result["new_time"]:
+		col.add_child(MenuStyle.label("New best time!", 18, MenuStyle.GOLD))
+	col.add_child(MenuStyle.label("Best: %d echoes   %d deaths   %s" % [result["best"], result["best_deaths"],
+		MenuStyle.format_time(result["best_time"])], 18, MenuStyle.DIM))
 
 	var spacer := Control.new()
 	spacer.custom_minimum_size = Vector2(0, 8)

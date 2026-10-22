@@ -1,6 +1,6 @@
 #pause_menu.gd (autoload "PauseMenu")
 # Esc in the game: Resume, Back to last lantern (as F does), Retry level (in
-# a scored level, 4-9), Main menu, Quit. It only opens while playing: not over dialogue, a cutscene, the
+# a level run, 1-9), Main menu, Quit. It only opens while playing: not over dialogue, a cutscene, the
 # level-clear screen or the menus, which pause the game themselves.
 extends Node
 
@@ -85,6 +85,8 @@ func _retry(level: String) -> void:
 	var node := get_tree().current_scene.get_node_or_null(NodePath(level))
 	if node and node.has_method("retry"):
 		node.retry()
+	elif EarlyLevels.LEVELS.has(level):
+		LevelClear.early.retry(level)
 
 
 func _to_menu() -> void:
