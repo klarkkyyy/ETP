@@ -142,6 +142,7 @@ position = Vector2(1472, 472)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-304, -40, 608, 88)
 keep_inside = Rect2(-1472, -472, 3360, 1248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S3_CrateCorridor" unique_id=727311089]
@@ -152,6 +153,7 @@ position = Vector2(1928, 656)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-328, -136, 680, 264)
 keep_inside = Rect2(-1928, -656, 3360, 1248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S4_RaftPit" unique_id=2020873343]
@@ -162,6 +164,7 @@ position = Vector2(2728, 520)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-448, -248, 872, 496)
 keep_inside = Rect2(-2728, -520, 3360, 1248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S5_LastSluice" unique_id=1513449659]
@@ -192,6 +195,7 @@ position = Vector2(2776, 112)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-376, -96, 760, 192)
 keep_inside = Rect2(-2776, -112, 3360, 1248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S8_RottenBridge" unique_id=2041982178]
@@ -202,6 +206,7 @@ position = Vector2(3256, 152)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_camzone")
+bounds = Rect2(-96, -56, 184, 112)
 keep_inside = Rect2(-3256, -152, 3360, 1248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/Exit" unique_id=2052839338]

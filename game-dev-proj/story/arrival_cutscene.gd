@@ -113,7 +113,7 @@ func _run() -> void:
 
 	# The fall: a glowing streak from above. The camera holds on the landing
 	# spot instead of chasing him up there.
-	_camera.set_process(false)
+	_camera.hold = true
 	_player.global_position = land_pos + Vector2(0, -FALL_HEIGHT)
 	_player.visible = true
 	_player.modulate = Color(1.8, 2.0, 2.6)
@@ -125,7 +125,7 @@ func _run() -> void:
 	await t.finished
 
 	# Impact.
-	_camera.set_process(true)
+	_camera.hold = false
 	SoundManager.play(SFX_LAND, 4.0, 0.6)
 	_player.spawn_effect(DUST)
 	_player.anim.play("before_or_after_jump")

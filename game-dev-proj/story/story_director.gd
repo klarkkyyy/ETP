@@ -246,6 +246,25 @@ func _try_guide(key: String, near: Node) -> bool:
 	return true
 
 
+## Plays the guide beat for `key` now, next to the nearest node of that
+## mechanic, instead of waiting for Ren to walk up to one (e.g. Old Tomas
+## and the first lantern, right after the title). False if it can't play.
+func guide_now(key: String) -> bool:
+	var player := get_tree().get_first_node_in_group("player") as Node2D
+	if player == null:
+		return false
+	var nearest: Node2D = null
+	var best := INF
+	for entry in _watched:
+		var node = entry["node"].get_ref()
+		if entry["key"] == key and node is Node2D and node.is_inside_tree():
+			var d: float = node.global_position.distance_to(player.global_position)
+			if d < best:
+				best = d
+				nearest = node
+	return nearest != null and _try_guide(key, nearest)
+
+
 func _on_teleport_used(destination_id: String, _player: Node) -> void:
 	if not ARRIVAL_BEATS.has(destination_id):
 		return
