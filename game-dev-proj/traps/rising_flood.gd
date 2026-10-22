@@ -7,7 +7,9 @@
 # (never lower than where it started) and waits `grace` seconds before rising
 # again, so every attempt at the climb gets the same head start. A respawn
 # out of the water's reach drains it until the player comes back. Crates
-# (scripts/box.gd) in the water float on its surface.
+# (scripts/box.gd) in the water float on its surface. The water ends `bottom`
+# below where it started (the shaft floor), so it never reaches into a level
+# that lies under this one, like Level 9 under Level 8's flood.
 extends Node2D
 
 const SFX_START = "res://audio/sfx/stone_door.mp3"
@@ -18,7 +20,7 @@ const WATER_TEX = "res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/
 @export var rise_speed: float = 24.0     # px/s
 @export var reset_gap: float = 176.0     # surface after a respawn: this far below the player
 @export var grace: float = 2.0           # seconds before it rises again after a respawn
-@export var depth: float = 1200.0        # how far the water body reaches below the surface
+@export var bottom: float = 48.0         # the water's floor, relative to this node
 @export var story_event: String = ""     # StoryDirector.event() to play when it starts
 
 var surface: float = 0.0                 # current surface y, relative to this node
@@ -35,7 +37,7 @@ func _ready() -> void:
 	z_index = -12  # behind the level's walls, in front of its backdrop and decor
 	_body = ColorRect.new()
 	_body.color = Color(0.12, 0.42, 0.4, 0.62)
-	_body.size = Vector2(width, depth)
+	_body.size = Vector2(width, bottom)
 	add_child(_body)
 	_surf = Sprite2D.new()
 	_surf.texture = load(WATER_TEX)
@@ -77,7 +79,7 @@ func _physics_process(delta: float) -> void:
 		return
 	var p := to_local(_player.global_position)
 	if _away:
-		if p.x < 0.0 or p.x > width or p.y < top:
+		if not _in_reach(p):
 			return
 		_away = false
 		_wait = grace
@@ -92,7 +94,7 @@ func _physics_process(delta: float) -> void:
 		var c := to_local(crate.global_position)
 		if c.x >= 0.0 and c.x <= width and crate.has_method("float_on"):
 			crate.float_on(global_position.y + surface)
-	if p.x >= 0.0 and p.x <= width and p.y > surface + 2.0:
+	if p.x >= 0.0 and p.x <= width and p.y > surface + 2.0 and p.y < bottom:
 		_player.die()
 
 func _process(_delta: float) -> void:
@@ -103,7 +105,7 @@ func _process(_delta: float) -> void:
 func _on_respawned() -> void:
 	var at := to_local(_player.global_position)
 	rising = false
-	if at.x < 0.0 or at.x > width or at.y < top:
+	if not _in_reach(at):
 		# respawned somewhere the water can't reach: drain and wait for them to come back
 		surface = 0.0
 		_place()
@@ -114,6 +116,11 @@ func _on_respawned() -> void:
 	_place()
 	_wait = grace
 
+## Whether a point (relative to this node) is somewhere the water can rise to.
+func _in_reach(p: Vector2) -> bool:
+	return p.x >= 0.0 and p.x <= width and p.y >= top and p.y < bottom
+
 func _place() -> void:
 	_surf.position = Vector2(0, surface - 4)
 	_body.position = Vector2(0, surface + 6)
+	_body.size.y = max(0.0, bottom - surface - 6)

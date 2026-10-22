@@ -46,18 +46,26 @@ func is_echo_unlocked(slot: int) -> bool:
 	return echo_unlocks.get(slot, false)
 
 # ── Echo stars ───────────────────────────────────────────────────────────────
-# Per level: the fewest echoes it was cleared with, and whether it earned a star
-# (cleared at or under its echo goal). Saved by SaveManager.
-var level_best: Dictionary = {}   # level name -> fewest echoes used
-var level_stars: Dictionary = {}  # level name -> true
+# Per level: the fewest echoes it was cleared with, whether it earned a star
+# (cleared at or under its echo goal), its fastest clear and the fewest deaths
+# in a clear. Saved by SaveManager.
+var level_best: Dictionary = {}    # level name -> fewest echoes used
+var level_stars: Dictionary = {}   # level name -> true
+var level_time: Dictionary = {}    # level name -> fastest clear, in seconds
+var level_deaths: Dictionary = {}  # level name -> fewest deaths in a clear
 var boss_defeated: bool = false
 
-## Records a clear; returns the best (fewest) echo count for that level.
-func record_level_clear(level: String, used: int, star: bool) -> int:
+## Records a clear; returns the level's records after it, and whether this
+## clear set a new fastest time.
+func record_level_clear(level: String, used: int, star: bool, time: float, deaths: int) -> Dictionary:
+	var new_time: bool = level_time.has(level) and time < level_time[level]
 	level_best[level] = mini(level_best.get(level, used), used)
+	level_time[level] = minf(level_time.get(level, time), time)
+	level_deaths[level] = mini(level_deaths.get(level, deaths), deaths)
 	if star:
 		level_stars[level] = true
-	return level_best[level]
+	return {"best": level_best[level], "best_time": level_time[level],
+		"best_deaths": level_deaths[level], "new_time": new_time}
 
 func has_star(level: String) -> bool:
 	return level_stars.get(level, false)
@@ -75,4 +83,6 @@ func reset_progress() -> void:
 		echo_unlocks[slot] = false
 	level_best.clear()
 	level_stars.clear()
+	level_time.clear()
+	level_deaths.clear()
 	boss_defeated = false

@@ -2,7 +2,8 @@
 # One save file, user://save.json. It is written at every new lantern
 # (checkpoint), on a level clear and when the boss falls, and holds what the
 # player has earned: the last lantern, echo slots, story beats seen, the boss,
-# echo stars and bests, the levels reached (for the level select) and the
+# echo stars and level records (fewest echoes, fastest time, fewest
+# deaths), the levels reached (for the level select) and the
 # level run in progress (echoes, deaths, time). Resume loads the game at that
 # lantern, and the level select starts any reached level from its beginning;
 # either way the levels start fresh, the same as a respawn. Everything is in this one file so it can be synced to
@@ -57,6 +58,20 @@ func load_data() -> Dictionary:
 func save() -> void:
 	if not active or not GameManager.has_checkpoint:
 		return
+	var data := _snapshot()
+	# write a temp file and swap it in, so a crash mid-write can't corrupt the save
+	var tmp := SAVE_PATH + ".tmp"
+	var f := FileAccess.open(tmp, FileAccess.WRITE)
+	if f == null:
+		push_error("Could not write the save: %s" % FileAccess.get_open_error())
+		return
+	f.store_string(JSON.stringify(data, "\t"))
+	f.close()
+	DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), ProjectSettings.globalize_path(SAVE_PATH))
+
+
+## Everything the save holds, as it stands now.
+func _snapshot() -> Dictionary:
 	var echoes := []
 	for slot in GameManager.echo_unlocks:
 		if GameManager.echo_unlocks[slot]:
@@ -71,18 +86,12 @@ func save() -> void:
 		"boss_defeated": GameManager.boss_defeated,
 		"level_best": GameManager.level_best,
 		"level_stars": GameManager.level_stars,
+		"level_time": GameManager.level_time,
+		"level_deaths": GameManager.level_deaths,
 		"run": Echoes.get_run_state(),
 		"levels_unlocked": unlocked.keys(),
 	}
-	# write a temp file and swap it in, so a crash mid-write can't corrupt the save
-	var tmp := SAVE_PATH + ".tmp"
-	var f := FileAccess.open(tmp, FileAccess.WRITE)
-	if f == null:
-		push_error("Could not write the save: %s" % FileAccess.get_open_error())
-		return
-	f.store_string(JSON.stringify(data, "\t"))
-	f.close()
-	DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), ProjectSettings.globalize_path(SAVE_PATH))
+	return data
 
 
 ## NEW GAME: wipes the save and plays the opening story.
@@ -112,6 +121,19 @@ func start_level(id: String) -> void:
 	_load(data)
 
 
+## Retry for levels 1-3, which live in game.tscn and can't be reloaded on
+## their own: reloads the game world with what Ren has now and starts level
+## `id` from its beginning. Works in F6 runs too, without making them save.
+func restart_level(id: String) -> void:
+	var was_active := active
+	# a copy: the snapshot shares GameManager's dictionaries, which _load clears
+	var data := _snapshot().duplicate(true)
+	data["start_level"] = id
+	data["run"] = {}
+	_load(data)
+	active = was_active
+
+
 func _load(data: Dictionary) -> void:
 	_reset_session()
 	for id in data.get("levels_unlocked", []):
@@ -126,6 +148,10 @@ func _load(data: Dictionary) -> void:
 	for level in data.get("level_stars", {}):
 		if data["level_stars"][level]:
 			GameManager.level_stars[level] = true
+	for level in data.get("level_time", {}):
+		GameManager.level_time[level] = float(data["level_time"][level])
+	for level in data.get("level_deaths", {}):
+		GameManager.level_deaths[level] = int(data["level_deaths"][level])
 	active = true
 	_pending = data
 	StoryDirector.cover.color.a = 1.0
@@ -218,7 +244,9 @@ func _restore(data: Dictionary) -> void:
 	# before the checkpoint: setting it saves, and the save should keep the run
 	Echoes.restore_run(data.get("run", {}))
 	var root := game.get_node_or_null(NodePath(LevelList.entry(level).get("level", ""))) if level != "" else null
-	if root and root.has_method("begin_echo_run"):
+	if EarlyLevels.LEVELS.has(level):
+		LevelClear.early.begin(level)  # levels 1-3 time theirs
+	elif root and root.has_method("begin_echo_run"):
 		root.begin_echo_run()  # levels 4-9 score the run from the start
 	GameManager.set_checkpoint(pos)
 	await tree.create_timer(0.3).timeout

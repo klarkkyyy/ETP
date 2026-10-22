@@ -5,7 +5,8 @@
 # back, and so does R, which also wipes the echoes. Levels with an echo par
 # (level_standalone.gd) count every echo recorded in a run, re-recordings
 # included, plus deaths and time, and award a star for clearing at or under
-# par (shown as the "goal"); level_clear.gd shows the result.
+# par (shown as the "goal"); level_clear.gd shows the result. Levels 1-3
+# are scored the same way, from early_levels.gd.
 # During the boss fight the budget is lifted (`unlimited`).
 extends Node
 
@@ -220,11 +221,12 @@ func end_run(level_name: String) -> Dictionary:
 	if _run_level != level_name:
 		return {}
 	_run_level = ""
-	var star: bool = _run_used <= _run_par
-	var best: int = GameManager.record_level_clear(level_name, _run_used, star)
 	_update_hud()
-	return {"level": level_name, "used": _run_used, "goal": _run_par, "star": star,
-		"best": best, "deaths": _run_deaths, "time": _run_time}
+	var star: bool = _run_used <= _run_par
+	var result := GameManager.record_level_clear(level_name, _run_used, star, _run_time, _run_deaths)
+	result.merge({"level": level_name, "used": _run_used, "goal": _run_par, "star": star,
+		"deaths": _run_deaths, "time": _run_time})
+	return result
 
 ## The run in progress, for the save file ({} when none).
 func get_run_state() -> Dictionary:
