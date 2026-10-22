@@ -106,7 +106,6 @@
 [ext_resource type="Script" uid="uid://idjxuh7n3uvf" path="res://scripts/tutorial_keys.gd" id="104_0vuxm"]
 [ext_resource type="Script" path="res://moving_platform.gd" id="104_5mdeb"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="105_ivyw7"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="106_iu3ei"]
 [ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="107_dh0ps"]
 [ext_resource type="PackedScene" uid="uid://devxkbbshfgoc" path="res://scenes/chandelier.tscn" id="108_1ors5"]
 [ext_resource type="Texture2D" uid="uid://dkg70owhd6247" path="res://assets/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/miscellaneous sprites/stone.png" id="110_kd0db"]
@@ -5827,10 +5826,6 @@ position = Vector2(1527, -211)
 z_index = 5
 position = Vector2(1790, -739)
 
-[node name="echo_zone" parent="." unique_id=963310953 instance=ExtResource("106_iu3ei")]
-position = Vector2(1527, -225)
-scale = Vector2(0.58498925, 0.7493633)
-
 [node name="door" parent="." unique_id=836931204 instance=ExtResource("107_dh0ps")]
 position = Vector2(1701, -234)
 
@@ -5882,14 +5877,6 @@ texture = SubResource("CompressedTexture2D_61rab")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2" unique_id=762789842]
 position = Vector2(118, -111)
 shape = SubResource("RectangleShape2D_uh5py")
-
-[node name="echo_zone2" parent="." unique_id=404152158 instance=ExtResource("106_iu3ei")]
-position = Vector2(1804, -753)
-scale = Vector2(0.58498925, 0.7493633)
-
-[node name="echo_zone3" parent="." unique_id=2015374675 instance=ExtResource("106_iu3ei")]
-position = Vector2(2580, -479.00003)
-scale = Vector2(0.58498925, 0.7493633)
 
 [node name="door3" parent="." unique_id=208131320 instance=ExtResource("107_dh0ps")]
 position = Vector2(2500, -729)

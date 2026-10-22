@@ -115,7 +115,6 @@
 [ext_resource type="Texture2D" uid="uid://cd7wnv8d7dh3x" path="res://assets/keys/KeyboardMouseUI_AssetPack/Keyboard Extras.png" id="103_yj4kx"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="105_dljlf"]
 [ext_resource type="PackedScene" uid="uid://deleub2s8xvsg" path="res://Level_3/Scenes/fire_2.tscn" id="105_g1uuj"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="106_v2moy"]
 [ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="107_2tx57"]
 [ext_resource type="PackedScene" uid="uid://dixk3eh340wtn" path="res://Level_3/Scenes/platform2.tscn" id="107_ab4qa"]
 [ext_resource type="PackedScene" uid="uid://bc2mhijv801ou" path="res://Level_3/Scenes/Fire.tscn" id="119_r1lbg"]
@@ -8820,16 +8819,8 @@ position = Vector2(1108, 198.00003)
 z_index = 5
 position = Vector2(865, -45)
 
-[node name="echo_zone" parent="PressurePad" unique_id=963310953 instance=ExtResource("106_v2moy")]
-position = Vector2(865, -59.000008)
-scale = Vector2(0.58498925, 0.7493633)
-
 [node name="door" parent="PressurePad" unique_id=1324933565 instance=ExtResource("107_2tx57")]
 position = Vector2(970, -67.00003)
-
-[node name="echo_zone" parent="." unique_id=141134725 instance=ExtResource("106_v2moy")]
-position = Vector2(1108, 184)
-scale = Vector2(0.58498925, 0.7493633)
 
 [node name="door" parent="." unique_id=690148345 instance=ExtResource("107_2tx57")]
 position = Vector2(1213, 176)
@@ -8856,17 +8847,13 @@ position = Vector2(169, 191)
 z_index = 5
 position = Vector2(2588, 182)
 
-[node name="echo_zone2" parent="PressurePad2" unique_id=882753792 instance=ExtResource("106_v2moy")]
-position = Vector2(0, -14)
-scale = Vector2(0.58498925, 0.7493633)
-
-[node name="door2" parent="PressurePad2/echo_zone2" unique_id=1894013791 instance=ExtResource("107_2tx57")]
-position = Vector2(179.49048, -10.675781)
-scale = Vector2(1.7094331, 1.3344661)
+[node name="door2" parent="PressurePad2" unique_id=1894013791 instance=ExtResource("107_2tx57")]
+position = Vector2(105, -22)
+scale = Vector2(1, 1)
 
 [connection signal="pad_activated" from="PressurePad" to="door" method="_on_pressure_pad_pad_activated"]
 [connection signal="pad_deactivated" from="PressurePad" to="door" method="_on_pressure_pad_pad_deactivated"]
 [connection signal="pad_activated" from="PressurePad/PressurePad" to="PressurePad/door" method="_on_pressure_pad_pad_activated"]
 [connection signal="pad_deactivated" from="PressurePad/PressurePad" to="PressurePad/door" method="_on_pressure_pad_pad_deactivated"]
-[connection signal="pad_activated" from="PressurePad2" to="PressurePad2/echo_zone2/door2" method="_on_pressure_pad_2_pad_activated"]
-[connection signal="pad_deactivated" from="PressurePad2" to="PressurePad2/echo_zone2/door2" method="_on_pressure_pad_2_pad_deactivated"]
+[connection signal="pad_activated" from="PressurePad2" to="PressurePad2/door2" method="_on_pressure_pad_2_pad_activated"]
+[connection signal="pad_deactivated" from="PressurePad2" to="PressurePad2/door2" method="_on_pressure_pad_2_pad_deactivated"]

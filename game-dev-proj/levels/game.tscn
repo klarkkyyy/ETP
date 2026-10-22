@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://btvr2fih6qiv" path="res://assets/keys/KeyboardMouseUI_AssetPack/Individual Tiles/(Recommended) With Anti-Aliasing/Letters + Numbers/LettersNumbers60.png" id="7_lyuia"]
 [ext_resource type="Texture2D" uid="uid://dkjnqlhkxihyh" path="res://assets/keys/KeyboardMouseUI_AssetPack/Individual Tiles/(Recommended) With Anti-Aliasing/Letters + Numbers/LettersNumbers61.png" id="8_8irk1"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="8_qc6ov"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="9_a7gts"]
 [ext_resource type="Texture2D" uid="uid://cgfob7ai8ehea" path="res://assets/keys/KeyboardMouseUI_AssetPack/Individual Tiles/(Recommended) With Anti-Aliasing/Letters + Numbers/LettersNumbers62.png" id="9_nvr2s"]
 [ext_resource type="Script" uid="uid://wqqmbyre52v7" path="res://scripts/title_trigger.gd" id="11_o51jq"]
 [ext_resource type="Script" uid="uid://o7xqs72qb68w" path="res://scripts/title_layer.gd" id="12_ohhyw"]
@@ -24779,13 +24778,6 @@ metadata/_edit_use_anchors_ = true
 z_index = 5
 position = Vector2(1591.0001, -277)
 
-[node name="echo_zone" parent="outside" unique_id=963310953 instance=ExtResource("9_a7gts")]
-position = Vector2(1590, -289)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="door" parent="outside" unique_id=836931204 instance=ExtResource("148_guhls")]
 position = Vector2(1778, -268)
 
@@ -24996,14 +24988,6 @@ scale = Vector2(1.28125, 1.2272727)
 [node name="lever" parent="level 1" unique_id=215508732 instance=ExtResource("15_akdic")]
 position = Vector2(1813, -315)
 
-[node name="echo_zone2" parent="level 1" unique_id=14471417 instance=ExtResource("9_a7gts")]
-z_index = 1
-position = Vector2(1813, -321)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="roomSections" type="Node" parent="level 1" unique_id=1714276485]
 
 [node name="room1" type="Area2D" parent="level 1/roomSections" unique_id=1314590832]
@@ -25082,14 +25066,6 @@ position = Vector2(-58, -37)
 [node name="platform2_3" parent="level 1/roomSections/room1" unique_id=1270445113 instance=ExtResource("19_7tfec")]
 position = Vector2(-128, -5)
 
-[node name="echo_zone2" parent="level 1/roomSections/room1" unique_id=1830550879 instance=ExtResource("9_a7gts")]
-z_index = 1
-position = Vector2(-166, -23)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="PressurePad" parent="level 1/roomSections/room1" unique_id=868730925 instance=ExtResource("8_qc6ov")]
 z_index = 5
 position = Vector2(-166.99988, -11)
@@ -25145,14 +25121,6 @@ position = Vector2(-151, 47)
 [node name="door" parent="level 1/roomSections/room2" unique_id=1679113385 instance=ExtResource("148_guhls")]
 position = Vector2(214, -81)
 
-[node name="echo_zone2" parent="level 1/roomSections/room2" unique_id=179022393 instance=ExtResource("9_a7gts")]
-z_index = 1
-position = Vector2(-212, -80)
-scale = Vector2(0.30797502, 0.43903553)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="PressurePad" parent="level 1/roomSections/room2" unique_id=2003155111 instance=ExtResource("23_cyga8")]
 position = Vector2(-214, -75)
 scale = Vector2(0.9470145, 1.0040143)
@@ -25166,14 +25134,6 @@ position = Vector2(157, 47)
 [node name="PressurePad2" parent="level 1/roomSections/room2" unique_id=891368472 instance=ExtResource("8_qc6ov")]
 z_index = 5
 position = Vector2(173, 53)
-
-[node name="echo_zone3" parent="level 1/roomSections/room2" unique_id=305832715 instance=ExtResource("9_a7gts")]
-z_index = 1
-position = Vector2(167, 31.000011)
-scale = Vector2(0.6913265, 1.1968373)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="spike5" parent="level 1/roomSections/room2" unique_id=487374696 instance=ExtResource("18_hudsn")]
 z_index = 4
@@ -25574,13 +25534,6 @@ position = Vector2(118, -116.5)
 shape = SubResource("RectangleShape2D_l2ledge")
 one_way_collision = true
 
-[node name="echo_zone2" parent="level 2/room1" unique_id=604142420 instance=ExtResource("9_a7gts")]
-position = Vector2(-135, -91)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="Level2Spawn" type="Marker2D" parent="level 2/room1" unique_id=880760307 groups=["spawn_point"]]
 position = Vector2(-192, 105.00006)
 
@@ -25661,13 +25614,6 @@ one_way_collision = true
 
 [node name="door2" parent="level 2/room2" unique_id=130163872 instance=ExtResource("148_guhls")]
 position = Vector2(0, 173)
-
-[node name="echo_zone3" parent="level 2/room2" unique_id=1171006094 instance=ExtResource("9_a7gts")]
-position = Vector2(193, 182.99991)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="door3" parent="level 2/room2" unique_id=1060517278 instance=ExtResource("148_guhls")]
 position = Vector2(113, -67)
@@ -26047,14 +25993,6 @@ position = Vector2(993, 181)
 [node name="PressurePadB" parent="Level_3" unique_id=1257370366 instance=ExtResource("8_qc6ov")]
 position = Vector2(1025, 198)
 
-[node name="echo_zoneB" parent="Level_3" unique_id=150722156 instance=ExtResource("9_a7gts")]
-z_index = 1
-position = Vector2(1025, 184)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="ExitGate" type="Node" parent="Level_3" unique_id=1310515102]
 script = ExtResource("all_pads_trigger")
 pads = Array[NodePath]([NodePath("../PressurePad"), NodePath("../PressurePadB")])
@@ -26072,23 +26010,8 @@ position = Vector2(1108, 198.00003)
 z_index = 5
 position = Vector2(865, -45)
 
-[node name="echo_zone" parent="Level_3/PressurePad" unique_id=2141090317 instance=ExtResource("9_a7gts")]
-position = Vector2(865, -59.000008)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="door" parent="Level_3/PressurePad" unique_id=1162856156 instance=ExtResource("148_guhls")]
 position = Vector2(970, -67.00003)
-
-[node name="echo_zone" parent="Level_3" unique_id=1942236977 instance=ExtResource("9_a7gts")]
-z_index = 1
-position = Vector2(1108, 184)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="door" parent="Level_3" unique_id=1442011078 instance=ExtResource("148_guhls")]
 position = Vector2(1213, 176)
@@ -26110,62 +26033,18 @@ scale = Vector2(-1.0755287, 1.0690364)
 z_index = 5
 position = Vector2(2588, 182)
 
-[node name="echo_zone2" parent="Level_3/PressurePad2" unique_id=272521893 instance=ExtResource("9_a7gts")]
-position = Vector2(0, -14)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
-[node name="door2" parent="Level_3/PressurePad2/echo_zone2" unique_id=116651707 instance=ExtResource("148_guhls")]
-position = Vector2(194.87537, -10.675731)
-scale = Vector2(1.7094331, 1.3344661)
-
 [node name="PressurePad3" parent="Level_3/PressurePad2" unique_id=668811163 instance=ExtResource("8_qc6ov")]
 z_index = 5
 position = Vector2(-882, 112)
-
-[node name="echo_zone3" parent="Level_3/PressurePad2/PressurePad3" unique_id=1892280255 instance=ExtResource("9_a7gts")]
-position = Vector2(2, -14)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
-[node name="door3" parent="Level_3/PressurePad2/PressurePad3/echo_zone3" unique_id=124997561 instance=ExtResource("148_guhls")]
-position = Vector2(1808.5802, -224.1903)
-scale = Vector2(1.7094331, 1.3344661)
 
 [node name="boss Door" parent="Level_3/PressurePad2" unique_id=1829227117 instance=ExtResource("8_qc6ov")]
 z_index = 5
 position = Vector2(493, -283)
 rotation = 3.1415927
 
-[node name="echo_bosszone2" parent="Level_3/PressurePad2/boss Door" unique_id=1514893865 instance=ExtResource("9_a7gts")]
-position = Vector2(-1.9999962, -12.000004)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
-[node name="bossdoor2" parent="Level_3/PressurePad2/boss Door/echo_bosszone2" unique_id=2041211431 instance=ExtResource("148_guhls")]
-position = Vector2(-177.78107, -353.6335)
-scale = Vector2(1.7094331, 1.3344661)
-
 [node name="PressurePad4" parent="Level_3" unique_id=1310953795 instance=ExtResource("8_qc6ov")]
 z_index = 5
 position = Vector2(2496, -74)
-
-[node name="echo_zone4" parent="Level_3/PressurePad4" unique_id=561602082 instance=ExtResource("9_a7gts")]
-position = Vector2(1, -13)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
-[node name="door4" parent="Level_3/PressurePad4/echo_zone4" unique_id=148636014 instance=ExtResource("148_guhls")]
-position = Vector2(864.97296, 349.63013)
-scale = Vector2(1.45, 1.132)
 
 [node name="AnimatableBody2D" parent="Level_3" unique_id=1640606608 instance=ExtResource("151_cqo85")]
 position = Vector2(3072, 97)
@@ -26521,15 +26400,6 @@ position = Vector2(457, 485)
 z_index = 9
 position = Vector2(100, -7.9999695)
 linked_trap = NodePath("..")
-
-[node name="echo_zone" parent="boss/trap1" unique_id=962946368 instance=ExtResource("9_a7gts")]
-modulate = Color(1, 1, 1, 0.09803922)
-z_index = 1
-position = Vector2(-53, -322)
-scale = Vector2(10.961603, 15.248046)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="Trapno2" parent="boss" unique_id=175205352 instance=ExtResource("151_e7tvt")]
 z_index = 2
@@ -27142,6 +27012,22 @@ position = Vector2(11820, -4587)
 [node name="Level_9" parent="." unique_id=1796420853 instance=ExtResource("209_lvl9")]
 position = Vector2(15400, -4587)
 
+[node name="door2" parent="Level_3/PressurePad2" unique_id=116651707 instance=ExtResource("148_guhls")]
+position = Vector2(114, -22)
+scale = Vector2(1, 1)
+
+[node name="door3" parent="Level_3/PressurePad2/PressurePad3" unique_id=124997561 instance=ExtResource("148_guhls")]
+position = Vector2(1060, -182)
+scale = Vector2(1, 1)
+
+[node name="bossdoor2" parent="Level_3/PressurePad2/boss Door" unique_id=2041211431 instance=ExtResource("148_guhls")]
+position = Vector2(-106, -277)
+scale = Vector2(1, 1)
+
+[node name="door4" parent="Level_3/PressurePad4" unique_id=148636014 instance=ExtResource("148_guhls")]
+position = Vector2(507, 249)
+scale = Vector2(0.848234, 0.848279)
+
 [connection signal="body_entered" from="start/TitleTrigger" to="start/TitleTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="start/TitleTrigger" to="start/CanvasLayer2" method="_on_title_trigger_body_entered"]
 [connection signal="pad_activated" from="outside/PressurePad" to="outside/door" method="_on_pressure_pad_pad_activated"]
@@ -27164,11 +27050,11 @@ position = Vector2(15400, -4587)
 [connection signal="pad_deactivated" from="level 2/room2/PressurePad3" to="level 2/room2/door3" method="_on_pressure_pad_3_pad_deactivated"]
 [connection signal="pad_activated" from="Level_3/PressurePad/PressurePad" to="Level_3/PressurePad/door" method="_on_pressure_pad_pad_activated"]
 [connection signal="pad_deactivated" from="Level_3/PressurePad/PressurePad" to="Level_3/PressurePad/door" method="_on_pressure_pad_pad_deactivated"]
-[connection signal="pad_activated" from="Level_3/PressurePad2" to="Level_3/PressurePad2/echo_zone2/door2" method="_on_pressure_pad_2_pad_activated"]
-[connection signal="pad_deactivated" from="Level_3/PressurePad2" to="Level_3/PressurePad2/echo_zone2/door2" method="_on_pressure_pad_2_pad_deactivated"]
-[connection signal="pad_activated" from="Level_3/PressurePad2/PressurePad3" to="Level_3/PressurePad2/PressurePad3/echo_zone3/door3" method="_on_pressure_pad_2_pad_activated"]
-[connection signal="pad_deactivated" from="Level_3/PressurePad2/PressurePad3" to="Level_3/PressurePad2/PressurePad3/echo_zone3/door3" method="_on_pressure_pad_2_pad_deactivated"]
-[connection signal="pad_activated" from="Level_3/PressurePad2/boss Door" to="Level_3/PressurePad2/boss Door/echo_bosszone2/bossdoor2" method="_on_pressure_pad_2_pad_activated"]
-[connection signal="pad_activated" from="Level_3/PressurePad4" to="Level_3/PressurePad4/echo_zone4/door4" method="_on_pressure_pad_2_pad_activated"]
-[connection signal="pad_deactivated" from="Level_3/PressurePad4" to="Level_3/PressurePad4/echo_zone4/door4" method="_on_pressure_pad_2_pad_deactivated"]
 [connection signal="body_entered" from="Level_3/Portal" to="Level_3/Portal" method="_on_body_entered"]
+[connection signal="pad_activated" from="Level_3/PressurePad2" to="Level_3/PressurePad2/door2" method="_on_pressure_pad_2_pad_activated"]
+[connection signal="pad_deactivated" from="Level_3/PressurePad2" to="Level_3/PressurePad2/door2" method="_on_pressure_pad_2_pad_deactivated"]
+[connection signal="pad_activated" from="Level_3/PressurePad2/PressurePad3" to="Level_3/PressurePad2/PressurePad3/door3" method="_on_pressure_pad_2_pad_activated"]
+[connection signal="pad_deactivated" from="Level_3/PressurePad2/PressurePad3" to="Level_3/PressurePad2/PressurePad3/door3" method="_on_pressure_pad_2_pad_deactivated"]
+[connection signal="pad_activated" from="Level_3/PressurePad2/boss Door" to="Level_3/PressurePad2/boss Door/bossdoor2" method="_on_pressure_pad_2_pad_activated"]
+[connection signal="pad_activated" from="Level_3/PressurePad4" to="Level_3/PressurePad4/door4" method="_on_pressure_pad_2_pad_activated"]
+[connection signal="pad_deactivated" from="Level_3/PressurePad4" to="Level_3/PressurePad4/door4" method="_on_pressure_pad_2_pad_deactivated"]

@@ -46,7 +46,6 @@ var is_pushing: bool = false
 var wall_jump_timer: float = 0.0
 var run_dust_timer: float = 0.0
 var was_running: bool = false
-var current_echo_zone: Node = null
 var _jump_buffer_timer: float = 0.0
 var _surface_stack: Array = []
 
@@ -268,10 +267,7 @@ func die() -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
 	set_physics_process(false)
-	if current_echo_zone:
-		current_echo_zone.stop_recording()
-		current_echo_zone.player = null
-		current_echo_zone = null
+	Echoes.stop_recording()
 	anim.play("death")
 	SoundManager.play(SFX_DEATH, -7)
 	await anim.animation_finished
@@ -295,9 +291,6 @@ func _clear_all_echoes() -> void:
 func _process(_delta: float) -> void:
 	if is_dead:
 		return
-
-func set_echo_zone(zone) -> void:
-	current_echo_zone = zone
 
 func set_surface(surface: String) -> void:
 	_current_surface = surface

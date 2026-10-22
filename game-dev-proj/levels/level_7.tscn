@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bmx0casu34uy8" path="res://scenes/spike.tscn" id="7_nf5iv"]
 [ext_resource type="PackedScene" path="res://traps/blade_trap.tscn" id="8_fwwbs"]
 [ext_resource type="PackedScene" path="res://traps/spear_launcher.tscn" id="10_wes5d"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="11_eqyc8"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="12_tmua5"]
 [ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="13_va8ov"]
 [ext_resource type="PackedScene" path="res://drop_enemy/bateye.tscn" id="14_c7jkg"]
@@ -70,6 +69,7 @@ size = Vector2(46, 8)
 [node name="Level_7" type="Node2D" unique_id=341690698]
 script = ExtResource("1_mcn6t")
 start = NodePath("Start/PortalIn")
+echo_par = 1
 
 [node name="Backdrop" type="TileMapLayer" parent="." unique_id=453335037]
 modulate = Color(0.6, 0.5, 0.5, 1)
@@ -653,18 +653,6 @@ position = Vector2(2312, 732)
 
 [node name="Pit_145" parent="S5_EchoDoor" unique_id=320310524 instance=ExtResource("7_nf5iv")]
 position = Vector2(2328, 732)
-
-[node name="EchoZone" parent="S5_EchoDoor" unique_id=1952716186 instance=ExtResource("11_eqyc8")]
-position = Vector2(2456, 626)
-max_echoes = 2
-activation_range = 600.0
-sample_every_frames = 1
-
-[node name="EchoZone" parent="S5_EchoDoor/EchoZone" unique_id=963310953 instance=ExtResource("11_eqyc8")]
-position = Vector2(-45, 60)
-max_echoes = 2
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="PadFloor" parent="S5_EchoDoor" unique_id=1136676992 instance=ExtResource("12_tmua5")]
 position = Vector2(2408, 702)

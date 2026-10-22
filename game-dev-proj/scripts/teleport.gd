@@ -35,6 +35,7 @@ func _do_teleport() -> void:
 		if tp.this_id == destination_id:
 			SoundManager.play(SFX_TELEPORT)  # ← add here
 			emit_signal("teleport_used", destination_id, _get_player())
+			GameManager.player_teleported.emit(this_id, destination_id)
 			tp.receive_player(_get_player())
 			return
 

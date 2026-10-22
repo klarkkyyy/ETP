@@ -8,7 +8,6 @@
 [ext_resource type="FontFile" uid="uid://cas05dooal7th" path="res://assets/fonts/BoldPixels.ttf" id="5_8mt0c"]
 [ext_resource type="PackedScene" uid="uid://c0evu2thl5ney" path="res://scenes/candle_light.tscn" id="6_dp2yl"]
 [ext_resource type="PackedScene" uid="uid://bmx0casu34uy8" path="res://scenes/spike.tscn" id="7_a7qdg"]
-[ext_resource type="PackedScene" uid="uid://cc0b5s5llahpg" path="res://echo_zone/echo_zone.tscn" id="8_g1ha7"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="9_52a3b"]
 [ext_resource type="PackedScene" uid="uid://bl54qyuafdhau" path="res://scenes/door.tscn" id="10_3ff1r"]
 [ext_resource type="Script" uid="uid://8vmykixs6pyu" path="res://moving_platform.gd" id="11_cmohj"]
@@ -69,6 +68,7 @@ size = Vector2(48, 16)
 [node name="Level_4" type="Node2D" unique_id=1536460853]
 script = ExtResource("1_27cb5")
 start = NodePath("Start/PortalIn")
+echo_par = 6
 
 [node name="Backdrop" type="TileMapLayer" parent="." unique_id=66031058]
 z_index = -99
@@ -232,13 +232,6 @@ position = Vector2(616, 652)
 [node name="SavePoint" parent="S1_TwinGates" unique_id=781488209 instance=ExtResource("4_5oqfd")]
 position = Vector2(744, 333)
 
-[node name="EchoZone" parent="S1_TwinGates" unique_id=963310953 instance=ExtResource("8_g1ha7")]
-position = Vector2(920, 402)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 2
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="PadA" parent="S1_TwinGates" unique_id=1371886716 instance=ExtResource("9_52a3b")]
 position = Vector2(920, 414)
 
@@ -314,24 +307,10 @@ position = Vector2(808, 344)
 [node name="Candle2" parent="S1_TwinGates" unique_id=2029334710 instance=ExtResource("6_dp2yl")]
 position = Vector2(1288, 344)
 
-[node name="EchoZone2" parent="S1_TwinGates" unique_id=633578588 instance=ExtResource("8_g1ha7")]
-position = Vector2(1160, 242)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 2
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="S2_Relay" type="Node2D" parent="." unique_id=328090489]
 
 [node name="SavePoint" parent="S2_Relay" unique_id=401263780 instance=ExtResource("4_5oqfd")]
 position = Vector2(1560, 333)
-
-[node name="EchoZone" parent="S2_Relay" unique_id=1687610348 instance=ExtResource("8_g1ha7")]
-position = Vector2(1608, 338)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 2
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="Pad1" parent="S2_Relay" unique_id=447493654 instance=ExtResource("9_52a3b")]
 position = Vector2(1608, 350)
@@ -464,24 +443,10 @@ Then ride up."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EchoZone2" parent="S2_Relay" unique_id=491740821 instance=ExtResource("8_g1ha7")]
-position = Vector2(1896, 338)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 2
-activation_range = 600.0
-sample_every_frames = 1
-
 [node name="S3_Vault" type="Node2D" parent="." unique_id=319782416]
 
 [node name="SavePoint" parent="S3_Vault" unique_id=1265841488 instance=ExtResource("4_5oqfd")]
 position = Vector2(2424, 125)
-
-[node name="EchoZone" parent="S3_Vault" unique_id=822040475 instance=ExtResource("8_g1ha7")]
-position = Vector2(2472, 434)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="PadX" parent="S3_Vault" unique_id=771295816 instance=ExtResource("9_52a3b")]
 position = Vector2(2472, 446)
@@ -600,20 +565,6 @@ text = "Stuck? [F] returns
 to the checkpoint"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="EchoZone2" parent="S3_Vault" unique_id=553010089 instance=ExtResource("8_g1ha7")]
-position = Vector2(2616, 274)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
-
-[node name="EchoZone3" parent="S3_Vault" unique_id=491735917 instance=ExtResource("8_g1ha7")]
-position = Vector2(2744, 386)
-scale = Vector2(0.58498925, 0.7493633)
-max_echoes = 3
-activation_range = 600.0
-sample_every_frames = 1
 
 [node name="Exit" type="Node2D" parent="." unique_id=295466403]
 
