@@ -1,7 +1,7 @@
 # arrival_cutscene.gd
 # Bridges the opening story into game.tscn: the screen opens like waking eyes,
-# Ren falls out of the sky and lands hard, a short exchange with the Warden,
-# then the letterbox slides away and control is handed over.
+# Ren falls out of the sky and lands hard, says a few words to no one, then
+# the letterbox slides away and control is handed over.
 # Added to game.tscn by StoryDirector when the intro sets `arrival_pending`.
 extends Node
 
@@ -17,12 +17,11 @@ const VIEW_DROP_START := 40.0
 const VIEW_DROP := 14.0
 const BAR_HEIGHT := 72.0
 
+# Ren alone: the voice doesn't answer him here.
 const LINES := [
 	{"who": "Ren", "text": "Ugh... that's going to leave a mark."},
-	{"who": "Ren", "text": "Wait. No cuts. No blood. Where's the street? Where's the truck?"},
-	{"who": "The Warden", "text": "Gone. All of it. This is the Hollow Reach."},
-	{"who": "Ren", "text": "So that voice in the dark... it wasn't a dream."},
-	{"who": "The Warden", "text": "No. Your climb starts here, Ren. Get used to your feet again."},
+	{"who": "Ren", "text": "No cuts. No blood. Where's the street?"},
+	{"who": "Ren", "text": "...Hello? Are you still there?"},
 ]
 
 var _layer: CanvasLayer
@@ -31,7 +30,6 @@ var _bottom_bar: ColorRect
 var _flash: ColorRect
 var _player: Node2D
 var _camera: Camera2D
-var _tutorial: Array[CanvasItem] = []
 
 
 func _ready() -> void:
@@ -73,14 +71,6 @@ func _run() -> void:
 	StoryDirector.hold_guides = true
 	_player = get_tree().get_first_node_in_group("player")
 	_camera = get_tree().get_first_node_in_group("camera")
-
-	# Hide the tutorial prompts until Ren is on his feet.
-	var tutorial := get_parent().get_node_or_null("tutorial")
-	if tutorial:
-		for child in tutorial.get_children():
-			if child is CanvasItem:
-				_tutorial.append(child)
-				child.modulate.a = 0.0
 
 	# Hold the player out of play: wait for the spawn routine, then freeze.
 	_player.visible = false
@@ -151,8 +141,6 @@ func _run() -> void:
 	t.tween_property(_bottom_bar, "offset_top", 0.0, 0.9).set_trans(Tween.TRANS_SINE)
 	t.tween_property(_bottom_bar, "offset_bottom", BAR_HEIGHT, 0.9).set_trans(Tween.TRANS_SINE)
 	t.tween_property(_camera, "offset:y", 0.0, 1.2).set_trans(Tween.TRANS_SINE)
-	for item in _tutorial:
-		t.tween_property(item, "modulate:a", 1.0, 1.5).set_delay(0.4)
 	_player.set_physics_process(true)
 	_player.set_process_input(true)
 	StoryDirector.hold_guides = false

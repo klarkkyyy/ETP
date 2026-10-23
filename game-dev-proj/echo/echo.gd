@@ -22,6 +22,7 @@ const PUSHED_SPEED = 60.0   # px/s when Ren pushes an echo
 const CRUSH_INSET = 0.5     # this far inside something solid that closed on it from above = crushed
 const SYNC_TOLERANCE = 0.5  # this close to where Ren was, it shows his recorded animation
 const TRAIL_LENGTH = 8
+static var GLOW := _unshaded()
 const TRAIL_INTERVAL = 3
 const SLOT_COLORS = [
 	Color(0.4, 0.8, 1.0),
@@ -41,6 +42,8 @@ var _crushed: bool = false
 var _idle: bool = false         # Ren pressed nothing the whole recording
 var _started: bool = false      # has played its first loop
 var _gone: int = 0              # frames into the gap between one loop and the next
+var _phantom: bool = false      # the stranger's demonstrations (make_phantom): seen, never touched
+var _solid: int                 # Echoes.solid, or OFF for a phantom
 var _passing: Array = []        # Ren and echoes it's passing through (it started a loop inside them)
 var _interactables: Array = []
 
@@ -53,6 +56,8 @@ var _wall_jump_timer := 0.0
 var _jump_buffer_timer := 0.0
 var _coyote_timer := 0.0
 
+## A phantom has played its moves to the end (make_phantom).
+signal played
 signal echo_entered_pad(echo: Area2D)
 signal echo_exited_pad(echo: Area2D)
 
@@ -65,6 +70,31 @@ func setup(recorded_frames: Array, use_distance_check: bool, slot: int = 0) -> v
 	call_deferred("_setup_trail")
 	_update_visuals()
 
+static func _unshaded() -> CanvasItemMaterial:
+	var m := CanvasItemMaterial.new()
+	m.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
+	return m
+
+## Turns it into a phantom: it plays its inputs through Ren's movement like any
+## echo (once, then stops: `played`), but nothing touches it (no body, no pads, levers, orbs or spears, not
+## in the "echo" group) and it's drawn with `look` instead of the echo trail.
+## The stranger (story/stranger.gd) uses this for its demonstrations; a
+## phantom's frames may be bare inputs, with only the first giving "pos".
+func make_phantom(look: Material) -> void:
+	_phantom = true
+	_solid = Echoes.Solid.OFF
+	_body.collision_layer = 0
+	_body.collision_mask = 1
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
+	remove_from_group("echo")
+	modulate = Color.WHITE
+	anim.material = look
+	anim.visible = true
+	for t in _trail_nodes:
+		t.queue_free()
+	_trail_nodes.clear()
+
 func set_active(active: bool) -> void:
 	if _is_active == active or _dying:
 		return
@@ -76,6 +106,7 @@ func _ready() -> void:
 	process_physics_priority = 10   # after Ren and moving platforms, so it sees this frame's level
 	_body.top_level = true
 	_body.floor_max_angle = deg_to_rad(50.0)
+	_solid = Echoes.solid
 	match Echoes.solid:
 		Echoes.Solid.OFF:
 			_body.collision_layer = 0
@@ -102,7 +133,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var f: Dictionary = _frames[_current_frame]
-	var in_sync := _body.global_position.distance_to(f["pos"]) <= SYNC_TOLERANCE
+	var in_sync: bool = f.has("pos") and _body.global_position.distance_to(f["pos"]) <= SYNC_TOLERANCE
 	_update_passing()
 	_step(f, delta)
 	global_position = _body.global_position
@@ -119,6 +150,10 @@ func _physics_process(delta: float) -> void:
 				area.on_echo_interact(self)
 
 	_current_frame = (_current_frame + 1) % _frames.size()
+	if _phantom and _current_frame == 0:
+		# a phantom plays its moves once and stops where they leave it
+		set_physics_process(false)
+		played.emit()
 
 ## The gap before a loop starts over. First it's gone, so Ren (or an echo)
 ## on its head falls instead of going with it to the start; a frame later,
@@ -246,7 +281,7 @@ func _step(f: Dictionary, delta: float) -> void:
 ## Ren walking into its side on the same floor pushes it (solid echoes).
 ## Returns the push's speed this frame.
 func _push_from_player() -> float:
-	if Echoes.solid != Echoes.Solid.FULL or not _body.is_on_floor():
+	if _solid != Echoes.Solid.FULL or not _body.is_on_floor():
 		return 0.0
 	var p := get_tree().get_first_node_in_group("player") as CharacterBody2D
 	if p == null or p.get("is_dead") or not p.is_on_floor() or _passing.has(p):
@@ -260,7 +295,7 @@ func _push_from_player() -> float:
 ## Ren and the echoes standing on its head (and not passing through it).
 func _riders() -> Array:
 	var riders: Array = []
-	if Echoes.solid == Echoes.Solid.OFF:
+	if _solid == Echoes.Solid.OFF:
 		return riders
 	var candidates: Array = [get_tree().get_first_node_in_group("player")]
 	for e in get_tree().get_nodes_in_group("echo"):
@@ -277,7 +312,7 @@ func _riders() -> Array:
 ## (and they through it) until they're apart, so neither is shoved out;
 ## everything else still stands on it and bumps into it.
 func _pass_through_overlaps() -> void:
-	if Echoes.solid == Echoes.Solid.OFF:
+	if _solid == Echoes.Solid.OFF:
 		return
 	for hit in _overlapping(2 | 4, 0.1):
 		var other = hit["collider"]
@@ -363,6 +398,8 @@ func _animate(f: Dictionary, in_sync: bool) -> void:
 		anim.play("jump_up" if _body.velocity.y < 0.0 else "jump_down")
 
 func _update_trail() -> void:
+	if _phantom:
+		return
 	for i in range(TRAIL_LENGTH - 1, 0, -1):
 		_trail_nodes[i].position = _trail_nodes[i - 1].position
 		_trail_nodes[i].flip_h = _trail_nodes[i - 1].flip_h
@@ -375,6 +412,8 @@ func _update_trail() -> void:
 
 
 func _update_visuals() -> void:
+	if _phantom:
+		return
 	if anim:
 		anim.visible = false
 	modulate = Color(_slot_color.r, _slot_color.g, _slot_color.b, 0.45) if _is_active else Color(1, 1, 1, 0)
@@ -383,6 +422,8 @@ func _update_visuals() -> void:
 
 
 func _setup_trail() -> void:
+	if _phantom:
+		return
 	for t in _trail_nodes:
 		t.queue_free()
 	_trail_nodes.clear()
@@ -397,6 +438,7 @@ func _setup_trail() -> void:
 		var alpha = (1.0 - float(i) / TRAIL_LENGTH) * 0.18
 		trail_sprite.modulate = Color(_slot_color.r, _slot_color.g, _slot_color.b, alpha)
 		trail_sprite.z_index = -1
+		trail_sprite.material = GLOW   # an echo is light: it shows in the dark
 		add_child(trail_sprite)
 		trail_sprite.visible = false
 		_trail_nodes.append(trail_sprite)
