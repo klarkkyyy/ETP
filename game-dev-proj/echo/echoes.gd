@@ -1,8 +1,9 @@
 #echoes.gd (autoload "Echoes")
 # Ren can record an echo anywhere. Each unlocked slot (1-3) can be recorded
 # once; finishing a recording spends that slot and greys out its icon in the
-# HUD. Reaching a new checkpoint or respawning (dying, or F) gives every slot
-# back, and so does R, which also wipes the echoes; Shift+1-3 wipes just that
+# HUD. Reaching a new checkpoint or respawning (dying, or F) gives back every
+# slot whose echo is gone; one whose echo is still in the level stays spent.
+# R wipes the echoes and gives every slot back; Shift+1-3 wipes just that
 # echo and gives its slot back. Levels with an echo par
 # (level_standalone.gd) count every echo recorded in a run, re-recordings
 # included, plus deaths and time, and award a star for clearing at or under
@@ -83,14 +84,31 @@ func _physics_process(delta: float) -> void:
 		_run_time += delta
 
 	if is_recording and not dead:
+		# Taken before Ren moves this frame: where he is, and what he presses
+		# (as player.gd reads it), which the echo replays through his movement.
 		var sprite: AnimatedSprite2D = player.get_node("animations")
-		_recording.append({
+		var locked: bool = player.get("controls_locked")
+		var frame := {
 			"pos":    player.global_position,
 			"flip_h": sprite.flip_h,
 			"anim":   sprite.animation,
 			"floor":  player.is_on_floor(),
+			"move":   player.call("_move_axis"),
+			"jump":   Input.is_action_just_pressed("jump") and not locked,
 			"interact": Input.is_action_just_pressed("interact")
-		})
+		}
+		if _recording.is_empty():
+			# how Ren was moving when it started, so every loop starts the same
+			frame["start"] = {
+				"velocity":        player.velocity,
+				"on_floor":        player.is_on_floor(),
+				"was_on_floor":    player.get("was_on_floor"),
+				"can_double_jump": player.get("can_double_jump"),
+				"wall_jump_timer": player.get("wall_jump_timer"),
+				"jump_buffer":     player.get("_jump_buffer_timer"),
+				"coyote":          player.get("_coyote_timer"),
+			}
+		_recording.append(frame)
 
 	for echo_node in _echo_nodes:
 		if is_instance_valid(echo_node):
@@ -122,10 +140,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func is_spent(slot: int) -> bool:
 	return not unlimited and _spent[slot]
 
-## Gives every slot back (new checkpoint, respawn, new level). Echoes stay.
+## Gives back every slot whose echo is gone (new checkpoint, respawn, new
+## level). Echoes stay, and a slot whose echo is still here stays spent:
+## only wiping it (R, Shift+1-3) or losing it (an orb, a spear) frees it.
 func refill() -> void:
 	for i in MAX_SLOTS:
-		_spent[i] = false
+		_spent[i] = _spent[i] and is_instance_valid(_echo_nodes[i]) and not _echo_nodes[i].get("_dying")
 	_update_hud()
 
 

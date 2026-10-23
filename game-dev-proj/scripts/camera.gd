@@ -4,9 +4,10 @@
 # him, and Godot's position smoothing is the only easing. The target is kept
 # inside the limits, so the camera never drifts out past a wall and then
 # lurches when the limits change.
-# Height follows the platformer rule: the camera holds the height Ren last
-# stood at, so a jump or double jump doesn't bob the screen; it follows him
-# once he climbs well above that or drops below it.
+# Height: the camera keeps Ren centred going up just as going down, following
+# him once he's a few px above or below the height he last stood at (so it
+# doesn't twitch on a step, and in a tall section a climb scrolls smoothly
+# instead of jumping a platform at a time).
 # When the view changes (a new section, room or limits) the camera pans there
 # with an ease-in-out instead of the smoothing's fast start, with the limits
 # off until it arrives, so they can't clamp it into a jump.
@@ -17,9 +18,8 @@ extends Camera2D
 @export var follow_speed: float = 8.0  # smoothing while following
 @export var snap_speed: float = 5.0  # smoothing while gliding to a room
 @export var follow_offset: Vector2 = Vector2(0, -45)
-## How far Ren can rise above where he last stood before the camera follows him
-## up. A double jump is ~78 px, so jumping never moves it; wall-climbing does.
-@export var rise_window: float = 90.0
+## How far Ren can rise above where he last stood before the camera follows him up.
+@export var rise_window: float = 8.0
 ## How far Ren can fall below where he last stood before the camera follows him down.
 @export var fall_window: float = 8.0
 ## Pan speed when the view changes; the pan takes 0.2-0.6 s whatever the distance.
