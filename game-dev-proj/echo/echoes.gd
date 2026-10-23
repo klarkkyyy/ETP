@@ -2,7 +2,8 @@
 # Ren can record an echo anywhere. Each unlocked slot (1-3) can be recorded
 # once; finishing a recording spends that slot and greys out its icon in the
 # HUD. Reaching a new checkpoint or respawning (dying, or F) gives every slot
-# back, and so does R, which also wipes the echoes. Levels with an echo par
+# back, and so does R, which also wipes the echoes; Shift+1-3 wipes just that
+# echo and gives its slot back. Levels with an echo par
 # (level_standalone.gd) count every echo recorded in a run, re-recordings
 # included, plus deaths and time, and award a star for clearing at or under
 # par (shown as the "goal"); level_clear.gd shows the result. Levels 1-3
@@ -33,6 +34,12 @@ var unlimited: bool = false:
 	set(value):
 		unlimited = value
 		_update_hud()
+## Echoes as bodies in the level: TOP lets Ren stand on them, FULL also blocks
+## him from the sides and lets him push them. Solid echoes stop spears.
+enum Solid { OFF, TOP, FULL }
+var solid: Solid = Solid.FULL
+## Boss fights: spears kill echoes instead of stopping at them.
+var mortal: bool = false
 
 var _spent: Array[bool] = [false, false, false]
 var _recording: Array = []
@@ -81,6 +88,7 @@ func _physics_process(delta: float) -> void:
 			"pos":    player.global_position,
 			"flip_h": sprite.flip_h,
 			"anim":   sprite.animation,
+			"floor":  player.is_on_floor(),
 			"interact": Input.is_action_just_pressed("interact")
 		})
 
@@ -103,7 +111,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			if not GameManager.is_echo_unlocked(slot):
 				print("Echo slot ", slot, " is locked")
 				return
-			_handle_slot_press(slot - 1)
+			if event is InputEventKey and event.shift_pressed:
+				clear_echo(slot - 1)
+			else:
+				_handle_slot_press(slot - 1)
 			return
 
 
@@ -175,6 +186,25 @@ func _spawn_echo(slot: int, frames: Array) -> void:
 	echo_node.setup(frames, ACTIVATION_RANGE > 0.0, slot)
 	echo_node.global_position = frames[0]["pos"]
 	_echo_nodes[slot] = echo_node
+
+## Shift+1-3: wipes that slot's echo (or cancels its recording) and gives the
+## slot back.
+func clear_echo(slot: int) -> void:
+	var any := false
+	if is_recording and active_slot == slot:
+		is_recording = false
+		EchoFlash.flash_stop(slot + 1)
+		active_slot = -1
+		_recording = []
+		any = true
+	if is_instance_valid(_echo_nodes[slot]):
+		_echo_nodes[slot].die()
+		any = true
+	_echo_nodes[slot] = null
+	if any or _spent[slot]:
+		SoundManager.play(SFX_CLEAR, -12, 1.1)
+	_spent[slot] = false
+	_update_hud()
 
 ## R: wipes every echo and gives every slot back.
 func clear_echoes() -> void:
@@ -257,6 +287,7 @@ func reset_all() -> void:
 		_echo_nodes[i] = null
 	_run_level = ""
 	unlimited = false
+	mortal = false
 	refill()
 
 

@@ -372,7 +372,7 @@ height = 14.999985
 z_index = 40
 position = Vector2(227, 37)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("1_8t03j")
 
 [node name="animations" type="AnimatedSprite2D" parent="." unique_id=819236985]

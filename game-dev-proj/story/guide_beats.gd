@@ -41,7 +41,7 @@ const ECHO_UNLOCKS := {
 		{"who": "@", "text": "Press 1 to record, 1 again to stop. Anywhere you like. Your echo repeats it forever."},
 		{"who": "@", "text": "But each echo only works once. See them, top left? Used ones go grey. A new lantern gives them all back."},
 		{"who": "@", "text": "Pads and levers need someone on them. Let your echo do it while you go on."},
-		{"who": "@", "text": "Messed up? R wipes your echoes and gives them all back."},
+		{"who": "@", "text": "Messed up? R wipes your echoes and gives them all back. Shift + 1, 2 or 3 wipes just that one."},
 	]},
 	2: {"guide": "Hollis", "lines": [
 		{"who": "@", "text": "A second stone. Huh. You're further along than I ever got."},

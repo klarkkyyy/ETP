@@ -468,6 +468,7 @@ func _frame_camera(on: bool) -> void:
 	if cam == null or on == framed:
 		return
 	Echoes.unlimited = on  # the fight runs on free echoes
+	Echoes.mortal = on     # and spears kill them
 	if on:
 		_cam_saved = [cam.zoom, cam.limit_top, cam.limit_bottom, cam.limit_left, cam.limit_right]
 		var r := (get_parent() as Node2D).global_transform * camera_rect
