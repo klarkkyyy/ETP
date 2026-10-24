@@ -47,6 +47,12 @@ const ARRIVAL_BEATS := {
 		{"who": HERO, "text": "Valves. Tanks. Someone built all this to move the water around."},
 		{"who": WARDEN, "text": "The Sluiceworks. Here the water does what you tell it, if you can hold it there."},
 	],
+	# Level 9 exit -> Level 10.
+	"teleport_l10_in": [
+		{"who": HERO, "text": "It all drains down here. Everything. It smells like it, too."},
+		{"who": WARDEN, "text": "The Outfall. The Reach keeps its spears pointed at the way out."},
+		{"who": WARDEN, "text": "Your echoes don't bleed, Ren. Put them between you and the points."},
+	],
 }
 
 const BOSS_BEATS := {

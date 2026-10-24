@@ -1,0 +1,64 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://biyfoqk68jo3k" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/sewer_tileset.png" id="1_sewer"]
+[ext_resource type="Texture2D" uid="uid://db8l2fb2iusj2" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/waterfall_top_tile.png" id="2_falltop"]
+[ext_resource type="Texture2D" uid="uid://dkbcaxsv1lak" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/waterfall_middle_tile.png" id="3_fallmid"]
+
+[node name="Level10Decor" type="Node2D" unique_id=48389592]
+z_index = -20
+
+[node name="Vent_57_27" type="Sprite2D" parent="." unique_id=1589546973]
+modulate = Color(0.58, 0.58, 0.48, 1)
+texture_filter = 1
+position = Vector2(920, 440)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(80, 64, 16, 16)
+
+[node name="Junction_213_50" type="Sprite2D" parent="." unique_id=1951808813]
+modulate = Color(0.58, 0.58, 0.48, 1)
+texture_filter = 1
+position = Vector2(3440, 832)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(208, 16, 64, 64)
+
+[node name="Grate_198_53" type="Sprite2D" parent="." unique_id=1911739714]
+modulate = Color(0.58, 0.58, 0.48, 1)
+texture_filter = 1
+position = Vector2(3176, 856)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(224, 96, 16, 16)
+
+[node name="Panel_93_39" type="Sprite2D" parent="." unique_id=1754362042]
+modulate = Color(0.58, 0.58, 0.48, 1)
+texture_filter = 1
+position = Vector2(1496, 632)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(112, 32, 16, 16)
+
+[node name="Vent_64_38" type="Sprite2D" parent="." unique_id=1483780680]
+modulate = Color(0.58, 0.58, 0.48, 1)
+texture_filter = 1
+position = Vector2(1032, 616)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(80, 64, 16, 16)
+
+[node name="Junction_226_46" type="Sprite2D" parent="." unique_id=156465323]
+modulate = Color(0.58, 0.58, 0.48, 1)
+texture_filter = 1
+position = Vector2(3648, 768)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(208, 16, 64, 64)
+
+[node name="Grate_187_51" type="Sprite2D" parent="." unique_id=2088727966]
+modulate = Color(0.58, 0.58, 0.48, 1)
+texture_filter = 1
+position = Vector2(3000, 824)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(224, 96, 16, 16)

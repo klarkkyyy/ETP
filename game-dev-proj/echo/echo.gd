@@ -279,9 +279,11 @@ func _step(f: Dictionary, delta: float) -> void:
 			b.velocity.x = 0.0   # a pinned crate stops it, as it stops Ren
 
 ## Ren walking into its side on the same floor pushes it (solid echoes).
-## Returns the push's speed this frame.
+## Returns the push's speed this frame. The echo needn't be on the floor
+## itself: level with Ren, it's tipping over an edge (the front of a moving
+## platform keeps catching it there), and a push should carry it off.
 func _push_from_player() -> float:
-	if _solid != Echoes.Solid.FULL or not _body.is_on_floor():
+	if _solid != Echoes.Solid.FULL:
 		return 0.0
 	var p := get_tree().get_first_node_in_group("player") as CharacterBody2D
 	if p == null or p.get("is_dead") or not p.is_on_floor() or _passing.has(p):

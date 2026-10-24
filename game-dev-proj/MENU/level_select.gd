@@ -3,14 +3,24 @@
 # name under it), old flash-game style. Reached levels can be started from
 # their beginning; the rest are locked. Levels with an echo goal show their
 # star, and cleared levels their fastest time and fewest deaths. "Resume from last lantern" picks up exactly where the save left off.
+# The tiles come in pages of two rows; Prev/Next turn them.
 extends CanvasLayer
 
 signal closed
 
 const TILE = Vector2(176, 99)  # thumbnail size, 16:9
-const COLUMNS = 5
+const COLUMNS = 4
+const ROWS = 2
+const PER_PAGE = COLUMNS * ROWS
 
 var _first: Control
+var _grid: GridContainer
+var _page := 0
+var _page_label: Label
+var _prev: Button
+var _next: Button
+var _data: Dictionary
+var _unlocked: Array
 
 
 func _ready() -> void:
@@ -32,15 +42,32 @@ func _ready() -> void:
 	col.add_child(resume)
 	_first = resume
 
-	var grid := GridContainer.new()
-	grid.columns = COLUMNS
-	grid.add_theme_constant_override("h_separation", 12)
-	grid.add_theme_constant_override("v_separation", 10)
-	col.add_child(grid)
-	var data := SaveManager.load_data()
-	var unlocked: Array = data.get("levels_unlocked", [])
-	for e in LevelList.LEVELS:
-		grid.add_child(_tile(e, e["id"] in unlocked, data))
+	_grid = GridContainer.new()
+	_grid.columns = COLUMNS
+	_grid.add_theme_constant_override("h_separation", 12)
+	_grid.add_theme_constant_override("v_separation", 10)
+	col.add_child(_grid)
+	_data = SaveManager.load_data()
+	_unlocked = _data.get("levels_unlocked", [])
+
+	var nav := HBoxContainer.new()
+	nav.alignment = BoxContainer.ALIGNMENT_CENTER
+	nav.add_theme_constant_override("separation", 16)
+	_prev = MenuStyle.button("< Prev")
+	_prev.pressed.connect(_turn.bind(-1))
+	_next = MenuStyle.button("Next >")
+	_next.pressed.connect(_turn.bind(1))
+	_page_label = MenuStyle.label("", 18, MenuStyle.DIM)
+	nav.add_child(_prev)
+	nav.add_child(_page_label)
+	nav.add_child(_next)
+	nav.visible = _page_count() > 1
+	col.add_child(nav)
+	# open on the page with the furthest level reached
+	for i in LevelList.LEVELS.size():
+		if LevelList.LEVELS[i]["id"] in _unlocked:
+			_page = i / PER_PAGE
+	_show_page()
 
 	var back := MenuStyle.button("Back")
 	back.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -48,6 +75,36 @@ func _ready() -> void:
 	col.add_child(back)
 	MenuStyle.centre(self, panel)
 	_first.grab_focus()
+
+
+func _page_count() -> int:
+	return ceili(LevelList.LEVELS.size() / float(PER_PAGE))
+
+func _turn(step: int) -> void:
+	_page = clampi(_page + step, 0, _page_count() - 1)
+	_show_page()
+	# keep focus on the button that was pressed, or the other one at the last page
+	var b := _next if step > 0 else _prev
+	if b.disabled:
+		b = _prev if step > 0 else _next
+	b.grab_focus()
+
+func _show_page() -> void:
+	for c in _grid.get_children():
+		_grid.remove_child(c)
+		c.queue_free()
+	var levels: Array = LevelList.LEVELS.slice(_page * PER_PAGE, (_page + 1) * PER_PAGE)
+	for e in levels:
+		_grid.add_child(_tile(e, e["id"] in _unlocked, _data))
+	# empty slots keep a short last page the same size, so the buttons don't move
+	for i in PER_PAGE - levels.size():
+		var gap := Control.new()
+		gap.custom_minimum_size = TILE + Vector2(12, 60)
+		gap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_grid.add_child(gap)
+	_page_label.text = "Page %d / %d" % [_page + 1, _page_count()]
+	_prev.disabled = _page == 0
+	_next.disabled = _page >= _page_count() - 1
 
 
 ## `data` is the save: the star and records come from it (the menu has no game loaded).
