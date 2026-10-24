@@ -205,10 +205,10 @@
 [ext_resource type="PackedScene" uid="uid://b0ofwufdg7mxd" path="res://levels/level_9.tscn" id="209_lvl9"]
 [ext_resource type="Script" uid="uid://d3hbty500qum7" path="res://scripts/switch_platforms.gd" id="300_swplat"]
 [ext_resource type="Script" uid="uid://bmxa30lbw0ysj" path="res://spike_trap/all_pads_trigger.gd" id="all_pads_trigger"]
-[ext_resource type="Script" uid="uid://qeaiikbwiqc3" path="res://scripts/darkness.gd" id="darkness_script"]
-[ext_resource type="Script" uid="uid://y8fop1huejdu" path="res://scripts/hint.gd" id="hint_script"]
-[ext_resource type="Script" uid="uid://bn1qb3bawsb0f" path="res://story/remnant.gd" id="remnant_script"]
-[ext_resource type="Script" uid="uid://bkyp7kyw13osm" path="res://story/stranger.gd" id="stranger_script"]
+[ext_resource type="Script" path="res://scripts/darkness.gd" id="darkness_script"]
+[ext_resource type="Script" path="res://scripts/hint.gd" id="hint_script"]
+[ext_resource type="Script" path="res://story/remnant.gd" id="remnant_script"]
+[ext_resource type="Script" path="res://story/stranger.gd" id="stranger_script"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5qob"]
 atlas = ExtResource("3_46f1x")
