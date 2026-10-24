@@ -258,10 +258,31 @@
   - **The Crusher Gallery**: out of the top of the chimney into a low gallery under four crushers falling in a wave; wait in the gaps between them
   - **The Spear Shaft**: double jump up a narrow shaft of staggered ledges while two spear lines cross it
   - **The Rotten Bridge**: run a line of rotten grates over a spiked trough without stopping, timed through four swinging blades, then drop past a spinning blade to the exit
-- For now the exit portal returns to the boss arena until Level 10 is made
+- The exit portal leads on to Level 10
 
 <h4 align = "center">Image Sample</h4>
 
 <img width="1152" height="648" alt="Level 9 - The Ballast Tank" src="docs/level_9/ballast_tank.png" />
 <img width="1152" height="648" alt="Level 9 - The Last Sluice" src="docs/level_9/last_sluice.png" />
 <img width="1152" height="648" alt="Level 9 - The Rotten Bridge" src="docs/level_9/rotten_bridge.png" />
+
+<h3 align = "center">Level 10: The Outfall</h3>
+
+- "update: added level 10 after level 9"
+- Level 9's exit portal now leads into Level 10: the bottom of the sewer, where everything drains and the Reach keeps its spears pointed at the way out
+- Built on **solid, pushable echoes**: an echo recorded standing still stays put, stops spears, can be pushed, stood on and dropped onto pads
+- Six sections, each with its own lantern:
+  - **The Screen**: a low corridor swept by a spear launcher, with three waves of rising floor spikes; record an echo standing still, walk it ahead of you as a shield and wait behind it while the spikes are up, then follow it down the drain
+  - **The Ferry**: a pipe ferry crosses a spiked drain under three swinging blades; push echoes off it onto the pads on two pillars to open the gate, dropping down and double jumping back aboard if one lands short
+  - **The Grate Run**: a low corridor under two spear lines, its floor broken by five grates that swing open on a cycle; walk a shield over them, holding it short of each grate until it has just shut, then follow it down into the weir
+  - **The Weir**: the lever opens the gate at the top and lets the water in. Climb three tiers of pipe walks, each one only reachable by standing on two stacked echoes, while spear lines cross at stack height; you only have three slots, so you keep letting old echoes go as you climb
+  - **Stepping Stones**: a spike pit with two small islands, every gap a little too wide to jump. Jump, let go at the top and record: the echo drops onto the spikes and you double jump onto it. The long gaps need more stones than you have slots, so you let the old ones go mid-crossing, under two swinging blades
+  - **The Arrow Corridor**: record a shield behind the closed gate, pull the lever and walk it down a long corridor under a low and a high spear line (the high one gets you if you stand on your echo). Leave an echo on the drain pad halfway to open the exit (out of echoes? let one go, but not the shield), then at the end let the shield go and jump the shaft before the next spear
+- The level's echo goal is 18
+- For now the exit portal returns to the boss arena until boss 2 is made
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 10 - The Ferry" src="docs/level_10/the_ferry.png" />
+<img width="1152" height="648" alt="Level 10 - The Weir" src="docs/level_10/the_weir.png" />
+<img width="1152" height="648" alt="Level 10 - The Arrow Corridor" src="docs/level_10/arrow_corridor.png" />

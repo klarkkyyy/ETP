@@ -1,5 +1,5 @@
 # story_director.gd  (autoload: StoryDirector)
-# Plays the Warden's in-game story beats. It watches the scene tree instead of
+# Plays the in-game story beats (the voice, ???, and the guides). It watches the scene tree instead of
 # living in game.tscn, so beats are added here as data:
 #   ARRIVAL_BEATS: teleport this_id -> lines, played when the player teleports there.
 #   BOSS_BEATS:    boss node name   -> lines, played after that boss dies.
@@ -14,7 +14,9 @@ extends Node
 signal beat_started(key: String)
 
 const HERO := "Ren"
-const WARDEN := "The Warden"
+## The voice. Ren doesn't learn who he is (the Warden) until he meets him at
+## the end, so until then he is only "???" (see guide_beats.gd).
+const WARDEN := "???"
 
 const ARRIVAL_BEATS := {
 	# Level 5 exit -> first boss arena.
@@ -44,6 +46,12 @@ const ARRIVAL_BEATS := {
 	"teleport_l9_in": [
 		{"who": HERO, "text": "Valves. Tanks. Someone built all this to move the water around."},
 		{"who": WARDEN, "text": "The Sluiceworks. Here the water does what you tell it, if you can hold it there."},
+	],
+	# Level 9 exit -> Level 10.
+	"teleport_l10_in": [
+		{"who": HERO, "text": "It all drains down here. Everything. It smells like it, too."},
+		{"who": WARDEN, "text": "The Outfall. The Reach keeps its spears pointed at the way out."},
+		{"who": WARDEN, "text": "Your echoes don't bleed, Ren. Put them between you and the points."},
 	],
 }
 
@@ -75,14 +83,16 @@ const BOSS_BEAT_DELAY := 0.3  # seconds after the boss is freed (its death anima
 
 const ARRIVAL_CUTSCENE := "res://story/arrival_cutscene.gd"
 const GUIDES := preload("res://story/guide_beats.gd")
+const BUBBLE := preload("res://story/speech_bubble.gd")
 const GUIDE_RADIUS := 90.0       # px from a mechanic that counts as meeting it
 const GUIDE_CHECK_EVERY := 0.2   # seconds between proximity checks
 const GROUNDED_FRAMES := 8       # physics frames Ren must be on solid ground before a guide talks
+const BUBBLE_RANGE := 260.0      # px Ren can wander from a talking guide before it stops
 const CAMERA_SETTLED_PX := 4.0   # view moving less than this per frame counts as settled (Ren walking is ~2)
 # Faceless silhouette: flat colour in the sprite's shape, with a slow shimmer.
 const GHOST_SHADER := """
 shader_type canvas_item;
-render_mode blend_add;
+render_mode blend_add, unshaded;   // guides are light: they show in the dark
 uniform vec4 tint : source_color = vec4(1.0);
 void fragment() {
 	float a = texture(TEXTURE, UV).a;
@@ -248,7 +258,7 @@ func _try_guide(key: String, near: Node) -> bool:
 	var beat: Dictionary = GUIDES.MECHANICS[key]
 	if beat.has("requires_echo") and not GameManager.is_echo_unlocked(beat["requires_echo"]):
 		return false
-	play("guide:" + key, beat["lines"], {"name": beat["guide"], "near": near})
+	play("guide:" + key, beat["lines"], {"name": beat["guide"], "near": near, "bubble": true})
 	return true
 
 
@@ -295,8 +305,9 @@ func _on_boss_gone(boss_name: String, boss: Node) -> void:
 
 ## Plays `lines` once under `key`, pausing the game meanwhile. Beats that
 ## arrive while another is playing wait their turn. With `guide`
-## ({name, near, delay?}), that guide's echo appears beside him and "@" in the
-## lines is them speaking.
+## ({name, near, delay?, bubble?}), that guide's echo appears beside him and
+## "@" in the lines is them speaking; with `bubble` the lines are speech
+## bubbles and the game keeps running.
 func play(key: String, lines: Array, guide: Dictionary = {}) -> void:
 	if seen.has(key):
 		return
@@ -344,6 +355,9 @@ func _play_beat(lines: Array, guide: Dictionary) -> void:
 		box.speakers[guide["name"]] = {"color": look["color"], "pitch": look["pitch"]}
 		lines = lines.map(func(l): return {"who": guide["name"] if l["who"] == "@" else l["who"], "text": l["text"]})
 		ghost = _spawn_ghost(player, look, guide.get("near"))
+		if guide.get("bubble", false):
+			await _play_bubbles(lines, ghost, player, look["color"])
+			return
 	tree.paused = true
 	# the fades wait on a timer, not the tween: if the game is left mid-beat the
 	# ghost is freed with it, and a tween on it would never finish
@@ -359,6 +373,40 @@ func _play_beat(lines: Array, guide: Dictionary) -> void:
 	# Let the key that closed the box go stale so the player doesn't jump.
 	await tree.create_timer(0.15).timeout
 	tree.paused = false
+
+
+## A guide's lines as speech bubbles over the guide (or Ren) while play goes
+## on. Walking well away from the guide cuts them short; the guide fades out.
+func _play_bubbles(lines: Array, ghost: Node2D, player: Node2D, color: Color) -> void:
+	create_tween().tween_property(ghost, "modulate:a", 1.0, 0.5)
+	await get_tree().create_timer(0.4).timeout
+	for line in lines:
+		if not is_instance_valid(ghost) or not is_instance_valid(player) or _walked_off(ghost, player):
+			break
+		var speaker: Node2D = player if line["who"] == HERO else ghost
+		var tint: Color = box.speakers.get(line["who"], box.speakers["default"])["color"] if line["who"] == HERO else color
+		var bubble := BUBBLE.new()
+		ghost.get_parent().add_child(bubble)
+		_cut_when_walked_off(bubble, ghost, player)
+		await bubble.say(speaker, line["text"], tint)
+		bubble.queue_free()
+		await get_tree().create_timer(0.15).timeout
+	if is_instance_valid(ghost):
+		create_tween().tween_property(ghost, "modulate:a", 0.0, 0.5)
+		await get_tree().create_timer(0.5).timeout
+	if is_instance_valid(ghost):
+		ghost.queue_free()
+
+func _walked_off(ghost: Node2D, player: Node2D) -> bool:
+	return player.get("is_dead") or ghost.global_position.distance_to(player.global_position) > BUBBLE_RANGE
+
+## Cuts `bubble` short as soon as Ren walks off or dies.
+func _cut_when_walked_off(bubble: BUBBLE, ghost: Node2D, player: Node2D) -> void:
+	while is_instance_valid(bubble) and not bubble.cut:
+		if not is_instance_valid(ghost) or not is_instance_valid(player) or _walked_off(ghost, player):
+			bubble.cut = true
+			return
+		await get_tree().process_frame
 
 
 ## The guide's echo: a faceless glowing silhouette standing beside Ren,

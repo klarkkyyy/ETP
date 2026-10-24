@@ -1,6 +1,6 @@
 # story_intro.gd
 # Opening cutscene played by "NEW GAME": the night of the accident, the fall
-# into the Hollow Reach, and the Warden's bargain. Then loads the game.
+# into the Hollow Reach, and a voice in the dark (???). Then loads the game.
 # Advance: Jump / Interact / Enter.  Skip: Esc (pause).
 extends Node
 
@@ -76,7 +76,6 @@ func _build() -> void:
 	_box = DialogueBox.new()
 	_box.speakers[HERO] = {"color": Color(0.55, 0.8, 1.0), "pitch": 1.25}
 	_box.speakers[WARDEN] = {"color": Color(0.95, 0.75, 0.4), "pitch": 0.7}
-	_box.speakers["The Warden"] = _box.speakers[WARDEN]
 	add_child(_box)
 
 
@@ -87,7 +86,7 @@ func _play() -> void:
 
 	# Earth. The last night.
 	await _narrate("Tuesday.  11:47 PM.")
-	await _narrate("Rain again. Same street home.\nSame song on repeat.")
+	await _narrate("Rain again. Same street home.")
 	await _narrate("I kept telling myself I'd fix things tomorrow.\nCall Mom back. Finish what I started.")
 	await _narrate("Tomorrow was always the plan.")
 
@@ -95,30 +94,21 @@ func _play() -> void:
 	await _headlights()
 	await _wait(2.5)
 
-	# The fall.
-	await _narrate("...")
+	# The fall. The voice says little: who he is, what the Reach is and what
+	# the climb asks are for Ren (and the player) to find out.
 	await _narrate("Is this... what dying feels like?")
 	await _wait(0.4)
 
 	await _box.run([
 		{"who": WARDEN, "text": "Not dying. Falling."},
 		{"who": HERO, "text": "Who's there? I can't see anything."},
-		{"who": WARDEN, "text": "Everyone torn from your world too early falls here. To the Hollow Reach."},
-		{"who": WARDEN, "text": "A world built from what was left behind. Unfinished moments. Regrets. Echoes of the past."},
-		{"who": HERO, "text": "No, no, no. There was a truck. I was walking home. I have to go back!"},
-		{"who": HERO, "text": "My mom... I never even texted her back."},
+		{"who": WARDEN, "text": "Everyone torn from their world too early falls here. Into the Hollow Reach."},
+		{"who": HERO, "text": "No... there was a truck. I have to go back. My mom..."},
+		{"who": WARDEN, "text": "There is a way back. Only one. Climb."},
+		{"who": HERO, "text": "Climb what? Who ARE you?"},
 		{"who": WARDEN, "text": "..."},
-		{"who": WARDEN, "text": "There is a way home. Only one."},
-		{"who": WARDEN, "text": "The Reach is a ladder of trials. Halls, vaults, the deep places, and the guardians who keep them."},
-		{"who": WARDEN, "text": "Complete every one of them, and the door to your world will open."},
-		{"who": HERO, "text": "And if I fail?"},
-		{"who": WARDEN, "text": "Then you stay. And one day you become an echo yourself, walking the same steps forever."},
-		{"who": HERO, "text": "...Great. Any advice?"},
-		{"who": WARDEN, "text": "Here, your past is not gone. It lingers. It follows you."},
-		{"who": WARDEN, "text": "Learn to walk beside it, and it will carry you further than you could go alone."},
-		{"who": HERO, "text": "Wait, who ARE you?"},
-		{"who": "The Warden", "text": "Someone who has waited a very long time for someone to finish the climb."},
-		{"who": "The Warden", "text": "Now. Open your eyes."},
+		{"who": WARDEN, "text": "Here, your past is not gone. It follows you."},
+		{"who": WARDEN, "text": "Open your eyes."},
 	])
 
 	# Hold on black after "Open your eyes." The game fades in from here.

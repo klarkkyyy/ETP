@@ -55,6 +55,21 @@ var level_time: Dictionary = {}    # level name -> fastest clear, in seconds
 var level_deaths: Dictionary = {}  # level name -> fewest deaths in a clear
 var boss_defeated: bool = false
 
+# ── Secrets ──────────────────────────────────────────────────────────────────
+# Hidden rooms with a chest (scripts/secret_chest.gd), a few levels apart.
+# Saved by SaveManager; `secret_found` is the hook for store achievements.
+signal secret_found(id: String)
+const SECRETS := ["l5_ossuary", "l8_cracked_ceiling", "l10_under_grate"]
+var secrets: Dictionary = {}       # secret id -> true
+
+## Marks a secret found; returns false if it already was.
+func find_secret(id: String) -> bool:
+	if secrets.has(id):
+		return false
+	secrets[id] = true
+	secret_found.emit(id)
+	return true
+
 ## Records a clear; returns the level's records after it, and whether this
 ## clear set a new fastest time.
 func record_level_clear(level: String, used: int, star: bool, time: float, deaths: int) -> Dictionary:
@@ -85,4 +100,5 @@ func reset_progress() -> void:
 	level_stars.clear()
 	level_time.clear()
 	level_deaths.clear()
+	secrets.clear()
 	boss_defeated = false

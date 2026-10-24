@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dvmc4501668vy" path="res://assets/keys/KeyboardMouseUI_AssetPack/Individual Tiles/(Recommended) With Anti-Aliasing/Letters + Numbers/LettersNumbers58.png" id="5_k1ron"]
 [ext_resource type="Texture2D" uid="uid://cd7wnv8d7dh3x" path="res://assets/keys/KeyboardMouseUI_AssetPack/Keyboard Extras.png" id="6_idv88"]
 [ext_resource type="Texture2D" uid="uid://dsxve60w47kn1" path="res://assets/keys/KeyboardMouseUI_AssetPack/Individual Tiles/(Recommended) With Anti-Aliasing/Letters + Numbers/LettersNumbers59.png" id="6_u647y"]
-[ext_resource type="Script" uid="uid://idjxuh7n3uvf" path="res://scripts/tutorial_keys.gd" id="7_gvg12"]
 [ext_resource type="Texture2D" uid="uid://btvr2fih6qiv" path="res://assets/keys/KeyboardMouseUI_AssetPack/Individual Tiles/(Recommended) With Anti-Aliasing/Letters + Numbers/LettersNumbers60.png" id="7_lyuia"]
 [ext_resource type="Texture2D" uid="uid://dkjnqlhkxihyh" path="res://assets/keys/KeyboardMouseUI_AssetPack/Individual Tiles/(Recommended) With Anti-Aliasing/Letters + Numbers/LettersNumbers61.png" id="8_8irk1"]
 [ext_resource type="PackedScene" uid="uid://dm4kn7ow61sdl" path="res://pressure_pad/pressure_pad.tscn" id="8_qc6ov"]
@@ -204,8 +203,13 @@
 [ext_resource type="PackedScene" uid="uid://dfmnhj3wqfs8w" path="res://levels/level_7.tscn" id="207_lvl7"]
 [ext_resource type="PackedScene" uid="uid://6q78jeb8dgte" path="res://levels/level_8.tscn" id="208_lvl8"]
 [ext_resource type="PackedScene" uid="uid://b0ofwufdg7mxd" path="res://levels/level_9.tscn" id="209_lvl9"]
+[ext_resource type="PackedScene" path="res://levels/level_10.tscn" id="210_6vp0y"]
 [ext_resource type="Script" uid="uid://d3hbty500qum7" path="res://scripts/switch_platforms.gd" id="300_swplat"]
 [ext_resource type="Script" uid="uid://bmxa30lbw0ysj" path="res://spike_trap/all_pads_trigger.gd" id="all_pads_trigger"]
+[ext_resource type="Script" path="res://scripts/darkness.gd" id="darkness_script"]
+[ext_resource type="Script" path="res://scripts/hint.gd" id="hint_script"]
+[ext_resource type="Script" path="res://story/remnant.gd" id="remnant_script"]
+[ext_resource type="Script" path="res://story/stranger.gd" id="stranger_script"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5qob"]
 atlas = ExtResource("3_46f1x")
@@ -1402,6 +1406,82 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k10w1"]
 size = Vector2(20, 237)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d1sk"]
+size = Vector2(451.40625, 252)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksjjq"]
+size = Vector2(253, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32c6u"]
+size = Vector2(464, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idv88"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvg12"]
+atlas = ExtResource("29_d2kut")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc6ov"]
+atlas = ExtResource("29_d2kut")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7gts"]
+atlas = ExtResource("29_d2kut")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsl3e"]
+atlas = ExtResource("29_d2kut")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o51jq"]
+atlas = ExtResource("29_d2kut")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohhyw"]
+atlas = ExtResource("29_d2kut")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylegh"]
+atlas = ExtResource("29_d2kut")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73y2x"]
+atlas = ExtResource("29_d2kut")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_akdic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvg12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc6ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7gts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsl3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o51jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohhyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylegh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73y2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.2
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsn8u"]
 atlas = ExtResource("21_h1ruc")
 region = Rect2(16, 0, 16, 16)
@@ -1732,82 +1812,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5rx34"]
 radius = 4.5
 height = 15.0000305
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d1sk"]
-size = Vector2(451.40625, 252)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksjjq"]
-size = Vector2(253, 99)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_32c6u"]
-size = Vector2(464, 77)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_idv88"]
-size = Vector2(16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gvg12"]
-atlas = ExtResource("29_d2kut")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qc6ov"]
-atlas = ExtResource("29_d2kut")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a7gts"]
-atlas = ExtResource("29_d2kut")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rsl3e"]
-atlas = ExtResource("29_d2kut")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o51jq"]
-atlas = ExtResource("29_d2kut")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohhyw"]
-atlas = ExtResource("29_d2kut")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ylegh"]
-atlas = ExtResource("29_d2kut")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_73y2x"]
-atlas = ExtResource("29_d2kut")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_akdic"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gvg12")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qc6ov")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a7gts")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rsl3e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o51jq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ohhyw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ylegh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_73y2x")
-}],
-"loop": true,
-"name": &"default",
-"speed": 6.2
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twra1"]
 atlas = ExtResource("8_8irk1")
@@ -24256,6 +24260,8 @@ frame_progress = 0.80804974
 
 [node name="movement_tutorial" type="Node2D" parent="tutorial" unique_id=948229601]
 position = Vector2(135, -59)
+script = ExtResource("hint_script")
+zone = Rect2(-200, -100, 500, 250)
 
 [node name="text" type="Node2D" parent="tutorial/movement_tutorial" unique_id=161898424]
 position = Vector2(48, -5)
@@ -24379,317 +24385,6 @@ sprite_frames = SubResource("SpriteFrames_rmsd4")
 animation = &"down"
 autoplay = "down"
 
-[node name="jump" type="Node2D" parent="tutorial" unique_id=1318303015]
-position = Vector2(530, -59)
-
-[node name="text" type="Node2D" parent="tutorial/jump" unique_id=1331841302]
-position = Vector2(48, -5)
-
-[node name="Label3" type="Label" parent="tutorial/jump/text" unique_id=325725073]
-offset_left = -1.0
-offset_top = 19.0
-offset_right = 239.0
-offset_bottom = 78.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "Jump"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="tutorial/jump/text" unique_id=280779974]
-offset_top = 17.0
-offset_right = 240.0
-offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "Jump"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="keys" type="Node2D" parent="tutorial/jump" unique_id=359886644]
-
-[node name="w" type="AnimatedSprite2D" parent="tutorial/jump/keys" unique_id=2113299726]
-texture_filter = 1
-position = Vector2(110.12, 81.119995)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"single_w"
-autoplay = "single_w"
-
-[node name="OR" type="Label" parent="tutorial/jump/keys" unique_id=1266140794]
-offset_left = 17.0
-offset_top = 52.0
-offset_right = 257.0
-offset_bottom = 111.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "/"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="space" type="AnimatedSprite2D" parent="tutorial/jump/keys" unique_id=1419632731]
-texture_filter = 1
-position = Vector2(175, 81)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"single_space"
-autoplay = "single_space"
-
-[node name="OR2" type="Label" parent="tutorial/jump/keys" unique_id=1263131705]
-offset_left = 95.0
-offset_top = 53.0
-offset_right = 335.0
-offset_bottom = 112.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "/"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="up" type="AnimatedSprite2D" parent="tutorial/jump/keys" unique_id=2080327038]
-texture_filter = 1
-position = Vector2(242.00003, 81)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"single_up"
-autoplay = "single_up"
-
-[node name="double_jump" type="Node2D" parent="tutorial" unique_id=1058448809]
-position = Vector2(917, -60)
-
-[node name="text" type="Node2D" parent="tutorial/double_jump" unique_id=1625834685]
-position = Vector2(48, -5)
-
-[node name="Label3" type="Label" parent="tutorial/double_jump/text" unique_id=1296268119]
-offset_left = -1.0
-offset_top = 19.0
-offset_right = 239.0
-offset_bottom = 78.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "Double Jump!"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="tutorial/double_jump/text" unique_id=1374640330]
-offset_top = 17.0
-offset_right = 240.0
-offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "Double Jump!"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="keys" type="Node2D" parent="tutorial/double_jump" unique_id=316019891]
-script = ExtResource("7_gvg12")
-
-[node name="w" type="AnimatedSprite2D" parent="tutorial/double_jump/keys" unique_id=1121703835]
-texture_filter = 1
-position = Vector2(110.12, 81.119995)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"up"
-autoplay = "w"
-frame_progress = 0.61271626
-
-[node name="OR" type="Label" parent="tutorial/double_jump/keys" unique_id=607785732]
-offset_left = 17.0
-offset_top = 52.0
-offset_right = 257.0
-offset_bottom = 111.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "/"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="space" type="AnimatedSprite2D" parent="tutorial/double_jump/keys" unique_id=2060543369]
-texture_filter = 1
-position = Vector2(175, 81)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"space"
-autoplay = "space"
-frame_progress = 0.78471667
-
-[node name="OR2" type="Label" parent="tutorial/double_jump/keys" unique_id=416639301]
-offset_left = 95.0
-offset_top = 53.0
-offset_right = 335.0
-offset_bottom = 112.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "/"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="up" type="AnimatedSprite2D" parent="tutorial/double_jump/keys" unique_id=655260857]
-texture_filter = 1
-position = Vector2(242.00003, 81)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"up"
-autoplay = "up"
-frame_progress = 0.22377951
-
-[node name="wall_jump" type="Node2D" parent="tutorial" unique_id=1149634632]
-z_index = 3
-position = Vector2(1255, -148)
-
-[node name="text" type="Node2D" parent="tutorial/wall_jump" unique_id=145533884]
-position = Vector2(48, -5)
-
-[node name="Label3" type="Label" parent="tutorial/wall_jump/text" unique_id=613943239]
-offset_left = -1.0
-offset_top = 19.0
-offset_right = 239.0
-offset_bottom = 78.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "Wall
-Jump"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="tutorial/wall_jump/text" unique_id=188949627]
-offset_top = 17.0
-offset_right = 240.0
-offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "Wall
-Jump"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="keys" type="Node2D" parent="tutorial/wall_jump" unique_id=346764778]
-
-[node name="right" type="AnimatedSprite2D" parent="tutorial/wall_jump/keys" unique_id=1221308243]
-texture_filter = 1
-position = Vector2(140, 93)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"wall_jump_right"
-autoplay = "wall_jump_right"
-
-[node name="jump" type="AnimatedSprite2D" parent="tutorial/wall_jump/keys" unique_id=96819728]
-texture_filter = 1
-position = Vector2(197, 93)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"wall_jump"
-autoplay = "wall_jump"
-
-[node name="Node2D" type="Node2D" parent="tutorial/wall_jump/keys" unique_id=1546191082]
-
-[node name="PLUS" type="Label" parent="tutorial/wall_jump/keys/Node2D" unique_id=1407995494]
-offset_left = 47.0
-offset_top = 62.0
-offset_right = 287.0
-offset_bottom = 121.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "+"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PLUS2" type="Label" parent="tutorial/wall_jump/keys/Node2D" unique_id=923085949]
-offset_left = 48.0
-offset_top = 61.0
-offset_right = 288.0
-offset_bottom = 120.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "+"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="wall_jump2" type="Node2D" parent="tutorial" unique_id=911705383]
-z_index = 3
-position = Vector2(1061, -234)
-
-[node name="text" type="Node2D" parent="tutorial/wall_jump2" unique_id=314714674]
-position = Vector2(48, -5)
-
-[node name="Label3" type="Label" parent="tutorial/wall_jump2/text" unique_id=1506511792]
-offset_left = -1.0
-offset_top = 19.0
-offset_right = 239.0
-offset_bottom = 78.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "Wall
-Jump"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="tutorial/wall_jump2/text" unique_id=65493451]
-offset_top = 17.0
-offset_right = 240.0
-offset_bottom = 76.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "Wall
-Jump"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="keys" type="Node2D" parent="tutorial/wall_jump2" unique_id=1514862127]
-
-[node name="left" type="AnimatedSprite2D" parent="tutorial/wall_jump2/keys" unique_id=971559104]
-texture_filter = 1
-position = Vector2(140, 93)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"wall_jump_left"
-autoplay = "wall_jump_left"
-
-[node name="jump" type="AnimatedSprite2D" parent="tutorial/wall_jump2/keys" unique_id=236056209]
-texture_filter = 1
-position = Vector2(197, 93)
-scale = Vector2(1.64, 1.64)
-sprite_frames = SubResource("SpriteFrames_rmsd4")
-animation = &"wall_jump"
-autoplay = "wall_jump"
-
-[node name="Node2D" type="Node2D" parent="tutorial/wall_jump2/keys" unique_id=145496774]
-
-[node name="PLUS" type="Label" parent="tutorial/wall_jump2/keys/Node2D" unique_id=234253102]
-offset_left = 47.0
-offset_top = 62.0
-offset_right = 287.0
-offset_bottom = 121.0
-theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "+"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PLUS2" type="Label" parent="tutorial/wall_jump2/keys/Node2D" unique_id=1388122386]
-offset_left = 48.0
-offset_top = 61.0
-offset_right = 288.0
-offset_bottom = 120.0
-theme_override_fonts/font = ExtResource("4_624ej")
-theme_override_font_sizes/font_size = 32
-text = "+"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="start" type="Node" parent="." unique_id=2108778095]
 
 [node name="SpawnPoint" type="Marker2D" parent="start" unique_id=1587930007]
@@ -24773,6 +24468,10 @@ position = Vector2(1778, -268)
 [node name="wall_jump" type="Node2D" parent="outside" unique_id=688646194]
 z_index = 3
 position = Vector2(1377, -420)
+script = ExtResource("hint_script")
+zone = Rect2(1344, -340, 360, 140)
+delay = 6.0
+requires_echo = 1
 
 [node name="text" type="Node2D" parent="outside/wall_jump" unique_id=1651548276]
 position = Vector2(91, -5)
@@ -24892,54 +24591,62 @@ vertical_alignment = 1
 [node name="echo1" parent="outside" unique_id=647330654 instance=ExtResource("189_k1ron")]
 position = Vector2(1623, -287)
 
-[node name="echo" type="Area2D" parent="outside" unique_id=1579540253]
-position = Vector2(1636, -281)
+[node name="Darkness" type="Node" parent="outside" unique_id=1529723892]
+script = ExtResource("darkness_script")
+zone = Rect2(-600, -760, 2386, 1100)
+sky = NodePath("../../start/background/TextureRect")
+glows = Array[NodePath]([NodePath("../echo1")])
 
-[node name="animations" type="AnimatedSprite2D" parent="outside/echo" unique_id=1711141697]
-modulate = Color(0.21568628, 0.30588236, 0.34117648, 0.50980395)
-z_index = 5
-texture_filter = 1
-position = Vector2(1, -2)
-sprite_frames = SubResource("SpriteFrames_jtpn8")
-animation = &"idle"
-autoplay = "idle"
-flip_h = true
+[node name="StrangerAmongThePillars" type="Node2D" parent="outside" unique_id=986851226]
+position = Vector2(590, 90)
+script = ExtResource("stranger_script")
+act = 2
+notice_radius = 110.0
+moves = "R20 J R14 W14 R4 J R30 W14 R10 J R28 W14 R4 J R40 W10"
 
-[node name="Camera2D" type="Camera2D" parent="outside/echo" unique_id=1524391846]
-position = Vector2(0, -1.0000076)
-scale = Vector2(0.901, 0.416)
-enabled = false
-zoom = Vector2(2.225, 2.225)
-limit_left = -17
-limit_top = -658
-limit_right = 3512
-limit_bottom = 161
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+[node name="StrangerOnTheSteps" type="Node2D" parent="outside" unique_id=511462587]
+position = Vector2(1040, 90)
+script = ExtResource("stranger_script")
+act = 2
+notice_radius = 110.0
+moves = "R25 J R12 J R40 W12 R13 R4 J R23 J R14 J R33 W10"
+after = "StrangerAmongThePillars"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="outside/echo" unique_id=1554416037]
-texture_filter = 1
-position = Vector2(0.5, -1.5)
-shape = SubResource("CapsuleShape2D_5rx34")
+[node name="StrangerInTheShaft" type="Node2D" parent="outside" unique_id=2131056161]
+position = Vector2(1320, -50)
+script = ExtResource("stranger_script")
+act = 2
+notice_radius = 90.0
+moves = "R4 J R23 J R2 L18 J L2 R18 J R2 L18 J L2 R18 J R2 L9 R1 J R40 W10"
+after = "StrangerOnTheSteps"
+passed_by = 400.0
 
-[node name="FeetPoint" type="Marker2D" parent="outside/echo" unique_id=627647082]
-position = Vector2(0, 1)
+[node name="StrangerAtTheDoor" type="Node2D" parent="outside" unique_id=2064272473]
+position = Vector2(1591, -300)
+script = ExtResource("stranger_script")
+act = 0
+notice_radius = 140.0
+door = NodePath("../door")
+after = "StrangerInTheShaft"
 
-[node name="RunPointLeft" type="Marker2D" parent="outside/echo" unique_id=136798516]
-position = Vector2(-9, 4)
+[node name="RemnantWalking" type="Node2D" parent="outside" unique_id=2087308219]
+position = Vector2(330, 101)
+script = ExtResource("remnant_script")
+pose = "run"
+pose_frame = 2
 
-[node name="RunPointRight" type="Marker2D" parent="outside/echo" unique_id=92216327]
-position = Vector2(10, 4)
+[node name="RemnantMidLeap" type="Node2D" parent="outside" unique_id=1158737636]
+position = Vector2(1090, 30)
+script = ExtResource("remnant_script")
+pose = "jump_up"
+pose_frame = 1
 
-[node name="EchoPlatform" type="AnimatableBody2D" parent="outside/echo" unique_id=1147522551]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="outside/echo/EchoPlatform" unique_id=743537165]
-texture_filter = 1
-position = Vector2(0.5, -1.5)
-shape = SubResource("CapsuleShape2D_5rx34")
+[node name="RemnantOnTheWall" type="Node2D" parent="outside" unique_id=150084389]
+position = Vector2(1299, -170)
+script = ExtResource("remnant_script")
+pose = "wall_slide"
+face_right = false
+radius = 60.0
 
 [node name="level 1" type="Node" parent="." unique_id=1197014677]
 
@@ -25395,6 +25102,13 @@ visible = false
 position = Vector2(-4, -5)
 shape = SubResource("RectangleShape2D_0d1sk")
 
+[node name="StrangerOnTheLanding" type="Node2D" parent="level 1" unique_id=1992623644]
+position = Vector2(2850, -380)
+script = ExtResource("stranger_script")
+notice_radius = 100.0
+trigger = Rect2(2700, -460, 100, 160)
+walk_to_x = 2960.0
+
 [node name="music_trigger" type="Area2D" parent="level 1" unique_id=1849057031]
 position = Vector2(459, -29)
 collision_layer = 0
@@ -25420,10 +25134,17 @@ sprite_frames = SubResource("SpriteFrames_rmsd4")
 animation = &"E"
 autoplay = "E"
 frame_progress = 0.62689793
+script = ExtResource("hint_script")
+zone = Rect2(1760, -380, 120, 100)
+delay = 2.5
 
 [node name="wall_jump" type="Node2D" parent="level 1" unique_id=1591871647]
 z_index = 3
 position = Vector2(1653, -341)
+script = ExtResource("hint_script")
+zone = Rect2(1780, -420, 520, 220)
+delay = 15.0
+requires_recorded = true
 
 [node name="text" type="Node2D" parent="level 1/wall_jump" unique_id=170394805]
 position = Vector2(130, 62)
@@ -27015,6 +26736,9 @@ position = Vector2(11820, -4587)
 
 [node name="Level_9" parent="." unique_id=1796420853 instance=ExtResource("209_lvl9")]
 position = Vector2(15400, -4587)
+
+[node name="Level_10" parent="." unique_id=1237077737 instance=ExtResource("210_6vp0y")]
+position = Vector2(10760, -1516)
 
 [connection signal="body_entered" from="start/TitleTrigger" to="start/TitleTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="start/TitleTrigger" to="start/CanvasLayer2" method="_on_title_trigger_body_entered"]

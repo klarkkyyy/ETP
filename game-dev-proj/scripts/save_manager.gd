@@ -88,6 +88,7 @@ func _snapshot() -> Dictionary:
 		"level_stars": GameManager.level_stars,
 		"level_time": GameManager.level_time,
 		"level_deaths": GameManager.level_deaths,
+		"secrets": GameManager.secrets.keys(),
 		"run": Echoes.get_run_state(),
 		"levels_unlocked": unlocked.keys(),
 	}
@@ -152,6 +153,8 @@ func _load(data: Dictionary) -> void:
 		GameManager.level_time[level] = float(data["level_time"][level])
 	for level in data.get("level_deaths", {}):
 		GameManager.level_deaths[level] = int(data["level_deaths"][level])
+	for id in data.get("secrets", []):
+		GameManager.secrets[id] = true
 	active = true
 	_pending = data
 	StoryDirector.cover.color.a = 1.0
