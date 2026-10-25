@@ -5,6 +5,7 @@ extends Area2D
 const MAX_TRAVEL := 480.0
 
 var velocity := Vector2.ZERO
+var tint := Color(1.0, 0.45, 0.35)
 var _start := Vector2.ZERO
 var _age := 0.0
 
@@ -33,8 +34,8 @@ func _physics_process(delta: float) -> void:
 
 func _draw() -> void:
 	var pulse := 0.8 + 0.2 * sin(_age * 20.0)
-	draw_circle(Vector2.ZERO, 5.0 * pulse, Color(1.0, 0.2, 0.15, 0.35))
-	draw_circle(Vector2.ZERO, 3.0, Color(1.0, 0.45, 0.35))
+	draw_circle(Vector2.ZERO, 5.0 * pulse, Color(tint, 0.35))
+	draw_circle(Vector2.ZERO, 3.0, tint)
 	draw_circle(Vector2.ZERO, 1.4, Color(1.0, 0.9, 0.8))
 
 func _on_body_entered(body: Node) -> void:

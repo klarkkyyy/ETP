@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" format=3]
+[gd_resource type="TileSet" format=3 uid="uid://b7185my4lnkl1"]
 
 [ext_resource type="Texture2D" uid="uid://biyfoqk68jo3k" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/sewer_tileset.png" id="1_walls"]
 [ext_resource type="Texture2D" uid="uid://bm3tbhcdwlvdw" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/sewer_bg_00.png" id="2_back"]

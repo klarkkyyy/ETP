@@ -4,213 +4,269 @@
 [ext_resource type="Texture2D" uid="uid://db8l2fb2iusj2" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/waterfall_top_tile.png" id="2_falltop"]
 [ext_resource type="Texture2D" uid="uid://dkbcaxsv1lak" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/waterfall_middle_tile.png" id="3_fallmid"]
 
-[node name="Boss2Decor" type="Node2D" unique_id=787792639]
+[node name="Boss2Decor" type="Node2D" unique_id=1220658712]
 z_index = -20
 
-[node name="Vent_376_15" type="Sprite2D" parent="." unique_id=1572189458]
+[node name="Vent_555_51" type="Sprite2D" parent="." unique_id=1323053038]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(6024, 248)
+position = Vector2(8888, 824)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 
-[node name="Junction_384_72" type="Sprite2D" parent="." unique_id=922565920]
+[node name="Junction_45_105" type="Sprite2D" parent="." unique_id=1285639115]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(6176, 1184)
+position = Vector2(752, 1712)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(208, 16, 64, 64)
 
-[node name="Grate_431_77" type="Sprite2D" parent="." unique_id=1071106289]
+[node name="Grate_305_83" type="Sprite2D" parent="." unique_id=1395441752]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(6904, 1240)
+position = Vector2(4888, 1336)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(224, 96, 16, 16)
 
-[node name="Panel_14_66" type="Sprite2D" parent="." unique_id=1609590365]
+[node name="Panel_885_75" type="Sprite2D" parent="." unique_id=1831795622]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(232, 1064)
+position = Vector2(14168, 1208)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(112, 32, 16, 16)
 
-[node name="Vent_251_45" type="Sprite2D" parent="." unique_id=1666950211]
+[node name="Vent_25_108" type="Sprite2D" parent="." unique_id=509647392]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(4024, 728)
+position = Vector2(408, 1736)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 
-[node name="Junction_31_66" type="Sprite2D" parent="." unique_id=1728431369]
+[node name="Junction_1012_138" type="Sprite2D" parent="." unique_id=669583950]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(528, 1088)
+position = Vector2(16224, 2240)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(208, 16, 64, 64)
 
-[node name="Grate_129_35" type="Sprite2D" parent="." unique_id=1091660735]
+[node name="Grate_68_108" type="Sprite2D" parent="." unique_id=2025710397]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(2072, 568)
+position = Vector2(1096, 1736)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(224, 96, 16, 16)
 
-[node name="Panel_416_77" type="Sprite2D" parent="." unique_id=709918739]
+[node name="Panel_95_105" type="Sprite2D" parent="." unique_id=2049413502]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(6664, 1240)
+position = Vector2(1528, 1688)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(112, 32, 16, 16)
 
-[node name="Vent_86_69" type="Sprite2D" parent="." unique_id=1045585992]
+[node name="Vent_497_45" type="Sprite2D" parent="." unique_id=887404351]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(1384, 1112)
+position = Vector2(7960, 728)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 
-[node name="Junction_292_47" type="Sprite2D" parent="." unique_id=2012812906]
+[node name="Junction_316_81" type="Sprite2D" parent="." unique_id=1292237620]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(4704, 784)
+position = Vector2(5088, 1328)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(208, 16, 64, 64)
 
-[node name="Grate_342_15" type="Sprite2D" parent="." unique_id=96471477]
+[node name="Grate_364_83" type="Sprite2D" parent="." unique_id=1181164284]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(5480, 248)
+position = Vector2(5832, 1336)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(224, 96, 16, 16)
 
-[node name="Panel_47_69" type="Sprite2D" parent="." unique_id=108011306]
+[node name="Panel_989_142" type="Sprite2D" parent="." unique_id=202197019]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(760, 1112)
+position = Vector2(15832, 2280)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(112, 32, 16, 16)
 
-[node name="Vent_317_13" type="Sprite2D" parent="." unique_id=502948056]
+[node name="Vent_189_81" type="Sprite2D" parent="." unique_id=1033430522]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(5080, 216)
+position = Vector2(3032, 1304)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 
-[node name="Junction_206_46" type="Sprite2D" parent="." unique_id=946968510]
+[node name="Junction_83_106" type="Sprite2D" parent="." unique_id=1741216241]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(3328, 768)
+position = Vector2(1360, 1728)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(208, 16, 64, 64)
 
-[node name="Grate_59_67" type="Sprite2D" parent="." unique_id=219525670]
+[node name="Grate_474_45" type="Sprite2D" parent="." unique_id=1347989967]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(952, 1080)
+position = Vector2(7592, 728)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(224, 96, 16, 16)
 
-[node name="Panel_181_49" type="Sprite2D" parent="." unique_id=1426767225]
+[node name="Panel_690_107" type="Sprite2D" parent="." unique_id=372818570]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(2904, 792)
+position = Vector2(11048, 1720)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(112, 32, 16, 16)
 
-[node name="Vent_385_23" type="Sprite2D" parent="." unique_id=45576218]
+[node name="Vent_105_109" type="Sprite2D" parent="." unique_id=1198470922]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(6168, 376)
+position = Vector2(1688, 1752)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 
-[node name="Junction_72_66" type="Sprite2D" parent="." unique_id=2028984464]
+[node name="Junction_456_78" type="Sprite2D" parent="." unique_id=1777797753]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(1184, 1088)
+position = Vector2(7328, 1280)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(208, 16, 64, 64)
 
-[node name="Grate_143_49" type="Sprite2D" parent="." unique_id=618496856]
+[node name="Grate_755_95" type="Sprite2D" parent="." unique_id=1389058775]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(2296, 792)
+position = Vector2(12088, 1528)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(224, 96, 16, 16)
 
-[node name="Panel_165_49" type="Sprite2D" parent="." unique_id=190483953]
+[node name="Panel_421_83" type="Sprite2D" parent="." unique_id=857058655]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(2648, 792)
+position = Vector2(6744, 1336)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(112, 32, 16, 16)
 
-[node name="Vent_362_15" type="Sprite2D" parent="." unique_id=426791222]
+[node name="Vent_780_95" type="Sprite2D" parent="." unique_id=1648012895]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(5800, 248)
+position = Vector2(12488, 1528)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 
-[node name="Junction_310_43" type="Sprite2D" parent="." unique_id=1864482598]
+[node name="Junction_736_90" type="Sprite2D" parent="." unique_id=1368983420]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(4992, 720)
+position = Vector2(11808, 1472)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(208, 16, 64, 64)
 
-[node name="Grate_117_35" type="Sprite2D" parent="." unique_id=1028265211]
+[node name="Grate_116_109" type="Sprite2D" parent="." unique_id=53452490]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(1880, 568)
+position = Vector2(1864, 1752)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(224, 96, 16, 16)
 
-[node name="Panel_241_49" type="Sprite2D" parent="." unique_id=1464173980]
+[node name="Panel_398_82" type="Sprite2D" parent="." unique_id=54064963]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(3864, 792)
+position = Vector2(6376, 1320)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(112, 32, 16, 16)
 
-[node name="Vent_142_35" type="Sprite2D" parent="." unique_id=1625359499]
+[node name="Vent_177_75" type="Sprite2D" parent="." unique_id=534218687]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(2280, 568)
+position = Vector2(2840, 1208)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 
-[node name="Junction_272_44" type="Sprite2D" parent="." unique_id=927692378]
+[node name="Junction_911_80" type="Sprite2D" parent="." unique_id=550405768]
 modulate = Color(0.62, 0.5, 0.46, 1)
 texture_filter = 1
-position = Vector2(4384, 736)
+position = Vector2(14608, 1312)
 texture = ExtResource("1_sewer")
 region_enabled = true
 region_rect = Rect2(208, 16, 64, 64)
+
+[node name="Grate_160_75" type="Sprite2D" parent="." unique_id=257024580]
+modulate = Color(0.62, 0.5, 0.46, 1)
+texture_filter = 1
+position = Vector2(2568, 1208)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(224, 96, 16, 16)
+
+[node name="Panel_924_119" type="Sprite2D" parent="." unique_id=963931863]
+modulate = Color(0.62, 0.5, 0.46, 1)
+texture_filter = 1
+position = Vector2(14792, 1912)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(112, 32, 16, 16)
+
+[node name="Vent_136_75" type="Sprite2D" parent="." unique_id=67293618]
+modulate = Color(0.62, 0.5, 0.46, 1)
+texture_filter = 1
+position = Vector2(2184, 1208)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(80, 64, 16, 16)
+
+[node name="Junction_444_78" type="Sprite2D" parent="." unique_id=1544770763]
+modulate = Color(0.62, 0.5, 0.46, 1)
+texture_filter = 1
+position = Vector2(7136, 1280)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(208, 16, 64, 64)
+
+[node name="Grate_14_106" type="Sprite2D" parent="." unique_id=1365043974]
+modulate = Color(0.62, 0.5, 0.46, 1)
+texture_filter = 1
+position = Vector2(232, 1704)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(224, 96, 16, 16)
+
+[node name="Panel_983_119" type="Sprite2D" parent="." unique_id=1423648102]
+modulate = Color(0.62, 0.5, 0.46, 1)
+texture_filter = 1
+position = Vector2(15736, 1912)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(112, 32, 16, 16)
+
+[node name="Vent_274_82" type="Sprite2D" parent="." unique_id=1735385163]
+modulate = Color(0.62, 0.5, 0.46, 1)
+texture_filter = 1
+position = Vector2(4392, 1320)
+texture = ExtResource("1_sewer")
+region_enabled = true
+region_rect = Rect2(80, 64, 16, 16)
