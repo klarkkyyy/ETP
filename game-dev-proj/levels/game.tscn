@@ -206,10 +206,10 @@
 [ext_resource type="PackedScene" path="res://levels/level_10.tscn" id="210_6vp0y"]
 [ext_resource type="Script" uid="uid://d3hbty500qum7" path="res://scripts/switch_platforms.gd" id="300_swplat"]
 [ext_resource type="Script" uid="uid://bmxa30lbw0ysj" path="res://spike_trap/all_pads_trigger.gd" id="all_pads_trigger"]
-[ext_resource type="Script" uid="uid://qeaiikbwiqc3" path="res://scripts/darkness.gd" id="darkness_script"]
-[ext_resource type="Script" uid="uid://y8fop1huejdu" path="res://scripts/hint.gd" id="hint_script"]
-[ext_resource type="Script" uid="uid://bn1qb3bawsb0f" path="res://story/remnant.gd" id="remnant_script"]
-[ext_resource type="Script" uid="uid://bkyp7kyw13osm" path="res://story/stranger.gd" id="stranger_script"]
+[ext_resource type="Script" path="res://scripts/darkness.gd" id="darkness_script"]
+[ext_resource type="Script" path="res://scripts/hint.gd" id="hint_script"]
+[ext_resource type="Script" path="res://story/remnant.gd" id="remnant_script"]
+[ext_resource type="Script" path="res://story/stranger.gd" id="stranger_script"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5qob"]
 atlas = ExtResource("3_46f1x")
@@ -282,7 +282,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i7vvx")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -435,7 +435,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kv68m")
 }],
-"loop": 1,
+"loop": true,
 "name": &"1",
 "speed": 5.0
 }, {
@@ -473,7 +473,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0ylqr")
 }],
-"loop": 1,
+"loop": true,
 "name": &"2",
 "speed": 5.0
 }, {
@@ -511,7 +511,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tpkc6")
 }],
-"loop": 1,
+"loop": true,
 "name": &"3",
 "speed": 5.0
 }, {
@@ -549,7 +549,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_abych")
 }],
-"loop": 1,
+"loop": true,
 "name": &"E",
 "speed": 5.0
 }, {
@@ -581,7 +581,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mv6lu")
 }],
-"loop": 1,
+"loop": true,
 "name": &"R",
 "speed": 5.0
 }, {
@@ -592,7 +592,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k10w1")
 }],
-"loop": 1,
+"loop": true,
 "name": &"a",
 "speed": 1.0
 }, {
@@ -603,7 +603,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0dojf")
 }],
-"loop": 1,
+"loop": true,
 "name": &"d",
 "speed": 1.0
 }, {
@@ -614,7 +614,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pm3un")
 }],
-"loop": 1,
+"loop": true,
 "name": &"down",
 "speed": 1.0
 }, {
@@ -625,7 +625,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s5cuv")
 }],
-"loop": 1,
+"loop": true,
 "name": &"left",
 "speed": 1.0
 }, {
@@ -636,7 +636,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7sexs")
 }],
-"loop": 1,
+"loop": true,
 "name": &"right",
 "speed": 1.0
 }, {
@@ -647,7 +647,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_25atk")
 }],
-"loop": 1,
+"loop": true,
 "name": &"s",
 "speed": 1.0
 }, {
@@ -742,7 +742,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_obj53")
 }],
-"loop": 1,
+"loop": true,
 "name": &"single_space",
 "speed": 13.0
 }, {
@@ -837,7 +837,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nfip7")
 }],
-"loop": 1,
+"loop": true,
 "name": &"single_up",
 "speed": 13.0
 }, {
@@ -932,7 +932,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dhsud")
 }],
-"loop": 1,
+"loop": true,
 "name": &"single_w",
 "speed": 13.0
 }, {
@@ -1033,7 +1033,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_obj53")
 }],
-"loop": 1,
+"loop": true,
 "name": &"space",
 "speed": 20.0
 }, {
@@ -1134,7 +1134,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nfip7")
 }],
-"loop": 1,
+"loop": true,
 "name": &"up",
 "speed": 20.0
 }, {
@@ -1235,7 +1235,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dhsud")
 }],
-"loop": 1,
+"loop": true,
 "name": &"w",
 "speed": 20.0
 }, {
@@ -1282,7 +1282,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2nkhw")
 }],
-"loop": 1,
+"loop": true,
 "name": &"wall_jump",
 "speed": 13.0
 }, {
@@ -1329,7 +1329,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s5cuv")
 }],
-"loop": 1,
+"loop": true,
 "name": &"wall_jump_left",
 "speed": 13.0
 }, {
@@ -1376,7 +1376,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7sexs")
 }],
-"loop": 1,
+"loop": true,
 "name": &"wall_jump_right",
 "speed": 13.0
 }]
@@ -1398,7 +1398,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d76j5")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 1.0
 }]
@@ -1477,7 +1477,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_73y2x")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 6.2
 }]
@@ -1640,7 +1640,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gsn8u")
 }],
-"loop": 0,
+"loop": false,
 "name": &"before_or_after_jump",
 "speed": 30.0
 }, {
@@ -1648,7 +1648,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lgn6r")
 }],
-"loop": 0,
+"loop": false,
 "name": &"before_or_after_jump_pt2",
 "speed": 30.0
 }, {
@@ -1677,7 +1677,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wt63d")
 }],
-"loop": 1,
+"loop": true,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -1691,7 +1691,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wxplf")
 }],
-"loop": 1,
+"loop": true,
 "name": &"double_jump",
 "speed": 7.0
 }, {
@@ -1705,7 +1705,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ep0vl")
 }],
-"loop": 1,
+"loop": true,
 "name": &"hit",
 "speed": 7.0
 }, {
@@ -1722,7 +1722,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kfuus")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 7.0
 }, {
@@ -1736,7 +1736,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y7qi0")
 }],
-"loop": 1,
+"loop": true,
 "name": &"jump_down",
 "speed": 7.0
 }, {
@@ -1750,7 +1750,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2jxrb")
 }],
-"loop": 1,
+"loop": true,
 "name": &"jump_up",
 "speed": 7.0
 }, {
@@ -1773,7 +1773,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cxo7r")
 }],
-"loop": 1,
+"loop": true,
 "name": &"push_forward",
 "speed": 7.0
 }, {
@@ -1796,7 +1796,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_50y58")
 }],
-"loop": 1,
+"loop": true,
 "name": &"run",
 "speed": 10.0
 }, {
@@ -1804,7 +1804,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ep0vl")
 }],
-"loop": 1,
+"loop": true,
 "name": &"wall_slide",
 "speed": 5.0
 }]
@@ -1865,7 +1865,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_twra1")
 }],
-"loop": 1,
+"loop": true,
 "name": &"3",
 "speed": 5.0
 }, {
@@ -1903,7 +1903,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jtpn8")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -1952,7 +1952,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0baph")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 1.0
 }]
@@ -2038,7 +2038,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mksny")
 }],
-"loop": 1,
+"loop": true,
 "name": &"a",
 "speed": 1.0
 }, {
@@ -2049,7 +2049,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pumi8")
 }],
-"loop": 1,
+"loop": true,
 "name": &"d",
 "speed": 1.0
 }, {
@@ -2060,7 +2060,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cewuy")
 }],
-"loop": 1,
+"loop": true,
 "name": &"down",
 "speed": 1.0
 }, {
@@ -2071,7 +2071,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8uugn")
 }],
-"loop": 1,
+"loop": true,
 "name": &"left",
 "speed": 1.0
 }, {
@@ -2082,7 +2082,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vyl4c")
 }],
-"loop": 1,
+"loop": true,
 "name": &"right",
 "speed": 1.0
 }, {
@@ -2093,7 +2093,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gjclm")
 }],
-"loop": 1,
+"loop": true,
 "name": &"s",
 "speed": 1.0
 }, {
@@ -2188,7 +2188,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k1ron")
 }],
-"loop": 1,
+"loop": true,
 "name": &"single_space",
 "speed": 13.0
 }, {
@@ -2283,7 +2283,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lyuia")
 }],
-"loop": 1,
+"loop": true,
 "name": &"single_up",
 "speed": 13.0
 }, {
@@ -2378,7 +2378,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nvr2s")
 }],
-"loop": 1,
+"loop": true,
 "name": &"single_w",
 "speed": 13.0
 }, {
@@ -2479,7 +2479,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k1ron")
 }],
-"loop": 1,
+"loop": true,
 "name": &"space",
 "speed": 20.0
 }, {
@@ -2580,7 +2580,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lyuia")
 }],
-"loop": 1,
+"loop": true,
 "name": &"up",
 "speed": 20.0
 }, {
@@ -2681,7 +2681,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nvr2s")
 }],
-"loop": 1,
+"loop": true,
 "name": &"w",
 "speed": 20.0
 }, {
@@ -2728,7 +2728,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8irk1")
 }],
-"loop": 1,
+"loop": true,
 "name": &"wall_jump",
 "speed": 13.0
 }, {
@@ -2775,7 +2775,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8uugn")
 }],
-"loop": 1,
+"loop": true,
 "name": &"wall_jump_left",
 "speed": 13.0
 }, {
@@ -2822,7 +2822,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vyl4c")
 }],
-"loop": 1,
+"loop": true,
 "name": &"wall_jump_right",
 "speed": 13.0
 }]
@@ -24996,7 +24996,7 @@ sprite_frames = SubResource("SpriteFrames_akdic")
 autoplay = "default"
 
 [node name="Portal" parent="level 1/roomSections/room3" unique_id=1639456268 instance=ExtResource("153_gx38i")]
-position = Vector2(2647, -885)
+position = Vector2(3465, -747)
 this_id = "teleport_g"
 destination_id = "teleport_l5_out"
 sets_checkpoint = true
@@ -25202,6 +25202,7 @@ position = Vector2(-136, -76.99994)
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="level 2/room1" unique_id=962288827]
 position = Vector2(-92.75, 61.0001)
 script = ExtResource("26_ikqub")
+distance = 155
 speed = 80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="level 2/room1/AnimatableBody2D" unique_id=1765202905]
@@ -26101,7 +26102,7 @@ z_index = 4
 position = Vector2(531, 181)
 
 [node name="boss" type="Node2D" parent="." unique_id=344282284]
-position = Vector2(5186, -1692)
+position = Vector2(6004, -1554)
 
 [node name="music_trigger" type="Area2D" parent="boss" unique_id=1321381545]
 visible = false
@@ -26250,73 +26251,73 @@ position = Vector2(433, 369)
 [node name="platforms" type="Node" parent="boss" unique_id=1827021436]
 
 [node name="Platform" parent="boss/platforms" unique_id=1796427380 instance=ExtResource("19_7tfec")]
-position = Vector2(5732, -1312)
+position = Vector2(6550, -1174)
 
 [node name="Platform2" parent="boss/platforms" unique_id=1677467414 instance=ExtResource("19_7tfec")]
-position = Vector2(5758, -1312)
+position = Vector2(6576, -1174)
 
 [node name="Platform3" parent="boss/platforms" unique_id=303601872 instance=ExtResource("19_7tfec")]
-position = Vector2(5784, -1312)
+position = Vector2(6602, -1174)
 
 [node name="Platform4" parent="boss/platforms" unique_id=234776712 instance=ExtResource("19_7tfec")]
-position = Vector2(5810, -1312)
+position = Vector2(6628, -1174)
 
 [node name="Platform5" parent="boss/platforms" unique_id=1502762201 instance=ExtResource("19_7tfec")]
-position = Vector2(5756, -1404)
+position = Vector2(6574, -1266)
 
 [node name="Platform6" parent="boss/platforms" unique_id=1074316199 instance=ExtResource("19_7tfec")]
-position = Vector2(5782, -1404)
+position = Vector2(6600, -1266)
 
 [node name="Platform7" parent="boss/platforms" unique_id=1284196221 instance=ExtResource("19_7tfec")]
-position = Vector2(5808, -1404)
+position = Vector2(6626, -1266)
 
 [node name="Platform8" parent="boss/platforms" unique_id=1187062894 instance=ExtResource("19_7tfec")]
-position = Vector2(5834, -1404)
+position = Vector2(6652, -1266)
 
 [node name="Platform9" parent="boss/platforms" unique_id=1765246451 instance=ExtResource("19_7tfec")]
-position = Vector2(5518, -1303)
+position = Vector2(6336, -1165)
 
 [node name="Platform10" parent="boss/platforms" unique_id=1908108018 instance=ExtResource("19_7tfec")]
-position = Vector2(5544, -1303)
+position = Vector2(6362, -1165)
 
 [node name="Platform11" parent="boss/platforms" unique_id=639707521 instance=ExtResource("19_7tfec")]
-position = Vector2(5570, -1303)
+position = Vector2(6388, -1165)
 
 [node name="Platform17" parent="boss/platforms" unique_id=916585003 instance=ExtResource("19_7tfec")]
-position = Vector2(5518, -1413)
+position = Vector2(6336, -1275)
 
 [node name="Platform18" parent="boss/platforms" unique_id=607117291 instance=ExtResource("19_7tfec")]
-position = Vector2(5544, -1413)
+position = Vector2(6362, -1275)
 
 [node name="Platform19" parent="boss/platforms" unique_id=1500326100 instance=ExtResource("19_7tfec")]
-position = Vector2(5570, -1413)
+position = Vector2(6388, -1275)
 
 [node name="Platform20" parent="boss/platforms" unique_id=806763399 instance=ExtResource("19_7tfec")]
-position = Vector2(5596, -1413)
+position = Vector2(6414, -1275)
 
 [node name="Platform21" parent="boss/platforms" unique_id=1053662440 instance=ExtResource("19_7tfec")]
-position = Vector2(5625, -1452)
+position = Vector2(6443, -1314)
 
 [node name="Platform22" parent="boss/platforms" unique_id=1779933562 instance=ExtResource("19_7tfec")]
-position = Vector2(5651, -1452)
+position = Vector2(6469, -1314)
 
 [node name="Platform23" parent="boss/platforms" unique_id=738506347 instance=ExtResource("19_7tfec")]
-position = Vector2(5677, -1452)
+position = Vector2(6495, -1314)
 
 [node name="Platform24" parent="boss/platforms" unique_id=173743377 instance=ExtResource("19_7tfec")]
-position = Vector2(5703, -1452)
+position = Vector2(6521, -1314)
 
 [node name="FallingPlatform3" parent="boss/platforms" unique_id=2033759702 instance=ExtResource("26_h1nvv")]
-position = Vector2(5885, -1286)
+position = Vector2(6703, -1148)
 
 [node name="FallingPlatform4" parent="boss/platforms" unique_id=1164599535 instance=ExtResource("26_h1nvv")]
-position = Vector2(5917, -1286)
+position = Vector2(6735, -1148)
 
 [node name="FallingPlatform5" parent="boss/platforms" unique_id=389164323 instance=ExtResource("26_h1nvv")]
-position = Vector2(5400, -1292)
+position = Vector2(6218, -1154)
 
 [node name="FallingPlatform6" parent="boss/platforms" unique_id=91429174 instance=ExtResource("26_h1nvv")]
-position = Vector2(5432, -1292)
+position = Vector2(6250, -1154)
 
 [node name="arrowButton1" parent="boss" unique_id=888162504 instance=ExtResource("23_cyga8")]
 z_index = 56
@@ -26715,7 +26716,7 @@ color = Color(1, 1, 1, 0)
 position = Vector2(3393, -554)
 
 [node name="platform2" parent="." unique_id=53629474 instance=ExtResource("19_7tfec")]
-position = Vector2(5380.0005, -1335)
+position = Vector2(6198.0005, -1197)
 scale = Vector2(1.1812389, 1)
 
 [node name="Level_4" parent="." unique_id=1440740404 instance=ExtResource("201_lvl4")]
@@ -26731,10 +26732,10 @@ position = Vector2(813, -4587)
 position = Vector2(6300, -4587)
 
 [node name="Level_8" parent="." unique_id=1685310742 instance=ExtResource("208_lvl8")]
-position = Vector2(8038, -3444)
+position = Vector2(11820, -4587)
 
 [node name="Level_9" parent="." unique_id=1796420853 instance=ExtResource("209_lvl9")]
-position = Vector2(6910, -1534)
+position = Vector2(15400, -4587)
 
 [node name="Level_10" parent="." unique_id=1237077737 instance=ExtResource("210_6vp0y")]
 position = Vector2(10760, -1516)
