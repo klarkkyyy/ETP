@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="PackedScene" path="res://scenes/3candle_light.tscn" id="1_evavh"]
+[ext_resource type="PackedScene" path="res://scenes/3candle_light.tscn" id="1_1icgu"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="2_cri28"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_red_tapestry_static.png" id="3_rrulr"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_01_static.png" id="4_lcjny"]
@@ -10,55 +10,41 @@
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_00_static.png" id="8_d6500"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_01.png" id="9_asrkm"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_painting_00.png" id="10_q31n0"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_01_static.png" id="11_ljaxm"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/alchemy_room_tileset.png" id="12_gc6cj"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_00.png" id="13_a67fu"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/skulls_00_static.png" id="14_hesxd"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/armor_stand_static.png" id="15_jjy3b"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/table_and_chair_static.png" id="16_knbii"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/weapon_rack_00.png" id="17_3slqq"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/vase_with_plant_01.png" id="18_l6kkl"]
 
 [node name="Level3Decor" type="Node2D" unique_id=666528671]
 
-[node name="Sconce_97_5" parent="." unique_id=1411518172 instance=ExtResource("1_evavh")]
+[node name="Sconce_97_5" parent="." unique_id=1411518172 instance=ExtResource("1_1icgu")]
 position = Vector2(1560, 40)
 
-[node name="Sconce_110_5" parent="." unique_id=1131911253 instance=ExtResource("1_evavh")]
+[node name="Sconce_110_5" parent="." unique_id=1131911253 instance=ExtResource("1_1icgu")]
 position = Vector2(1768, 40)
 
-[node name="Sconce_120_5" parent="." unique_id=1562845259 instance=ExtResource("1_evavh")]
+[node name="Sconce_120_5" parent="." unique_id=1562845259 instance=ExtResource("1_1icgu")]
 position = Vector2(1928, 40)
 
-[node name="Sconce_130_5" parent="." unique_id=362217476 instance=ExtResource("1_evavh")]
+[node name="Sconce_130_5" parent="." unique_id=362217476 instance=ExtResource("1_1icgu")]
 position = Vector2(2088, 40)
 
-[node name="Sconce_135_5" parent="." unique_id=283138843 instance=ExtResource("1_evavh")]
+[node name="Sconce_135_5" parent="." unique_id=283138843 instance=ExtResource("1_1icgu")]
 position = Vector2(2168, 40)
 
-[node name="Sconce_151_5" parent="." unique_id=866862767 instance=ExtResource("1_evavh")]
+[node name="Sconce_151_5" parent="." unique_id=866862767 instance=ExtResource("1_1icgu")]
 position = Vector2(2424, 40)
 
-[node name="Sconce_25_8" parent="." unique_id=501981532 instance=ExtResource("1_evavh")]
+[node name="Sconce_25_8" parent="." unique_id=501981532 instance=ExtResource("1_1icgu")]
 position = Vector2(408, 88)
 
-[node name="Sconce_36_8" parent="." unique_id=913173866 instance=ExtResource("1_evavh")]
+[node name="Sconce_36_8" parent="." unique_id=913173866 instance=ExtResource("1_1icgu")]
 position = Vector2(584, 88)
 
-[node name="Sconce_47_8" parent="." unique_id=1537158657 instance=ExtResource("1_evavh")]
-position = Vector2(760, 88)
-
-[node name="Sconce_61_8" parent="." unique_id=1419686628 instance=ExtResource("1_evavh")]
-position = Vector2(984, 88)
-
-[node name="Sconce_70_8" parent="." unique_id=953009788 instance=ExtResource("1_evavh")]
+[node name="Sconce_70_8" parent="." unique_id=953009788 instance=ExtResource("1_1icgu")]
 position = Vector2(1128, 88)
-
-[node name="Hang_103_-10" type="Sprite2D" parent="." unique_id=1393348162]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(1656, -144)
-texture = ExtResource("2_cri28")
 
 [node name="Hang_113_-10" type="Sprite2D" parent="." unique_id=1195479028]
 modulate = Color(0.7, 0.7, 0.78, 1)
@@ -84,18 +70,6 @@ texture_filter = 1
 position = Vector2(312, -64)
 texture = ExtResource("6_y1vlq")
 
-[node name="Hang_27_-5" type="Sprite2D" parent="." unique_id=743729979]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(440, -64)
-texture = ExtResource("2_cri28")
-
-[node name="Hang_34_-5" type="Sprite2D" parent="." unique_id=472279690]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(552, -64)
-texture = ExtResource("3_rrulr")
-
 [node name="Hang_39_-5" type="Sprite2D" parent="." unique_id=1000088838]
 modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
@@ -107,12 +81,6 @@ modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
 position = Vector2(888, -64)
 texture = ExtResource("5_jgqoc")
-
-[node name="Hang_64_-5" type="Sprite2D" parent="." unique_id=1824379623]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(1032, -64)
-texture = ExtResource("6_y1vlq")
 
 [node name="Hang_72_-5" type="Sprite2D" parent="." unique_id=625801049]
 modulate = Color(0.7, 0.7, 0.78, 1)
@@ -137,18 +105,6 @@ modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
 position = Vector2(2200, 16)
 texture = ExtResource("9_asrkm")
-
-[node name="WallArt_31_8" type="Sprite2D" parent="." unique_id=1927715255]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(504, 64)
-texture = ExtResource("10_q31n0")
-
-[node name="WallArt_64_8" type="Sprite2D" parent="." unique_id=1913783907]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(1032, 64)
-texture = ExtResource("11_ljaxm")
 
 [node name="Rug_110_5" type="Sprite2D" parent="." unique_id=537640430]
 modulate = Color(0.7, 0.7, 0.78, 1)
@@ -211,13 +167,6 @@ texture_filter = 1
 position = Vector2(1560, 96.06893)
 texture = ExtResource("14_hesxd")
 
-[node name="Prop_102_5" type="Sprite2D" parent="." unique_id=601400215]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(1640, 84.06893)
-texture = ExtResource("15_jjy3b")
-flip_h = true
-
 [node name="Prop_108_5" type="Sprite2D" parent="." unique_id=1288554874]
 modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
@@ -248,13 +197,6 @@ modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
 position = Vector2(2248, 96.06893)
 texture = ExtResource("14_hesxd")
-flip_h = true
-
-[node name="Prop_146_5" type="Sprite2D" parent="." unique_id=1213714050]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(2344, 84.06893)
-texture = ExtResource("15_jjy3b")
 flip_h = true
 
 [node name="Prop_151_5" type="Sprite2D" parent="." unique_id=1526116032]
@@ -289,27 +231,6 @@ texture_filter = 1
 position = Vector2(1144, 140)
 texture = ExtResource("14_hesxd")
 
-[node name="WallArt_105_-4" type="Sprite2D" parent="." unique_id=849542147]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(1688, -56)
-texture = ExtResource("7_ml3hw")
-
-[node name="WallSconce_135_-4" parent="." unique_id=740235182 instance=ExtResource("1_evavh")]
-position = Vector2(2168, -56)
-
-[node name="WallArt_30_1" type="Sprite2D" parent="." unique_id=875324038]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(488, 24)
-texture = ExtResource("8_d6500")
-
-[node name="WallSconce_60_1" parent="." unique_id=741990162 instance=ExtResource("1_evavh")]
-position = Vector2(968, 24)
-
-[node name="WallSconce_140_1" parent="." unique_id=1812775865 instance=ExtResource("1_evavh")]
-position = Vector2(2248, 24)
-
 [node name="FillArt_123_-5" type="Sprite2D" parent="." unique_id=396940688]
 modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
@@ -333,12 +254,6 @@ modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
 position = Vector2(2360, -40)
 texture = ExtResource("10_q31n0")
-
-[node name="FillArt_99_-5" type="Sprite2D" parent="." unique_id=339089899]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(1592, -72)
-texture = ExtResource("11_ljaxm")
 
 [node name="FillArt_74_1" type="Sprite2D" parent="." unique_id=293625444]
 modulate = Color(0.7, 0.7, 0.78, 1)

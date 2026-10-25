@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="2_apsxr"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_00_static.png" id="3_67c0n"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_00.png" id="4_vywbq"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_painting_00.png" id="5_jxdrd"]
-[ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_painting_01_static.png" id="6_ykoe7"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_shield_01.png" id="7_apsxr"]
 [ext_resource type="Texture2D" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.5/props/wall_hanging_painting_01.png" id="8_67c0n"]
 
@@ -30,12 +28,6 @@ position = Vector2(2424, -712)
 [node name="WallSconce_127_-41" parent="." unique_id=1539233321 instance=ExtResource("1_ykoe7")]
 position = Vector2(2040, -648)
 
-[node name="WallArt_162_-41" type="Sprite2D" parent="." unique_id=760241032]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(2600, -648)
-texture = ExtResource("4_vywbq")
-
 [node name="WallArt_140_-46" type="Sprite2D" parent="." unique_id=1702153661]
 modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
@@ -47,21 +39,6 @@ modulate = Color(0.7, 0.7, 0.78, 1)
 texture_filter = 1
 position = Vector2(2232, -552)
 texture = ExtResource("4_vywbq")
-
-[node name="WallArt_136_-41" type="Sprite2D" parent="." unique_id=1434563977]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(2184, -648)
-texture = ExtResource("5_jxdrd")
-
-[node name="WallArt_161_-34" type="Sprite2D" parent="." unique_id=412764265]
-modulate = Color(0.7, 0.7, 0.78, 1)
-texture_filter = 1
-position = Vector2(2584, -536)
-texture = ExtResource("6_ykoe7")
-
-[node name="WallSconce_156_-38" parent="." unique_id=499097568 instance=ExtResource("1_ykoe7")]
-position = Vector2(2504, -600)
 
 [node name="WallArt_119_-34" type="Sprite2D" parent="." unique_id=196566982]
 modulate = Color(0.7, 0.7, 0.78, 1)

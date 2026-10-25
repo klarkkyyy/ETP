@@ -2,6 +2,70 @@
 
 [ext_resource type="Script" uid="uid://crby7l8sjefqr" path="res://scripts/level_standalone.gd" id="1_7nw17"]
 [ext_resource type="Script" uid="uid://o7xqs72qb68w" path="res://scripts/title_layer.gd" id="3_s2wl0"]
+[ext_resource type="Script" uid="uid://hexijls78f2d" path="res://scripts/parallax_anchor.gd" id="3_s326j"]
+[ext_resource type="Script" uid="uid://dwp1f42p2evon" path="res://scripts/parallax_region.gd" id="3_wj7ch"]
+[ext_resource type="Texture2D" uid="uid://bxcvtlatt26ji" path="res://assets/FREE UPDATE V1/FREE UPDATE V1/BACKGROUNDS/outside_background_00.png" id="4_wj7ch"]
+[ext_resource type="Texture2D" uid="uid://c631f36u3qj68" path="res://assets/FREE UPDATE V1/FREE UPDATE V1/BACKGROUNDS/outside_background_01.png" id="5_e7tqc"]
+[ext_resource type="Texture2D" uid="uid://djm7f8lg2i3as" path="res://assets/FREE UPDATE V1/FREE UPDATE V1/BACKGROUNDS/outside_background_02.png" id="6_v1k04"]
+[ext_resource type="Texture2D" uid="uid://bqdiqvgq005it" path="res://assets/FREE UPDATE V1/FREE UPDATE V1/BACKGROUNDS/outside_background_03.png" id="7_xgwou"]
+[ext_resource type="Texture2D" uid="uid://dhk56q0n8k0wk" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_00_static.png" id="9_1ihoj"]
+[ext_resource type="Texture2D" uid="uid://oipaevqdfsb0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_01_static.png" id="10_g0my6"]
+[ext_resource type="Texture2D" uid="uid://bcqmh4d3q16jd" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_red_tapestry_static.png" id="11_g4mvh"]
+[ext_resource type="Texture2D" uid="uid://xjde5ou2tkxf" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_03_anim.png" id="12_gauya"]
+
+[sub_resource type="Shader" id="Shader_1ihoj"]
+code = "shader_type canvas_item;
+void fragment() {
+	COLOR = texture(TEXTURE, UV) * COLOR;
+	COLOR.a *= sin(UV.y * PI);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0my6"]
+shader = SubResource("Shader_1ihoj")
+
+[sub_resource type="Gradient" id="Gradient_g4mvh"]
+offsets = PackedFloat32Array(0, 0.3)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gauya"]
+seed = 7
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u57ne"]
+width = 256
+height = 48
+noise = SubResource("FastNoiseLite_gauya")
+color_ramp = SubResource("Gradient_g4mvh")
+seamless = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_06uum"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_ympgh"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 0.45, 0.15, 0, 1, 0.45, 0.15, 0.8, 1, 0.45, 0.15, 0.8, 1, 0.45, 0.15, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wufyi"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tmump"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jw2lq"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g207v"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jfr78"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4cbpn"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c8gus"]
+blend_mode = 1
 
 [node name="Level_3" type="Node2D" unique_id=1849523170]
 position = Vector2(4, -546)
@@ -13,3 +77,4025 @@ script = ExtResource("3_s2wl0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=287048173]
 layer = -1
+
+[node name="Depth" type="Node2D" parent="." unique_id=1209232719]
+script = ExtResource("3_wj7ch")
+area = Rect2(-100, -400, 3900, 1000)
+
+[node name="Sky" type="Parallax2D" parent="Depth" unique_id=1252628004]
+z_index = -130
+scroll_scale = Vector2(0.03, 0.03)
+script = ExtResource("3_s326j")
+design_camera = Vector2(1370, 150)
+
+[node name="Fill" type="ColorRect" parent="Depth/Sky" unique_id=28411935]
+offset_left = -4630.0
+offset_top = -1200.0
+offset_right = 7370.0
+offset_bottom = 27.0
+mouse_filter = 2
+color = Color(0.31607845, 0.25286275, 0.528, 1)
+
+[node name="Moon" type="Sprite2D" parent="Depth/Sky" unique_id=2124553968]
+modulate = Color(0.62, 0.62, 0.88, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-468, 26)
+scale = Vector2(2, 2)
+texture = ExtResource("4_wj7ch")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1440, 160)
+
+[node name="Clouds" type="Parallax2D" parent="Depth" unique_id=1405395269]
+z_index = -128
+scroll_scale = Vector2(0.08, 0.08)
+autoscroll = Vector2(-3, 0)
+script = ExtResource("3_s326j")
+design_camera = Vector2(1370, 150)
+
+[node name="Band" type="Sprite2D" parent="Depth/Clouds" unique_id=786400163]
+modulate = Color(0.55, 0.5, 0.75, 0.35)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-4630, 20)
+texture = ExtResource("5_e7tqc")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 160)
+
+[node name="FarMountains" type="Parallax2D" parent="Depth" unique_id=681741711]
+z_index = -126
+scroll_scale = Vector2(0.16, 0.16)
+script = ExtResource("3_s326j")
+design_camera = Vector2(1370, 150)
+
+[node name="Band" type="Sprite2D" parent="Depth/FarMountains" unique_id=166756036]
+modulate = Color(0.5, 0.48, 0.72, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-4630, 65)
+texture = ExtResource("6_v1k04")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 160)
+
+[node name="Fill" type="ColorRect" parent="Depth/FarMountains" unique_id=1970450263]
+offset_left = -4630.0
+offset_top = 224.0
+offset_right = 7370.0
+offset_bottom = 1424.0
+mouse_filter = 2
+color = Color(0.15882353, 0.16564706, 0.3331765, 1)
+
+[node name="NearMountains" type="Parallax2D" parent="Depth" unique_id=836641366]
+z_index = -124
+scroll_scale = Vector2(0.28, 0.28)
+script = ExtResource("3_s326j")
+design_camera = Vector2(1370, 150)
+
+[node name="Band" type="Sprite2D" parent="Depth/NearMountains" unique_id=1490678444]
+modulate = Color(0.36, 0.34, 0.55, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-4630, 100)
+texture = ExtResource("7_xgwou")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 160)
+
+[node name="Fill" type="ColorRect" parent="Depth/NearMountains" unique_id=1193246951]
+offset_left = -4648.0
+offset_top = 258.0
+offset_right = 7352.0
+offset_bottom = 1458.0
+mouse_filter = 2
+color = Color(0.10305883, 0.112, 0.28254905, 1)
+
+[node name="Fog" type="Parallax2D" parent="Depth" unique_id=618218382]
+z_index = -122
+scroll_scale = Vector2(0.35, 0.35)
+autoscroll = Vector2(6, 0)
+script = ExtResource("3_s326j")
+design_camera = Vector2(1370, 150)
+
+[node name="Band" type="Sprite2D" parent="Depth/Fog" unique_id=55735407]
+modulate = Color(0.8, 0.78, 1, 0.55)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_g0my6")
+position = Vector2(-4630, 205)
+texture = SubResource("NoiseTexture2D_u57ne")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 48)
+
+[node name="Embers" type="CPUParticles2D" parent="Depth" unique_id=422754232]
+z_index = -5
+material = SubResource("CanvasItemMaterial_06uum")
+position = Vector2(1370, 99.5)
+amount = 18
+lifetime = 9.0
+preprocess = 9.0
+emission_shape = 3
+emission_rect_extents = Vector2(140, 227.5)
+direction = Vector2(0.2, -1)
+spread = 25.0
+gravity = Vector2(0, -4)
+initial_velocity_min = 6.0
+initial_velocity_max = 14.0
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_ympgh")
+
+[node name="ForeNear" type="Parallax2D" parent="Depth" unique_id=532423118]
+z_index = 40
+scroll_scale = Vector2(1.3, 1.3)
+script = ExtResource("3_s326j")
+design_camera = Vector2(1370, 150)
+
+[node name="Chain0" type="Node2D" parent="Depth/ForeNear" unique_id=957714537]
+position = Vector2(-236.98392, -66.91025)
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeNear/Chain0" unique_id=1244438376]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-15.6, -748.8)
+scale = Vector2(1.95, 1.95)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 384)
+
+[node name="Stump1" type="Node2D" parent="Depth/ForeNear" unique_id=1455935731]
+position = Vector2(237.6073, 227.10066)
+
+[node name="Stump" type="Polygon2D" parent="Depth/ForeNear/Stump1" unique_id=1600314809]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-12.995081, 720, -12.995081, 8.176179, -7.7970486, -1.7671404, -2.5990162, -8.504862, 2.5990162, 0.8635292, 7.7970486, 3.8726072, 12.995081, -5.180973, 12.995081, 720)
+
+[node name="@Polygon2D@29" type="Polygon2D" parent="Depth/ForeNear/Stump1" unique_id=1533836912]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-18.19508, 43.057556, 18.19508, 43.057556, 18.19508, 50.857555, -18.19508, 50.857555)
+
+[node name="Stump2" type="Node2D" parent="Depth/ForeNear" unique_id=1383374157]
+position = Vector2(576.9438, 242.8978)
+
+[node name="Stump" type="Polygon2D" parent="Depth/ForeNear/Stump2" unique_id=195839679]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-14.586716, 720, -14.586716, 6.6524715, -8.752029, 2.4600875, -2.9173431, -6.0763483, 2.9173431, -2.1175594, 8.752029, 1.9941113, 14.586716, 5.592595, 14.586716, 720)
+
+[node name="@Polygon2D@31" type="Polygon2D" parent="Depth/ForeNear/Stump2" unique_id=1932447083]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-19.786716, 38.091347, 19.786716, 38.091347, 19.786716, 45.89135, -19.786716, 45.89135)
+
+[node name="Stump3" type="Node2D" parent="Depth/ForeNear" unique_id=429254527]
+position = Vector2(847.6222, 222.84918)
+
+[node name="Stump" type="Polygon2D" parent="Depth/ForeNear/Stump3" unique_id=1917521925]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-12.143988, 720, -12.143988, 11.111242, -7.2863927, -6.331772, -2.4287975, -10.962282, 2.4287975, 3.3302705, 7.2863927, 7.4060335, 12.143988, -4.3886375, 12.143988, 720)
+
+[node name="@Polygon2D@33" type="Polygon2D" parent="Depth/ForeNear/Stump3" unique_id=1556901126]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-17.343988, 36.56992, 17.343988, 36.56992, 17.343988, 44.36992, -17.343988, 44.36992)
+
+[node name="Swag4" type="Node2D" parent="Depth/ForeNear" unique_id=1328125302]
+position = Vector2(1669.9249, 9.701117)
+
+[node name="Swag" type="Sprite2D" parent="Depth/ForeNear/Swag4" unique_id=533898720]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+position = Vector2(-74.88, -49.92)
+scale = Vector2(3.12, 3.12)
+texture = ExtResource("10_g0my6")
+centered = false
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeNear/Swag4" unique_id=769553450]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-78, -842.39996)
+scale = Vector2(1.56, 1.56)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 512)
+
+[node name="@Sprite2D@34" type="Sprite2D" parent="Depth/ForeNear/Swag4" unique_id=652654756]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(53.039997, -842.39996)
+scale = Vector2(1.56, 1.56)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 512)
+
+[node name="Stump5" type="Node2D" parent="Depth/ForeNear" unique_id=1174337931]
+position = Vector2(1895.3568, 354.3981)
+
+[node name="Stump" type="Polygon2D" parent="Depth/ForeNear/Stump5" unique_id=2046149944]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-15.889057, 720, -15.889057, 9.390765, -9.533435, -5.8806133, -3.1778116, -3.1579304, 3.1778116, 2.0017967, 9.533435, -5.36421, 15.889057, -0.9419531, 15.889057, 720)
+
+[node name="@Polygon2D@36" type="Polygon2D" parent="Depth/ForeNear/Stump5" unique_id=349631516]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-21.089058, 34.408493, 21.089058, 34.408493, 21.089058, 42.208492, -21.089058, 42.208492)
+
+[node name="Banner6" type="Node2D" parent="Depth/ForeNear" unique_id=1295940542]
+position = Vector2(2505.8276, -253.98578)
+
+[node name="Banner" type="Sprite2D" parent="Depth/ForeNear/Banner6" unique_id=194945396]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+position = Vector2(-22.88, -91.52)
+scale = Vector2(2.86, 2.86)
+texture = ExtResource("11_g4mvh")
+centered = false
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeNear/Banner6" unique_id=556384564]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-12.48, -937.30005)
+scale = Vector2(1.56, 1.56)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 544)
+
+[node name="Chain7" type="Node2D" parent="Depth/ForeNear" unique_id=271653508]
+position = Vector2(2686.8762, -154.30365)
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeNear/Chain7" unique_id=265635722]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-15.6, -748.8)
+scale = Vector2(1.95, 1.95)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 384)
+
+[node name="Banner8" type="Node2D" parent="Depth/ForeNear" unique_id=1500472773]
+position = Vector2(2834.6765, -246.58844)
+
+[node name="Banner" type="Sprite2D" parent="Depth/ForeNear/Banner8" unique_id=1802627463]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+position = Vector2(-22.88, -91.52)
+scale = Vector2(2.86, 2.86)
+texture = ExtResource("11_g4mvh")
+centered = false
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeNear/Banner8" unique_id=294445282]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-12.48, -937.30005)
+scale = Vector2(1.56, 1.56)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 544)
+
+[node name="Post9" type="Node2D" parent="Depth/ForeNear" unique_id=1950679173]
+position = Vector2(2900.4824, 339.7534)
+
+[node name="Post" type="Sprite2D" parent="Depth/ForeNear/Post9" unique_id=752656929]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+position = Vector2(-20.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("12_gauya")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 48)
+
+[node name="@Polygon2D@37" type="Polygon2D" parent="Depth/ForeNear/Post9" unique_id=630042225]
+color = Color(0.05, 0.04, 0.07, 1)
+polygon = PackedVector2Array(-6.5, 122.2, 6.5, 122.2, 6.5, 720, -6.5, 720)
+
+[node name="Chain10" type="Node2D" parent="Depth/ForeNear" unique_id=1045069245]
+position = Vector2(3539.1196, 2.9667034)
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeNear/Chain10" unique_id=204034176]
+modulate = Color(0.05, 0.04, 0.07, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-15.6, -748.8)
+scale = Vector2(1.95, 1.95)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 384)
+
+[node name="ForeMid" type="Parallax2D" parent="Depth" unique_id=1979808749]
+z_index = 39
+scroll_scale = Vector2(1.15, 1.15)
+script = ExtResource("3_s326j")
+design_camera = Vector2(1370, 150)
+
+[node name="Swag0" type="Node2D" parent="Depth/ForeMid" unique_id=877901687]
+position = Vector2(-62.673035, -59.942116)
+
+[node name="Swag" type="Sprite2D" parent="Depth/ForeMid/Swag0" unique_id=1201877703]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+position = Vector2(-51.84, -34.56)
+scale = Vector2(2.16, 2.16)
+texture = ExtResource("10_g0my6")
+centered = false
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeMid/Swag0" unique_id=744558631]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-54, -790.56)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 704)
+
+[node name="@Sprite2D@38" type="Sprite2D" parent="Depth/ForeMid/Swag0" unique_id=700228333]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(36.72, -790.56)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 704)
+
+[node name="Post1" type="Node2D" parent="Depth/ForeMid" unique_id=30562502]
+position = Vector2(550.2561, 220.03325)
+
+[node name="Post" type="Sprite2D" parent="Depth/ForeMid/Post1" unique_id=1482670174]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+position = Vector2(-14.4, 0)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("12_gauya")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 48)
+
+[node name="@Polygon2D@39" type="Polygon2D" parent="Depth/ForeMid/Post1" unique_id=605323084]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-4.5, 84.6, 4.5, 84.6, 4.5, 720, -4.5, 720)
+
+[node name="Post2" type="Node2D" parent="Depth/ForeMid" unique_id=1897115518]
+position = Vector2(630.9386, 231.5216)
+
+[node name="Post" type="Sprite2D" parent="Depth/ForeMid/Post2" unique_id=2087960050]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+position = Vector2(-14.4, 0)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("12_gauya")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 48)
+
+[node name="@Polygon2D@40" type="Polygon2D" parent="Depth/ForeMid/Post2" unique_id=1542617108]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-4.5, 84.6, 4.5, 84.6, 4.5, 720, -4.5, 720)
+
+[node name="Stump3" type="Node2D" parent="Depth/ForeMid" unique_id=569097486]
+position = Vector2(1359.482, 233.22293)
+
+[node name="Stump" type="Polygon2D" parent="Depth/ForeMid/Stump3" unique_id=209074137]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-12.5534935, 720, -12.5534935, 4.8005085, -7.532096, 3.7922342, -2.5106988, 3.4156795, 2.5106988, 4.5085726, 7.532096, -3.0853996, 12.5534935, 1.6279335, 12.5534935, 720)
+
+[node name="@Polygon2D@42" type="Polygon2D" parent="Depth/ForeMid/Stump3" unique_id=1371844950]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-16.153494, 33.574898, 16.153494, 33.574898, 16.153494, 38.9749, -16.153494, 38.9749)
+
+[node name="Swag4" type="Node2D" parent="Depth/ForeMid" unique_id=1276471690]
+position = Vector2(1597.833, 23.021786)
+
+[node name="Swag" type="Sprite2D" parent="Depth/ForeMid/Swag4" unique_id=1262415929]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+position = Vector2(-51.84, -34.56)
+scale = Vector2(2.16, 2.16)
+texture = ExtResource("10_g0my6")
+centered = false
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeMid/Swag4" unique_id=863155968]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-54, -790.56)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 704)
+
+[node name="@Sprite2D@43" type="Sprite2D" parent="Depth/ForeMid/Swag4" unique_id=262543852]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(36.72, -790.56)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 704)
+
+[node name="Post5" type="Node2D" parent="Depth/ForeMid" unique_id=312207702]
+position = Vector2(2178.7146, 325.5161)
+
+[node name="Post" type="Sprite2D" parent="Depth/ForeMid/Post5" unique_id=438741158]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+position = Vector2(-14.4, 0)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("12_gauya")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 48)
+
+[node name="@Polygon2D@44" type="Polygon2D" parent="Depth/ForeMid/Post5" unique_id=1887967898]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-4.5, 84.6, 4.5, 84.6, 4.5, 720, -4.5, 720)
+
+[node name="Stump6" type="Node2D" parent="Depth/ForeMid" unique_id=1559000536]
+position = Vector2(2353.7688, 353.28967)
+
+[node name="Stump" type="Polygon2D" parent="Depth/ForeMid/Stump6" unique_id=1572782857]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-8.403453, 720, -8.403453, 5.1895075, -5.042072, -0.3452548, -1.6806905, 1.8345349, 1.6806905, -7.843913, 5.042072, -5.755978, 8.403453, -1.2794952, 8.403453, 720)
+
+[node name="@Polygon2D@46" type="Polygon2D" parent="Depth/ForeMid/Stump6" unique_id=1351845187]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-12.003452, 32.01387, 12.003452, 32.01387, 12.003452, 37.41387, -12.003452, 37.41387)
+
+[node name="Post7" type="Node2D" parent="Depth/ForeMid" unique_id=1877051955]
+position = Vector2(2606.1575, 325.55753)
+
+[node name="Post" type="Sprite2D" parent="Depth/ForeMid/Post7" unique_id=1871689437]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+position = Vector2(-14.4, 0)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("12_gauya")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 48)
+
+[node name="@Polygon2D@47" type="Polygon2D" parent="Depth/ForeMid/Post7" unique_id=708445692]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-4.5, 84.6, 4.5, 84.6, 4.5, 720, -4.5, 720)
+
+[node name="Stump8" type="Node2D" parent="Depth/ForeMid" unique_id=1428983901]
+position = Vector2(2567.55, 256.54037)
+
+[node name="Stump" type="Polygon2D" parent="Depth/ForeMid/Stump8" unique_id=1149977151]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-9.184354, 720, -9.184354, 8.694233, -5.5106125, -0.6010989, -1.8368708, 2.7122068, 1.8368708, -6.643706, 5.5106125, 5.366506, 9.184354, 3.1906254, 9.184354, 720)
+
+[node name="@Polygon2D@49" type="Polygon2D" parent="Depth/ForeMid/Stump8" unique_id=878329672]
+color = Color(0.08, 0.07, 0.11, 1)
+polygon = PackedVector2Array(-12.784354, 29.090055, 12.784354, 29.090055, 12.784354, 34.490055, -12.784354, 34.490055)
+
+[node name="Swag9" type="Node2D" parent="Depth/ForeMid" unique_id=28459786]
+position = Vector2(3194.5234, -21.092297)
+
+[node name="Swag" type="Sprite2D" parent="Depth/ForeMid/Swag9" unique_id=1622628454]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+position = Vector2(-51.84, -34.56)
+scale = Vector2(2.16, 2.16)
+texture = ExtResource("10_g0my6")
+centered = false
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeMid/Swag9" unique_id=864167168]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-54, -790.56)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 704)
+
+[node name="@Sprite2D@50" type="Sprite2D" parent="Depth/ForeMid/Swag9" unique_id=356365565]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(36.72, -790.56)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 704)
+
+[node name="Chain10" type="Node2D" parent="Depth/ForeMid" unique_id=1111532791]
+position = Vector2(3327.6304, -20.583126)
+
+[node name="Chain" type="Sprite2D" parent="Depth/ForeMid/Chain10" unique_id=2097303610]
+modulate = Color(0.08, 0.07, 0.11, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-10.8, -734.4)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("9_1ihoj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 544)
+
+[node name="Room" type="Node2D" parent="." unique_id=1262507205]
+position = Vector2(9, 56)
+
+[node name="WallShadow" type="Node2D" parent="Room" unique_id=1335788036]
+z_index = -100
+
+[node name="Fill" type="ColorRect" parent="Room/WallShadow" unique_id=1767282124]
+offset_left = 3376.0
+offset_top = 32.0
+offset_right = 3379.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@51" type="ColorRect" parent="Room/WallShadow" unique_id=175252313]
+offset_left = 3376.0
+offset_top = 32.0
+offset_right = 3392.0
+offset_bottom = 36.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@52" type="ColorRect" parent="Room/WallShadow" unique_id=3199016]
+offset_left = 3376.0
+offset_top = 32.0
+offset_right = 3392.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@53" type="ColorRect" parent="Room/WallShadow" unique_id=766537540]
+offset_left = 3392.0
+offset_top = 32.0
+offset_right = 3408.0
+offset_bottom = 34.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@54" type="ColorRect" parent="Room/WallShadow" unique_id=666391589]
+offset_left = 3392.0
+offset_top = 32.0
+offset_right = 3408.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@55" type="ColorRect" parent="Room/WallShadow" unique_id=1045500703]
+offset_left = 3408.0
+offset_top = 32.0
+offset_right = 3424.0
+offset_bottom = 36.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@56" type="ColorRect" parent="Room/WallShadow" unique_id=628330288]
+offset_left = 3408.0
+offset_top = 32.0
+offset_right = 3424.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@57" type="ColorRect" parent="Room/WallShadow" unique_id=788075671]
+offset_left = 3424.0
+offset_top = 32.0
+offset_right = 3440.0
+offset_bottom = 36.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@58" type="ColorRect" parent="Room/WallShadow" unique_id=1535374312]
+offset_left = 3424.0
+offset_top = 32.0
+offset_right = 3440.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@59" type="ColorRect" parent="Room/WallShadow" unique_id=304289972]
+offset_left = 3440.0
+offset_top = 32.0
+offset_right = 3456.0
+offset_bottom = 36.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@60" type="ColorRect" parent="Room/WallShadow" unique_id=2055556124]
+offset_left = 3440.0
+offset_top = 32.0
+offset_right = 3456.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@61" type="ColorRect" parent="Room/WallShadow" unique_id=1426998039]
+offset_left = 3456.0
+offset_top = 32.0
+offset_right = 3472.0
+offset_bottom = 34.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@62" type="ColorRect" parent="Room/WallShadow" unique_id=1273305826]
+offset_left = 3456.0
+offset_top = 32.0
+offset_right = 3472.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@63" type="ColorRect" parent="Room/WallShadow" unique_id=726412813]
+offset_left = 3484.0
+offset_top = 32.0
+offset_right = 3488.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@64" type="ColorRect" parent="Room/WallShadow" unique_id=1541330032]
+offset_left = 3472.0
+offset_top = 32.0
+offset_right = 3488.0
+offset_bottom = 36.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@65" type="ColorRect" parent="Room/WallShadow" unique_id=1362742433]
+offset_left = 3472.0
+offset_top = 32.0
+offset_right = 3488.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@66" type="ColorRect" parent="Room/WallShadow" unique_id=438963214]
+offset_left = 3344.0
+offset_top = 48.0
+offset_right = 3346.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@67" type="ColorRect" parent="Room/WallShadow" unique_id=973790014]
+offset_left = 3344.0
+offset_top = 48.0
+offset_right = 3360.0
+offset_bottom = 51.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@68" type="ColorRect" parent="Room/WallShadow" unique_id=1622995394]
+offset_left = 3344.0
+offset_top = 48.0
+offset_right = 3360.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@69" type="ColorRect" parent="Room/WallShadow" unique_id=1743752035]
+offset_left = 3360.0
+offset_top = 48.0
+offset_right = 3376.0
+offset_bottom = 51.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@70" type="ColorRect" parent="Room/WallShadow" unique_id=1011814181]
+offset_left = 3360.0
+offset_top = 48.0
+offset_right = 3376.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@71" type="ColorRect" parent="Room/WallShadow" unique_id=1557532828]
+offset_left = 3500.0
+offset_top = 48.0
+offset_right = 3504.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@72" type="ColorRect" parent="Room/WallShadow" unique_id=2070489294]
+offset_left = 3488.0
+offset_top = 48.0
+offset_right = 3504.0
+offset_bottom = 52.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@73" type="ColorRect" parent="Room/WallShadow" unique_id=765945324]
+offset_left = 3488.0
+offset_top = 48.0
+offset_right = 3504.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@74" type="ColorRect" parent="Room/WallShadow" unique_id=71401289]
+offset_left = 3328.0
+offset_top = 64.0
+offset_right = 3330.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@75" type="ColorRect" parent="Room/WallShadow" unique_id=355633648]
+offset_left = 3328.0
+offset_top = 64.0
+offset_right = 3344.0
+offset_bottom = 68.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@76" type="ColorRect" parent="Room/WallShadow" unique_id=1192980946]
+offset_left = 3328.0
+offset_top = 64.0
+offset_right = 3344.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@77" type="ColorRect" parent="Room/WallShadow" unique_id=1561850571]
+offset_left = 3518.0
+offset_top = 64.0
+offset_right = 3520.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@78" type="ColorRect" parent="Room/WallShadow" unique_id=357688014]
+offset_left = 3504.0
+offset_top = 64.0
+offset_right = 3520.0
+offset_bottom = 68.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@79" type="ColorRect" parent="Room/WallShadow" unique_id=1195581984]
+offset_left = 3504.0
+offset_top = 64.0
+offset_right = 3520.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@80" type="ColorRect" parent="Room/WallShadow" unique_id=1564624497]
+offset_left = 3312.0
+offset_top = 80.0
+offset_right = 3316.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@81" type="ColorRect" parent="Room/WallShadow" unique_id=2075869316]
+offset_left = 3312.0
+offset_top = 80.0
+offset_right = 3328.0
+offset_bottom = 83.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@82" type="ColorRect" parent="Room/WallShadow" unique_id=1247417446]
+offset_left = 3312.0
+offset_top = 92.0
+offset_right = 3328.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@83" type="ColorRect" parent="Room/WallShadow" unique_id=1826643929]
+offset_left = 3312.0
+offset_top = 80.0
+offset_right = 3328.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@84" type="ColorRect" parent="Room/WallShadow" unique_id=217661491]
+offset_left = 3520.0
+offset_top = 80.0
+offset_right = 3536.0
+offset_bottom = 84.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@85" type="ColorRect" parent="Room/WallShadow" unique_id=127014378]
+offset_left = 3520.0
+offset_top = 80.0
+offset_right = 3536.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@86" type="ColorRect" parent="Room/WallShadow" unique_id=1013557889]
+offset_left = 3548.0
+offset_top = 80.0
+offset_right = 3552.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@87" type="ColorRect" parent="Room/WallShadow" unique_id=1364674102]
+offset_left = 3536.0
+offset_top = 80.0
+offset_right = 3552.0
+offset_bottom = 82.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@88" type="ColorRect" parent="Room/WallShadow" unique_id=512048723]
+offset_left = 3536.0
+offset_top = 93.0
+offset_right = 3552.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@89" type="ColorRect" parent="Room/WallShadow" unique_id=1689084015]
+offset_left = 3536.0
+offset_top = 80.0
+offset_right = 3552.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@90" type="ColorRect" parent="Room/WallShadow" unique_id=625060169]
+offset_left = 3328.0
+offset_top = 96.0
+offset_right = 3331.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@91" type="ColorRect" parent="Room/WallShadow" unique_id=1629347934]
+offset_left = 3328.0
+offset_top = 96.0
+offset_right = 3344.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@92" type="ColorRect" parent="Room/WallShadow" unique_id=981750554]
+offset_left = 3533.0
+offset_top = 96.0
+offset_right = 3536.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@93" type="ColorRect" parent="Room/WallShadow" unique_id=1605730950]
+offset_left = 3520.0
+offset_top = 96.0
+offset_right = 3536.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@94" type="ColorRect" parent="Room/WallShadow" unique_id=939127210]
+offset_left = 3312.0
+offset_top = 112.0
+offset_right = 3316.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@95" type="ColorRect" parent="Room/WallShadow" unique_id=633864728]
+offset_left = 3312.0
+offset_top = 112.0
+offset_right = 3328.0
+offset_bottom = 115.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@96" type="ColorRect" parent="Room/WallShadow" unique_id=835614644]
+offset_left = 3312.0
+offset_top = 126.0
+offset_right = 3328.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@97" type="ColorRect" parent="Room/WallShadow" unique_id=1596573227]
+offset_left = 3312.0
+offset_top = 112.0
+offset_right = 3328.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@98" type="ColorRect" parent="Room/WallShadow" unique_id=76680458]
+offset_left = 3328.0
+offset_top = 124.0
+offset_right = 3344.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@99" type="ColorRect" parent="Room/WallShadow" unique_id=357212018]
+offset_left = 3328.0
+offset_top = 112.0
+offset_right = 3344.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@100" type="ColorRect" parent="Room/WallShadow" unique_id=1428375241]
+offset_left = 3520.0
+offset_top = 126.0
+offset_right = 3536.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@101" type="ColorRect" parent="Room/WallShadow" unique_id=96427765]
+offset_left = 3520.0
+offset_top = 112.0
+offset_right = 3536.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@102" type="ColorRect" parent="Room/WallShadow" unique_id=1825747334]
+offset_left = 3549.0
+offset_top = 112.0
+offset_right = 3552.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@103" type="ColorRect" parent="Room/WallShadow" unique_id=10057502]
+offset_left = 3536.0
+offset_top = 112.0
+offset_right = 3552.0
+offset_bottom = 115.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@104" type="ColorRect" parent="Room/WallShadow" unique_id=630912499]
+offset_left = 3536.0
+offset_top = 126.0
+offset_right = 3552.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@105" type="ColorRect" parent="Room/WallShadow" unique_id=2037764317]
+offset_left = 3536.0
+offset_top = 112.0
+offset_right = 3552.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@106" type="ColorRect" parent="Room/WallShadow" unique_id=786680524]
+offset_left = 3344.0
+offset_top = 128.0
+offset_right = 3347.0
+offset_bottom = 144.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@107" type="ColorRect" parent="Room/WallShadow" unique_id=931361187]
+offset_left = 3344.0
+offset_top = 128.0
+offset_right = 3360.0
+offset_bottom = 144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@108" type="ColorRect" parent="Room/WallShadow" unique_id=2014401574]
+offset_left = 3518.0
+offset_top = 128.0
+offset_right = 3520.0
+offset_bottom = 144.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@109" type="ColorRect" parent="Room/WallShadow" unique_id=393694251]
+offset_left = 3504.0
+offset_top = 128.0
+offset_right = 3520.0
+offset_bottom = 144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@110" type="ColorRect" parent="Room/WallShadow" unique_id=1049885841]
+offset_left = 3344.0
+offset_top = 144.0
+offset_right = 3346.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@111" type="ColorRect" parent="Room/WallShadow" unique_id=1210592243]
+offset_left = 3344.0
+offset_top = 156.0
+offset_right = 3360.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@112" type="ColorRect" parent="Room/WallShadow" unique_id=1657579360]
+offset_left = 3344.0
+offset_top = 144.0
+offset_right = 3360.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@113" type="ColorRect" parent="Room/WallShadow" unique_id=27645221]
+offset_left = 3360.0
+offset_top = 156.0
+offset_right = 3376.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@114" type="ColorRect" parent="Room/WallShadow" unique_id=1380191586]
+offset_left = 3360.0
+offset_top = 144.0
+offset_right = 3376.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@115" type="ColorRect" parent="Room/WallShadow" unique_id=963496855]
+offset_left = 3488.0
+offset_top = 156.0
+offset_right = 3504.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@116" type="ColorRect" parent="Room/WallShadow" unique_id=723630073]
+offset_left = 3488.0
+offset_top = 144.0
+offset_right = 3504.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@117" type="ColorRect" parent="Room/WallShadow" unique_id=1639116688]
+offset_left = 3517.0
+offset_top = 144.0
+offset_right = 3520.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@118" type="ColorRect" parent="Room/WallShadow" unique_id=1312196039]
+offset_left = 3504.0
+offset_top = 156.0
+offset_right = 3520.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@119" type="ColorRect" parent="Room/WallShadow" unique_id=2108884222]
+offset_left = 3504.0
+offset_top = 144.0
+offset_right = 3520.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@120" type="ColorRect" parent="Room/WallShadow" unique_id=1380715535]
+offset_left = 3376.0
+offset_top = 160.0
+offset_right = 3380.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@121" type="ColorRect" parent="Room/WallShadow" unique_id=2093836131]
+offset_left = 3376.0
+offset_top = 173.0
+offset_right = 3392.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@122" type="ColorRect" parent="Room/WallShadow" unique_id=489261982]
+offset_left = 3376.0
+offset_top = 160.0
+offset_right = 3392.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@123" type="ColorRect" parent="Room/WallShadow" unique_id=1712767184]
+offset_left = 3392.0
+offset_top = 173.0
+offset_right = 3408.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@124" type="ColorRect" parent="Room/WallShadow" unique_id=2061406316]
+offset_left = 3392.0
+offset_top = 160.0
+offset_right = 3408.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@125" type="ColorRect" parent="Room/WallShadow" unique_id=1648186474]
+offset_left = 3408.0
+offset_top = 172.0
+offset_right = 3424.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@126" type="ColorRect" parent="Room/WallShadow" unique_id=2097445673]
+offset_left = 3408.0
+offset_top = 160.0
+offset_right = 3424.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@127" type="ColorRect" parent="Room/WallShadow" unique_id=1839649408]
+offset_left = 3424.0
+offset_top = 172.0
+offset_right = 3440.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@128" type="ColorRect" parent="Room/WallShadow" unique_id=24217471]
+offset_left = 3424.0
+offset_top = 160.0
+offset_right = 3440.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@129" type="ColorRect" parent="Room/WallShadow" unique_id=22843010]
+offset_left = 3440.0
+offset_top = 174.0
+offset_right = 3456.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@130" type="ColorRect" parent="Room/WallShadow" unique_id=708146333]
+offset_left = 3440.0
+offset_top = 160.0
+offset_right = 3456.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@131" type="ColorRect" parent="Room/WallShadow" unique_id=65250164]
+offset_left = 3456.0
+offset_top = 174.0
+offset_right = 3472.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@132" type="ColorRect" parent="Room/WallShadow" unique_id=731707305]
+offset_left = 3456.0
+offset_top = 160.0
+offset_right = 3472.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@133" type="ColorRect" parent="Room/WallShadow" unique_id=1833838177]
+offset_left = 3485.0
+offset_top = 160.0
+offset_right = 3488.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@134" type="ColorRect" parent="Room/WallShadow" unique_id=890015771]
+offset_left = 3472.0
+offset_top = 172.0
+offset_right = 3488.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@135" type="ColorRect" parent="Room/WallShadow" unique_id=1341607352]
+offset_left = 3472.0
+offset_top = 160.0
+offset_right = 3488.0
+offset_bottom = 176.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@136" type="ColorRect" parent="Room/WallShadow" unique_id=679360677]
+offset_left = 1904.0
+offset_top = -64.0
+offset_right = 1908.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@137" type="ColorRect" parent="Room/WallShadow" unique_id=1424577956]
+offset_left = 1904.0
+offset_top = -64.0
+offset_right = 1920.0
+offset_bottom = -61.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@138" type="ColorRect" parent="Room/WallShadow" unique_id=2023303314]
+offset_left = 1904.0
+offset_top = -64.0
+offset_right = 1920.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@139" type="ColorRect" parent="Room/WallShadow" unique_id=1963688383]
+offset_left = 1920.0
+offset_top = -64.0
+offset_right = 1936.0
+offset_bottom = -61.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@140" type="ColorRect" parent="Room/WallShadow" unique_id=796431328]
+offset_left = 1920.0
+offset_top = -64.0
+offset_right = 1936.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@141" type="ColorRect" parent="Room/WallShadow" unique_id=534931640]
+offset_left = 1936.0
+offset_top = -64.0
+offset_right = 1952.0
+offset_bottom = -61.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@142" type="ColorRect" parent="Room/WallShadow" unique_id=1366572265]
+offset_left = 1936.0
+offset_top = -64.0
+offset_right = 1952.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@143" type="ColorRect" parent="Room/WallShadow" unique_id=1661908951]
+offset_left = 1952.0
+offset_top = -64.0
+offset_right = 1968.0
+offset_bottom = -61.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@144" type="ColorRect" parent="Room/WallShadow" unique_id=1211011677]
+offset_left = 1952.0
+offset_top = -64.0
+offset_right = 1968.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@145" type="ColorRect" parent="Room/WallShadow" unique_id=1789949195]
+offset_left = 1968.0
+offset_top = -64.0
+offset_right = 1984.0
+offset_bottom = -62.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@146" type="ColorRect" parent="Room/WallShadow" unique_id=1764384133]
+offset_left = 1968.0
+offset_top = -64.0
+offset_right = 1984.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@147" type="ColorRect" parent="Room/WallShadow" unique_id=539175380]
+offset_left = 1998.0
+offset_top = -64.0
+offset_right = 2000.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@148" type="ColorRect" parent="Room/WallShadow" unique_id=1288129794]
+offset_left = 1984.0
+offset_top = -64.0
+offset_right = 2000.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@149" type="ColorRect" parent="Room/WallShadow" unique_id=1971628878]
+offset_left = 1984.0
+offset_top = -64.0
+offset_right = 2000.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@150" type="ColorRect" parent="Room/WallShadow" unique_id=21956272]
+offset_left = 1888.0
+offset_top = -48.0
+offset_right = 1890.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@151" type="ColorRect" parent="Room/WallShadow" unique_id=780351565]
+offset_left = 1888.0
+offset_top = -48.0
+offset_right = 1904.0
+offset_bottom = -45.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@152" type="ColorRect" parent="Room/WallShadow" unique_id=83419253]
+offset_left = 1888.0
+offset_top = -48.0
+offset_right = 1904.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@153" type="ColorRect" parent="Room/WallShadow" unique_id=1273750890]
+offset_left = 2000.0
+offset_top = -48.0
+offset_right = 2016.0
+offset_bottom = -46.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@154" type="ColorRect" parent="Room/WallShadow" unique_id=581372609]
+offset_left = 2000.0
+offset_top = -48.0
+offset_right = 2016.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@155" type="ColorRect" parent="Room/WallShadow" unique_id=2008534128]
+offset_left = 2028.0
+offset_top = -48.0
+offset_right = 2032.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@156" type="ColorRect" parent="Room/WallShadow" unique_id=1170465875]
+offset_left = 2016.0
+offset_top = -48.0
+offset_right = 2032.0
+offset_bottom = -44.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@157" type="ColorRect" parent="Room/WallShadow" unique_id=1957039165]
+offset_left = 2016.0
+offset_top = -34.0
+offset_right = 2032.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@158" type="ColorRect" parent="Room/WallShadow" unique_id=1356883493]
+offset_left = 2016.0
+offset_top = -48.0
+offset_right = 2032.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@159" type="ColorRect" parent="Room/WallShadow" unique_id=1711379216]
+offset_left = 1888.0
+offset_top = -32.0
+offset_right = 1890.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@160" type="ColorRect" parent="Room/WallShadow" unique_id=157142168]
+offset_left = 1888.0
+offset_top = -32.0
+offset_right = 1904.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@161" type="ColorRect" parent="Room/WallShadow" unique_id=177855063]
+offset_left = 2013.0
+offset_top = -32.0
+offset_right = 2016.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@162" type="ColorRect" parent="Room/WallShadow" unique_id=72343576]
+offset_left = 2000.0
+offset_top = -32.0
+offset_right = 2016.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@163" type="ColorRect" parent="Room/WallShadow" unique_id=1766039925]
+offset_left = 1888.0
+offset_top = -16.0
+offset_right = 1891.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@164" type="ColorRect" parent="Room/WallShadow" unique_id=1104106639]
+offset_left = 1888.0
+offset_top = -4.0
+offset_right = 1904.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@165" type="ColorRect" parent="Room/WallShadow" unique_id=546041569]
+offset_left = 1888.0
+offset_top = -16.0
+offset_right = 1904.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@166" type="ColorRect" parent="Room/WallShadow" unique_id=1496605277]
+offset_left = 1904.0
+offset_top = -4.0
+offset_right = 1920.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@167" type="ColorRect" parent="Room/WallShadow" unique_id=2125659837]
+offset_left = 1904.0
+offset_top = -16.0
+offset_right = 1920.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@168" type="ColorRect" parent="Room/WallShadow" unique_id=68186010]
+offset_left = 2013.0
+offset_top = -16.0
+offset_right = 2016.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@169" type="ColorRect" parent="Room/WallShadow" unique_id=6056616]
+offset_left = 2000.0
+offset_top = -16.0
+offset_right = 2016.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@170" type="ColorRect" parent="Room/WallShadow" unique_id=1906349096]
+offset_left = 1920.0
+offset_right = 1924.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@171" type="ColorRect" parent="Room/WallShadow" unique_id=1752113006]
+offset_left = 1920.0
+offset_top = 14.0
+offset_right = 1936.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@172" type="ColorRect" parent="Room/WallShadow" unique_id=41185053]
+offset_left = 1920.0
+offset_right = 1936.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@173" type="ColorRect" parent="Room/WallShadow" unique_id=1331722908]
+offset_left = 1936.0
+offset_top = 12.0
+offset_right = 1952.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@174" type="ColorRect" parent="Room/WallShadow" unique_id=1146704850]
+offset_left = 1936.0
+offset_right = 1952.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@175" type="ColorRect" parent="Room/WallShadow" unique_id=2012835438]
+offset_left = 1952.0
+offset_top = 12.0
+offset_right = 1968.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@176" type="ColorRect" parent="Room/WallShadow" unique_id=532621334]
+offset_left = 1952.0
+offset_right = 1968.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@177" type="ColorRect" parent="Room/WallShadow" unique_id=617033029]
+offset_left = 1968.0
+offset_top = 14.0
+offset_right = 1984.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@178" type="ColorRect" parent="Room/WallShadow" unique_id=1757084586]
+offset_left = 1968.0
+offset_right = 1984.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@179" type="ColorRect" parent="Room/WallShadow" unique_id=1298448707]
+offset_left = 1984.0
+offset_top = 14.0
+offset_right = 2000.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@180" type="ColorRect" parent="Room/WallShadow" unique_id=584009701]
+offset_left = 1984.0
+offset_right = 2000.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@181" type="ColorRect" parent="Room/WallShadow" unique_id=1365582475]
+offset_left = 2012.0
+offset_right = 2016.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@182" type="ColorRect" parent="Room/WallShadow" unique_id=461067457]
+offset_left = 2000.0
+offset_top = 13.0
+offset_right = 2016.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@183" type="ColorRect" parent="Room/WallShadow" unique_id=1023398593]
+offset_left = 2000.0
+offset_right = 2016.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@184" type="ColorRect" parent="Room/WallShadow" unique_id=615976958]
+offset_left = 2512.0
+offset_top = -64.0
+offset_right = 2516.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@185" type="ColorRect" parent="Room/WallShadow" unique_id=1267864587]
+offset_left = 2512.0
+offset_top = -64.0
+offset_right = 2528.0
+offset_bottom = -61.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@186" type="ColorRect" parent="Room/WallShadow" unique_id=210330561]
+offset_left = 2512.0
+offset_top = -64.0
+offset_right = 2528.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@187" type="ColorRect" parent="Room/WallShadow" unique_id=1828562329]
+offset_left = 2528.0
+offset_top = -64.0
+offset_right = 2544.0
+offset_bottom = -62.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@188" type="ColorRect" parent="Room/WallShadow" unique_id=1506180486]
+offset_left = 2528.0
+offset_top = -64.0
+offset_right = 2544.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@189" type="ColorRect" parent="Room/WallShadow" unique_id=537173911]
+offset_left = 2544.0
+offset_top = -64.0
+offset_right = 2560.0
+offset_bottom = -62.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@190" type="ColorRect" parent="Room/WallShadow" unique_id=1455090761]
+offset_left = 2544.0
+offset_top = -64.0
+offset_right = 2560.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@191" type="ColorRect" parent="Room/WallShadow" unique_id=23502873]
+offset_left = 2560.0
+offset_top = -64.0
+offset_right = 2576.0
+offset_bottom = -62.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@192" type="ColorRect" parent="Room/WallShadow" unique_id=774636383]
+offset_left = 2560.0
+offset_top = -64.0
+offset_right = 2576.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@193" type="ColorRect" parent="Room/WallShadow" unique_id=924273815]
+offset_left = 2590.0
+offset_top = -64.0
+offset_right = 2592.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@194" type="ColorRect" parent="Room/WallShadow" unique_id=1910438840]
+offset_left = 2576.0
+offset_top = -64.0
+offset_right = 2592.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@195" type="ColorRect" parent="Room/WallShadow" unique_id=618678851]
+offset_left = 2576.0
+offset_top = -64.0
+offset_right = 2592.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@196" type="ColorRect" parent="Room/WallShadow" unique_id=241857780]
+offset_left = 2480.0
+offset_top = -48.0
+offset_right = 2482.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@197" type="ColorRect" parent="Room/WallShadow" unique_id=1104096966]
+offset_left = 2480.0
+offset_top = -48.0
+offset_right = 2496.0
+offset_bottom = -44.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@198" type="ColorRect" parent="Room/WallShadow" unique_id=1414379725]
+offset_left = 2480.0
+offset_top = -48.0
+offset_right = 2496.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@199" type="ColorRect" parent="Room/WallShadow" unique_id=1767812009]
+offset_left = 2496.0
+offset_top = -48.0
+offset_right = 2512.0
+offset_bottom = -44.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@200" type="ColorRect" parent="Room/WallShadow" unique_id=1117685400]
+offset_left = 2496.0
+offset_top = -48.0
+offset_right = 2512.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@201" type="ColorRect" parent="Room/WallShadow" unique_id=157285505]
+offset_left = 2606.0
+offset_top = -48.0
+offset_right = 2608.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@202" type="ColorRect" parent="Room/WallShadow" unique_id=68089266]
+offset_left = 2592.0
+offset_top = -48.0
+offset_right = 2608.0
+offset_bottom = -44.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@203" type="ColorRect" parent="Room/WallShadow" unique_id=708851923]
+offset_left = 2592.0
+offset_top = -48.0
+offset_right = 2608.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@204" type="ColorRect" parent="Room/WallShadow" unique_id=1089334664]
+offset_left = 2480.0
+offset_top = -32.0
+offset_right = 2484.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@205" type="ColorRect" parent="Room/WallShadow" unique_id=81083101]
+offset_left = 2480.0
+offset_top = -32.0
+offset_right = 2496.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@206" type="ColorRect" parent="Room/WallShadow" unique_id=224266798]
+offset_left = 2622.0
+offset_top = -32.0
+offset_right = 2624.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@207" type="ColorRect" parent="Room/WallShadow" unique_id=1715687161]
+offset_left = 2608.0
+offset_top = -32.0
+offset_right = 2624.0
+offset_bottom = -28.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@208" type="ColorRect" parent="Room/WallShadow" unique_id=280506241]
+offset_left = 2608.0
+offset_top = -32.0
+offset_right = 2624.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@209" type="ColorRect" parent="Room/WallShadow" unique_id=1467530024]
+offset_left = 2464.0
+offset_top = -16.0
+offset_right = 2468.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@210" type="ColorRect" parent="Room/WallShadow" unique_id=460650855]
+offset_left = 2464.0
+offset_top = -16.0
+offset_right = 2480.0
+offset_bottom = -14.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@211" type="ColorRect" parent="Room/WallShadow" unique_id=80589896]
+offset_left = 2464.0
+offset_top = -16.0
+offset_right = 2480.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@212" type="ColorRect" parent="Room/WallShadow" unique_id=1210873080]
+offset_left = 2620.0
+offset_top = -16.0
+offset_right = 2624.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@213" type="ColorRect" parent="Room/WallShadow" unique_id=1854550264]
+offset_left = 2608.0
+offset_top = -16.0
+offset_right = 2624.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@214" type="ColorRect" parent="Room/WallShadow" unique_id=1602932883]
+offset_left = 2464.0
+offset_right = 2468.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@215" type="ColorRect" parent="Room/WallShadow" unique_id=758007098]
+offset_left = 2464.0
+offset_top = 13.0
+offset_right = 2480.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@216" type="ColorRect" parent="Room/WallShadow" unique_id=1606985713]
+offset_left = 2464.0
+offset_right = 2480.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@217" type="ColorRect" parent="Room/WallShadow" unique_id=1297459697]
+offset_left = 2480.0
+offset_top = 14.0
+offset_right = 2496.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@218" type="ColorRect" parent="Room/WallShadow" unique_id=460750675]
+offset_left = 2480.0
+offset_right = 2496.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@219" type="ColorRect" parent="Room/WallShadow" unique_id=1302569207]
+offset_left = 2621.0
+offset_right = 2624.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@220" type="ColorRect" parent="Room/WallShadow" unique_id=1488470312]
+offset_left = 2608.0
+offset_top = 12.0
+offset_right = 2624.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@221" type="ColorRect" parent="Room/WallShadow" unique_id=1492613720]
+offset_left = 2608.0
+offset_right = 2624.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@222" type="ColorRect" parent="Room/WallShadow" unique_id=859542215]
+offset_left = 2496.0
+offset_top = 16.0
+offset_right = 2499.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@223" type="ColorRect" parent="Room/WallShadow" unique_id=449329372]
+offset_left = 2496.0
+offset_top = 30.0
+offset_right = 2512.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@224" type="ColorRect" parent="Room/WallShadow" unique_id=1075711222]
+offset_left = 2496.0
+offset_top = 16.0
+offset_right = 2512.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@225" type="ColorRect" parent="Room/WallShadow" unique_id=2011065704]
+offset_left = 2606.0
+offset_top = 16.0
+offset_right = 2608.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@226" type="ColorRect" parent="Room/WallShadow" unique_id=1550824853]
+offset_left = 2592.0
+offset_top = 16.0
+offset_right = 2608.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@227" type="ColorRect" parent="Room/WallShadow" unique_id=1701889620]
+offset_left = 2512.0
+offset_top = 32.0
+offset_right = 2516.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@228" type="ColorRect" parent="Room/WallShadow" unique_id=1403272009]
+offset_left = 2512.0
+offset_top = 45.0
+offset_right = 2528.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@229" type="ColorRect" parent="Room/WallShadow" unique_id=1177300787]
+offset_left = 2512.0
+offset_top = 32.0
+offset_right = 2528.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@230" type="ColorRect" parent="Room/WallShadow" unique_id=1228798047]
+offset_left = 2528.0
+offset_top = 46.0
+offset_right = 2544.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@231" type="ColorRect" parent="Room/WallShadow" unique_id=879352436]
+offset_left = 2528.0
+offset_top = 32.0
+offset_right = 2544.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@232" type="ColorRect" parent="Room/WallShadow" unique_id=1800821706]
+offset_left = 2544.0
+offset_top = 45.0
+offset_right = 2560.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@233" type="ColorRect" parent="Room/WallShadow" unique_id=978375582]
+offset_left = 2544.0
+offset_top = 32.0
+offset_right = 2560.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@234" type="ColorRect" parent="Room/WallShadow" unique_id=116152929]
+offset_left = 2560.0
+offset_top = 45.0
+offset_right = 2576.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@235" type="ColorRect" parent="Room/WallShadow" unique_id=916182208]
+offset_left = 2560.0
+offset_top = 32.0
+offset_right = 2576.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@236" type="ColorRect" parent="Room/WallShadow" unique_id=1066148499]
+offset_left = 2576.0
+offset_top = 44.0
+offset_right = 2592.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@237" type="ColorRect" parent="Room/WallShadow" unique_id=612680712]
+offset_left = 2576.0
+offset_top = 32.0
+offset_right = 2592.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@238" type="ColorRect" parent="Room/WallShadow" unique_id=1497920880]
+offset_left = 2604.0
+offset_top = 32.0
+offset_right = 2608.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@239" type="ColorRect" parent="Room/WallShadow" unique_id=998802836]
+offset_left = 2592.0
+offset_top = 44.0
+offset_right = 2608.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@240" type="ColorRect" parent="Room/WallShadow" unique_id=1071002497]
+offset_left = 2592.0
+offset_top = 32.0
+offset_right = 2608.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@241" type="ColorRect" parent="Room/WallShadow" unique_id=867347647]
+offset_left = 480.0
+offset_top = -80.0
+offset_right = 482.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@242" type="ColorRect" parent="Room/WallShadow" unique_id=1427877420]
+offset_left = 480.0
+offset_top = -80.0
+offset_right = 496.0
+offset_bottom = -78.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@243" type="ColorRect" parent="Room/WallShadow" unique_id=1295563589]
+offset_left = 480.0
+offset_top = -80.0
+offset_right = 496.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@244" type="ColorRect" parent="Room/WallShadow" unique_id=1193998437]
+offset_left = 496.0
+offset_top = -80.0
+offset_right = 512.0
+offset_bottom = -76.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@245" type="ColorRect" parent="Room/WallShadow" unique_id=689789116]
+offset_left = 496.0
+offset_top = -80.0
+offset_right = 512.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@246" type="ColorRect" parent="Room/WallShadow" unique_id=1204288785]
+offset_left = 512.0
+offset_top = -80.0
+offset_right = 528.0
+offset_bottom = -76.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@247" type="ColorRect" parent="Room/WallShadow" unique_id=1230567562]
+offset_left = 512.0
+offset_top = -80.0
+offset_right = 528.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@248" type="ColorRect" parent="Room/WallShadow" unique_id=923888132]
+offset_left = 528.0
+offset_top = -80.0
+offset_right = 544.0
+offset_bottom = -77.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@249" type="ColorRect" parent="Room/WallShadow" unique_id=879198439]
+offset_left = 528.0
+offset_top = -80.0
+offset_right = 544.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@250" type="ColorRect" parent="Room/WallShadow" unique_id=971570406]
+offset_left = 544.0
+offset_top = -80.0
+offset_right = 560.0
+offset_bottom = -78.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@251" type="ColorRect" parent="Room/WallShadow" unique_id=1332087036]
+offset_left = 544.0
+offset_top = -80.0
+offset_right = 560.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@252" type="ColorRect" parent="Room/WallShadow" unique_id=1115500202]
+offset_left = 560.0
+offset_top = -80.0
+offset_right = 576.0
+offset_bottom = -78.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@253" type="ColorRect" parent="Room/WallShadow" unique_id=566423421]
+offset_left = 560.0
+offset_top = -80.0
+offset_right = 576.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@254" type="ColorRect" parent="Room/WallShadow" unique_id=1725163664]
+offset_left = 590.0
+offset_top = -80.0
+offset_right = 592.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@255" type="ColorRect" parent="Room/WallShadow" unique_id=2063080062]
+offset_left = 576.0
+offset_top = -80.0
+offset_right = 592.0
+offset_bottom = -76.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@256" type="ColorRect" parent="Room/WallShadow" unique_id=548834369]
+offset_left = 576.0
+offset_top = -80.0
+offset_right = 592.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@257" type="ColorRect" parent="Room/WallShadow" unique_id=395462788]
+offset_left = 432.0
+offset_top = -64.0
+offset_right = 436.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@258" type="ColorRect" parent="Room/WallShadow" unique_id=2019103842]
+offset_left = 432.0
+offset_top = -64.0
+offset_right = 448.0
+offset_bottom = -61.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@259" type="ColorRect" parent="Room/WallShadow" unique_id=44645831]
+offset_left = 432.0
+offset_top = -64.0
+offset_right = 448.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@260" type="ColorRect" parent="Room/WallShadow" unique_id=2064276314]
+offset_left = 448.0
+offset_top = -64.0
+offset_right = 464.0
+offset_bottom = -62.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@261" type="ColorRect" parent="Room/WallShadow" unique_id=1387466710]
+offset_left = 448.0
+offset_top = -64.0
+offset_right = 464.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@262" type="ColorRect" parent="Room/WallShadow" unique_id=1327484838]
+offset_left = 464.0
+offset_top = -64.0
+offset_right = 480.0
+offset_bottom = -62.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@263" type="ColorRect" parent="Room/WallShadow" unique_id=1524806668]
+offset_left = 464.0
+offset_top = -64.0
+offset_right = 480.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@264" type="ColorRect" parent="Room/WallShadow" unique_id=624268590]
+offset_left = 606.0
+offset_top = -64.0
+offset_right = 608.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@265" type="ColorRect" parent="Room/WallShadow" unique_id=77896416]
+offset_left = 592.0
+offset_top = -64.0
+offset_right = 608.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@266" type="ColorRect" parent="Room/WallShadow" unique_id=1421521559]
+offset_left = 592.0
+offset_top = -64.0
+offset_right = 608.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@267" type="ColorRect" parent="Room/WallShadow" unique_id=1639314897]
+offset_left = 416.0
+offset_top = -48.0
+offset_right = 420.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@268" type="ColorRect" parent="Room/WallShadow" unique_id=745148870]
+offset_left = 416.0
+offset_top = -48.0
+offset_right = 432.0
+offset_bottom = -46.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@269" type="ColorRect" parent="Room/WallShadow" unique_id=1087037960]
+offset_left = 416.0
+offset_top = -48.0
+offset_right = 432.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@270" type="ColorRect" parent="Room/WallShadow" unique_id=830197002]
+offset_left = 621.0
+offset_top = -48.0
+offset_right = 624.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@271" type="ColorRect" parent="Room/WallShadow" unique_id=1295617306]
+offset_left = 608.0
+offset_top = -48.0
+offset_right = 624.0
+offset_bottom = -45.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@272" type="ColorRect" parent="Room/WallShadow" unique_id=450903353]
+offset_left = 608.0
+offset_top = -48.0
+offset_right = 624.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@273" type="ColorRect" parent="Room/WallShadow" unique_id=1068675490]
+offset_left = 416.0
+offset_top = -32.0
+offset_right = 418.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@274" type="ColorRect" parent="Room/WallShadow" unique_id=996078070]
+offset_left = 416.0
+offset_top = -32.0
+offset_right = 432.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@275" type="ColorRect" parent="Room/WallShadow" unique_id=2022050079]
+offset_left = 637.0
+offset_top = -32.0
+offset_right = 640.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@276" type="ColorRect" parent="Room/WallShadow" unique_id=951164358]
+offset_left = 624.0
+offset_top = -32.0
+offset_right = 640.0
+offset_bottom = -28.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@277" type="ColorRect" parent="Room/WallShadow" unique_id=1491223074]
+offset_left = 624.0
+offset_top = -32.0
+offset_right = 640.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@278" type="ColorRect" parent="Room/WallShadow" unique_id=523709202]
+offset_left = 400.0
+offset_top = -16.0
+offset_right = 403.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@279" type="ColorRect" parent="Room/WallShadow" unique_id=1758554597]
+offset_left = 400.0
+offset_top = -16.0
+offset_right = 416.0
+offset_bottom = -13.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@280" type="ColorRect" parent="Room/WallShadow" unique_id=1748370694]
+offset_left = 400.0
+offset_top = -16.0
+offset_right = 416.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@281" type="ColorRect" parent="Room/WallShadow" unique_id=2092533724]
+offset_left = 637.0
+offset_top = -16.0
+offset_right = 640.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@282" type="ColorRect" parent="Room/WallShadow" unique_id=1041438925]
+offset_left = 624.0
+offset_top = -16.0
+offset_right = 640.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@283" type="ColorRect" parent="Room/WallShadow" unique_id=23103807]
+offset_left = 400.0
+offset_right = 404.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@284" type="ColorRect" parent="Room/WallShadow" unique_id=1004108677]
+offset_left = 400.0
+offset_top = 12.0
+offset_right = 416.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@285" type="ColorRect" parent="Room/WallShadow" unique_id=20205506]
+offset_left = 400.0
+offset_right = 416.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@286" type="ColorRect" parent="Room/WallShadow" unique_id=61644282]
+offset_left = 416.0
+offset_top = 14.0
+offset_right = 432.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@287" type="ColorRect" parent="Room/WallShadow" unique_id=2079685826]
+offset_left = 416.0
+offset_right = 432.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@288" type="ColorRect" parent="Room/WallShadow" unique_id=401717641]
+offset_left = 636.0
+offset_right = 640.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@289" type="ColorRect" parent="Room/WallShadow" unique_id=1267901149]
+offset_left = 624.0
+offset_top = 13.0
+offset_right = 640.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@290" type="ColorRect" parent="Room/WallShadow" unique_id=1776364801]
+offset_left = 624.0
+offset_right = 640.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@291" type="ColorRect" parent="Room/WallShadow" unique_id=179902511]
+offset_left = 432.0
+offset_top = 16.0
+offset_right = 435.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@292" type="ColorRect" parent="Room/WallShadow" unique_id=2076479616]
+offset_left = 432.0
+offset_top = 16.0
+offset_right = 448.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@293" type="ColorRect" parent="Room/WallShadow" unique_id=1668947865]
+offset_left = 592.0
+offset_top = 29.0
+offset_right = 608.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@294" type="ColorRect" parent="Room/WallShadow" unique_id=1163897052]
+offset_left = 592.0
+offset_top = 16.0
+offset_right = 608.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@295" type="ColorRect" parent="Room/WallShadow" unique_id=1681757053]
+offset_left = 621.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@296" type="ColorRect" parent="Room/WallShadow" unique_id=1824171041]
+offset_left = 608.0
+offset_top = 29.0
+offset_right = 624.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@297" type="ColorRect" parent="Room/WallShadow" unique_id=328814899]
+offset_left = 608.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@298" type="ColorRect" parent="Room/WallShadow" unique_id=2123132977]
+offset_left = 432.0
+offset_top = 32.0
+offset_right = 434.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@299" type="ColorRect" parent="Room/WallShadow" unique_id=260257181]
+offset_left = 432.0
+offset_top = 44.0
+offset_right = 448.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@300" type="ColorRect" parent="Room/WallShadow" unique_id=1123028597]
+offset_left = 432.0
+offset_top = 32.0
+offset_right = 448.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@301" type="ColorRect" parent="Room/WallShadow" unique_id=965214900]
+offset_left = 448.0
+offset_top = 46.0
+offset_right = 464.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@302" type="ColorRect" parent="Room/WallShadow" unique_id=1245914472]
+offset_left = 448.0
+offset_top = 32.0
+offset_right = 464.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@303" type="ColorRect" parent="Room/WallShadow" unique_id=482216354]
+offset_left = 464.0
+offset_top = 44.0
+offset_right = 480.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@304" type="ColorRect" parent="Room/WallShadow" unique_id=263258744]
+offset_left = 464.0
+offset_top = 32.0
+offset_right = 480.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@305" type="ColorRect" parent="Room/WallShadow" unique_id=2071999451]
+offset_left = 560.0
+offset_top = 45.0
+offset_right = 576.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@306" type="ColorRect" parent="Room/WallShadow" unique_id=1698707143]
+offset_left = 560.0
+offset_top = 32.0
+offset_right = 576.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@307" type="ColorRect" parent="Room/WallShadow" unique_id=243106641]
+offset_left = 588.0
+offset_top = 32.0
+offset_right = 592.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@308" type="ColorRect" parent="Room/WallShadow" unique_id=1574553129]
+offset_left = 576.0
+offset_top = 44.0
+offset_right = 592.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@309" type="ColorRect" parent="Room/WallShadow" unique_id=729785501]
+offset_left = 576.0
+offset_top = 32.0
+offset_right = 592.0
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@310" type="ColorRect" parent="Room/WallShadow" unique_id=1548324738]
+offset_left = 480.0
+offset_top = 48.0
+offset_right = 483.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@311" type="ColorRect" parent="Room/WallShadow" unique_id=1139830915]
+offset_left = 480.0
+offset_top = 60.0
+offset_right = 496.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@312" type="ColorRect" parent="Room/WallShadow" unique_id=1878656436]
+offset_left = 480.0
+offset_top = 48.0
+offset_right = 496.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@313" type="ColorRect" parent="Room/WallShadow" unique_id=1742128747]
+offset_left = 496.0
+offset_top = 60.0
+offset_right = 512.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@314" type="ColorRect" parent="Room/WallShadow" unique_id=570808220]
+offset_left = 496.0
+offset_top = 48.0
+offset_right = 512.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@315" type="ColorRect" parent="Room/WallShadow" unique_id=48862177]
+offset_left = 512.0
+offset_top = 62.0
+offset_right = 528.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@316" type="ColorRect" parent="Room/WallShadow" unique_id=1397406981]
+offset_left = 512.0
+offset_top = 48.0
+offset_right = 528.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@317" type="ColorRect" parent="Room/WallShadow" unique_id=1002884012]
+offset_left = 528.0
+offset_top = 61.0
+offset_right = 544.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@318" type="ColorRect" parent="Room/WallShadow" unique_id=597436178]
+offset_left = 528.0
+offset_top = 48.0
+offset_right = 544.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@319" type="ColorRect" parent="Room/WallShadow" unique_id=2044437606]
+offset_left = 558.0
+offset_top = 48.0
+offset_right = 560.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@320" type="ColorRect" parent="Room/WallShadow" unique_id=8771433]
+offset_left = 544.0
+offset_top = 62.0
+offset_right = 560.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@321" type="ColorRect" parent="Room/WallShadow" unique_id=1271439319]
+offset_left = 544.0
+offset_top = 48.0
+offset_right = 560.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@322" type="ColorRect" parent="Room/WallShadow" unique_id=1810553503]
+offset_left = 976.0
+offset_top = -80.0
+offset_right = 979.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@323" type="ColorRect" parent="Room/WallShadow" unique_id=1147908873]
+offset_left = 976.0
+offset_top = -80.0
+offset_right = 992.0
+offset_bottom = -78.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@324" type="ColorRect" parent="Room/WallShadow" unique_id=1189066430]
+offset_left = 976.0
+offset_top = -80.0
+offset_right = 992.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@325" type="ColorRect" parent="Room/WallShadow" unique_id=1762931664]
+offset_left = 992.0
+offset_top = -80.0
+offset_right = 1008.0
+offset_bottom = -76.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@326" type="ColorRect" parent="Room/WallShadow" unique_id=311735712]
+offset_left = 992.0
+offset_top = -80.0
+offset_right = 1008.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@327" type="ColorRect" parent="Room/WallShadow" unique_id=201039323]
+offset_left = 1008.0
+offset_top = -80.0
+offset_right = 1024.0
+offset_bottom = -76.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@328" type="ColorRect" parent="Room/WallShadow" unique_id=1945658920]
+offset_left = 1008.0
+offset_top = -80.0
+offset_right = 1024.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@329" type="ColorRect" parent="Room/WallShadow" unique_id=736052605]
+offset_left = 1036.0
+offset_top = -80.0
+offset_right = 1040.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@330" type="ColorRect" parent="Room/WallShadow" unique_id=1402851918]
+offset_left = 1024.0
+offset_top = -80.0
+offset_right = 1040.0
+offset_bottom = -78.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@331" type="ColorRect" parent="Room/WallShadow" unique_id=315689166]
+offset_left = 1024.0
+offset_top = -80.0
+offset_right = 1040.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@332" type="ColorRect" parent="Room/WallShadow" unique_id=502870054]
+offset_left = 960.0
+offset_top = -64.0
+offset_right = 964.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@333" type="ColorRect" parent="Room/WallShadow" unique_id=1482577950]
+offset_left = 960.0
+offset_top = -64.0
+offset_right = 976.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@334" type="ColorRect" parent="Room/WallShadow" unique_id=676425195]
+offset_left = 960.0
+offset_top = -64.0
+offset_right = 976.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@335" type="ColorRect" parent="Room/WallShadow" unique_id=1148249318]
+offset_left = 1040.0
+offset_top = -64.0
+offset_right = 1056.0
+offset_bottom = -61.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@336" type="ColorRect" parent="Room/WallShadow" unique_id=1798029960]
+offset_left = 1040.0
+offset_top = -64.0
+offset_right = 1056.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@337" type="ColorRect" parent="Room/WallShadow" unique_id=1772911420]
+offset_left = 1068.0
+offset_top = -64.0
+offset_right = 1072.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@338" type="ColorRect" parent="Room/WallShadow" unique_id=1621618681]
+offset_left = 1056.0
+offset_top = -64.0
+offset_right = 1072.0
+offset_bottom = -60.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@339" type="ColorRect" parent="Room/WallShadow" unique_id=830288552]
+offset_left = 1056.0
+offset_top = -64.0
+offset_right = 1072.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@340" type="ColorRect" parent="Room/WallShadow" unique_id=1424018466]
+offset_left = 944.0
+offset_top = -48.0
+offset_right = 947.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@341" type="ColorRect" parent="Room/WallShadow" unique_id=971328698]
+offset_left = 944.0
+offset_top = -48.0
+offset_right = 960.0
+offset_bottom = -44.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@342" type="ColorRect" parent="Room/WallShadow" unique_id=809433703]
+offset_left = 944.0
+offset_top = -34.0
+offset_right = 960.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@343" type="ColorRect" parent="Room/WallShadow" unique_id=1545919402]
+offset_left = 944.0
+offset_top = -48.0
+offset_right = 960.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@344" type="ColorRect" parent="Room/WallShadow" unique_id=763584793]
+offset_left = 1068.0
+offset_top = -48.0
+offset_right = 1072.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@345" type="ColorRect" parent="Room/WallShadow" unique_id=519079424]
+offset_left = 1056.0
+offset_top = -48.0
+offset_right = 1072.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@346" type="ColorRect" parent="Room/WallShadow" unique_id=1037782095]
+offset_left = 960.0
+offset_top = -32.0
+offset_right = 964.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@347" type="ColorRect" parent="Room/WallShadow" unique_id=1979652539]
+offset_left = 960.0
+offset_top = -20.0
+offset_right = 976.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@348" type="ColorRect" parent="Room/WallShadow" unique_id=1296011428]
+offset_left = 960.0
+offset_top = -32.0
+offset_right = 976.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@349" type="ColorRect" parent="Room/WallShadow" unique_id=402125829]
+offset_left = 976.0
+offset_top = -18.0
+offset_right = 992.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@350" type="ColorRect" parent="Room/WallShadow" unique_id=1880530762]
+offset_left = 976.0
+offset_top = -32.0
+offset_right = 992.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@351" type="ColorRect" parent="Room/WallShadow" unique_id=1440968630]
+offset_left = 1040.0
+offset_top = -20.0
+offset_right = 1056.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@352" type="ColorRect" parent="Room/WallShadow" unique_id=1767485651]
+offset_left = 1040.0
+offset_top = -32.0
+offset_right = 1056.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@353" type="ColorRect" parent="Room/WallShadow" unique_id=1125303289]
+offset_left = 1069.0
+offset_top = -32.0
+offset_right = 1072.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@354" type="ColorRect" parent="Room/WallShadow" unique_id=811078728]
+offset_left = 1056.0
+offset_top = -20.0
+offset_right = 1072.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@355" type="ColorRect" parent="Room/WallShadow" unique_id=1849064960]
+offset_left = 1056.0
+offset_top = -32.0
+offset_right = 1072.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@356" type="ColorRect" parent="Room/WallShadow" unique_id=555098295]
+offset_left = 992.0
+offset_top = -16.0
+offset_right = 995.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@357" type="ColorRect" parent="Room/WallShadow" unique_id=1780145978]
+offset_left = 992.0
+offset_top = -3.0
+offset_right = 1008.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@358" type="ColorRect" parent="Room/WallShadow" unique_id=1878179259]
+offset_left = 992.0
+offset_top = -16.0
+offset_right = 1008.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@359" type="ColorRect" parent="Room/WallShadow" unique_id=679524141]
+offset_left = 1008.0
+offset_top = -4.0
+offset_right = 1024.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@360" type="ColorRect" parent="Room/WallShadow" unique_id=265580123]
+offset_left = 1008.0
+offset_top = -16.0
+offset_right = 1024.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@361" type="ColorRect" parent="Room/WallShadow" unique_id=1123381845]
+offset_left = 1037.0
+offset_top = -16.0
+offset_right = 1040.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@362" type="ColorRect" parent="Room/WallShadow" unique_id=1603797440]
+offset_left = 1024.0
+offset_top = -2.0
+offset_right = 1040.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@363" type="ColorRect" parent="Room/WallShadow" unique_id=576366831]
+offset_left = 1024.0
+offset_top = -16.0
+offset_right = 1040.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@364" type="ColorRect" parent="Room/WallShadow" unique_id=2075422703]
+offset_left = 2832.0
+offset_top = -160.0
+offset_right = 2834.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@365" type="ColorRect" parent="Room/WallShadow" unique_id=676296870]
+offset_left = 2832.0
+offset_top = -160.0
+offset_right = 2848.0
+offset_bottom = -158.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@366" type="ColorRect" parent="Room/WallShadow" unique_id=382178128]
+offset_left = 2832.0
+offset_top = -160.0
+offset_right = 2848.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@367" type="ColorRect" parent="Room/WallShadow" unique_id=1754469747]
+offset_left = 2848.0
+offset_top = -160.0
+offset_right = 2864.0
+offset_bottom = -158.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@368" type="ColorRect" parent="Room/WallShadow" unique_id=141015586]
+offset_left = 2848.0
+offset_top = -160.0
+offset_right = 2864.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@369" type="ColorRect" parent="Room/WallShadow" unique_id=635747139]
+offset_left = 2864.0
+offset_top = -160.0
+offset_right = 2880.0
+offset_bottom = -157.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@370" type="ColorRect" parent="Room/WallShadow" unique_id=332546324]
+offset_left = 2864.0
+offset_top = -160.0
+offset_right = 2880.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@371" type="ColorRect" parent="Room/WallShadow" unique_id=677579079]
+offset_left = 2880.0
+offset_top = -160.0
+offset_right = 2896.0
+offset_bottom = -158.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@372" type="ColorRect" parent="Room/WallShadow" unique_id=553826483]
+offset_left = 2880.0
+offset_top = -160.0
+offset_right = 2896.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@373" type="ColorRect" parent="Room/WallShadow" unique_id=612109055]
+offset_left = 2896.0
+offset_top = -160.0
+offset_right = 2912.0
+offset_bottom = -156.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@374" type="ColorRect" parent="Room/WallShadow" unique_id=1331028239]
+offset_left = 2896.0
+offset_top = -160.0
+offset_right = 2912.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@375" type="ColorRect" parent="Room/WallShadow" unique_id=1416691803]
+offset_left = 2924.0
+offset_top = -160.0
+offset_right = 2928.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@376" type="ColorRect" parent="Room/WallShadow" unique_id=211015285]
+offset_left = 2912.0
+offset_top = -160.0
+offset_right = 2928.0
+offset_bottom = -156.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@377" type="ColorRect" parent="Room/WallShadow" unique_id=2073246664]
+offset_left = 2912.0
+offset_top = -160.0
+offset_right = 2928.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@378" type="ColorRect" parent="Room/WallShadow" unique_id=1055463201]
+offset_left = 2832.0
+offset_top = -144.0
+offset_right = 2835.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@379" type="ColorRect" parent="Room/WallShadow" unique_id=24675467]
+offset_left = 2832.0
+offset_top = -144.0
+offset_right = 2848.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@380" type="ColorRect" parent="Room/WallShadow" unique_id=1017805806]
+offset_left = 2928.0
+offset_top = -144.0
+offset_right = 2944.0
+offset_bottom = -141.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@381" type="ColorRect" parent="Room/WallShadow" unique_id=2109262491]
+offset_left = 2928.0
+offset_top = -144.0
+offset_right = 2944.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@382" type="ColorRect" parent="Room/WallShadow" unique_id=729898660]
+offset_left = 2957.0
+offset_top = -144.0
+offset_right = 2960.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@383" type="ColorRect" parent="Room/WallShadow" unique_id=380712367]
+offset_left = 2944.0
+offset_top = -144.0
+offset_right = 2960.0
+offset_bottom = -140.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@384" type="ColorRect" parent="Room/WallShadow" unique_id=771126895]
+offset_left = 2944.0
+offset_top = -144.0
+offset_right = 2960.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@385" type="ColorRect" parent="Room/WallShadow" unique_id=942903178]
+offset_left = 2832.0
+offset_top = -128.0
+offset_right = 2836.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@386" type="ColorRect" parent="Room/WallShadow" unique_id=1204598665]
+offset_left = 2832.0
+offset_top = -128.0
+offset_right = 2848.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@387" type="ColorRect" parent="Room/WallShadow" unique_id=2083231810]
+offset_left = 2956.0
+offset_top = -128.0
+offset_right = 2960.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@388" type="ColorRect" parent="Room/WallShadow" unique_id=869939537]
+offset_left = 2944.0
+offset_top = -128.0
+offset_right = 2960.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@389" type="ColorRect" parent="Room/WallShadow" unique_id=707759024]
+offset_left = 2832.0
+offset_top = -112.0
+offset_right = 2835.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@390" type="ColorRect" parent="Room/WallShadow" unique_id=625036624]
+offset_left = 2832.0
+offset_top = -112.0
+offset_right = 2848.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@391" type="ColorRect" parent="Room/WallShadow" unique_id=1637374981]
+offset_left = 2957.0
+offset_top = -112.0
+offset_right = 2960.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@392" type="ColorRect" parent="Room/WallShadow" unique_id=112995294]
+offset_left = 2944.0
+offset_top = -100.0
+offset_right = 2960.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@393" type="ColorRect" parent="Room/WallShadow" unique_id=1145751692]
+offset_left = 2944.0
+offset_top = -112.0
+offset_right = 2960.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@394" type="ColorRect" parent="Room/WallShadow" unique_id=1417980778]
+offset_left = 2832.0
+offset_top = -96.0
+offset_right = 2835.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@395" type="ColorRect" parent="Room/WallShadow" unique_id=758035791]
+offset_left = 2832.0
+offset_top = -82.0
+offset_right = 2848.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@396" type="ColorRect" parent="Room/WallShadow" unique_id=104939926]
+offset_left = 2832.0
+offset_top = -96.0
+offset_right = 2848.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@397" type="ColorRect" parent="Room/WallShadow" unique_id=945047731]
+offset_left = 2848.0
+offset_top = -83.0
+offset_right = 2864.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@398" type="ColorRect" parent="Room/WallShadow" unique_id=486680484]
+offset_left = 2848.0
+offset_top = -96.0
+offset_right = 2864.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@399" type="ColorRect" parent="Room/WallShadow" unique_id=1091139100]
+offset_left = 2864.0
+offset_top = -84.0
+offset_right = 2880.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@400" type="ColorRect" parent="Room/WallShadow" unique_id=22132244]
+offset_left = 2864.0
+offset_top = -96.0
+offset_right = 2880.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@401" type="ColorRect" parent="Room/WallShadow" unique_id=715266657]
+offset_left = 2880.0
+offset_top = -84.0
+offset_right = 2896.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@402" type="ColorRect" parent="Room/WallShadow" unique_id=949994503]
+offset_left = 2880.0
+offset_top = -96.0
+offset_right = 2896.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@403" type="ColorRect" parent="Room/WallShadow" unique_id=1727154593]
+offset_left = 2896.0
+offset_top = -84.0
+offset_right = 2912.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@404" type="ColorRect" parent="Room/WallShadow" unique_id=420568761]
+offset_left = 2896.0
+offset_top = -96.0
+offset_right = 2912.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@405" type="ColorRect" parent="Room/WallShadow" unique_id=1099085321]
+offset_left = 2912.0
+offset_top = -82.0
+offset_right = 2928.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@406" type="ColorRect" parent="Room/WallShadow" unique_id=286583152]
+offset_left = 2912.0
+offset_top = -96.0
+offset_right = 2928.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@407" type="ColorRect" parent="Room/WallShadow" unique_id=1505595140]
+offset_left = 2941.0
+offset_top = -96.0
+offset_right = 2944.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@408" type="ColorRect" parent="Room/WallShadow" unique_id=1891255030]
+offset_left = 2928.0
+offset_top = -82.0
+offset_right = 2944.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@409" type="ColorRect" parent="Room/WallShadow" unique_id=736029186]
+offset_left = 2928.0
+offset_top = -96.0
+offset_right = 2944.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@410" type="ColorRect" parent="Room/WallShadow" unique_id=1644184500]
+offset_left = 1568.0
+offset_top = -160.0
+offset_right = 1570.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@411" type="ColorRect" parent="Room/WallShadow" unique_id=1636943441]
+offset_left = 1568.0
+offset_top = -160.0
+offset_right = 1584.0
+offset_bottom = -156.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@412" type="ColorRect" parent="Room/WallShadow" unique_id=1769007596]
+offset_left = 1568.0
+offset_top = -160.0
+offset_right = 1584.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@413" type="ColorRect" parent="Room/WallShadow" unique_id=1546637357]
+offset_left = 1584.0
+offset_top = -160.0
+offset_right = 1600.0
+offset_bottom = -156.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@414" type="ColorRect" parent="Room/WallShadow" unique_id=902648417]
+offset_left = 1584.0
+offset_top = -160.0
+offset_right = 1600.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@415" type="ColorRect" parent="Room/WallShadow" unique_id=55523812]
+offset_left = 1600.0
+offset_top = -160.0
+offset_right = 1616.0
+offset_bottom = -157.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@416" type="ColorRect" parent="Room/WallShadow" unique_id=990261524]
+offset_left = 1600.0
+offset_top = -160.0
+offset_right = 1616.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@417" type="ColorRect" parent="Room/WallShadow" unique_id=824567039]
+offset_left = 1616.0
+offset_top = -160.0
+offset_right = 1632.0
+offset_bottom = -156.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@418" type="ColorRect" parent="Room/WallShadow" unique_id=1020560690]
+offset_left = 1616.0
+offset_top = -160.0
+offset_right = 1632.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@419" type="ColorRect" parent="Room/WallShadow" unique_id=259019033]
+offset_left = 1632.0
+offset_top = -160.0
+offset_right = 1648.0
+offset_bottom = -158.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@420" type="ColorRect" parent="Room/WallShadow" unique_id=133661774]
+offset_left = 1632.0
+offset_top = -160.0
+offset_right = 1648.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@421" type="ColorRect" parent="Room/WallShadow" unique_id=1365908351]
+offset_left = 1648.0
+offset_top = -160.0
+offset_right = 1664.0
+offset_bottom = -158.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@422" type="ColorRect" parent="Room/WallShadow" unique_id=892942475]
+offset_left = 1648.0
+offset_top = -160.0
+offset_right = 1664.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@423" type="ColorRect" parent="Room/WallShadow" unique_id=1615574434]
+offset_left = 1676.0
+offset_top = -160.0
+offset_right = 1680.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@424" type="ColorRect" parent="Room/WallShadow" unique_id=668094870]
+offset_left = 1664.0
+offset_top = -160.0
+offset_right = 1680.0
+offset_bottom = -157.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@425" type="ColorRect" parent="Room/WallShadow" unique_id=2117569385]
+offset_left = 1664.0
+offset_top = -160.0
+offset_right = 1680.0
+offset_bottom = -144.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@426" type="ColorRect" parent="Room/WallShadow" unique_id=894526554]
+offset_left = 1568.0
+offset_top = -144.0
+offset_right = 1570.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@427" type="ColorRect" parent="Room/WallShadow" unique_id=749980367]
+offset_left = 1568.0
+offset_top = -144.0
+offset_right = 1584.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@428" type="ColorRect" parent="Room/WallShadow" unique_id=1766583916]
+offset_left = 1678.0
+offset_top = -144.0
+offset_right = 1680.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@429" type="ColorRect" parent="Room/WallShadow" unique_id=1219176327]
+offset_left = 1664.0
+offset_top = -144.0
+offset_right = 1680.0
+offset_bottom = -128.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@430" type="ColorRect" parent="Room/WallShadow" unique_id=1192615636]
+offset_left = 1520.0
+offset_top = -128.0
+offset_right = 1522.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@431" type="ColorRect" parent="Room/WallShadow" unique_id=1081714230]
+offset_left = 1520.0
+offset_top = -128.0
+offset_right = 1536.0
+offset_bottom = -125.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@432" type="ColorRect" parent="Room/WallShadow" unique_id=811301138]
+offset_left = 1520.0
+offset_top = -128.0
+offset_right = 1536.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@433" type="ColorRect" parent="Room/WallShadow" unique_id=1832841403]
+offset_left = 1536.0
+offset_top = -128.0
+offset_right = 1552.0
+offset_bottom = -125.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@434" type="ColorRect" parent="Room/WallShadow" unique_id=1343102426]
+offset_left = 1536.0
+offset_top = -128.0
+offset_right = 1552.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@435" type="ColorRect" parent="Room/WallShadow" unique_id=214999014]
+offset_left = 1552.0
+offset_top = -128.0
+offset_right = 1568.0
+offset_bottom = -125.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@436" type="ColorRect" parent="Room/WallShadow" unique_id=1485608449]
+offset_left = 1552.0
+offset_top = -128.0
+offset_right = 1568.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@437" type="ColorRect" parent="Room/WallShadow" unique_id=1836225606]
+offset_left = 1680.0
+offset_top = -128.0
+offset_right = 1696.0
+offset_bottom = -124.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@438" type="ColorRect" parent="Room/WallShadow" unique_id=666586271]
+offset_left = 1680.0
+offset_top = -128.0
+offset_right = 1696.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@439" type="ColorRect" parent="Room/WallShadow" unique_id=881589356]
+offset_left = 1709.0
+offset_top = -128.0
+offset_right = 1712.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@440" type="ColorRect" parent="Room/WallShadow" unique_id=900058993]
+offset_left = 1696.0
+offset_top = -128.0
+offset_right = 1712.0
+offset_bottom = -125.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@441" type="ColorRect" parent="Room/WallShadow" unique_id=351467869]
+offset_left = 1696.0
+offset_top = -128.0
+offset_right = 1712.0
+offset_bottom = -112.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@442" type="ColorRect" parent="Room/WallShadow" unique_id=595859586]
+offset_left = 1520.0
+offset_top = -112.0
+offset_right = 1522.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@443" type="ColorRect" parent="Room/WallShadow" unique_id=215239582]
+offset_left = 1520.0
+offset_top = -112.0
+offset_right = 1536.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@444" type="ColorRect" parent="Room/WallShadow" unique_id=1372188552]
+offset_left = 1724.0
+offset_top = -112.0
+offset_right = 1728.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@445" type="ColorRect" parent="Room/WallShadow" unique_id=1947121727]
+offset_left = 1712.0
+offset_top = -112.0
+offset_right = 1728.0
+offset_bottom = -108.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@446" type="ColorRect" parent="Room/WallShadow" unique_id=1291838462]
+offset_left = 1712.0
+offset_top = -112.0
+offset_right = 1728.0
+offset_bottom = -96.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@447" type="ColorRect" parent="Room/WallShadow" unique_id=1786064162]
+offset_left = 1520.0
+offset_top = -96.0
+offset_right = 1522.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@448" type="ColorRect" parent="Room/WallShadow" unique_id=1304040249]
+offset_left = 1520.0
+offset_top = -84.0
+offset_right = 1536.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@449" type="ColorRect" parent="Room/WallShadow" unique_id=1293416403]
+offset_left = 1520.0
+offset_top = -96.0
+offset_right = 1536.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@450" type="ColorRect" parent="Room/WallShadow" unique_id=1021120151]
+offset_left = 1724.0
+offset_top = -96.0
+offset_right = 1728.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@451" type="ColorRect" parent="Room/WallShadow" unique_id=1622033331]
+offset_left = 1712.0
+offset_top = -83.0
+offset_right = 1728.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@452" type="ColorRect" parent="Room/WallShadow" unique_id=1383400792]
+offset_left = 1712.0
+offset_top = -96.0
+offset_right = 1728.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@453" type="ColorRect" parent="Room/WallShadow" unique_id=1598194119]
+offset_left = 1536.0
+offset_top = -80.0
+offset_right = 1539.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@454" type="ColorRect" parent="Room/WallShadow" unique_id=1079191861]
+offset_left = 1536.0
+offset_top = -80.0
+offset_right = 1552.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@455" type="ColorRect" parent="Room/WallShadow" unique_id=12345319]
+offset_left = 1709.0
+offset_top = -80.0
+offset_right = 1712.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@456" type="ColorRect" parent="Room/WallShadow" unique_id=1769589172]
+offset_left = 1696.0
+offset_top = -67.0
+offset_right = 1712.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@457" type="ColorRect" parent="Room/WallShadow" unique_id=1762563934]
+offset_left = 1696.0
+offset_top = -80.0
+offset_right = 1712.0
+offset_bottom = -64.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@458" type="ColorRect" parent="Room/WallShadow" unique_id=1349845071]
+offset_left = 1536.0
+offset_top = -64.0
+offset_right = 1539.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@459" type="ColorRect" parent="Room/WallShadow" unique_id=447595987]
+offset_left = 1536.0
+offset_top = -51.0
+offset_right = 1552.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@460" type="ColorRect" parent="Room/WallShadow" unique_id=2009402567]
+offset_left = 1536.0
+offset_top = -64.0
+offset_right = 1552.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@461" type="ColorRect" parent="Room/WallShadow" unique_id=488910589]
+offset_left = 1692.0
+offset_top = -64.0
+offset_right = 1696.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@462" type="ColorRect" parent="Room/WallShadow" unique_id=263140314]
+offset_left = 1680.0
+offset_top = -64.0
+offset_right = 1696.0
+offset_bottom = -48.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@463" type="ColorRect" parent="Room/WallShadow" unique_id=1217662633]
+offset_left = 1552.0
+offset_top = -48.0
+offset_right = 1556.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@464" type="ColorRect" parent="Room/WallShadow" unique_id=1463595760]
+offset_left = 1552.0
+offset_top = -36.0
+offset_right = 1568.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@465" type="ColorRect" parent="Room/WallShadow" unique_id=18077648]
+offset_left = 1552.0
+offset_top = -48.0
+offset_right = 1568.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@466" type="ColorRect" parent="Room/WallShadow" unique_id=329342414]
+offset_left = 1568.0
+offset_top = -36.0
+offset_right = 1584.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@467" type="ColorRect" parent="Room/WallShadow" unique_id=1769560702]
+offset_left = 1568.0
+offset_top = -48.0
+offset_right = 1584.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@468" type="ColorRect" parent="Room/WallShadow" unique_id=1718854281]
+offset_left = 1694.0
+offset_top = -48.0
+offset_right = 1696.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@469" type="ColorRect" parent="Room/WallShadow" unique_id=240249716]
+offset_left = 1680.0
+offset_top = -34.0
+offset_right = 1696.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@470" type="ColorRect" parent="Room/WallShadow" unique_id=1469304009]
+offset_left = 1680.0
+offset_top = -48.0
+offset_right = 1696.0
+offset_bottom = -32.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@471" type="ColorRect" parent="Room/WallShadow" unique_id=1966375672]
+offset_left = 1584.0
+offset_top = -32.0
+offset_right = 1588.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@472" type="ColorRect" parent="Room/WallShadow" unique_id=460243663]
+offset_left = 1584.0
+offset_top = -18.0
+offset_right = 1600.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@473" type="ColorRect" parent="Room/WallShadow" unique_id=1156077781]
+offset_left = 1584.0
+offset_top = -32.0
+offset_right = 1600.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@474" type="ColorRect" parent="Room/WallShadow" unique_id=1307706930]
+offset_left = 1600.0
+offset_top = -18.0
+offset_right = 1616.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@475" type="ColorRect" parent="Room/WallShadow" unique_id=888819669]
+offset_left = 1600.0
+offset_top = -32.0
+offset_right = 1616.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@476" type="ColorRect" parent="Room/WallShadow" unique_id=1222172166]
+offset_left = 1616.0
+offset_top = -18.0
+offset_right = 1632.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@477" type="ColorRect" parent="Room/WallShadow" unique_id=2023542223]
+offset_left = 1616.0
+offset_top = -32.0
+offset_right = 1632.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@478" type="ColorRect" parent="Room/WallShadow" unique_id=1277459590]
+offset_left = 1632.0
+offset_top = -18.0
+offset_right = 1648.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@479" type="ColorRect" parent="Room/WallShadow" unique_id=485417786]
+offset_left = 1632.0
+offset_top = -32.0
+offset_right = 1648.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@480" type="ColorRect" parent="Room/WallShadow" unique_id=600072186]
+offset_left = 1648.0
+offset_top = -20.0
+offset_right = 1664.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@481" type="ColorRect" parent="Room/WallShadow" unique_id=1914602677]
+offset_left = 1648.0
+offset_top = -32.0
+offset_right = 1664.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="@ColorRect@482" type="ColorRect" parent="Room/WallShadow" unique_id=1003454284]
+offset_left = 1678.0
+offset_top = -32.0
+offset_right = 1680.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@483" type="ColorRect" parent="Room/WallShadow" unique_id=1579346541]
+offset_left = 1664.0
+offset_top = -20.0
+offset_right = 1680.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.1, 0.09, 0.13, 1)
+
+[node name="@ColorRect@484" type="ColorRect" parent="Room/WallShadow" unique_id=853080009]
+offset_left = 1664.0
+offset_top = -32.0
+offset_right = 1680.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.03, 0.02, 0.06, 0.25)
+
+[node name="LightShaft" type="Polygon2D" parent="Room" unique_id=303956127]
+z_index = -15
+material = SubResource("CanvasItemMaterial_wufyi")
+polygon = PackedVector2Array(3384, 104, 3441.6, 104, 3456, 272, 3360, 272)
+vertex_colors = PackedColorArray(0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0, 0.35, 0.38, 0.6, 0)
+
+[node name="@Polygon2D@485" type="Polygon2D" parent="Room" unique_id=1194038549]
+z_index = -15
+material = SubResource("CanvasItemMaterial_tmump")
+polygon = PackedVector2Array(1931.2, -24, 1965.76, -24, 1974.4, 112, 1916.8, 112)
+vertex_colors = PackedColorArray(0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0, 0.35, 0.38, 0.6, 0)
+
+[node name="@Polygon2D@486" type="Polygon2D" parent="Room" unique_id=30249467]
+z_index = -15
+material = SubResource("CanvasItemMaterial_jw2lq")
+polygon = PackedVector2Array(2512, -8, 2550.4, -8, 2560, 144, 2496, 144)
+vertex_colors = PackedColorArray(0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0, 0.35, 0.38, 0.6, 0)
+
+[node name="@Polygon2D@487" type="Polygon2D" parent="Room" unique_id=319567488]
+z_index = -15
+material = SubResource("CanvasItemMaterial_g207v")
+polygon = PackedVector2Array(472, -8, 529.6, -8, 544, 160, 448, 160)
+vertex_colors = PackedColorArray(0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0, 0.35, 0.38, 0.6, 0)
+
+[node name="@Polygon2D@488" type="Polygon2D" parent="Room" unique_id=1189747809]
+z_index = -15
+material = SubResource("CanvasItemMaterial_jfr78")
+polygon = PackedVector2Array(982.4, -40, 1013.12, -40, 1020.8, 96, 969.6, 96)
+vertex_colors = PackedColorArray(0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0, 0.35, 0.38, 0.6, 0)
+
+[node name="@Polygon2D@489" type="Polygon2D" parent="Room" unique_id=2040339681]
+z_index = -15
+material = SubResource("CanvasItemMaterial_4cbpn")
+polygon = PackedVector2Array(2870.4, -120, 2901.1199, -120, 2908.8, 16, 2857.6, 16)
+vertex_colors = PackedColorArray(0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0, 0.35, 0.38, 0.6, 0)
+
+[node name="@Polygon2D@490" type="Polygon2D" parent="Room" unique_id=510274511]
+z_index = -15
+material = SubResource("CanvasItemMaterial_c8gus")
+polygon = PackedVector2Array(1582.4, -88, 1632.3201, -88, 1644.7999, 80, 1561.6, 80)
+vertex_colors = PackedColorArray(0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0, 0.35, 0.38, 0.6, 0)

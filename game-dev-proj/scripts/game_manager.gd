@@ -59,7 +59,7 @@ var boss_defeated: bool = false
 # Hidden rooms with a chest (scripts/secret_chest.gd), a few levels apart.
 # Saved by SaveManager; `secret_found` is the hook for store achievements.
 signal secret_found(id: String)
-const SECRETS := ["l5_ossuary", "l8_cracked_ceiling", "l10_under_grate"]
+const SECRETS := ["l3_atop_the_shelves", "l5_ossuary", "l8_cracked_ceiling", "l10_under_grate"]
 var secrets: Dictionary = {}       # secret id -> true
 
 ## Marks a secret found; returns false if it already was.
