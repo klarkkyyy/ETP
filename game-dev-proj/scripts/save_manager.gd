@@ -17,9 +17,14 @@ const GAME = "res://levels/game.tscn"
 const INTRO = "res://story/story_intro.tscn"
 const MENU = "res://MENU/main_menu.tscn"
 const VERSION = 1
+const TESTING_PATH = "user://testing.cfg"
 
 ## True when this session saves (started from the main menu).
 var active := false
+## Testing only (debug builds): the level select opens every level, with the
+## echo slots Ren would have by then. Kept in its own file, so NEW GAME (which
+## wipes the save) doesn't turn it off. Set with `set_unlock_all`.
+var unlock_all := false
 ## Level ids (LevelList) Ren has reached: the level select lets him start these.
 var unlocked: Dictionary = {}
 var _pending: Dictionary = {}  # save being loaded by Continue
@@ -28,6 +33,25 @@ var _pending: Dictionary = {}  # save being loaded by Continue
 func _ready() -> void:
 	GameManager.checkpoint_changed.connect(_on_checkpoint)
 	get_tree().node_added.connect(_on_node_added)
+	if OS.is_debug_build():
+		var cfg := ConfigFile.new()
+		if cfg.load(TESTING_PATH) == OK:
+			unlock_all = cfg.get_value("testing", "unlock_all", false)
+
+
+func set_unlock_all(on: bool) -> void:
+	unlock_all = on and OS.is_debug_build()
+	var cfg := ConfigFile.new()
+	cfg.set_value("testing", "unlock_all", unlock_all)
+	cfg.save(TESTING_PATH)
+
+
+## The level ids the level select may start: every level while testing with
+## `unlock_all`, otherwise the ones reached in the save `data`.
+func levels_reached(data: Dictionary) -> Array:
+	if unlock_all:
+		return LevelList.LEVELS.map(func(e): return e["id"])
+	return data.get("levels_unlocked", [])
 
 
 ## A new lantern: the level it's in counts as reached, then save.
@@ -114,8 +138,19 @@ func continue_game() -> void:
 ## Level select: starts the reached level `id` from its beginning.
 func start_level(id: String) -> void:
 	var data := load_data()
-	if data.is_empty() or not (id in data.get("levels_unlocked", [])):
+	if not (id in levels_reached(data)):
 		return
+	if unlock_all:
+		# a level reached by testing, not by playing: give Ren the echo stones
+		# found before it (slot 1 outside, 2 in level 1, 3 in level 2)
+		var order: Array = LevelList.LEVELS.map(func(e): return e["id"])
+		var echoes: Array = data.get("echoes", [])
+		for slot in range(1, mini(order.find(id) + 1, 3) + 1):
+			if not (slot in echoes or float(slot) in echoes):
+				echoes.append(slot)
+		data["echoes"] = echoes
+		if not data.has("checkpoint"):
+			data["checkpoint"] = [0.0, 0.0]  # no save yet; the level's own start is used
 	data["start_level"] = id
 	data["run"] = {}
 	_load(data)

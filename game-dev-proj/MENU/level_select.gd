@@ -38,7 +38,7 @@ func _ready() -> void:
 	grid.add_theme_constant_override("v_separation", 10)
 	col.add_child(grid)
 	var data := SaveManager.load_data()
-	var unlocked: Array = data.get("levels_unlocked", [])
+	var unlocked: Array = SaveManager.levels_reached(data)
 	for e in LevelList.LEVELS:
 		grid.add_child(_tile(e, e["id"] in unlocked, data))
 

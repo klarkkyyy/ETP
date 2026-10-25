@@ -131,7 +131,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y5w2u")
 }],
-"loop": true,
+"loop": 1,
 "name": &"chase",
 "speed": 12.0
 }, {
@@ -154,7 +154,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xdmri")
 }],
-"loop": false,
+"loop": 0,
 "name": &"death",
 "speed": 6.0
 }, {
@@ -171,7 +171,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iemfm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"move",
 "speed": 6.0
 }]
