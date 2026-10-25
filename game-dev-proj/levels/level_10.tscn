@@ -1114,7 +1114,7 @@ position = Vector2(4656, 920)
 position = Vector2(4736, 928)
 collision_mask = 2
 this_id = "teleport_l10_out"
-destination_id = "teleport_l6_boss"
+destination_id = "teleport_b2_in"
 sets_checkpoint = true
 
 [node name="Hint" type="Node2D" parent="Exit" unique_id=1051648438]
@@ -1129,7 +1129,7 @@ theme_override_colors/font_color = Color(0.2647818, 0.2647818, 0.2647818, 1)
 theme_override_fonts/font = ExtResource("6_font")
 theme_override_font_sizes/font_size = 12
 text = "The Outfall.
-To be continued..."
+Something is watching."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1141,7 +1141,7 @@ offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("6_font")
 theme_override_font_sizes/font_size = 12
 text = "The Outfall.
-To be continued..."
+Something is watching."
 horizontal_alignment = 1
 vertical_alignment = 1
 

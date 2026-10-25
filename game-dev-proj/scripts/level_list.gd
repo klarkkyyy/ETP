@@ -20,6 +20,7 @@ const LEVELS = [
 	{"id": "level_8", "label": "LEVEL 8", "level": "Level_8", "goal": true},
 	{"id": "level_9", "label": "LEVEL 9", "level": "Level_9", "goal": true},
 	{"id": "level_10", "label": "LEVEL 10", "level": "Level_10", "goal": true},
+	{"id": "boss_2", "label": "BOSS 2", "level": "Boss_2", "goal": true},
 ]
 
 ## game.tscn's top-level node for each level -> level id ("tutorial" for the
@@ -29,7 +30,7 @@ const ROOTS = {
 	"level 1": "level_1", "level 2": "level_2", "Level_3": "level_3", "boss": "boss",
 	"Level_4": "level_4", "Level_5": "level_5", "Level_6": "level_6",
 	"Level_7": "level_7", "Level_8": "level_8", "Level_9": "level_9",
-	"Level_10": "level_10",
+	"Level_10": "level_10", "Boss_2": "boss_2",
 }
 
 static func entry(id: String) -> Dictionary:
