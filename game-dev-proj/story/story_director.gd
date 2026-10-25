@@ -77,6 +77,17 @@ const EVENT_BEATS := {
 		{"who": HERO, "text": "Not again!"},
 		{"who": WARDEN, "text": "Again. Up, Ren. You know how this goes."},
 	],
+	# Boss 2: just before the Overseer wakes and the chase begins.
+	"overseer": [
+		{"who": WARDEN, "text": "Stop. Don't move. Listen."},
+		{"who": HERO, "text": "That grinding... what is that?"},
+		{"who": WARDEN, "text": "The Overseer. It kept these sewers once. Now it keeps whatever falls into them."},
+		{"who": WARDEN, "text": "It can't be fought, and stone won't hide you. It sees through walls and drifts right through them."},
+		{"who": WARDEN, "text": "An echo will catch its bolts. Nothing catches its gaze. When the red line falls on you, get out of it."},
+		{"who": HERO, "text": "And if it catches me?"},
+		{"who": WARDEN, "text": "Then don't let it. There's a floodgate at the far end. Open it, and the water will do what you can't."},
+		{"who": WARDEN, "text": "It's awake. RUN."},
+	],
 }
 
 const BOSS_BEAT_DELAY := 0.3  # seconds after the boss is freed (its death animation has played and the portal has faded in by then)

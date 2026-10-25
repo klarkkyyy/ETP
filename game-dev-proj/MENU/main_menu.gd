@@ -23,17 +23,44 @@ func _ready() -> void:
 	add_child(_continue)
 	move_child(_continue, new_game_button.get_index() + 1)
 	_continue.pressed.connect(_open_level_select)
-
-	var reached: Array = SaveManager.load_data().get("levels_unlocked", [])
-	if reached.is_empty():
-		_continue.disabled = true
-		_continue.focus_mode = Control.FOCUS_NONE
-		_continue.modulate.a = 0.6
-		new_game_button.grab_focus()
-		return
 	new_game_button.focus_neighbor_bottom = new_game_button.get_path_to(_continue)
 	_continue.focus_neighbor_top = _continue.get_path_to(new_game_button)
-	_continue.grab_focus()
+	if OS.is_debug_build():
+		_add_unlock_all_toggle()
+	_refresh_continue()
+	if _continue.disabled:
+		new_game_button.grab_focus()
+	else:
+		_continue.grab_focus()
+
+
+## CONTINUE is greyed out until a level has been reached (or testing opens them all).
+func _refresh_continue() -> void:
+	var reached := SaveManager.levels_reached(SaveManager.load_data())
+	_continue.disabled = reached.is_empty()
+	_continue.focus_mode = Control.FOCUS_NONE if _continue.disabled else Control.FOCUS_ALL
+	_continue.modulate.a = 0.6 if _continue.disabled else 1.0
+
+
+## Testing only (debug builds, so never in an exported game): a switch in the
+## corner that opens every level in the level select, and survives NEW GAME.
+func _add_unlock_all_toggle() -> void:
+	var toggle := CheckButton.new()
+	toggle.text = "TEST: unlock all levels"
+	toggle.button_pressed = SaveManager.unlock_all
+	toggle.focus_mode = Control.FOCUS_NONE
+	toggle.add_theme_font_override("font", MenuStyle.FONT)
+	toggle.add_theme_font_size_override("font_size", 16)
+	toggle.add_theme_color_override("font_color", MenuStyle.DIM)
+	toggle.add_theme_color_override("font_pressed_color", MenuStyle.GOLD)
+	toggle.position = Vector2(12, 8)
+	toggle.toggled.connect(func(on: bool):
+		SaveManager.set_unlock_all(on)
+		_refresh_continue())
+	var layer := CanvasLayer.new()
+	layer.layer = 5
+	layer.add_child(toggle)
+	add_child(layer)
 
 
 func _open_level_select() -> void:
