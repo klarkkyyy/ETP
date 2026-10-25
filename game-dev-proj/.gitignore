@@ -1,3 +1,14 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Godot AI plugin updater backups and update records
+/addons/.godot_ai_update/
+
+# Godot AI / MCP plugin (local AI tooling, not part of the game)
+/addons/godot_ai/
+
+# AI assistant configs
+.claude/
+.mcp.json
+CLAUDE.md

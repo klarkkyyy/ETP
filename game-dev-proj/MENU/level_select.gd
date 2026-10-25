@@ -48,7 +48,7 @@ func _ready() -> void:
 	_grid.add_theme_constant_override("v_separation", 10)
 	col.add_child(_grid)
 	_data = SaveManager.load_data()
-	_unlocked = _data.get("levels_unlocked", [])
+	_unlocked = SaveManager.levels_reached(_data)
 
 	var nav := HBoxContainer.new()
 	nav.alignment = BoxContainer.ALIGNMENT_CENTER

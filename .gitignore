@@ -4,3 +4,8 @@
 
 # Godot editor temp saves
 *.tmp
+
+# AI assistant configs
+.claude/
+.mcp.json
+CLAUDE.md
