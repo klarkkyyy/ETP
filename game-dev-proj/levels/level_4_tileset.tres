@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://dd6foli25twi"]
 
 [ext_resource type="Texture2D" uid="uid://cp4xbvaclnr2u" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.7/arch corridor/arch_corridor_tileset.png" id="96_blbc2"]
-[ext_resource type="Texture2D" uid="uid://bwbmyesbouje1" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/UPDATES/UPDATE ver 1.1/alchemy_room_bg_00.png" id="97_7d6ao"]
+[ext_resource type="Texture2D" uid="uid://bqql24qi0v6i7" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/dungeon/bg_00_dungeon.png" id="97_7d6ao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_05af1"]
 texture = ExtResource("96_blbc2")
@@ -19,8 +19,12 @@ texture = ExtResource("96_blbc2")
 7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/next_alternative_id = 2
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/1 = 1
+2:2/1/modulate = Color(0.56, 0.58, 0.6, 1)
+2:2/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:2/0 = 0
