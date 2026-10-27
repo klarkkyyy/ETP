@@ -1107,17 +1107,6 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 384)
 
-[node name="Stump4" type="Node2D" parent="Depth/ForeNear" unique_id=1166735349]
-position = Vector2(3576.2783, 460.29315)
-
-[node name="Stump" type="Polygon2D" parent="Depth/ForeNear/Stump4" unique_id=827316707]
-color = Color(0.05, 0.04, 0.07, 1)
-polygon = PackedVector2Array(-17.801159, 720, -17.801159, 9.660469, -10.680696, -12.632533, -3.5602317, 2.0139365, 3.5602317, 2.5016747, 10.680696, -8.995843, 17.801159, 0.36659327, 17.801159, 720)
-
-[node name="@Polygon2D@28" type="Polygon2D" parent="Depth/ForeNear/Stump4" unique_id=1708297551]
-color = Color(0.05, 0.04, 0.07, 1)
-polygon = PackedVector2Array(-23.00116, 41.822388, 23.00116, 41.822388, 23.00116, 49.622387, -23.00116, 49.622387)
-
 [node name="ForeMid" type="Parallax2D" parent="Depth" unique_id=337371514]
 z_index = 39
 scroll_scale = Vector2(1.15, 1.15)
@@ -1132,30 +1121,12 @@ position = Vector2(382.74796, -121.32007)
 color = Color(0.08, 0.07, 0.11, 1)
 polygon = PackedVector2Array(-54.53018, 720, -54.53018, 16.2, -42.412365, 7.5612235, -30.294546, 1.4361141, -18.176727, 1.1099278, -6.0589094, -4.540137, 6.0589094, -4.4541516, 18.176727, -2.4667315, 30.294546, 1.6624246, 42.412365, 11.179558, 54.53018, 16.2, 54.53018, 720)
 
-[node name="Rubble1" type="Node2D" parent="Depth/ForeMid" unique_id=1570011876]
-position = Vector2(1921.8381, 381.49023)
-
-[node name="Rubble" type="Polygon2D" parent="Depth/ForeMid/Rubble1" unique_id=685136488]
-color = Color(0.08, 0.07, 0.11, 1)
-polygon = PackedVector2Array(-41.775288, 720, -41.775288, 16.2, -32.49189, 6.221115, -23.208492, 5.924363, -13.925096, -2.7191343, -4.6416984, -5.3652496, 4.6416984, -0.050862867, 13.925096, -1.2349623, 23.208492, 3.3162422, 32.49189, 12.176398, 41.775288, 16.2, 41.775288, 720)
-
 [node name="Rubble2" type="Node2D" parent="Depth/ForeMid" unique_id=1850258308]
 position = Vector2(2090.826, 416.30127)
 
 [node name="Rubble" type="Polygon2D" parent="Depth/ForeMid/Rubble2" unique_id=1400182652]
 color = Color(0.08, 0.07, 0.11, 1)
 polygon = PackedVector2Array(-41.23169, 720, -41.23169, 16.2, -32.06909, 12.5763, -22.906494, 3.2132826, -13.7438965, 1.9598275, -4.581299, -1.7297614, 4.581299, -3.3670108, 13.7438965, 1.9217088, 22.906494, 1.5238694, 32.06909, 9.128061, 41.23169, 16.2, 41.23169, 720)
-
-[node name="Stump3" type="Node2D" parent="Depth/ForeMid" unique_id=643613363]
-position = Vector2(3211.477, 412.57266)
-
-[node name="Stump" type="Polygon2D" parent="Depth/ForeMid/Stump3" unique_id=1021063932]
-color = Color(0.08, 0.07, 0.11, 1)
-polygon = PackedVector2Array(-9.733091, 720, -9.733091, 6.274507, -5.8398547, -1.1675146, -1.9466182, -6.101415, 1.9466182, -5.568243, 5.8398547, -4.362271, 9.733091, -3.012951, 9.733091, 720)
-
-[node name="@Polygon2D@33" type="Polygon2D" parent="Depth/ForeMid/Stump3" unique_id=3360714]
-color = Color(0.08, 0.07, 0.11, 1)
-polygon = PackedVector2Array(-13.333091, 31.431356, 13.333091, 31.431356, 13.333091, 36.831356, -13.333091, 36.831356)
 
 [node name="Outside" type="Node2D" parent="Depth" unique_id=130080372]
 z_index = -110

@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://oipaevqdfsb0" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/ceiling_chain_01_static.png" id="10_g0my6"]
 [ext_resource type="Texture2D" uid="uid://bcqmh4d3q16jd" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/static props/wall_red_tapestry_static.png" id="11_g4mvh"]
 [ext_resource type="Texture2D" uid="uid://xjde5ou2tkxf" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Props/light source/light_source_03_anim.png" id="12_gauya"]
+[ext_resource type="Script" uid="uid://da3gcnla1dcg4" path="res://scripts/camera_section_zone.gd" id="cam_zone"]
 
 [sub_resource type="Shader" id="Shader_1ihoj"]
 code = "shader_type canvas_item;
@@ -66,6 +67,12 @@ blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c8gus"]
 blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_camwest"]
+size = Vector2(1424, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cameast"]
+size = Vector2(2304, 640)
 
 [node name="Level_3" type="Node2D" unique_id=1849523170]
 position = Vector2(4, -546)
@@ -4099,3 +4106,25 @@ z_index = -15
 material = SubResource("CanvasItemMaterial_c8gus")
 polygon = PackedVector2Array(1582.4, -88, 1632.3201, -88, 1644.7999, 80, 1561.6, 80)
 vertex_colors = PackedColorArray(0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0.14, 0.35, 0.38, 0.6, 0, 0.35, 0.38, 0.6, 0)
+
+[node name="CameraSections" type="Node2D" parent="."]
+
+[node name="West" type="Area2D" parent="CameraSections"]
+position = Vector2(689, 120)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("cam_zone")
+bounds = Rect2(-712, -176, 1663, 416)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/West"]
+shape = SubResource("RectangleShape2D_camwest")
+
+[node name="East" type="Area2D" parent="CameraSections"]
+position = Vector2(2553, 120)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("cam_zone")
+bounds = Rect2(-1393, -256, 2545, 576)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/East"]
+shape = SubResource("RectangleShape2D_cameast")

@@ -1092,28 +1092,6 @@ scroll_scale = Vector2(1.3, 1.3)
 script = ExtResource("27_pqyxy")
 design_camera = Vector2(1728, 592)
 
-[node name="Stump0" type="Node2D" parent="Depth/ForeNear" unique_id=296804418]
-position = Vector2(737.0653, 685.312)
-
-[node name="Stump" type="Polygon2D" parent="Depth/ForeNear/Stump0" unique_id=1646175268]
-color = Color(0.05, 0.04, 0.07, 1)
-polygon = PackedVector2Array(-17.968105, 720, -17.968105, 6.225505, -10.780863, 1.8278844, -3.593621, -2.1735144, 3.593621, -9.19974, 10.780863, 0.3671152, 17.968105, 2.9294786, 17.968105, 720)
-
-[node name="@Polygon2D@9" type="Polygon2D" parent="Depth/ForeNear/Stump0" unique_id=1257997827]
-color = Color(0.05, 0.04, 0.07, 1)
-polygon = PackedVector2Array(-23.168104, 51.61813, 23.168104, 51.61813, 23.168104, 59.41813, -23.168104, 59.41813)
-
-[node name="Stump1" type="Node2D" parent="Depth/ForeNear" unique_id=781690751]
-position = Vector2(1637.8564, 733.5864)
-
-[node name="Stump" type="Polygon2D" parent="Depth/ForeNear/Stump1" unique_id=402752389]
-color = Color(0.05, 0.04, 0.07, 1)
-polygon = PackedVector2Array(-12.740498, 720, -12.740498, 7.4743876, -7.6442986, -11.999665, -2.5480995, -8.71189, 2.5480995, -11.174874, 7.6442986, -11.046956, 12.740498, 0.65064406, 12.740498, 720)
-
-[node name="@Polygon2D@11" type="Polygon2D" parent="Depth/ForeNear/Stump1" unique_id=1492404537]
-color = Color(0.05, 0.04, 0.07, 1)
-polygon = PackedVector2Array(-17.940498, 49.71276, 17.940498, 49.71276, 17.940498, 57.51276, -17.940498, 57.51276)
-
 [node name="Stump2" type="Node2D" parent="Depth/ForeNear" unique_id=2108912535]
 position = Vector2(2805.8518, 732.6539)
 
