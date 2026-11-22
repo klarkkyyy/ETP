@@ -96,6 +96,11 @@ func _play() -> void:
 
 	# The fall. The voice says little: who he is, what the Reach is and what
 	# the climb asks are for Ren (and the player) to find out.
+	# (Storyline: the voice is the Warden, the real Ren, who has failed the
+	# climb for decades. He is waking an echo of himself from this moment,
+	# and that echo is the Ren we play. Every line here should read true
+	# both ways; it only adds up after the reveal. He knows Ren's mom
+	# because she's his own. Never say it outright.)
 	await _narrate("Is this... what dying feels like?")
 	await _wait(0.4)
 
@@ -104,6 +109,7 @@ func _play() -> void:
 		{"who": HERO, "text": "Who's there? I can't see anything."},
 		{"who": WARDEN, "text": "Everyone torn from their world too early falls here. Into the Hollow Reach."},
 		{"who": HERO, "text": "No... there was a truck. I have to go back. My mom..."},
+		{"who": WARDEN, "text": "I know."},
 		{"who": WARDEN, "text": "There is a way back. Only one. Climb."},
 		{"who": HERO, "text": "Climb what? Who ARE you?"},
 		{"who": WARDEN, "text": "..."},

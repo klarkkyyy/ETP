@@ -27,6 +27,7 @@ SaveManager="*res://scripts/save_manager.gd"
 LevelClear="*res://scripts/level_clear.gd"
 PauseMenu="*res://scripts/pause_menu.gd"
 DisplayManager="*res://scripts/display_manager.gd"
+Achievements="*res://scripts/achievements.gd"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 
 [display]

@@ -17,7 +17,8 @@ const VIEW_DROP_START := 40.0
 const VIEW_DROP := 14.0
 const BAR_HEIGHT := 72.0
 
-# Ren alone: the voice doesn't answer him here.
+# Ren alone: the voice doesn't answer him here. (No cuts, no blood: he's an
+# echo. See story_intro.gd.)
 const LINES := [
 	{"who": "Ren", "text": "Ugh... that's going to leave a mark."},
 	{"who": "Ren", "text": "No cuts. No blood. Where's the street?"},

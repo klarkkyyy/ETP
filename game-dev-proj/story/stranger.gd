@@ -4,8 +4,9 @@
 # that Ren keeps glimpsing. It gives off its own light, so in the dark it's
 # the one thing he can see from afar. It never speaks and never lets him
 # reach it: when he gets close it turns to look at him, then breaks up and is
-# gone. (It is the Warden, Ren's own echo from an earlier climb; see
-# guide_beats.gd. Don't explain it.)
+# gone. (It is the Warden: the real Ren, still himself after decades of
+# failing the climb; the Ren we play is his echo. See guide_beats.gd. Don't
+# explain it.)
 # Each sighting plays once per run (StoryDirector.seen), and each one should
 # show a little more than the last. Keep it appearing through the game. There
 # is only ever one of it: a sighting with `after` waits until that one has
@@ -289,6 +290,7 @@ func _fade_out() -> void:
 ## breaks up and is gone.
 func _leave(player: Node2D) -> void:
 	_state = "leaving"
+	Achievements.unlock("familiar_face")
 	if _phantom:
 		_phantom.set_physics_process(false)
 	_sprite.play("idle")

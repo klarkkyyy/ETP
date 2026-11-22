@@ -1,5 +1,5 @@
 # story_director.gd  (autoload: StoryDirector)
-# Plays the in-game story beats (the voice, ???, and the guides). It watches the scene tree instead of
+# Plays the in-game story beats (the voice, i.e. the Warden, and the guides). It watches the scene tree instead of
 # living in game.tscn, so beats are added here as data:
 #   ARRIVAL_BEATS: teleport this_id -> lines, played when the player teleports there.
 #   BOSS_BEATS:    boss node name   -> lines, played after that boss dies.
@@ -14,9 +14,13 @@ extends Node
 signal beat_started(key: String)
 
 const HERO := "Ren"
-## The voice. Ren doesn't learn who he is (the Warden) until he meets him at
-## the end, so until then he is only "???" (see guide_beats.gd).
+## The voice: the Warden, who is really Ren himself (see guide_beats.gd for
+## the storyline). Beats are written with WARDEN; his name tag reads "???"
+## until Mira tells Ren what the fallen call him (the NAMED_BY beat), and
+## WARDEN_NAMED from then on. Who he really is waits for the very end.
 const WARDEN := "???"
+const WARDEN_NAMED := "Warden"
+const NAMED_BY := "echo:1"
 
 const ARRIVAL_BEATS := {
 	# Level 5 exit -> first boss arena.
@@ -52,6 +56,8 @@ const ARRIVAL_BEATS := {
 		{"who": HERO, "text": "It all drains down here. Everything. It smells like it, too."},
 		{"who": WARDEN, "text": "The Outfall. The Reach keeps its spears pointed at the way out."},
 		{"who": WARDEN, "text": "Your echoes don't bleed, Ren. Put them between you and the points."},
+		{"who": HERO, "text": "You talk like you've been down here before."},
+		{"who": WARDEN, "text": "More times than I want to remember."},
 	],
 }
 
@@ -135,6 +141,7 @@ func _ready() -> void:
 	box = DialogueBox.new()
 	box.speakers[HERO] = {"color": Color(0.55, 0.8, 1.0), "pitch": 1.25}
 	box.speakers[WARDEN] = {"color": Color(0.95, 0.75, 0.4), "pitch": 0.7}
+	box.speakers[WARDEN_NAMED] = box.speakers[WARDEN]
 	add_child(box)
 	var cover_layer := CanvasLayer.new()
 	cover_layer.layer = 45  # over the game, under the dialogue box
@@ -334,7 +341,15 @@ func play(key: String, lines: Array, guide: Dictionary = {}) -> void:
 	_playing = false
 
 
+## The voice's lines tagged with the name Ren knows him by so far.
+func _named(lines: Array) -> Array:
+	if not seen.has(NAMED_BY):
+		return lines
+	return lines.map(func(l): return {"who": WARDEN_NAMED if l["who"] == WARDEN else l["who"], "text": l["text"]})
+
+
 func _play_beat(lines: Array, guide: Dictionary) -> void:
+	lines = _named(lines)
 	var tree := get_tree()
 	var ghost: Node2D = null
 	if not guide.is_empty():
