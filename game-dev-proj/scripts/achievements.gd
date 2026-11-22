@@ -49,6 +49,7 @@ const LIST := [
 	{"id": "untouched", "title": "Untouched", "text": "Clear Level 4 or later without dying.", "rarity": Rarity.RARE},
 	{"id": "not_a_scratch", "title": "Not a Scratch", "text": "Clear Level 10 without dying.", "rarity": Rarity.EPIC},
 	{"id": "perfect_memory", "title": "Perfect Memory", "text": "Earn every star.", "rarity": Rarity.LEGENDARY},
+	{"id": "beneath_its_gaze", "title": "Beneath Its Gaze", "text": "Escape the Overseer without dying.", "rarity": Rarity.LEGENDARY},
 	{"id": "again", "title": "Again. And Again.", "text": "Fall 100 times.", "rarity": Rarity.COMMON},
 	{"id": "decades", "title": "Decades of Practice", "text": "Fall 500 times.", "rarity": Rarity.RARE},
 	# The story
@@ -182,6 +183,8 @@ func _check_progress(quiet := false) -> void:
 		give.call("light_feet")
 	if GameManager.level_deaths.get("Level_10", -1) == 0:
 		give.call("not_a_scratch")
+	if GameManager.level_deaths.get("Boss_2", -1) == 0:
+		give.call("beneath_its_gaze")
 	var all_secrets := true
 	for id in GameManager.SECRETS:
 		if GameManager.secrets.has(id):
