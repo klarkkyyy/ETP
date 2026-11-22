@@ -33,6 +33,7 @@ const RARITY_COLORS := [
 const LIST := [
 	# The climb
 	{"id": "first_steps", "title": "First Steps", "text": "Clear Level 1.", "rarity": Rarity.COMMON},
+	{"id": "light_feet", "title": "Light on Your Feet", "text": "Clear Level 2, the Stacks, without dying.", "rarity": Rarity.COMMON},
 	{"id": "keep_behind", "title": "Out of the Keep", "text": "Clear Level 3, the Firelit Keep.", "rarity": Rarity.COMMON},
 	{"id": "released", "title": "Released", "text": "Defeat the first guardian.", "rarity": Rarity.COMMON},
 	{"id": "gauntlet", "title": "Through the Gauntlet", "text": "Clear Level 6.", "rarity": Rarity.COMMON},
@@ -178,6 +179,8 @@ func _check_progress(quiet := false) -> void:
 	for level in GameManager.level_deaths:
 		if GameManager.level_deaths[level] == 0 and _level_number(level) >= DEATHLESS_FROM:
 			give.call("untouched")
+	if GameManager.level_deaths.get("Level_2", -1) == 0:
+		give.call("light_feet")
 	if GameManager.level_deaths.get("Level_10", -1) == 0:
 		give.call("not_a_scratch")
 	if GameManager.level_deaths.get("Boss_2", -1) == 0:

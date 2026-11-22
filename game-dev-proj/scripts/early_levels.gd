@@ -1,10 +1,11 @@
 #early_levels.gd
-# Levels 1-3 live inside game.tscn instead of being level_standalone scenes,
-# so this wires them up the same way from a table: a scored run (echoes
+# Levels 1 and 3 are scored from this table instead of by level_standalone
+# (Level 1 lives inside game.tscn; Level 2 is a level_standalone scene now),
+# so this wires them up the same way: a scored run (echoes
 # against the level's goal for a star, deaths and time) starts when Ren comes
 # in through the level's entrance or lights one of its lanterns, and the exit
 # holds for the level-clear screen (Continue goes through, Retry restarts the
-# level fresh). Levels 2 and 3 get a title at their entrance like levels 4-9
+# level fresh). Level 3 gets a title at its entrance like levels 4-9
 # have. Lives under LevelClear.
 class_name EarlyLevels
 extends Node
@@ -16,10 +17,8 @@ const FONT = preload("res://assets/fonts/BoldPixels.ttf")
 ## "" = none). The goals count the doors that need something held down.
 const LEVELS = {
 	"level_1": {"par": 3, "entry": "", "exit": "teleport_a", "title": ""},
-	"level_2": {"par": 2, "entry": "teleport_b", "exit": "teleport_c", "title": "LEVEL 2\nThe Lower Halls",
-		"title_offset": Vector2(120, -70)},
 	"level_3": {"par": 5, "entry": "teleport_d", "exit": "teleport_f", "title": "LEVEL 3\nThe Firelit Keep",
-		"title_offset": Vector2(120, -70)},
+		"title_offset": Vector2(90, -78)},   # teleport_d is a portal: its origin is 30 px right of it, on the floor
 }
 
 

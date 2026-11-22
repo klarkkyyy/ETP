@@ -1,0 +1,94 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://d0qknlct3w5lo" path="res://assets/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Another Metroidvania Asset Pack Vol. 1 ver. 1.7/Tilesets/library/tileset_library.png" id="1_lib"]
+
+[node name="Level2Decor" type="Node2D" unique_id=1835513297]
+z_index = -20
+
+[node name="Bookcase_60_42" type="Sprite2D" parent="." unique_id=728297171]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(984, 664)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(160, 0, 48, 48)
+
+[node name="Ladder_38_42" type="Sprite2D" parent="." unique_id=1386518973]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(624, 664)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(112, 0, 32, 48)
+
+[node name="Bookcase_92_31" type="Sprite2D" parent="." unique_id=849890270]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(1496, 488)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(160, 0, 48, 48)
+
+[node name="Ladder_119_20" type="Sprite2D" parent="." unique_id=2070872552]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(1920, 312)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(112, 0, 32, 48)
+
+[node name="Bookcase_106_20" type="Sprite2D" parent="." unique_id=465287753]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(1720, 312)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(160, 0, 48, 48)
+
+[node name="Ladder_20_47" type="Sprite2D" parent="." unique_id=1497460026]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(336, 744)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(112, 0, 32, 48)
+
+[node name="Bookcase_29_34" type="Sprite2D" parent="." unique_id=236347082]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(488, 536)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(160, 0, 48, 48)
+
+[node name="Ladder_134_42" type="Sprite2D" parent="." unique_id=62975785]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(2160, 664)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(112, 0, 32, 48)
+
+[node name="Bookcase_50_42" type="Sprite2D" parent="." unique_id=1337535694]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(824, 664)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(160, 0, 48, 48)
+
+[node name="Ladder_79_31" type="Sprite2D" parent="." unique_id=1425534593]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(1280, 488)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(112, 0, 32, 48)
+
+[node name="Bookcase_70_42" type="Sprite2D" parent="." unique_id=1020121508]
+modulate = Color(0.6, 0.56, 0.62, 1)
+texture_filter = 1
+position = Vector2(1144, 664)
+texture = ExtResource("1_lib")
+region_enabled = true
+region_rect = Rect2(160, 0, 48, 48)

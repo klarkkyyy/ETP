@@ -286,3 +286,29 @@
 <img width="1152" height="648" alt="Level 10 - The Ferry" src="docs/level_10/the_ferry.png" />
 <img width="1152" height="648" alt="Level 10 - The Weir" src="docs/level_10/the_weir.png" />
 <img width="1152" height="648" alt="Level 10 - The Arrow Corridor" src="docs/level_10/arrow_corridor.png" />
+
+===========================================================================================
+<h2 align = "center"> 11/22/2026 </h2>
+===========================================================================================
+<h3 align = "center">Level 2 Rebuilt: The Stacks</h3>
+
+- "update: rebuilt level 2 as a library climb, portals between levels 1-3"
+- The old Level 2 is gone. Level 2 is now a climb up through a great library, built on movement rather than traps: wall slides, wall jumps and double-jump timing. It is meant to be gentle. A missed jump drops you back down instead of killing you, and every new idea gets a lantern before it
+- Seven sections:
+  - **The Chimney**: climb between two walls by sliding and kicking off each in turn
+  - **The Shelves**: a reading hall crossed on one-way shelves; most gaps need the second jump at the top, and a stack of shelves takes you back up if you fall
+  - **The Reading Lock**: the gate at the top of a chimney only opens while the pad at its bottom is held; leave an echo on it and climb back up
+  - **The Well**: shelves on alternate walls, each just higher than a double jump reaches; run at the far wall, kick off it and jump again onto the shelf behind you
+  - **The Lectern**: a lone shelf out of reach of any wall; stand on your own echo's head to get up to it
+  - **The Spine**: a narrow shaft down with spiked ledges sticking out of its walls; swap walls before you slide onto one
+  - **The Exit**: the third echo stone, then the portal on to Level 3
+- A layered library background with no flat back wall: tiers of shelves fading into dusty haze, candle glows, tall bookcases nearer in, drifting dust and dark props close to the camera
+- The level's echo goal is 2
+- New achievement: **Light on Your Feet**, clear Level 2 without dying
+- The teleport stones between Levels 1, 2 and 3 are now portals, like the rest of the game
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 2 - The Shelves" src="docs/level_2/the_shelves.png" />
+<img width="1152" height="648" alt="Level 2 - The Well" src="docs/level_2/the_well.png" />
+<img width="1152" height="648" alt="Level 2 - The Exit" src="docs/level_2/the_exit.png" />
