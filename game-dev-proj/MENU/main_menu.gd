@@ -6,11 +6,13 @@
 extends Node2D
 
 const LevelSelect = preload("res://MENU/level_select.gd")
+const AchievementsScreen = preload("res://MENU/achievements_screen.gd")
 
 @onready var new_game_button: Button = $Button
 
 var _confirm: CanvasLayer
 var _continue: Button
+var _trophy: Button
 
 
 func _ready() -> void:
@@ -23,10 +25,10 @@ func _ready() -> void:
 	add_child(_continue)
 	move_child(_continue, new_game_button.get_index() + 1)
 	_continue.pressed.connect(_open_level_select)
-	new_game_button.focus_neighbor_bottom = new_game_button.get_path_to(_continue)
 	_continue.focus_neighbor_top = _continue.get_path_to(new_game_button)
 	if OS.is_debug_build():
 		_add_unlock_all_toggle()
+	_add_trophy_button()
 	_refresh_continue()
 	if _continue.disabled:
 		new_game_button.grab_focus()
@@ -40,6 +42,12 @@ func _refresh_continue() -> void:
 	_continue.disabled = reached.is_empty()
 	_continue.focus_mode = Control.FOCUS_NONE if _continue.disabled else Control.FOCUS_ALL
 	_continue.modulate.a = 0.6 if _continue.disabled else 1.0
+	# down from the buttons reaches the trophy (skipping a greyed-out CONTINUE)
+	var last: Button = new_game_button if _continue.disabled else _continue
+	new_game_button.focus_neighbor_bottom = new_game_button.get_path_to(_continue if not _continue.disabled else _trophy)
+	_continue.focus_neighbor_bottom = _continue.get_path_to(_trophy)
+	_trophy.focus_neighbor_top = _trophy.get_path_to(last)
+	_trophy.focus_neighbor_left = _trophy.get_path_to(last)
 
 
 ## Testing only (debug builds, so never in an exported game): a switch in the
@@ -61,6 +69,40 @@ func _add_unlock_all_toggle() -> void:
 	layer.layer = 5
 	layer.add_child(toggle)
 	add_child(layer)
+
+
+## The trophy in the top-right corner: opens the achievements list.
+func _add_trophy_button() -> void:
+	_trophy = Button.new()
+	_trophy.custom_minimum_size = Vector2(64, 64)
+	_trophy.tooltip_text = "Achievements"
+	for state in ["normal", "hover", "pressed", "focus"]:
+		var style := StyleBoxFlat.new()
+		style.bg_color = Color(0.04, 0.04, 0.08, 0.6 if state == "normal" else 0.85)
+		style.set_corner_radius_all(8)
+		style.set_border_width_all(2)
+		style.border_color = MenuStyle.ACCENT if state != "normal" else Color(1, 1, 1, 0.15)
+		_trophy.add_theme_stylebox_override(state, style)
+	var icon := TrophyIcon.new(44, MenuStyle.GOLD)
+	icon.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_trophy.add_child(icon)
+	_trophy.pressed.connect(_open_achievements)
+	var w := get_viewport().get_visible_rect().size.x
+	_trophy.position = Vector2(w - 64 - 16, 16)
+	var caption := MenuStyle.label("%d/%d" % [Achievements.unlocked_count(), Achievements.LIST.size()], 14, MenuStyle.DIM)
+	caption.position = Vector2(w - 64 - 16, 16 + 66)
+	caption.custom_minimum_size.x = 64
+	var layer := CanvasLayer.new()
+	layer.layer = 5
+	layer.add_child(_trophy)
+	layer.add_child(caption)
+	add_child(layer)
+
+
+func _open_achievements() -> void:
+	var screen := AchievementsScreen.new()
+	screen.closed.connect(func(): _trophy.grab_focus())
+	add_child(screen)
 
 
 func _open_level_select() -> void:
