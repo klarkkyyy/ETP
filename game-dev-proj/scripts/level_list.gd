@@ -10,7 +10,7 @@ const THUMBS = "res://MENU/level_thumbs/%s.png"
 
 const LEVELS = [
 	{"id": "level_1", "label": "LEVEL 1", "start": "level 1/roomSections/room1/SavePoint2", "goal": true},
-	{"id": "level_2", "label": "LEVEL 2", "start": "level 2/room1/SavePoint2", "goal": true},
+	{"id": "level_2", "label": "LEVEL 2", "level": "Level_2", "goal": true},
 	{"id": "level_3", "label": "LEVEL 3", "level": "Level_3", "goal": true},
 	{"id": "level_4", "label": "LEVEL 4", "level": "Level_4", "goal": true},
 	{"id": "level_5", "label": "LEVEL 5", "level": "Level_5", "goal": true},
@@ -27,7 +27,7 @@ const LEVELS = [
 ## opening area, which comes before every level)
 const ROOTS = {
 	"outside": "tutorial", "start": "tutorial", "tutorial": "tutorial",
-	"level 1": "level_1", "level 2": "level_2", "Level_3": "level_3", "boss": "boss",
+	"level 1": "level_1", "Level_2": "level_2", "Level_3": "level_3", "boss": "boss",
 	"Level_4": "level_4", "Level_5": "level_5", "Level_6": "level_6",
 	"Level_7": "level_7", "Level_8": "level_8", "Level_9": "level_9",
 	"Level_10": "level_10", "Boss_2": "boss_2",
