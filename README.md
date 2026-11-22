@@ -2,6 +2,8 @@
 <h1 align = "center">Echoes of The Past</h1>
 <h2 align = "center">Repository for Game Development Final Project</h2>
 
+<p align = "center"><i>Level screenshots (Level 1 onward) were retaken on 11/22/2026 to show the current game; the demo videos are from when each entry was written.</i></p>
+
 ============================================================================================
 <h2 align = "center"> 4/11/2026 </h2>
 ============================================================================================
@@ -115,7 +117,11 @@
 
 <h4 align = "center">Image Sample</h4>
 
-<img width="1916" height="1024" alt="image" src="https://github.com/user-attachments/assets/01d67e78-eaf8-4ce9-ad96-da5170e0f9be" />
+<img width="1152" height="648" alt="Level 1 - First Hall" src="docs/level_1/first_hall.png" />
+<img width="1152" height="648" alt="Level 1 - Second Hall" src="docs/level_1/second_hall.png" />
+<img width="1152" height="648" alt="Level 1 - Third Hall" src="docs/level_1/third_hall.png" />
+
+<i>Level 2 has since been rebuilt as The Stacks (see 11/22/2026).</i>
 
 
 <h4 align = "center"> Video Demo </h4>
@@ -130,7 +136,11 @@
 
 <h4 align = "center">Image Sample</h4>
 
-<img width="1916" height="1024" alt="image" src="https://github.com/user-attachments/assets/8fe411cb-112e-4ad1-b997-b7a86f935ed6" />
+<img width="1152" height="648" alt="Level 3 - Entrance" src="docs/level_3/entrance.png" />
+<img width="1152" height="648" alt="Level 3 - Library" src="docs/level_3/library.png" />
+<img width="1152" height="648" alt="Level 3 - Exit" src="docs/level_3/exit.png" />
+<img width="1152" height="648" alt="Boss - The Guardian's Arena" src="docs/boss/arena.png" />
+<img width="1152" height="648" alt="Boss - The Arena Floor" src="docs/boss/arena_floor.png" />
 
 
 <h4 align = "center"> Video Demo </h4>
