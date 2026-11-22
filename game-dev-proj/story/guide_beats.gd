@@ -9,13 +9,21 @@
 # beats play as speech bubbles while the game runs; the echo stone beats are
 # conversations and pause it.
 #
-# Lore: echoes lose their faces the longer they stay in the Reach. The voice
-# that spoke to Ren in the dark (the Warden) is never named before Ren meets
-# him at the end: he is "???" in dialogue, and the guides won't say his name,
-# out of fear ("him", "the voice"). He is Ren's own echo from an earlier
-# attempt, and the amber stranger Ren keeps glimpsing (stranger.gd); that is
-# the final-boss reveal. The guides only drop hints that make sense
-# afterwards. Never have a guide say it outright.
+# Lore (the team's storyline, chosen 2026-11): the voice that spoke to Ren in
+# the dark is the Warden, and he is the REAL Ren. Long ago he climbed farther
+# than anyone, failed near the top, and kept failing at the same spot for what
+# felt like decades. He stayed himself (memories, face and all) because he got
+# the farthest, and he guided other fallen climbers, who know him only as "the
+# Warden", a voice that helps. Worn out, he woke an echo of himself from the
+# moment he died: the Ren we play, who believes he just died and has no idea
+# he's a copy, or that the voice is his older self. The amber stranger with
+# Ren's face (stranger.gd) is the Warden too. The reveal comes at the very
+# end ("There was only ever one of us").
+# The guides don't know who the Warden is. They know a voice that helped them
+# (and that they failed anyway), that he never seems surprised, and that the
+# newcomer "moves like him". Some saw him climb, long ago. They drop hints
+# that only add up afterwards. Never have a guide say it outright.
+# In dialogue he is "???" until Mira names him (StoryDirector.WARDEN_NAMED).
 #
 # In `lines`, "who": "@" means this beat's guide; anything else is a speaker
 # name (e.g. "Ren").
@@ -48,8 +56,10 @@ const ECHO_UNLOCKS := {
 		{"who": "Ren", "text": "You don't have a face."},
 		{"who": "@", "text": "You lose it, the longer you stay. When you fail in the Reach, you don't leave."},
 		{"who": "Ren", "text": "There was a voice, when I was falling. Was that you?"},
-		{"who": "@", "text": "...You heard him already?"},
-		{"who": "@", "text": "Don't talk about him. Not here. Things carry, in the Reach."},
+		{"who": "@", "text": "...He found you already. That's the Warden."},
+		{"who": "@", "text": "He talks to everyone who falls. He helped every one of us."},
+		{"who": "Ren", "text": "Then why are you all still here?"},
+		{"who": "@", "text": "...Listen to him anyway."},
 		{"who": "@", "text": "That stone remembers you. Wake it, and it listens. Wake it again, and it lets go."},
 		{"who": "@", "text": "It only remembers once, mind. Rest by a lantern and it forgets."},
 	]},
@@ -59,7 +69,7 @@ const ECHO_UNLOCKS := {
 		{"who": "@", "text": "Hollis. I built bridges, back home. Figured this place would be easy. It's all levers and weights, right?"},
 		{"who": "@", "text": "Two memories, then. Each one minds its own business."},
 		{"who": "@", "text": "Funny how a door gets easier with a second pair of hands. Or a second pair of shoulders."},
-		{"who": "@", "text": "He helped me too, you know. The voice. Then I failed anyway. He didn't even sound surprised. Like he'd heard it all before."},
+		{"who": "@", "text": "The Warden helped me too, you know. Then I failed anyway. He didn't even sound surprised. Like he'd heard it all before."},
 	]},
 	3: {"guide": "Old Tomas", "lines": [
 		{"who": "@", "text": "The third stone. Well, well. I've watched a lot of people walk past this spot. Not many picked that up."},
@@ -67,7 +77,10 @@ const ECHO_UNLOCKS := {
 		{"who": "@", "text": "They fade when you wander too far from them. Don't leave your past too far behind, boy."},
 		{"who": "@", "text": "And when the guardians throw their power at you... well. Your past can't be hurt twice."},
 		{"who": "Ren", "text": "Have you seen it? The one that looks like me?"},
-		{"who": "@", "text": "...Get out, boy. Get out for all of us."},
+		{"who": "@", "text": "...I've seen that face before. Long ago, when a boy climbed past here. Further than any of us."},
+		{"who": "Ren", "text": "What happened to him?"},
+		{"who": "@", "text": "He kept climbing. Then one day he stopped."},
+		{"who": "@", "text": "Get out, boy. Get out for all of us."},
 	]},
 }
 
