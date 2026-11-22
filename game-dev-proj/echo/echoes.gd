@@ -184,7 +184,10 @@ func _finish_recording() -> void:
 	_crates_at_start.clear()
 	EchoFlash.flash_stop(active_slot + 1)
 	if _recording.size() >= 2:
-		_spawn_echo(active_slot, _recording.duplicate(true))
+		var frames: Array = _recording.duplicate(true)
+		if _in_drop_zone(frames[-1]["pos"]):
+			frames = _still_drop(frames[-1])
+		_spawn_echo(active_slot, frames)
 		if not unlimited:
 			_spent[active_slot] = true
 		if _run_level != "":
@@ -193,6 +196,32 @@ func _finish_recording() -> void:
 	active_slot = -1
 	_recording = []
 	_update_hud()
+
+## Is `at` inside a drop zone: an Area2D in group "echo_drop_zone" with a
+## rectangle shape (e.g. over L10's Stepping Stones pit)?
+func _in_drop_zone(at: Vector2) -> bool:
+	for zone in get_tree().get_nodes_in_group("echo_drop_zone"):
+		for c in zone.get_children():
+			if c is CollisionShape2D and c.shape is RectangleShape2D:
+				var size: Vector2 = c.shape.size
+				if Rect2(-size * 0.5, size).has_point(c.global_transform.affine_inverse() * at):
+					return true
+	return false
+
+## A recording that ends in a drop zone becomes a still echo where Ren was
+## when it ended: it drops straight down from there and stays (a recording
+## of Ren pressing nothing never loops), whatever he did while recording.
+func _still_drop(last: Dictionary) -> Array:
+	var f := {
+		"pos": last["pos"], "flip_h": last.get("flip_h", false), "anim": "jump_down",
+		"floor": false, "move": 0.0, "jump": false, "interact": false,
+	}
+	var first := f.duplicate()
+	first["start"] = {
+		"velocity": Vector2.ZERO, "on_floor": false, "was_on_floor": false,
+		"can_double_jump": false, "wall_jump_timer": 0.0, "jump_buffer": 0.0, "coyote": 0.0,
+	}
+	return [first, f]
 
 ## Ends a recording in progress and keeps what was recorded (death, teleport).
 func stop_recording() -> void:
