@@ -27,6 +27,11 @@ const STICKY = 4.0
 static var _all: Array = []
 static var _current: CameraSectionZone = null
 static var _defaults: Array = []  # camera limits from before the first zone
+## The camera _defaults were taken from. They stay until Ren leaves every zone:
+## a held zone being freed (a level reloaded by Retry) must not let the next
+## zone take the section's limits as the defaults, or leaving the level (the
+## exit portal) would put the camera back on that section.
+static var _defaults_cam: int = 0
 
 var _trigger: Rect2  # this zone's shape, relative to the zone
 
@@ -80,14 +85,16 @@ static func update_all(cam: Camera2D, player: Node2D) -> void:
 					pick = z
 	if pick == _current:
 		return
-	if _current == null:
+	if _current == null and _defaults_cam != cam.get_instance_id():
 		_defaults = [cam.limit_top, cam.limit_bottom, cam.limit_left, cam.limit_right]
+		_defaults_cam = cam.get_instance_id()
 	_current = pick
 	if pick:
 		pick._hold(cam)
 	else:
 		cam.set_follow_mode()
 		cam.set_limits(_defaults[0], _defaults[1], _defaults[2], _defaults[3])
+		_defaults_cam = 0   # back on the defaults: take them afresh next time
 
 func _hold(cam: Camera2D) -> void:
 	var r: Rect2 = global_transform * bounds

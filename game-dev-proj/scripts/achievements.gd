@@ -35,6 +35,8 @@ const LIST := [
 	{"id": "first_steps", "title": "First Steps", "text": "Clear Level 1.", "rarity": Rarity.COMMON},
 	{"id": "light_feet", "title": "Light on Your Feet", "text": "Clear Level 2, the Stacks, without dying.", "rarity": Rarity.COMMON},
 	{"id": "keep_behind", "title": "Out of the Keep", "text": "Clear Level 3, the Firelit Keep.", "rarity": Rarity.COMMON},
+	{"id": "echo_vault", "title": "Into the Vault", "text": "Clear Level 4, the Echo Vault.", "rarity": Rarity.COMMON},
+	{"id": "undercroft", "title": "Up from Below", "text": "Clear Level 5, the Undercroft.", "rarity": Rarity.COMMON},
 	{"id": "released", "title": "Released", "text": "Defeat the first guardian.", "rarity": Rarity.COMMON},
 	{"id": "gauntlet", "title": "Through the Gauntlet", "text": "Clear Level 6.", "rarity": Rarity.COMMON},
 	{"id": "outfall", "title": "Light at the End", "text": "Clear Level 10, the Outfall.", "rarity": Rarity.RARE},
@@ -46,6 +48,8 @@ const LIST := [
 	{"id": "tower", "title": "Tower of Echoes", "text": "Stand on an echo that is standing on another echo.", "rarity": Rarity.RARE},
 	# Mastery
 	{"id": "first_star", "title": "Thrifty", "text": "Earn a star: clear a level within its echo goal.", "rarity": Rarity.COMMON},
+	{"id": "vault_flawless", "title": "Clean Break-In", "text": "Clear Level 4 in one run without dying, within its echo goal.", "rarity": Rarity.RARE},
+	{"id": "pest_control", "title": "Pest Control", "text": "Clear Level 5 in one run without dying, within its echo goal.", "rarity": Rarity.RARE},
 	{"id": "untouched", "title": "Untouched", "text": "Clear Level 4 or later without dying.", "rarity": Rarity.RARE},
 	{"id": "not_a_scratch", "title": "Not a Scratch", "text": "Clear Level 10 without dying.", "rarity": Rarity.EPIC},
 	{"id": "perfect_memory", "title": "Perfect Memory", "text": "Earn every star.", "rarity": Rarity.LEGENDARY},
@@ -69,8 +73,10 @@ const LIST := [
 
 ## Level clears that count, by the name GameManager keeps records under
 ## (LevelList.run_name).
-const CLEARS := {"first_steps": "level_1", "keep_behind": "level_3", "gauntlet": "Level_6",
+const CLEARS := {"first_steps": "level_1", "keep_behind": "level_3", "echo_vault": "Level_4", "undercroft": "Level_5", "gauntlet": "Level_6",
 	"outfall": "Level_10", "overseer": "Boss_2"}
+## Clears that need a star and no deaths in that same run (checked as the run ends).
+const FLAWLESS := {"vault_flawless": "Level_4", "pest_control": "Level_5"}
 const DEATHLESS_FROM := 4   # "Untouched": Level 4 and later
 const DEATHS := {"again": 100, "decades": 500}
 
@@ -193,6 +199,15 @@ func _check_progress(quiet := false) -> void:
 			all_secrets = false
 	if all_secrets:
 		give.call("all_secrets")
+
+## Echoes.end_run's result for a cleared level.
+func on_run_cleared(r: Dictionary) -> void:
+	var game := get_tree().current_scene
+	if game == null or game.name != "game":
+		return   # a level run on its own (dev tests): nothing counts, as in _physics_process
+	for id in FLAWLESS:
+		if r.get("level") == FLAWLESS[id] and r.get("star", false) and r.get("deaths", 1) == 0:
+			unlock(id)
 
 ## "Level_7" / "level_3" -> 7 / 3; 0 for anything else (bosses).
 static func _level_number(level: String) -> int:
