@@ -43,29 +43,62 @@ size = Vector2(5120, 768)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyj1r"]
 size = Vector2(320, 144)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0yvo"]
+size = Vector2(426, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnxnq"]
+size = Vector2(426, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrqi0"]
+size = Vector2(426, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfqkv"]
+size = Vector2(426, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcn6t"]
+size = Vector2(426, 224)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_binf7"]
-size = Vector2(736, 240)
+size = Vector2(426, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgij4"]
-size = Vector2(832, 160)
+size = Vector2(426, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nf5iv"]
-size = Vector2(672, 224)
+size = Vector2(426, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwwbs"]
-size = Vector2(624, 64)
+size = Vector2(288, 234)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1el"]
-size = Vector2(288, 576)
+size = Vector2(288, 244)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wes5d"]
-size = Vector2(736, 272)
+size = Vector2(288, 234)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqyc8"]
-size = Vector2(128, 400)
+size = Vector2(426, 234)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmua5"]
-size = Vector2(864, 192)
+size = Vector2(426, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_va8ov"]
+size = Vector2(426, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7jkg"]
+size = Vector2(426, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1ryd"]
+size = Vector2(128, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ogyo"]
+size = Vector2(128, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egco7"]
+size = Vector2(426, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evty8"]
+size = Vector2(426, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xffna"]
 size = Vector2(46, 8)
@@ -203,93 +236,232 @@ keep_inside = Rect2(-192, -632, 5120, 768)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/Start" unique_id=549486229]
 shape = SubResource("RectangleShape2D_wyj1r")
 
-[node name="S1_PendulumHall" type="Area2D" parent="CameraSections" unique_id=775447281]
-position = Vector2(720, 616)
+[node name="S1_PendulumHall_1" type="Area2D" parent="CameraSections" unique_id=1352473076]
+position = Vector2(560, 624)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_wyj1r")
-bounds = Rect2(-384, -136, 768, 272)
-keep_inside = Rect2(-720, -616, 5120, 768)
+bounds = Rect2(-224, -128, 448, 256)
+keep_inside = Rect2(-560, -624, 5120, 768)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S1_PendulumHall" unique_id=2114862510]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S1_PendulumHall_1" unique_id=1128776522]
+position = Vector2(5, -5)
+shape = SubResource("RectangleShape2D_e0yvo")
+
+[node name="S1_PendulumHall_2" type="Area2D" parent="CameraSections" unique_id=1444983814]
+position = Vector2(880, 624)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -128, 448, 256)
+keep_inside = Rect2(-880, -624, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S1_PendulumHall_2" unique_id=1569967729]
+position = Vector2(-5, -5)
+shape = SubResource("RectangleShape2D_gnxnq")
+
+[node name="S2_SpikeTide_1" type="Area2D" parent="CameraSections" unique_id=1681362362]
+position = Vector2(1296, 624)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -96, 448, 192)
+keep_inside = Rect2(-1296, -624, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S2_SpikeTide_1" unique_id=116788087]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_qrqi0")
+
+[node name="S2_SpikeTide_2" type="Area2D" parent="CameraSections" unique_id=1684257160]
+position = Vector2(1712, 624)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -96, 448, 192)
+keep_inside = Rect2(-1712, -624, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S2_SpikeTide_2" unique_id=1424822902]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_nfqkv")
+
+[node name="S3_EchoRelay_1" type="Area2D" parent="CameraSections" unique_id=710921117]
+position = Vector2(2128, 592)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -128, 448, 256)
+keep_inside = Rect2(-2128, -592, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S3_EchoRelay_1" unique_id=415374770]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_mcn6t")
+
+[node name="S3_EchoRelay_2" type="Area2D" parent="CameraSections" unique_id=1451766536]
+position = Vector2(2384, 592)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -128, 448, 256)
+keep_inside = Rect2(-2384, -592, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S3_EchoRelay_2" unique_id=1540574018]
+position = Vector2(-5, 0)
 shape = SubResource("RectangleShape2D_binf7")
 
-[node name="S2_SpikeTide" type="Area2D" parent="CameraSections" unique_id=1942447735]
-position = Vector2(1504, 624)
+[node name="S4_CrusherRow_1" type="Area2D" parent="CameraSections" unique_id=1126703011]
+position = Vector2(2800, 672)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_wyj1r")
-bounds = Rect2(-432, -96, 864, 192)
-keep_inside = Rect2(-1504, -624, 5120, 768)
+bounds = Rect2(-224, -48, 448, 96)
+keep_inside = Rect2(-2800, -672, 5120, 768)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S2_SpikeTide" unique_id=783878500]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S4_CrusherRow_1" unique_id=541120103]
+position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_fgij4")
 
-[node name="S3_EchoRelay" type="Area2D" parent="CameraSections" unique_id=1932122068]
-position = Vector2(2256, 592)
+[node name="S4_CrusherRow_2" type="Area2D" parent="CameraSections" unique_id=1254665531]
+position = Vector2(3008, 672)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_wyj1r")
-bounds = Rect2(-352, -128, 704, 256)
-keep_inside = Rect2(-2256, -592, 5120, 768)
+bounds = Rect2(-224, -48, 448, 96)
+keep_inside = Rect2(-3008, -672, 5120, 768)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S3_EchoRelay" unique_id=377235458]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S4_CrusherRow_2" unique_id=747312493]
+position = Vector2(-5, 0)
 shape = SubResource("RectangleShape2D_nf5iv")
 
-[node name="S4_CrusherRow" type="Area2D" parent="CameraSections" unique_id=1163412261]
-position = Vector2(2904, 672)
+[node name="S5_TheClimb_1" type="Area2D" parent="CameraSections" unique_id=1754989447]
+position = Vector2(3360, 240)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_wyj1r")
-bounds = Rect2(-328, -48, 656, 96)
-keep_inside = Rect2(-2904, -672, 5120, 768)
+bounds = Rect2(-160, -128, 320, 256)
+keep_inside = Rect2(-3360, -240, 5120, 768)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S4_CrusherRow" unique_id=905584307]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S5_TheClimb_1" unique_id=1976162991]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_fwwbs")
 
-[node name="S5_TheClimb" type="Area2D" parent="CameraSections" unique_id=554724978]
+[node name="S5_TheClimb_2" type="Area2D" parent="CameraSections" unique_id=947812942]
 position = Vector2(3360, 416)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_wyj1r")
-bounds = Rect2(-160, -304, 320, 608)
+bounds = Rect2(-160, -128, 320, 256)
 keep_inside = Rect2(-3360, -416, 5120, 768)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S5_TheClimb" unique_id=1980843971]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S5_TheClimb_2" unique_id=129357627]
 shape = SubResource("RectangleShape2D_bg1el")
 
-[node name="S6_SlaughterPit" type="Area2D" parent="CameraSections" unique_id=420770231]
-position = Vector2(3872, 184)
+[node name="S5_TheClimb_3" type="Area2D" parent="CameraSections" unique_id=934753525]
+position = Vector2(3360, 592)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_wyj1r")
-bounds = Rect2(-384, -152, 768, 304)
-keep_inside = Rect2(-3872, -184, 5120, 768)
+bounds = Rect2(-160, -128, 320, 256)
+keep_inside = Rect2(-3360, -592, 5120, 768)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S6_SlaughterPit" unique_id=307164416]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S5_TheClimb_3" unique_id=501342288]
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_wes5d")
 
-[node name="S7_DropShaft" type="Area2D" parent="CameraSections" unique_id=2086003032]
-position = Vector2(4304, 344)
+[node name="S6_SlaughterPit_1" type="Area2D" parent="CameraSections" unique_id=1295049444]
+position = Vector2(3712, 160)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_wyj1r")
-bounds = Rect2(-80, -216, 160, 432)
-keep_inside = Rect2(-4304, -344, 5120, 768)
+bounds = Rect2(-224, -128, 448, 256)
+keep_inside = Rect2(-3712, -160, 5120, 768)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_DropShaft" unique_id=1241744875]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S6_SlaughterPit_1" unique_id=1855124915]
+position = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_eqyc8")
 
-[node name="S7_FinalHall" type="Area2D" parent="CameraSections" unique_id=36362953]
-position = Vector2(4672, 640)
+[node name="S6_SlaughterPit_2" type="Area2D" parent="CameraSections" unique_id=1756740624]
+position = Vector2(4032, 160)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_wyj1r")
-bounds = Rect2(-448, -112, 896, 224)
-keep_inside = Rect2(-4672, -640, 5120, 768)
+bounds = Rect2(-224, -128, 448, 256)
+keep_inside = Rect2(-4032, -160, 5120, 768)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_FinalHall" unique_id=1040935290]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S6_SlaughterPit_2" unique_id=795020097]
+position = Vector2(-5, 5)
 shape = SubResource("RectangleShape2D_tmua5")
+
+[node name="S6_SlaughterPit_3" type="Area2D" parent="CameraSections" unique_id=753330628]
+position = Vector2(3712, 208)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -128, 448, 256)
+keep_inside = Rect2(-3712, -208, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S6_SlaughterPit_3" unique_id=189953681]
+position = Vector2(5, -5)
+shape = SubResource("RectangleShape2D_va8ov")
+
+[node name="S6_SlaughterPit_4" type="Area2D" parent="CameraSections" unique_id=1914612752]
+position = Vector2(4032, 208)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -128, 448, 256)
+keep_inside = Rect2(-4032, -208, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S6_SlaughterPit_4" unique_id=344314807]
+position = Vector2(-5, -5)
+shape = SubResource("RectangleShape2D_c7jkg")
+
+[node name="S7_DropShaft_1" type="Area2D" parent="CameraSections" unique_id=854970504]
+position = Vector2(4304, 256)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-80, -128, 160, 256)
+keep_inside = Rect2(-4304, -256, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_DropShaft_1" unique_id=165412585]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_g1ryd")
+
+[node name="S7_DropShaft_2" type="Area2D" parent="CameraSections" unique_id=123554782]
+position = Vector2(4304, 432)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-80, -128, 160, 256)
+keep_inside = Rect2(-4304, -432, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_DropShaft_2" unique_id=1555506844]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_4ogyo")
+
+[node name="S7_FinalHall_1" type="Area2D" parent="CameraSections" unique_id=2125049348]
+position = Vector2(4448, 640)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -112, 448, 224)
+keep_inside = Rect2(-4448, -640, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_FinalHall_1" unique_id=434822907]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_egco7")
+
+[node name="S7_FinalHall_2" type="Area2D" parent="CameraSections" unique_id=1075708089]
+position = Vector2(4896, 640)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_wyj1r")
+bounds = Rect2(-224, -112, 448, 224)
+keep_inside = Rect2(-4896, -640, 5120, 768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraSections/S7_FinalHall_2" unique_id=263042708]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_evty8")
 
 [node name="Start" type="Node2D" parent="." unique_id=102594224]
 

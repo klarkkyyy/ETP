@@ -305,6 +305,7 @@ func end_run(level_name: String) -> Dictionary:
 	var result := GameManager.record_level_clear(level_name, _run_used, star, _run_time, _run_deaths)
 	result.merge({"level": level_name, "used": _run_used, "goal": _run_par, "star": star,
 		"deaths": _run_deaths, "time": _run_time})
+	Achievements.on_run_cleared(result)
 	return result
 
 ## The run in progress, for the save file ({} when none).

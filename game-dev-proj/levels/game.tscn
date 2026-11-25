@@ -26441,7 +26441,7 @@ position = Vector2(6198.0005, -1197)
 scale = Vector2(1.1812389, 1)
 
 [node name="Level_4" parent="." unique_id=1440740404 instance=ExtResource("201_lvl4")]
-position = Vector2(800, -3232)
+position = Vector2(-7000, -3700)
 
 [node name="Level_5" parent="." unique_id=1440740405 instance=ExtResource("202_lvl5")]
 position = Vector2(4400, -3232)

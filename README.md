@@ -160,11 +160,7 @@
 - Moving spike crushers over the pads add danger (echoes pass through them, the player doesn't)
 - cleanup: removed the old duplicate Godot project from the repo root; `game-dev-proj/` is now the only project
 
-<h4 align = "center">Image Sample</h4>
-
-<img width="1152" height="648" alt="Level 4 - The Twin Gates" src="docs/level_4/twin_gates.png" />
-<img width="1152" height="648" alt="Level 4 - The Relay" src="docs/level_4/relay.png" />
-<img width="1152" height="648" alt="Level 4 - The Vault" src="docs/level_4/vault.png" />
+<i>Level 4 has since been rebuilt as a climb (see 11/24/2026).</i>
 
 ===========================================================================================
 <h2 align = "center"> 10/13/2026 </h2>
@@ -179,11 +175,7 @@
   - **The Belfry**: stepping stones over a spike pit with two traps and flying Bateyes
   - **Twin Weights**: one trap, two buttons; an echo holds one while you press the other
 
-<h4 align = "center">Image Sample</h4>
-
-<img width="1152" height="648" alt="Level 5 - First Drop" src="docs/level_5/first_drop.png" />
-<img width="1152" height="648" alt="Level 5 - The Belfry" src="docs/level_5/belfry.png" />
-<img width="1152" height="648" alt="Level 5 - Twin Weights" src="docs/level_5/twin_weights.png" />
+<i>Level 5 has since been rebuilt as a descent (see 11/24/2026).</i>
 
 <h3 align = "center">Level 6: The Gauntlet</h3>
 
@@ -322,3 +314,39 @@
 <img width="1152" height="648" alt="Level 2 - The Shelves" src="docs/level_2/the_shelves.png" />
 <img width="1152" height="648" alt="Level 2 - The Well" src="docs/level_2/the_well.png" />
 <img width="1152" height="648" alt="Level 2 - The Exit" src="docs/level_2/the_exit.png" />
+
+===========================================================================================
+<h2 align = "center"> 11/24/2026 </h2>
+===========================================================================================
+<h3 align = "center">Levels 4 & 5 Rebuilt</h3>
+
+- "update: rebuilt levels 4 and 5 like the stacks"
+- The old Levels 4 and 5 are gone. Like the new Level 2, both are now one long space you climb or drop through, harder than Levels 2-3 but still below 6-7. Each keeps its own mechanics
+- **Level 4: The Echo Vault**, a climb up through the vault with pads, gates and spike crushers. Five sections:
+  - **The Broken Flue**: a chimney with spikes on one wall; kick off the clean wall, steer back and use the second jump
+  - **The Seesaw Gates**: one pad, two gates; the first opens while the pad is down, the second only while it is up
+  - **Crusher Steps**: pillar tops under spike slabs; wait for each slab to lift before you jump
+  - **The Stack**: a ledge higher than one echo can lift you; stand on two echoes stacked on each other
+  - **The Vault**: three gates and three pads (one under a crusher, one past a spiked chimney), all held at once
+  - Echo goal 6
+  - Fixed-screen camera like Level 1: the vault is split into one-screen rooms, and every puzzle fits in one, so from each pad you can see what it moves
+- **Level 5: The Undercroft**, a descent where nothing can hurt the enemies except the spike traps you drop on them. Four sections:
+  - **The Shaft**: drop down a shaft and step on the pad as the rat walks under the trap
+  - **The Lure**: a rat chases you along its own floor but never past the end of its path; lead it under the trap
+  - **The Belfry**: a trap that keeps falling while a pad is held, with a pad on each side of the pit; each bat waits at the end of its path nearest you, so lure one from each side
+  - **Twin Weights**: one trap, two pads far apart, both held at once over a rat and a slug; the pit floor is spikes, so wall-jump up the chimney and take the gallery to the far pad
+  - The Ossuary secret is still there
+  - Echo goal 1
+- Both levels stand in front of the open vault: a far hall with stained glass, drifting fog, a colonnade, dust and dark props close to the camera, with light falling through the Belfry
+- New achievements: **Into the Vault** and **Up from Below** (clear Level 4 / Level 5), **Clean Break-In** and **Pest Control** (clear Level 4 / Level 5 in one run without dying, within the echo goal)
+- Playtest fixes: hint texts that ran off the screen, a gap over one of Level 5's gates, the Belfry lantern hanging over the pit and its trap falling through the stone
+- fix: after a Retry, leaving a level left the camera stuck on that level's last screen (it looked like the portal sent you back)
+
+<h4 align = "center">Image Sample</h4>
+
+<img width="1152" height="648" alt="Level 4 - The Seesaw Gates" src="docs/level_4/seesaw_gates.png" />
+<img width="1152" height="648" alt="Level 4 - Crusher Steps" src="docs/level_4/crusher_steps.png" />
+<img width="1152" height="648" alt="Level 4 - The Stack" src="docs/level_4/the_stack.png" />
+<img width="1152" height="648" alt="Level 5 - The Shaft" src="docs/level_5/the_shaft.png" />
+<img width="1152" height="648" alt="Level 5 - The Lure" src="docs/level_5/the_lure.png" />
+<img width="1152" height="648" alt="Level 5 - The Belfry" src="docs/level_5/the_belfry.png" />

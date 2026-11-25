@@ -6,7 +6,17 @@ extends Node2D
 @onready var sfx = $AudioStreamPlayer2D
 @onready var sfx2 = $AudioStreamPlayer2D2
 var is_open: bool = false
-var _active_triggers: int = 0  
+var _active_triggers: int = 0
+## Starts open, as if one trigger already held it (a pad wired with
+## trigger_close on press / trigger_open on release then works as an inverse gate).
+@export var start_open: bool = false
+
+func _ready() -> void:
+	if start_open:
+		_active_triggers = 1
+		is_open = true
+		col.disabled = true
+		anim.play("open")
 
 func trigger_open() -> void:
 	_active_triggers += 1
