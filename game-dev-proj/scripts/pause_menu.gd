@@ -54,6 +54,13 @@ func _open() -> void:
 		var retry := MenuStyle.button("Retry level")
 		retry.pressed.connect(_retry.bind(level))
 		col.add_child(retry)
+	if TouchControls.enabled:
+		var controls := MenuStyle.button("Controls")
+		controls.pressed.connect(func():
+			var screen := TouchSettingsScreen.new()
+			screen.closed.connect(func(): if is_instance_valid(controls): controls.grab_focus())
+			_layer.add_child(screen))
+		col.add_child(controls)
 	var menu := MenuStyle.button("Main menu")
 	menu.pressed.connect(_to_menu)
 	col.add_child(menu)

@@ -48,6 +48,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	add_to_group("dialogue_box")  # touch_controls.gd hides its buttons while one shows
 	_build_ui()
 	_place()
 	_build_blip()
@@ -162,6 +163,10 @@ func show_box() -> void:
 	_panel.show()
 
 
+func is_showing() -> bool:
+	return _panel != null and _panel.is_visible_in_tree()
+
+
 func hide_box() -> void:
 	_panel.hide()
 	_name_tab.hide()
@@ -175,7 +180,7 @@ func say(who: String, text: String) -> void:
 	_name_label.text = who
 	_name_label.add_theme_color_override("font_color", look["color"])
 	_blip_pitch = look["pitch"]
-	_text.text = text
+	_text.text = TouchHints.text(text) if TouchControls.enabled else text
 	_text.visible_characters = 0
 	_char_time = 0.0
 	_blip_counter = 0
