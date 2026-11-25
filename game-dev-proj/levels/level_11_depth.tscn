@@ -1,0 +1,1230 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/parallax_region.gd" id="1_e1vrh"]
+[ext_resource type="Script" path="res://scripts/parallax_anchor.gd" id="2_7nk66"]
+[ext_resource type="Texture2D" path="res://assets/FREE UPDATE V1/FREE UPDATE V1/BACKGROUNDS/caves_background_00.png" id="3_knrud"]
+[ext_resource type="Texture2D" path="res://assets/parallax/bg_cave_outcrops.png" id="4_c55kc"]
+
+[sub_resource type="Gradient" id="Gradient_e1vrh"]
+colors = PackedColorArray(0.05, 0.026, 0.038, 1, 0.012, 0.006, 0.01, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7nk66"]
+gradient = SubResource("Gradient_e1vrh")
+width = 4
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_knrud"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(0.75, 0.55, 0.5, 0, 0.75, 0.55, 0.5, 0.22, 0.75, 0.55, 0.5, 0.22, 0.75, 0.55, 0.5, 0)
+
+[sub_resource type="Shader" id="Shader_c55kc"]
+code = "shader_type canvas_item;
+void fragment() {
+	COLOR = texture(TEXTURE, UV) * COLOR;
+	COLOR.a *= sin(UV.y * PI);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8hni"]
+shader = SubResource("Shader_c55kc")
+
+[sub_resource type="Gradient" id="Gradient_rlhrd"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yql6c"]
+seed = 7
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rrmr"]
+width = 256
+height = 48
+noise = SubResource("FastNoiseLite_yql6c")
+color_ramp = SubResource("Gradient_rlhrd")
+seamless = true
+
+[sub_resource type="Shader" id="Shader_mhlpn"]
+code = "shader_type canvas_item;
+void fragment() {
+	COLOR = texture(TEXTURE, UV) * COLOR;
+	COLOR.a *= sin(UV.y * PI);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppi7w"]
+shader = SubResource("Shader_mhlpn")
+
+[sub_resource type="Gradient" id="Gradient_5y2tj"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vvsmq"]
+seed = 7
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y4oxm"]
+width = 256
+height = 48
+noise = SubResource("FastNoiseLite_vvsmq")
+color_ramp = SubResource("Gradient_5y2tj")
+seamless = true
+
+[sub_resource type="Shader" id="Shader_iw2iw"]
+code = "shader_type canvas_item;
+void fragment() {
+	COLOR = texture(TEXTURE, UV) * COLOR;
+	COLOR.a *= sin(UV.y * PI);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gihgl"]
+shader = SubResource("Shader_iw2iw")
+
+[sub_resource type="Gradient" id="Gradient_2kh2q"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.6)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xhmqg"]
+seed = 7
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_proda"]
+width = 256
+height = 48
+noise = SubResource("FastNoiseLite_xhmqg")
+color_ramp = SubResource("Gradient_2kh2q")
+seamless = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u1o3p"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_sktj8"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.7, 0.6, 0.62, 0, 0.7, 0.6, 0.62, 0.5, 0.7, 0.6, 0.62, 0)
+
+[node name="CaveDepth" type="Node2D" unique_id=1810624998]
+
+[node name="Depth" type="Node2D" parent="." unique_id=834910351]
+script = ExtResource("1_e1vrh")
+area = Rect2(-200, -200, 3664, 1952)
+
+[node name="Murk" type="Parallax2D" parent="Depth" unique_id=523144061]
+z_index = -134
+scroll_scale = Vector2(0, 0)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Gradient" type="Sprite2D" parent="Depth/Murk" unique_id=778136324]
+texture_filter = 2
+position = Vector2(1365, 608)
+scale = Vector2(133.5, 5.25)
+texture = SubResource("GradientTexture2D_7nk66")
+centered = false
+
+[node name="FarWall" type="Parallax2D" parent="Depth" unique_id=1006818809]
+z_index = -132
+scroll_scale = Vector2(0.08, 0.08)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Band" type="Sprite2D" parent="Depth/FarWall" unique_id=573901623]
+modulate = Color(0.4, 0.33, 0.42, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(1092.6, 396.15997)
+texture = ExtResource("3_knrud")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1440, 960)
+
+[node name="Tallies" type="Node2D" parent="Depth/FarWall" unique_id=1885023387]
+position = Vector2(1430.6406, 592.1828)
+
+[node name="@Line2D@2" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=1944125163]
+points = PackedVector2Array(-0.6843741, 0, 0, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@3" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=768627698]
+points = PackedVector2Array(2.315626, 0, 3, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@4" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=1353095279]
+points = PackedVector2Array(5.315626, 0, 6, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@5" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=99402987]
+points = PackedVector2Array(8.315626, 0, 9, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@6" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=1703208511]
+points = PackedVector2Array(-2, 9, 11, 2)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@7" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=1906998249]
+points = PackedVector2Array(-1.3563786, 16, -2.734601, 27)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@8" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=265394542]
+points = PackedVector2Array(1.6436214, 16, 0.26539898, 27)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@9" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=708251125]
+points = PackedVector2Array(4.6436214, 16, 3.265399, 27)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@10" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=1311474381]
+points = PackedVector2Array(7.6436214, 16, 6.265399, 27)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@11" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=22000936]
+points = PackedVector2Array(-4.734601, 25, 8.265399, 18)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@12" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=1748810121]
+points = PackedVector2Array(19.03985, 16, 17.643316, 27)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@13" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=2025012222]
+points = PackedVector2Array(22.03985, 16, 20.643316, 27)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@14" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=960056274]
+points = PackedVector2Array(25.03985, 16, 23.643316, 27)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@15" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=2062402111]
+points = PackedVector2Array(28.03985, 16, 26.643316, 27)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@16" type="Line2D" parent="Depth/FarWall/Tallies" unique_id=1765606952]
+points = PackedVector2Array(15.643316, 25, 28.643316, 18)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Node2D@17" type="Node2D" parent="Depth/FarWall" unique_id=1909999506]
+position = Vector2(1815.7793, 545.1229)
+
+[node name="@Line2D@18" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=598053091]
+points = PackedVector2Array(0.17373538, 0, 0, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@19" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=223924372]
+points = PackedVector2Array(3.1737354, 0, 3, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@20" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=616811688]
+points = PackedVector2Array(6.1737356, 0, 6, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@21" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=1941924316]
+points = PackedVector2Array(9.173736, 0, 9, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@22" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=372480631]
+points = PackedVector2Array(-2, 9, 11, 2)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@23" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=1149921166]
+points = PackedVector2Array(16.67855, 0, 17.273157, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@24" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=1682245864]
+points = PackedVector2Array(19.67855, 0, 20.273157, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@25" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=1115559814]
+points = PackedVector2Array(22.67855, 0, 23.273157, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@26" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=695027528]
+points = PackedVector2Array(25.67855, 0, 26.273157, 11)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="@Line2D@27" type="Line2D" parent="Depth/FarWall/@Node2D@17" unique_id=2100647309]
+points = PackedVector2Array(15.273157, 9, 28.273157, 2)
+width = 1.0
+default_color = Color(0.75, 0.62, 0.66, 0.1)
+
+[node name="Galleries" type="Parallax2D" parent="Depth" unique_id=378711923]
+z_index = -130
+scroll_scale = Vector2(0.16, 0.16)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Gallery" type="Node2D" parent="Depth/Galleries" unique_id=1534353420]
+
+[node name="@Polygon2D@28" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=201367685]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(980.19995, 404, 980.19995, 466.81464, 1002.3225, 459.33426, 1017.54645, 467.5806, 1038.5807, 466.4176, 1055.1069, 469.50848, 1081.3276, 458.6267, 1096.5645, 456.09637, 1122.64, 471.24338, 1146.9243, 467.98904, 1169.4569, 464.79422, 1196.7135, 463.9359, 1212.4357, 456.19595, 1231.5277, 464.88327, 1250.7246, 469.55075, 1271.8154, 462.11835, 1291.9185, 467.59213, 1312.2826, 456.43112, 1333.504, 467.03098, 1362.7705, 463.9134, 1380.5896, 469.60547, 1409.0182, 465.1311, 1437.4823, 466.34256, 1451.8606, 466.50574, 1481.4835, 468.63742, 1503.88, 457.72202, 1518.8354, 466.88174, 1545.0554, 459.52725, 1564.378, 460.47238, 1584.6718, 468.47238, 1603.6746, 462.69427, 1620.201, 456.6532, 1648.9375, 464.52518, 1664.7915, 466.85394, 1693.0088, 469.77222, 1720.678, 462.63248, 1736.7701, 458.77057, 1753.7993, 461.36667, 1780.5199, 460.15695, 1799.7825, 461.69025, 1829.0394, 457.3571, 1849.1593, 461.925, 1875.7167, 463.12155, 1893.378, 465.44272, 1917.9141, 467.76895, 1933.0905, 464.20255, 1955.4492, 462.7019, 1976.4637, 470.8116, 1991.4623, 468.90546, 2008.1505, 458.27917, 2028.1189, 468.05792, 2055.5916, 460.48624, 2069.712, 457.34384, 2089.8752, 468.61545, 2111.2024, 463.25702, 2138.7585, 458.27753, 2166.7256, 462.37332, 2183.553, 470.75363, 2199.7163, 461.04788, 2222.7583, 471.66003, 2237.4756, 471.55948, 2253.3765, 467.13235, 2273.1821, 465.55316, 2283.8, 404)
+
+[node name="@Line2D@29" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1044045465]
+points = PackedVector2Array(980.19995, 466.81464, 1002.3225, 459.33426, 1017.54645, 467.5806, 1038.5807, 466.4176, 1055.1069, 469.50848, 1081.3276, 458.6267, 1096.5645, 456.09637, 1122.64, 471.24338, 1146.9243, 467.98904, 1169.4569, 464.79422, 1196.7135, 463.9359, 1212.4357, 456.19595, 1231.5277, 464.88327, 1250.7246, 469.55075, 1271.8154, 462.11835, 1291.9185, 467.59213, 1312.2826, 456.43112, 1333.504, 467.03098, 1362.7705, 463.9134, 1380.5896, 469.60547, 1409.0182, 465.1311, 1437.4823, 466.34256, 1451.8606, 466.50574, 1481.4835, 468.63742, 1503.88, 457.72202, 1518.8354, 466.88174, 1545.0554, 459.52725, 1564.378, 460.47238, 1584.6718, 468.47238, 1603.6746, 462.69427, 1620.201, 456.6532, 1648.9375, 464.52518, 1664.7915, 466.85394, 1693.0088, 469.77222, 1720.678, 462.63248, 1736.7701, 458.77057, 1753.7993, 461.36667, 1780.5199, 460.15695, 1799.7825, 461.69025, 1829.0394, 457.3571, 1849.1593, 461.925, 1875.7167, 463.12155, 1893.378, 465.44272, 1917.9141, 467.76895, 1933.0905, 464.20255, 1955.4492, 462.7019, 1976.4637, 470.8116, 1991.4623, 468.90546, 2008.1505, 458.27917, 2028.1189, 468.05792, 2055.5916, 460.48624, 2069.712, 457.34384, 2089.8752, 468.61545, 2111.2024, 463.25702, 2138.7585, 458.27753, 2166.7256, 462.37332, 2183.553, 470.75363, 2199.7163, 461.04788, 2222.7583, 471.66003, 2237.4756, 471.55948, 2253.3765, 467.13235, 2273.1821, 465.55316)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@30" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1419097479]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(980.19995, 744, 980.19995, 671.1186, 1012.1525, 670.46497, 1040.6793, 679.5241, 1063.1212, 673.5043, 1079.5316, 668.2673, 1106.3022, 678.3416, 1139.0024, 675.288, 1157.0609, 676.75775, 1177.1394, 670.4687, 1202.8444, 675.2387, 1234.0543, 678.87726, 1261.0402, 678.008, 1287.4617, 671.73724, 1318.077, 676.8327, 1345.8312, 673.732, 1366.1731, 670.39246, 1393.7644, 670.2096, 1413.5677, 671.7387, 1441.2083, 675.569, 1468.7216, 673.8898, 1491.6462, 679.7027, 1522.9541, 678.53235, 1548.5779, 674.2569, 1579.31, 671.86615, 1604.89, 676.57416, 1631.8007, 677.4304, 1660.4458, 669.9395, 1688.9404, 676.5869, 1710.8782, 669.4006, 1744.1024, 670.4084, 1777.7662, 672.2028, 1808.303, 669.1226, 1832.0061, 671.2426, 1860.9703, 679.62805, 1879.5221, 674.9552, 1907.3289, 672.4941, 1939.167, 677.8731, 1955.2687, 672.5425, 1986.3446, 676.23236, 2011.4736, 673.77576, 2040.0918, 674.2078, 2065.0964, 669.786, 2081.6384, 679.96844, 2113.6416, 674.9185, 2138.9006, 674.6373, 2155.382, 671.9933, 2177.9885, 671.3028, 2211.1577, 676.5066, 2235.9963, 677.8888, 2265.0664, 671.3224, 2283.8, 744)
+
+[node name="@Line2D@31" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1568752651]
+points = PackedVector2Array(980.19995, 671.1186, 1012.1525, 670.46497, 1040.6793, 679.5241, 1063.1212, 673.5043, 1079.5316, 668.2673, 1106.3022, 678.3416, 1139.0024, 675.288, 1157.0609, 676.75775, 1177.1394, 670.4687, 1202.8444, 675.2387, 1234.0543, 678.87726, 1261.0402, 678.008, 1287.4617, 671.73724, 1318.077, 676.8327, 1345.8312, 673.732, 1366.1731, 670.39246, 1393.7644, 670.2096, 1413.5677, 671.7387, 1441.2083, 675.569, 1468.7216, 673.8898, 1491.6462, 679.7027, 1522.9541, 678.53235, 1548.5779, 674.2569, 1579.31, 671.86615, 1604.89, 676.57416, 1631.8007, 677.4304, 1660.4458, 669.9395, 1688.9404, 676.5869, 1710.8782, 669.4006, 1744.1024, 670.4084, 1777.7662, 672.2028, 1808.303, 669.1226, 1832.0061, 671.2426, 1860.9703, 679.62805, 1879.5221, 674.9552, 1907.3289, 672.4941, 1939.167, 677.8731, 1955.2687, 672.5425, 1986.3446, 676.23236, 2011.4736, 673.77576, 2040.0918, 674.2078, 2065.0964, 669.786, 2081.6384, 679.96844, 2113.6416, 674.9185, 2138.9006, 674.6373, 2155.382, 671.9933, 2177.9885, 671.3028, 2211.1577, 676.5066, 2235.9963, 677.8888, 2265.0664, 671.3224)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@32" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1126777771]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1028.249, 464, 1050.3832, 464, 1044.2963, 569, 1049.2764, 674, 1029.3557, 674, 1034.8893, 569)
+
+[node name="@Line2D@33" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=279249267]
+points = PackedVector2Array(1028.249, 464, 1034.8893, 569, 1029.3557, 674)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@34" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=489023339]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1122.3584, 462, 1168.1957, 462, 1152.1526, 525.7165, 1145.2771, 566.86084)
+
+[node name="@Line2D@35" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=185691507]
+points = PackedVector2Array(1122.3584, 464, 1145.2771, 566.86084)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@36" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=404885146]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1139.4017, 676, 1157.6195, 620.07184, 1164.9066, 647.0359, 1175.8373, 676)
+
+[node name="@Line2D@37" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1405042830]
+points = PackedVector2Array(1139.4017, 674, 1157.6195, 620.07184)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@38" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1341705780]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1256.9788, 462, 1277.6256, 462, 1270.3992, 497.9964, 1267.3022, 520.66064)
+
+[node name="@Line2D@39" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1575565443]
+points = PackedVector2Array(1256.9788, 464, 1267.3022, 520.66064)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@40" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=930477286]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1214.1946, 676, 1227.7765, 636.08594, 1233.2094, 655.04297, 1241.3585, 676)
+
+[node name="@Line2D@41" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1760566217]
+points = PackedVector2Array(1214.1946, 674, 1227.7765, 636.08594)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@42" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1373094248]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1353.0112, 462, 1395.0359, 462, 1380.3273, 515.0402, 1374.0236, 549.067)
+
+[node name="@Line2D@43" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=670173989]
+points = PackedVector2Array(1353.0112, 464, 1374.0236, 549.067)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@44" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=602519073]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1384.2634, 676, 1401.2322, 653.6622, 1408.0195, 663.83105, 1418.2008, 676)
+
+[node name="@Line2D@45" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=433246856]
+points = PackedVector2Array(1384.2634, 674, 1401.2322, 653.6622)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@46" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1803137384]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1416.9906, 464, 1464.1165, 464, 1451.1569, 569, 1461.7601, 674, 1419.3469, 674, 1431.1284, 569)
+
+[node name="@Line2D@47" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=973512534]
+points = PackedVector2Array(1416.9906, 464, 1431.1284, 569, 1419.3469, 674)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@48" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1358272558]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1513.7325, 462, 1561.7881, 462, 1544.9686, 515.2896, 1537.7603, 549.48267)
+
+[node name="@Line2D@49" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1287371687]
+points = PackedVector2Array(1513.7325, 464, 1537.7603, 549.48267)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@50" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1867463898]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1499.6282, 676, 1520.1781, 621.36176, 1528.398, 647.6809, 1540.7279, 676)
+
+[node name="@Line2D@51" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1380391836]
+points = PackedVector2Array(1499.6282, 674, 1520.1781, 621.36176)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@52" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1475653567]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1580.0481, 464, 1620.7687, 464, 1609.5706, 569, 1618.7327, 674, 1582.0841, 674, 1592.2643, 569)
+
+[node name="@Line2D@53" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1243781588]
+points = PackedVector2Array(1580.0481, 464, 1592.2643, 569, 1582.0841, 674)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@54" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1065632533]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1691.6624, 462, 1722.1774, 462, 1711.4971, 517.7874, 1706.9198, 553.6457)
+
+[node name="@Line2D@55" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=938624745]
+points = PackedVector2Array(1691.6624, 464, 1706.9198, 553.6457)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@56" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=2145275416]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1652.9031, 676, 1676.013, 605.25134, 1685.2568, 639.6257, 1699.1228, 676)
+
+[node name="@Line2D@57" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=298316746]
+points = PackedVector2Array(1652.9031, 674, 1676.013, 605.25134)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@58" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=568924184]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1779.6135, 462, 1810.595, 462, 1799.7515, 513.925, 1795.1042, 547.2083)
+
+[node name="@Line2D@59" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1890298676]
+points = PackedVector2Array(1779.6135, 464, 1795.1042, 547.2083)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@60" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1502630399]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1818.245, 676, 1832.2666, 599.43835, 1837.8751, 636.7192, 1846.2881, 676)
+
+[node name="@Line2D@61" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=2041293968]
+points = PackedVector2Array(1818.245, 674, 1832.2666, 599.43835)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@62" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=626685615]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1852.3379, 462, 1873.2253, 462, 1865.9147, 516.08093, 1862.7816, 550.8015)
+
+[node name="@Line2D@63" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1527637612]
+points = PackedVector2Array(1852.3379, 464, 1862.7816, 550.8015)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@64" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1871075661]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1821.6334, 676, 1839.4376, 605.46576, 1846.5593, 639.7329, 1857.242, 676)
+
+[node name="@Line2D@65" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1162027441]
+points = PackedVector2Array(1821.6334, 674, 1839.4376, 605.46576)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@66" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=2007240166]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1938.2977, 464, 1982.0112, 464, 1969.99, 569, 1979.8256, 674, 1940.4834, 674, 1951.4117, 569)
+
+[node name="@Line2D@67" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1939921472]
+points = PackedVector2Array(1938.2977, 464, 1951.4117, 569, 1940.4834, 674)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@68" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1900391065]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2013.4178, 462, 2057.3674, 462, 2041.9851, 485.1321, 2035.3927, 499.22018)
+
+[node name="@Line2D@69" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=2024309873]
+points = PackedVector2Array(2013.4178, 464, 2035.3927, 499.22018)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@70" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=269864719]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2054.2961, 676, 2067.3372, 619.85504, 2072.5537, 646.92755, 2080.3784, 676)
+
+[node name="@Line2D@71" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=619505292]
+points = PackedVector2Array(2054.2961, 674, 2067.3372, 619.85504)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@72" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1010085337]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2105.3818, 462, 2140.034, 462, 2127.9058, 493.69653, 2122.708, 513.4942)
+
+[node name="@Line2D@73" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=2067130366]
+points = PackedVector2Array(2105.3818, 464, 2122.708, 513.4942)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@74" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=1980446469]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2094.4531, 676, 2119.505, 647.5004, 2129.5256, 660.75024, 2144.557, 676)
+
+[node name="@Line2D@75" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1261121446]
+points = PackedVector2Array(2094.4531, 674, 2119.505, 647.5004)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@76" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=602063438]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2188.4475, 462, 2239.407, 462, 2221.5713, 506.46786, 2213.9272, 534.7798)
+
+[node name="@Line2D@77" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=1537343169]
+points = PackedVector2Array(2188.4475, 464, 2213.9272, 534.7798)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@78" type="Polygon2D" parent="Depth/Galleries/Gallery" unique_id=291137891]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2208.3384, 676, 2231.181, 617.70197, 2240.318, 645.85095, 2254.0237, 676)
+
+[node name="@Line2D@79" type="Line2D" parent="Depth/Galleries/Gallery" unique_id=2017363569]
+points = PackedVector2Array(2208.3384, 674, 2231.181, 617.70197)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Node2D@80" type="Node2D" parent="Depth/Galleries" unique_id=1811913985]
+
+[node name="@Polygon2D@81" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=587825894]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(980.19995, 704, 980.19995, 771.4476, 996.5358, 770.9488, 1024.2401, 759.0987, 1053.9784, 767.8984, 1082.2124, 764.43195, 1098.2805, 767.8311, 1113.5029, 760.678, 1134.5372, 766.42944, 1162.275, 764.4614, 1183.1171, 763.8735, 1202.6125, 763.9675, 1232.1925, 765.0476, 1254.0007, 764.1725, 1268.0248, 770.167, 1292.9012, 757.2927, 1321.8413, 756.2143, 1337.9875, 760.133, 1367.1376, 762.90326, 1387.2058, 762.5902, 1404.4404, 763.6547, 1430.3683, 758.6835, 1451.684, 767.008, 1476.2578, 760.8215, 1499.8936, 766.77, 1518.1915, 766.49066, 1546.9365, 757.67896, 1562.0525, 770.04034, 1587.604, 768.2658, 1615.3097, 761.9419, 1636.7413, 768.6046, 1661.325, 757.22565, 1687.2534, 758.5965, 1714.2971, 768.7902, 1737.6368, 766.1652, 1764.785, 757.1084, 1792.6915, 766.065, 1819.4943, 763.53326, 1847.3212, 771.46796, 1867.6321, 758.79504, 1883.9653, 757.07135, 1908.2964, 767.7634, 1923.7936, 769.28, 1953.6992, 758.5874, 1981.9906, 759.9524, 2011.2489, 770.4449, 2038.7944, 763.7418, 2065.6492, 761.3755, 2083.0732, 761.6552, 2113.0508, 760.2354, 2131.5413, 770.03015, 2161.3396, 767.6242, 2185.6309, 766.6168, 2214.5442, 769.39124, 2237.8733, 769.8132, 2261.9968, 758.77325, 2283.8, 704)
+
+[node name="@Line2D@82" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=356118350]
+points = PackedVector2Array(980.19995, 771.4476, 996.5358, 770.9488, 1024.2401, 759.0987, 1053.9784, 767.8984, 1082.2124, 764.43195, 1098.2805, 767.8311, 1113.5029, 760.678, 1134.5372, 766.42944, 1162.275, 764.4614, 1183.1171, 763.8735, 1202.6125, 763.9675, 1232.1925, 765.0476, 1254.0007, 764.1725, 1268.0248, 770.167, 1292.9012, 757.2927, 1321.8413, 756.2143, 1337.9875, 760.133, 1367.1376, 762.90326, 1387.2058, 762.5902, 1404.4404, 763.6547, 1430.3683, 758.6835, 1451.684, 767.008, 1476.2578, 760.8215, 1499.8936, 766.77, 1518.1915, 766.49066, 1546.9365, 757.67896, 1562.0525, 770.04034, 1587.604, 768.2658, 1615.3097, 761.9419, 1636.7413, 768.6046, 1661.325, 757.22565, 1687.2534, 758.5965, 1714.2971, 768.7902, 1737.6368, 766.1652, 1764.785, 757.1084, 1792.6915, 766.065, 1819.4943, 763.53326, 1847.3212, 771.46796, 1867.6321, 758.79504, 1883.9653, 757.07135, 1908.2964, 767.7634, 1923.7936, 769.28, 1953.6992, 758.5874, 1981.9906, 759.9524, 2011.2489, 770.4449, 2038.7944, 763.7418, 2065.6492, 761.3755, 2083.0732, 761.6552, 2113.0508, 760.2354, 2131.5413, 770.03015, 2161.3396, 767.6242, 2185.6309, 766.6168, 2214.5442, 769.39124, 2237.8733, 769.8132, 2261.9968, 758.77325)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@83" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1362859055]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(980.19995, 1044, 980.19995, 978.84705, 1006.52606, 968.7287, 1032.7917, 969.27216, 1055.0852, 978.3039, 1084.0118, 977.8391, 1104.4008, 979.91486, 1137.2476, 975.277, 1168.462, 972.5074, 1194.6807, 975.8023, 1221.254, 972.0407, 1243.0696, 977.7215, 1270.9423, 979.7721, 1289.9248, 970.8672, 1317.9559, 968.63464, 1349.6515, 975.6734, 1375.157, 969.11975, 1394.3977, 976.10925, 1420.2133, 972.38403, 1451.0765, 969.9196, 1483.0222, 971.73553, 1509.1133, 970.9942, 1530.1987, 973.3033, 1557.9229, 970.9682, 1577.6453, 978.1447, 1600.5541, 975.1329, 1617.8104, 978.6877, 1642.9254, 971.02014, 1667.7832, 979.0738, 1695.3317, 971.93665, 1724.0248, 974.3639, 1740.343, 972.91473, 1762.9548, 969.2784, 1785.2324, 973.6313, 1804.2117, 968.7477, 1837.9253, 977.9355, 1864.1482, 974.5473, 1896.3141, 973.4352, 1916.6455, 975.12604, 1935.8145, 975.9309, 1969.7424, 978.91656, 1996.0709, 970.9268, 2027.1187, 976.4665, 2049.0142, 974.4189, 2071.3406, 973.0323, 2098.647, 976.15765, 2123.9658, 978.25085, 2145.682, 974.04175, 2176.8516, 971.12384, 2208.4946, 973.05426, 2233.7114, 976.88837, 2259.6042, 976.65125, 2283.8, 1044)
+
+[node name="@Line2D@84" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1388096138]
+points = PackedVector2Array(980.19995, 978.84705, 1006.52606, 968.7287, 1032.7917, 969.27216, 1055.0852, 978.3039, 1084.0118, 977.8391, 1104.4008, 979.91486, 1137.2476, 975.277, 1168.462, 972.5074, 1194.6807, 975.8023, 1221.254, 972.0407, 1243.0696, 977.7215, 1270.9423, 979.7721, 1289.9248, 970.8672, 1317.9559, 968.63464, 1349.6515, 975.6734, 1375.157, 969.11975, 1394.3977, 976.10925, 1420.2133, 972.38403, 1451.0765, 969.9196, 1483.0222, 971.73553, 1509.1133, 970.9942, 1530.1987, 973.3033, 1557.9229, 970.9682, 1577.6453, 978.1447, 1600.5541, 975.1329, 1617.8104, 978.6877, 1642.9254, 971.02014, 1667.7832, 979.0738, 1695.3317, 971.93665, 1724.0248, 974.3639, 1740.343, 972.91473, 1762.9548, 969.2784, 1785.2324, 973.6313, 1804.2117, 968.7477, 1837.9253, 977.9355, 1864.1482, 974.5473, 1896.3141, 973.4352, 1916.6455, 975.12604, 1935.8145, 975.9309, 1969.7424, 978.91656, 1996.0709, 970.9268, 2027.1187, 976.4665, 2049.0142, 974.4189, 2071.3406, 973.0323, 2098.647, 976.15765, 2123.9658, 978.25085, 2145.682, 974.04175, 2176.8516, 971.12384, 2208.4946, 973.05426, 2233.7114, 976.88837, 2259.6042, 976.65125)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@85" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1163888071]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1098.333, 762, 1133.892, 762, 1121.4464, 817.38116, 1116.1125, 852.96857)
+
+[node name="@Line2D@86" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=2019993729]
+points = PackedVector2Array(1098.333, 764, 1116.1125, 852.96857)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@87" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1922717846]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1079.2582, 976, 1102.1072, 917.1899, 1111.2468, 945.595, 1124.9563, 976)
+
+[node name="@Line2D@88" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=908793897]
+points = PackedVector2Array(1079.2582, 974, 1102.1072, 917.1899)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@89" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=80178498]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1194.3298, 762, 1230.1749, 762, 1217.6292, 816.1797, 1212.2524, 850.9661)
+
+[node name="@Line2D@90" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=496115289]
+points = PackedVector2Array(1194.3298, 764, 1212.2524, 850.9661)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@91" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1772047106]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1153.1691, 976, 1173.9476, 951.432, 1182.259, 962.716, 1194.7262, 976)
+
+[node name="@Line2D@92" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1477643573]
+points = PackedVector2Array(1153.1691, 974, 1173.9476, 951.432)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@93" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1499857086]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1279.6895, 762, 1326.726, 762, 1310.2632, 826.4012, 1303.2078, 868.002)
+
+[node name="@Line2D@94" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=853223488]
+points = PackedVector2Array(1279.6895, 764, 1303.2078, 868.002)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@95" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=2057205099]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1279.8116, 976, 1297.1965, 943.74243, 1304.1505, 958.8712, 1314.5815, 976)
+
+[node name="@Line2D@96" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=890852239]
+points = PackedVector2Array(1279.8116, 974, 1297.1965, 943.74243)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@97" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1979310224]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1390.8657, 762, 1420.1055, 762, 1409.8716, 831.9945, 1405.4856, 877.3242)
+
+[node name="@Line2D@98" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1498981095]
+points = PackedVector2Array(1390.8657, 764, 1405.4856, 877.3242)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@99" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1743768707]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1413.677, 976, 1435.8053, 943.4603, 1444.6565, 958.73016, 1457.9335, 976)
+
+[node name="@Line2D@100" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=354089534]
+points = PackedVector2Array(1413.677, 974, 1435.8053, 943.4603)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@101" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1983577655]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1462.9216, 762, 1484.0575, 762, 1476.66, 793.4446, 1473.4896, 813.0743)
+
+[node name="@Line2D@102" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1761447588]
+points = PackedVector2Array(1462.9216, 764, 1473.4896, 813.0743)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@103" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1119316942]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1468.8624, 976, 1481.7439, 949.0921, 1486.8965, 961.546, 1494.6254, 976)
+
+[node name="@Line2D@104" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1082429236]
+points = PackedVector2Array(1468.8624, 974, 1481.7439, 949.0921)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@105" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1307829074]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1529.589, 764, 1573.3842, 764, 1561.3406, 869, 1571.1945, 974, 1531.7787, 974, 1542.7275, 869)
+
+[node name="@Line2D@106" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1788489220]
+points = PackedVector2Array(1529.589, 764, 1542.7275, 869, 1531.7787, 974)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@107" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=2052013406]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1630.7799, 764, 1659.3696, 764, 1651.5074, 869, 1657.9402, 974, 1632.2095, 974, 1639.3569, 869)
+
+[node name="@Line2D@108" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1579992650]
+points = PackedVector2Array(1630.7799, 764, 1639.3569, 869, 1632.2095, 974)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@109" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=402640229]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1758.1926, 764, 1782.9231, 764, 1776.1222, 869, 1781.6865, 974, 1759.4291, 974, 1765.6117, 869)
+
+[node name="@Line2D@110" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=2089503807]
+points = PackedVector2Array(1758.1926, 764, 1765.6117, 869, 1759.4291, 974)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@111" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1610970461]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1870.5948, 762, 1920.6631, 762, 1903.1393, 799.5139, 1895.629, 823.1898)
+
+[node name="@Line2D@112" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=737233143]
+points = PackedVector2Array(1870.5948, 764, 1895.629, 823.1898)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@113" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=850187678]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1870.4221, 976, 1890.5789, 948.75775, 1898.6415, 961.37885, 1910.7355, 976)
+
+[node name="@Line2D@114" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=82057547]
+points = PackedVector2Array(1870.4221, 974, 1890.5789, 948.75775)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@115" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1649504048]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1959.9374, 764, 1984.2081, 764, 1977.5337, 869, 1982.9946, 974, 1961.1509, 974, 1967.2186, 869)
+
+[node name="@Line2D@116" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=813889594]
+points = PackedVector2Array(1959.9374, 764, 1967.2186, 869, 1961.1509, 974)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@117" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=529686319]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2016.9204, 762, 2066.1885, 762, 2048.9446, 784.38293, 2041.5544, 797.97156)
+
+[node name="@Line2D@118" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=264164433]
+points = PackedVector2Array(2016.9204, 764, 2041.5544, 797.97156)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@119" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=720600195]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2000.4003, 976, 2015.3412, 918.16516, 2021.3175, 946.0826, 2030.2821, 976)
+
+[node name="@Line2D@120" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1493300097]
+points = PackedVector2Array(2000.4003, 974, 2015.3412, 918.16516)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@121" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1036198243]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2140.5764, 762, 2180.0469, 762, 2166.2322, 799.6235, 2160.3115, 823.37244)
+
+[node name="@Line2D@122" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=2016617039]
+points = PackedVector2Array(2140.5764, 764, 2160.3115, 823.37244)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@123" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=648854512]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2171.6282, 976, 2199.294, 940.91974, 2210.36, 957.4599, 2226.9595, 976)
+
+[node name="@Line2D@124" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1013808363]
+points = PackedVector2Array(2171.6282, 974, 2199.294, 940.91974)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@125" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=224037142]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2255.6433, 762, 2307.418, 762, 2289.2969, 819.07184, 2281.5308, 855.78644)
+
+[node name="@Line2D@126" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1392404541]
+points = PackedVector2Array(2255.6433, 764, 2281.5308, 855.78644)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@127" type="Polygon2D" parent="Depth/Galleries/@Node2D@80" unique_id=1633231711]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2262.3887, 976, 2284.44, 931.95636, 2293.2605, 952.9782, 2306.4912, 976)
+
+[node name="@Line2D@128" type="Line2D" parent="Depth/Galleries/@Node2D@80" unique_id=1144838635]
+points = PackedVector2Array(2262.3887, 974, 2284.44, 931.95636)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Node2D@129" type="Node2D" parent="Depth/Galleries" unique_id=440200769]
+
+[node name="@Polygon2D@130" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=2101749863]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(980.19995, 1004, 980.19995, 1059.8505, 1004.53534, 1060.5198, 1023.13806, 1071.8257, 1048.0597, 1070.1458, 1071.2057, 1059.9946, 1093.1732, 1057.0449, 1110.9141, 1067.9026, 1139.935, 1058.3032, 1159.5768, 1057.2899, 1176.4269, 1068.9006, 1194.4718, 1062.5713, 1210.4343, 1064.5796, 1225.3801, 1066.8002, 1246.681, 1056.4803, 1270.1565, 1070.1498, 1286.7196, 1065.5193, 1305.0898, 1071.6128, 1324.9923, 1060.5165, 1339.5206, 1063.4122, 1360.6334, 1061.5328, 1375.5029, 1070.2543, 1399.4069, 1064.5786, 1422.9658, 1057.353, 1447.1543, 1056.4125, 1468.0481, 1065.8254, 1490.6757, 1063.596, 1506.5068, 1063.1981, 1529.1405, 1065.7448, 1546.4341, 1068.8789, 1573.3981, 1066.6771, 1596.3807, 1071.0607, 1616.2339, 1065.8595, 1636.8346, 1070.0553, 1663.5514, 1066.5878, 1691.7361, 1059.5488, 1712.0951, 1060.6956, 1736.9806, 1061.0327, 1758.2595, 1057.1814, 1781.7231, 1067.56, 1807.0037, 1065.538, 1832.7992, 1068.2653, 1860.7605, 1057.301, 1875.2233, 1058.1764, 1904.4155, 1057.0211, 1922.2979, 1070.9192, 1944.6855, 1066.5493, 1963.5226, 1064.7919, 1988.2203, 1068.9813, 2015.2637, 1067.2496, 2041.8672, 1071.4518, 2068.99, 1071.0193, 2089.3145, 1070.8043, 2104.1072, 1063.747, 2130.782, 1062.8253, 2159.5444, 1064.1448, 2181.6902, 1071.2153, 2211.053, 1067.8318, 2231.369, 1058.4681, 2248.437, 1063.3593, 2263.465, 1069.2367, 2283.8, 1004)
+
+[node name="@Line2D@131" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=425189254]
+points = PackedVector2Array(980.19995, 1059.8505, 1004.53534, 1060.5198, 1023.13806, 1071.8257, 1048.0597, 1070.1458, 1071.2057, 1059.9946, 1093.1732, 1057.0449, 1110.9141, 1067.9026, 1139.935, 1058.3032, 1159.5768, 1057.2899, 1176.4269, 1068.9006, 1194.4718, 1062.5713, 1210.4343, 1064.5796, 1225.3801, 1066.8002, 1246.681, 1056.4803, 1270.1565, 1070.1498, 1286.7196, 1065.5193, 1305.0898, 1071.6128, 1324.9923, 1060.5165, 1339.5206, 1063.4122, 1360.6334, 1061.5328, 1375.5029, 1070.2543, 1399.4069, 1064.5786, 1422.9658, 1057.353, 1447.1543, 1056.4125, 1468.0481, 1065.8254, 1490.6757, 1063.596, 1506.5068, 1063.1981, 1529.1405, 1065.7448, 1546.4341, 1068.8789, 1573.3981, 1066.6771, 1596.3807, 1071.0607, 1616.2339, 1065.8595, 1636.8346, 1070.0553, 1663.5514, 1066.5878, 1691.7361, 1059.5488, 1712.0951, 1060.6956, 1736.9806, 1061.0327, 1758.2595, 1057.1814, 1781.7231, 1067.56, 1807.0037, 1065.538, 1832.7992, 1068.2653, 1860.7605, 1057.301, 1875.2233, 1058.1764, 1904.4155, 1057.0211, 1922.2979, 1070.9192, 1944.6855, 1066.5493, 1963.5226, 1064.7919, 1988.2203, 1068.9813, 2015.2637, 1067.2496, 2041.8672, 1071.4518, 2068.99, 1071.0193, 2089.3145, 1070.8043, 2104.1072, 1063.747, 2130.782, 1062.8253, 2159.5444, 1064.1448, 2181.6902, 1071.2153, 2211.053, 1067.8318, 2231.369, 1058.4681, 2248.437, 1063.3593, 2263.465, 1069.2367)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@132" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1959231307]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(980.19995, 1344, 980.19995, 1278.1157, 1014.0016, 1270.2437, 1041.1282, 1270.6451, 1067.1381, 1269.3464, 1085.3088, 1279.5524, 1102.4116, 1277.133, 1135.6775, 1276.4515, 1154.9792, 1275.1875, 1180.3591, 1278.2549, 1205.512, 1270.0063, 1232.5669, 1272.3284, 1265.3873, 1274.4087, 1288.0461, 1275.181, 1311.9106, 1274.3445, 1336.9283, 1270.5515, 1370.8595, 1273.361, 1388.5468, 1275.2668, 1419.3092, 1271.2467, 1438.8129, 1272.3221, 1468.1299, 1271.1057, 1488.3768, 1276.589, 1509.0374, 1272.2235, 1535.1654, 1275.0405, 1552.925, 1277.5105, 1584.7968, 1277.0857, 1607.9689, 1279.8536, 1632.2107, 1274.9987, 1653.0162, 1272.1571, 1680.0975, 1277.8567, 1705.0608, 1271.0525, 1737.8945, 1271.0404, 1767.4369, 1275.433, 1783.8695, 1278.5162, 1812.3768, 1268.3611, 1832.4475, 1274.8757, 1852.4309, 1273.7803, 1869.2609, 1271.2898, 1887.8192, 1276.5686, 1912.8516, 1274.5743, 1934.977, 1276.4889, 1963.5854, 1272.8373, 1996.2223, 1279.7975, 2013.6338, 1277.3654, 2039.7601, 1272.2065, 2059.389, 1269.6686, 2079.5593, 1275.4398, 2107.759, 1279.8239, 2133.4248, 1268.785, 2154.8503, 1273.535, 2178.8562, 1273.7388, 2206.0344, 1274.0503, 2226.0999, 1271.0215, 2257.3784, 1278.2393, 2283.8, 1344)
+
+[node name="@Line2D@133" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1016137319]
+points = PackedVector2Array(980.19995, 1278.1157, 1014.0016, 1270.2437, 1041.1282, 1270.6451, 1067.1381, 1269.3464, 1085.3088, 1279.5524, 1102.4116, 1277.133, 1135.6775, 1276.4515, 1154.9792, 1275.1875, 1180.3591, 1278.2549, 1205.512, 1270.0063, 1232.5669, 1272.3284, 1265.3873, 1274.4087, 1288.0461, 1275.181, 1311.9106, 1274.3445, 1336.9283, 1270.5515, 1370.8595, 1273.361, 1388.5468, 1275.2668, 1419.3092, 1271.2467, 1438.8129, 1272.3221, 1468.1299, 1271.1057, 1488.3768, 1276.589, 1509.0374, 1272.2235, 1535.1654, 1275.0405, 1552.925, 1277.5105, 1584.7968, 1277.0857, 1607.9689, 1279.8536, 1632.2107, 1274.9987, 1653.0162, 1272.1571, 1680.0975, 1277.8567, 1705.0608, 1271.0525, 1737.8945, 1271.0404, 1767.4369, 1275.433, 1783.8695, 1278.5162, 1812.3768, 1268.3611, 1832.4475, 1274.8757, 1852.4309, 1273.7803, 1869.2609, 1271.2898, 1887.8192, 1276.5686, 1912.8516, 1274.5743, 1934.977, 1276.4889, 1963.5854, 1272.8373, 1996.2223, 1279.7975, 2013.6338, 1277.3654, 2039.7601, 1272.2065, 2059.389, 1269.6686, 2079.5593, 1275.4398, 2107.759, 1279.8239, 2133.4248, 1268.785, 2154.8503, 1273.535, 2178.8562, 1273.7388, 2206.0344, 1274.0503, 2226.0999, 1271.0215, 2257.3784, 1278.2393)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@134" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1104577481]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(994.32733, 1062, 1023.93665, 1062, 1013.57336, 1094.5153, 1009.132, 1114.8589)
+
+[node name="@Line2D@135" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=640015017]
+points = PackedVector2Array(994.32733, 1064, 1009.132, 1114.8589)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@136" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1766278500]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1028.6467, 1276, 1046.0752, 1227.8385, 1053.0465, 1250.9192, 1063.5037, 1276)
+
+[node name="@Line2D@137" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=340077852]
+points = PackedVector2Array(1028.6467, 1274, 1046.0752, 1227.8385)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@138" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=766361483]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1119.6837, 1062, 1157.4882, 1062, 1144.2566, 1088.2318, 1138.5859, 1104.3864)
+
+[node name="@Line2D@139" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1147828381]
+points = PackedVector2Array(1119.6837, 1064, 1138.5859, 1104.3864)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@140" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1651667284]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1095.3916, 1276, 1117.466, 1210.6732, 1126.2957, 1242.3367, 1139.5403, 1276)
+
+[node name="@Line2D@141" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=339277438]
+points = PackedVector2Array(1095.3916, 1274, 1117.466, 1210.6732)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@142" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=143316374]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1230.9032, 1062, 1273.2522, 1062, 1258.43, 1113.1299, 1252.0776, 1145.8832)
+
+[node name="@Line2D@143" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1371308754]
+points = PackedVector2Array(1230.9032, 1064, 1252.0776, 1145.8832)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@144" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=730275927]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1259.7416, 1276, 1285.171, 1215.5748, 1295.3429, 1244.7875, 1310.6006, 1276)
+
+[node name="@Line2D@145" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=179797800]
+points = PackedVector2Array(1259.7416, 1274, 1285.171, 1215.5748)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@146" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=99417062]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1341.4982, 1062, 1374.6792, 1062, 1363.0658, 1089.975, 1358.0887, 1107.2916)
+
+[node name="@Line2D@147" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=539085717]
+points = PackedVector2Array(1341.4982, 1064, 1358.0887, 1107.2916)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@148" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1664471716]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1315.9799, 1276, 1343.8081, 1236.3413, 1354.9393, 1255.1707, 1371.6362, 1276)
+
+[node name="@Line2D@149" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=269873791]
+points = PackedVector2Array(1315.9799, 1274, 1343.8081, 1236.3413)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@150" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1108596801]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1438.9523, 1064, 1463.8921, 1064, 1457.0336, 1169, 1462.6451, 1274, 1440.1992, 1274, 1446.4342, 1169)
+
+[node name="@Line2D@151" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1410573567]
+points = PackedVector2Array(1438.9523, 1064, 1446.4342, 1169, 1440.1992, 1274)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@152" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=903950995]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1525.187, 1062, 1566.0612, 1062, 1551.7552, 1085.819, 1545.624, 1100.365)
+
+[node name="@Line2D@153" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=23609113]
+points = PackedVector2Array(1525.187, 1064, 1545.624, 1100.365)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@154" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1901078820]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1542.7683, 1276, 1563.3988, 1240.8558, 1571.651, 1257.428, 1584.0294, 1276)
+
+[node name="@Line2D@155" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=788064147]
+points = PackedVector2Array(1542.7683, 1274, 1563.3988, 1240.8558)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@156" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=265451631]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1635.3832, 1062, 1660.7297, 1062, 1651.8584, 1131.0549, 1648.0565, 1175.7582)
+
+[node name="@Line2D@157" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=645295423]
+points = PackedVector2Array(1635.3832, 1064, 1648.0565, 1175.7582)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@158" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=947582827]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1614.7582, 1276, 1630.3676, 1228.1261, 1636.6112, 1251.063, 1645.9768, 1276)
+
+[node name="@Line2D@159" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1140448163]
+points = PackedVector2Array(1614.7582, 1274, 1630.3676, 1228.1261)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@160" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=605250023]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1691.7004, 1062, 1731.9663, 1062, 1717.8733, 1125.3877, 1711.8334, 1166.3127)
+
+[node name="@Line2D@161" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1008918218]
+points = PackedVector2Array(1691.7004, 1064, 1711.8334, 1166.3127)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@162" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1173881579]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1706.4398, 1276, 1722.6095, 1250.8812, 1729.0773, 1262.4407, 1738.779, 1276)
+
+[node name="@Line2D@163" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=856112133]
+points = PackedVector2Array(1706.4398, 1274, 1722.6095, 1250.8812)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@164" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1934231434]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1818.5537, 1062, 1843.3307, 1062, 1834.6588, 1120.5486, 1830.9423, 1158.2476)
+
+[node name="@Line2D@165" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=834010167]
+points = PackedVector2Array(1818.5537, 1064, 1830.9423, 1158.2476)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@166" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1988508501]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1772.3126, 1276, 1799.3578, 1234.9111, 1810.1759, 1254.4556, 1826.403, 1276)
+
+[node name="@Line2D@167" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=157558145]
+points = PackedVector2Array(1772.3126, 1274, 1799.3578, 1234.9111)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@168" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=807488259]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1939.7501, 1062, 1976.4556, 1062, 1963.6086, 1092.0636, 1958.1029, 1110.7727)
+
+[node name="@Line2D@169" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=222134206]
+points = PackedVector2Array(1939.7501, 1064, 1958.1029, 1110.7727)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@170" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1764763732]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(1918.5352, 1276, 1931.2472, 1235.511, 1936.332, 1254.7555, 1943.9594, 1276)
+
+[node name="@Line2D@171" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=729983603]
+points = PackedVector2Array(1918.5352, 1274, 1931.2472, 1235.511)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@172" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=61206226]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2034.2174, 1062, 2064.6038, 1062, 2053.9685, 1125.3998, 2049.4106, 1166.3329)
+
+[node name="@Line2D@173" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=808676158]
+points = PackedVector2Array(2034.2174, 1064, 2049.4106, 1166.3329)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@174" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1236625921]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2015.6285, 1276, 2036.3469, 1236.7795, 2044.6343, 1255.3898, 2057.0652, 1276)
+
+[node name="@Line2D@175" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1994764074]
+points = PackedVector2Array(2015.6285, 1274, 2036.3469, 1236.7795)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@176" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1651897153]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2106.5898, 1062, 2144.5918, 1062, 2131.291, 1128.4604, 2125.5908, 1171.4342)
+
+[node name="@Line2D@177" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1849368006]
+points = PackedVector2Array(2106.5898, 1064, 2125.5908, 1171.4342)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@178" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=2010626154]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2091.2505, 1276, 2109.5752, 1238.258, 2116.905, 1256.129, 2127.9, 1276)
+
+[node name="@Line2D@179" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=952305618]
+points = PackedVector2Array(2091.2505, 1274, 2109.5752, 1238.258)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@180" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=512827736]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2163.6365, 1062, 2211.6167, 1062, 2194.8237, 1126.5444, 2187.6267, 1168.2407)
+
+[node name="@Line2D@181" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1392484058]
+points = PackedVector2Array(2163.6365, 1064, 2187.6267, 1168.2407)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@182" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=886398563]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2166.3516, 1276, 2178.7905, 1236.9465, 2183.766, 1255.4733, 2191.2292, 1276)
+
+[node name="@Line2D@183" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=991818498]
+points = PackedVector2Array(2166.3516, 1274, 2178.7905, 1236.9465)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="@Polygon2D@184" type="Polygon2D" parent="Depth/Galleries/@Node2D@129" unique_id=1042808413]
+color = Color(0.07, 0.042, 0.055, 1)
+polygon = PackedVector2Array(2238.1008, 1064, 2261.289, 1064, 2254.9124, 1169, 2260.1296, 1274, 2239.2603, 1274, 2245.0574, 1169)
+
+[node name="@Line2D@185" type="Line2D" parent="Depth/Galleries/@Node2D@129" unique_id=1380380680]
+points = PackedVector2Array(2238.1008, 1064, 2245.0574, 1169, 2239.2603, 1274)
+width = 1.5
+default_color = Color(0.13, 0.08, 0.095, 1)
+
+[node name="Outcrops" type="Parallax2D" parent="Depth" unique_id=1965022581]
+z_index = -127
+scroll_scale = Vector2(0.28, 0.28)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Band" type="Sprite2D" parent="Depth/Outcrops" unique_id=768433698]
+modulate = Color(0.42, 0.34, 0.42, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-5719.266, 446)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_c55kc")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 160)
+
+[node name="@Sprite2D@186" type="Sprite2D" parent="Depth/Outcrops" unique_id=545172494]
+modulate = Color(0.42, 0.34, 0.42, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-5654.384, 706)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_c55kc")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 160)
+
+[node name="@Sprite2D@187" type="Sprite2D" parent="Depth/Outcrops" unique_id=621005482]
+modulate = Color(0.42, 0.34, 0.42, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-5706.543, 966)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_c55kc")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 160)
+
+[node name="Dust" type="Parallax2D" parent="Depth" unique_id=1175493398]
+z_index = -124
+scroll_scale = Vector2(0.34, 0.34)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Dust" type="CPUParticles2D" parent="Depth/Dust" unique_id=272300457]
+position = Vector2(1632, 776)
+amount = 140
+lifetime = 9.0
+preprocess = 9.0
+emission_shape = 3
+emission_rect_extents = Vector2(704.69995, 348.32)
+direction = Vector2(1, -0.2)
+spread = 180.0
+gravity = Vector2(0, 1.5)
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_knrud")
+
+[node name="Haze" type="Parallax2D" parent="Depth" unique_id=271803652]
+z_index = -123
+scroll_scale = Vector2(0.36, 0.36)
+autoscroll = Vector2(-4, 0)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Band" type="Sprite2D" parent="Depth/Haze" unique_id=338247703]
+modulate = Color(0.42, 0.3, 0.34, 0.2)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_g8hni")
+position = Vector2(-4368, 514)
+texture = SubResource("NoiseTexture2D_3rrmr")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 48)
+
+[node name="@Sprite2D@188" type="Sprite2D" parent="Depth/Haze" unique_id=1232303307]
+modulate = Color(0.42, 0.3, 0.34, 0.2)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ppi7w")
+position = Vector2(-4368, 734)
+texture = SubResource("NoiseTexture2D_y4oxm")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 48)
+
+[node name="@Sprite2D@189" type="Sprite2D" parent="Depth/Haze" unique_id=617038290]
+modulate = Color(0.42, 0.3, 0.34, 0.2)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_gihgl")
+position = Vector2(-4368, 954)
+texture = SubResource("NoiseTexture2D_proda")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 48)
+
+[node name="Drips" type="Parallax2D" parent="Depth" unique_id=1348692259]
+z_index = -115
+scroll_scale = Vector2(0.8, 0.8)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Drips" type="CPUParticles2D" parent="Depth/Drips" unique_id=1449434306]
+material = SubResource("CanvasItemMaterial_u1o3p")
+position = Vector2(1632, 776)
+amount = 218
+lifetime = 2.2
+preprocess = 2.2
+emission_shape = 3
+emission_rect_extents = Vector2(1351, 646.4)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 260)
+initial_velocity_min = 20.0
+initial_velocity_max = 60.0
+color_ramp = SubResource("Gradient_sktj8")
+
+[node name="ForeNear" type="Parallax2D" parent="Depth" unique_id=1952725072]
+z_index = 40
+scroll_scale = Vector2(1.3, 1.3)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Roots0" type="Node2D" parent="Depth/ForeNear" unique_id=1203160124]
+position = Vector2(-333.07208, 1513.0325)
+
+[node name="Root" type="Line2D" parent="Depth/ForeNear/Roots0" unique_id=755622070]
+points = PackedVector2Array(15.053256, -720, 13.598911, -707, 10.634402, -694, 7.3687506, -681, 5.133796, -668, 4.841025, -655, 6.609839, -642, 9.718859, -629, 12.900125, -616, 14.856214, -603, 14.78937, -590, 12.726853, -577, 9.509826, -564, 6.450295, -551, 4.796037, -538, 5.2217116, -525, 7.5537148, -512, 10.840981, -499, 13.742855, -486, 15.075859, -473, 14.296352, -460, 11.722241, -447, 8.403332, -434, 5.693184, -421, 4.697083, -408, 5.821271, -395, 8.607268, -382, 11.918855, -369, 14.4054575, -356, 15.05296, -343, 13.59729, -330, 10.632116, -317, 7.3667326, -304, 5.1328692, -291, 4.841567, -278, 6.611629, -265, 9.721167, -252, 12.902009, -239, 14.856906, -226, 14.788588, -213, 12.7249155, -200, 9.507523, -187, 6.448566, -174, 4.795587, -161, 5.222724, -148, 7.5557766, -135, 10.843251, -122, 13.744408, -109, 15.076062, -96, 14.295121, -83, 11.720078, -70, 8.40112, -57, 9.896006, -44.762756)
+width = 2.2231336
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="@Line2D@191" type="Line2D" parent="Depth/ForeNear/Roots0" unique_id=1120520524]
+points = PackedVector2Array(9.896006, -62.962757, 16.956558, -40.14278)
+width = 1.3
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="Root2" type="Line2D" parent="Depth/ForeNear/Roots0" unique_id=1530650328]
+points = PackedVector2Array(12.933766, -720, 9.635845, -707, 6.774864, -694, 5.5176234, -681, 6.3768673, -668, 9.002168, -655, 12.322843, -642, 14.984612, -629, 15.901922, -616, 14.700663, -603, 11.870746, -590, 8.566305, -577, 6.134997, -564, 5.568388, -551, 7.0975604, -538, 10.098867, -525, 13.348279, -512, 15.520579, -499, 15.7298355, -486, 13.890704, -473, 10.753243, -460, 7.597012, -447, 5.7092223, -434, 5.859777, -421, 7.9872746, -408, 11.224052, -395, 14.250049, -382, 15.831162, -369, 15.322565, -356, 12.93168, -343, 9.633586, -330, 6.7733536, -317, 5.517478, -304, 6.378146, -291, 9.00435, -278, 12.325037, -265, 14.985926, -252, 15.901817, -239, 14.6991825, -226, 11.868495, -213, 8.5642, -200, 6.1338973, -187, 5.568742, -174, 7.099223, -161, 10.101161, -148, 13.350267, -135, 15.521453, -122, 15.729237, -109, 13.888878, -96, 10.750935, -83, 7.5951614, -70, 5.7085857, -57, 5.8606133, -44, 7.989243, -31, 10.707216, -21.018303)
+width = 2.6135578
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="@Line2D@193" type="Line2D" parent="Depth/ForeNear/Roots0" unique_id=1657476602]
+points = PackedVector2Array(10.707216, -39.218304, 17.900661, -17.888548)
+width = 1.3
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="Root3" type="Line2D" parent="Depth/ForeNear/Roots0" unique_id=1895180242]
+points = PackedVector2Array(5.4048886, -720, 3.295484, -707, 3.168404, -694, 5.0754757, -681, 8.238933, -668, 11.368616, -655, 13.188138, -642, 12.95544, -629, 10.765423, -616, 7.5112467, -603, 4.52007, -590, 3.011792, -577, 3.6015368, -564, 6.0487876, -551, 9.355476, -538, 12.173028, -525, 13.352353, -512, 12.412486, -499, 9.736734, -486, 6.416356, -473, 3.805509, -460, 2.9689817, -447, 4.2479367, -434, 7.1207747, -421, 10.415859, -408, 12.789349, -395, 13.273256, -382, 11.670229, -369, 8.634034, -356, 5.4029293, -343, 3.2946641, -330, 3.1690576, -317, 5.0773363, -304, 8.241241, -291, 11.370431, -278, 13.18872, -265, 12.954551, -252, 10.763425, -239, 7.5089555, -226, 4.5184197, -213, 3.0114555, -200, 3.6026516, -187, 6.050899, -174, 9.357723, -161, 12.174494, -148, 13.352441, -135, 12.4111595, -122, 9.734534, -109, 6.41418, -96, 3.8042448, -83, 2.9691443, -70, 4.24946, -57, 7.123038, -44, 10.417939, -31, 8.156118, -30.218016)
+width = 3.976267
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="@Line2D@195" type="Line2D" parent="Depth/ForeNear/Roots0" unique_id=451634203]
+points = PackedVector2Array(8.156118, -48.418015, 7.0169806, -26.609156)
+width = 1.3
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="Roots1" type="Node2D" parent="Depth/ForeNear" unique_id=785627852]
+position = Vector2(3655.3052, 21.092682)
+
+[node name="Root" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=375445573]
+points = PackedVector2Array(-12.4929905, -720, -13.947335, -707, -16.911844, -694, -20.177496, -681, -22.41245, -668, -22.705221, -655, -20.936407, -642, -17.827389, -629, -14.646123, -616, -12.690034, -603, -12.756878, -590, -14.819394, -577, -18.03642, -564, -21.095951, -551, -22.75021, -538, -22.324535, -525, -19.992533, -512, -16.705267, -499, -13.803392, -486, -12.470387, -473, -13.249895, -460, -15.824006, -447, -19.142914, -434, -21.853064, -421, -22.849163, -408, -21.724976, -395, -18.938978, -382, -15.627393, -369, -13.14079, -356, -12.493287, -343, -13.948957, -330, -16.914131, -317, -20.179514, -304, -22.413378, -291, -22.70468, -278, -20.934618, -265, -17.82508, -252, -14.644238, -239, -12.689341, -226, -12.757659, -213, -14.821331, -200, -18.038725, -187, -21.097681, -174, -22.75066, -161, -22.323523, -148, -19.99047, -135, -16.702995, -122, -13.801839, -109, -12.470185, -96, -13.251125, -83, -15.826168, -70, -19.145126, -57, -17.650242, -44.734425)
+width = 2.3754175
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="@Line2D@197" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=2041452122]
+points = PackedVector2Array(-17.650242, -62.934425, -6.054698, -39.77667)
+width = 1.3
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="Root2" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=1188418044]
+points = PackedVector2Array(1.6459179, -720, -1.6520034, -707, -4.5129848, -694, -5.770225, -681, -4.910981, -668, -2.2856808, -655, 1.0349939, -642, 3.696764, -629, 4.6140733, -616, 3.4128137, -603, 0.5828973, -590, -2.721544, -577, -5.152852, -564, -5.7194605, -551, -4.190288, -538, -1.1889813, -525, 2.0604303, -512, 4.232731, -499, 4.4419866, -486, 2.6028552, -473, -0.5346052, -460, -3.690837, -447, -5.578626, -434, -5.4280715, -421, -3.300574, -408, -0.06379598, -395, 2.9621994, -382, 4.5433135, -369, 4.0347166, -356, 1.6438308, -343, -1.6542629, -330, -4.5144954, -317, -5.7703705, -304, -4.9097023, -291, -2.283499, -278, 1.0371886, -265, 3.6980767, -252, 4.613969, -239, 3.4113343, -226, 0.5806465, -213, -2.723648, -200, -5.153951, -187, -5.7191067, -174, -4.188626, -161, -1.1866878, -148, 2.0624192, -135, 4.2336044, -122, 4.441388, -109, 2.601029, -96, -0.53691435, -83, -3.6926873, -70, -5.579263, -57, -0.58063203, -52.59109)
+width = 2.7082474
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="@Line2D@199" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=463399418]
+points = PackedVector2Array(-0.58063203, -70.79109, 1.402827, -46.43324)
+width = 1.3
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="Root3" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=465327132]
+points = PackedVector2Array(1.2155792, -720, -0.8938251, -707, -1.0209053, -694, 0.88616616, -681, 4.0496235, -668, 7.1793065, -655, 8.998829, -642, 8.76613, -629, 6.576113, -616, 3.3219373, -603, 0.33076093, -590, -1.1775173, -577, -0.58777255, -564, 1.8594782, -551, 5.166167, -538, 7.9837184, -525, 9.163044, -512, 8.223177, -499, 5.5474253, -486, 2.2270467, -473, -0.38380024, -460, -1.2203277, -447, 0.058627322, -434, 2.9314654, -421, 6.22655, -408, 8.6000395, -395, 9.083947, -382, 7.48092, -369, 4.4447246, -356, 1.2136198, -343, -0.8946452, -330, -1.0202516, -317, 0.88802683, -304, 4.0519323, -291, 7.1811223, -278, 8.999411, -265, 8.765242, -252, 6.5741158, -239, 3.3196461, -226, 0.32911044, -213, -1.1778538, -200, -0.5866578, -187, 1.8615896, -174, 5.1684136, -161, 7.985184, -148, 9.163132, -135, 8.22185, -122, 5.545225, -109, 2.2248707, -96, -0.38506463, -83, -1.2201649, -70, 0.060150973, -57, 2.9337285, -44, 6.22863, -31, 8.601088, -18, 9.083536, -5, 3.966809, -3.7151115)
+width = 2.7109916
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="@Line2D@201" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=1417142920]
+points = PackedVector2Array(3.966809, -21.915112, 10.738987, 1.4749491)
+width = 1.3
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="Root4" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=1314241948]
+points = PackedVector2Array(7.6803885, -720, 8.698877, -707, 11.422536, -694, 14.740566, -681, 17.299768, -668, 18.05642, -655, 16.701927, -642, 13.788703, -629, 10.504851, -616, 8.189633, -603, 7.7872705, -590, 9.461859, -577, 12.530448, -564, 15.741567, -551, 17.785618, -538, 17.82897, -525, 15.853944, -512, 12.666018, -499, 9.565332, -486, 7.8164477, -473, 8.132615, -460, 10.3848915, -447, 13.654725, -434, 16.608572, -421, 18.04176, -408, 17.369783, -395, 14.866701, -382, 11.5533495, -369, 8.781019, -356, 7.6803584, -343, 8.700251, -330, 11.424752, -317, 14.7427225, -304, 17.300985, -291, 18.056198, -278, 16.700361, -265, 13.786429, -252, 10.502797, -239, 8.188637, -226, 7.787738, -213, 9.4636, -200, 12.532752, -187, 15.743495, -174, 17.786383, -161, 17.82826, -148, 15.852049, -135, 12.663711, -122, 9.563554, -109, 7.8159223, -96, 8.133557, -83, 10.386917, -70, 13.657008, -57, 16.610182, -44, 18.042038, -31, 17.368618, -18, 12.8799305, -9.778875)
+width = 3.0000339
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="@Line2D@203" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=41970063]
+points = PackedVector2Array(12.8799305, -27.978876, 24.058739, -1.4103432)
+width = 1.3
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="Root5" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=512668063]
+points = PackedVector2Array(-3.7801993, -720, -0.5702109, -707, 2.5000665, -694, 4.1784744, -681, 3.7805033, -668, 1.4684591, -655, -1.8147318, -642, -4.7300777, -629, -6.0886064, -616, -5.3362656, -603, -2.779884, -590, 0.5379626, -577, 3.2641492, -564, 4.2868485, -551, 3.1889706, -538, 0.41826558, -525, -2.8952832, -512, -5.400303, -499, -6.0751657, -486, -4.644641, -473, -1.692142, -460, 1.5782055, -447, 3.8326483, -434, 4.151751, -421, 2.4053743, -408, -0.6942539, -395, -3.8830042, -382, -5.860401, -369, -5.8199983, -356, -3.7782726, -343, -0.5679067, -330, 2.5018084, -317, 4.1789436, -304, 3.7795086, -291, 1.4664061, -278, -1.8170059, -265, -4.7316456, -252, -6.088828, -239, -5.335051, -226, -2.7777286, -213, 0.54018, -200, 3.2655241, -187, 4.2868204, -174, 3.1875508, -161, 0.41603315, -148, -2.8974178, -135, -5.401469, -122, -6.074888, -109, -4.643032, -96, -1.6898589, -83, 1.5802323, -70, 3.833592, -57, 4.151227, -44, 2.403596, -31, -0.6965611, -18, -0.9127806, -14.017058)
+width = 2.8317797
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="@Line2D@205" type="Line2D" parent="Depth/ForeNear/Roots1" unique_id=493317109]
+points = PackedVector2Array(-0.9127806, -32.21706, -10.45892, -10.680893)
+width = 1.3
+default_color = Color(0.03, 0.015, 0.022, 1)
+
+[node name="ForeMid" type="Parallax2D" parent="Depth" unique_id=1201778332]
+z_index = 39
+scroll_scale = Vector2(1.15, 1.15)
+script = ExtResource("2_7nk66")
+design_camera = Vector2(1632, 776)
+
+[node name="Outside" type="Node2D" parent="Depth" unique_id=2136165157]
+z_index = -110
+
+[node name="Fill" type="ColorRect" parent="Depth/Outside" unique_id=547381568]
+offset_left = -600.0
+offset_top = -600.0
+offset_right = 3864.0
+mouse_filter = 2
+color = Color(0.012, 0.006, 0.01, 1)
+
+[node name="@ColorRect@206" type="ColorRect" parent="Depth/Outside" unique_id=142775154]
+offset_left = -600.0
+offset_top = 1552.0
+offset_right = 3864.0
+offset_bottom = 2152.0
+mouse_filter = 2
+color = Color(0.012, 0.006, 0.01, 1)
+
+[node name="@ColorRect@207" type="ColorRect" parent="Depth/Outside" unique_id=1692146445]
+offset_left = -600.0
+offset_bottom = 1552.0
+mouse_filter = 2
+color = Color(0.012, 0.006, 0.01, 1)
+
+[node name="@ColorRect@208" type="ColorRect" parent="Depth/Outside" unique_id=498553516]
+offset_left = 3264.0
+offset_right = 3864.0
+offset_bottom = 1552.0
+mouse_filter = 2
+color = Color(0.012, 0.006, 0.01, 1)

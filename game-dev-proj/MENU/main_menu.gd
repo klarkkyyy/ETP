@@ -29,6 +29,8 @@ func _ready() -> void:
 	if OS.is_debug_build():
 		_add_unlock_all_toggle()
 	_add_trophy_button()
+	if TouchControls.enabled:
+		_add_controls_button()
 	_refresh_continue()
 	if _continue.disabled:
 		new_game_button.grab_focus()
@@ -97,6 +99,30 @@ func _add_trophy_button() -> void:
 	layer.add_child(_trophy)
 	layer.add_child(caption)
 	add_child(layer)
+
+
+## Phones only: the touch Controls screen (button size, stick, layout).
+func _add_controls_button() -> void:
+	var button := Button.new()
+	button.text = "Controls"
+	button.custom_minimum_size = Vector2(130, 64)
+	button.add_theme_font_override("font", MenuStyle.FONT)
+	button.add_theme_font_size_override("font_size", 20)
+	button.add_theme_color_override("font_color", MenuStyle.TEXT)
+	for state in ["normal", "hover", "pressed", "focus"]:
+		var style := StyleBoxFlat.new()
+		style.bg_color = Color(0.04, 0.04, 0.08, 0.6 if state == "normal" else 0.85)
+		style.set_corner_radius_all(8)
+		style.set_border_width_all(2)
+		style.border_color = MenuStyle.ACCENT if state != "normal" else Color(1, 1, 1, 0.15)
+		button.add_theme_stylebox_override(state, style)
+	var w := get_viewport().get_visible_rect().size.x
+	button.position = Vector2(w - 64 - 16 - 12 - 130, 16)
+	button.pressed.connect(func():
+		var screen := TouchSettingsScreen.new()
+		screen.closed.connect(func(): button.grab_focus())
+		add_child(screen))
+	_trophy.get_parent().add_child(button)
 
 
 func _open_achievements() -> void:

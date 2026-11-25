@@ -59,6 +59,12 @@ const ARRIVAL_BEATS := {
 		{"who": HERO, "text": "You talk like you've been down here before."},
 		{"who": WARDEN, "text": "More times than I want to remember."},
 	],
+	# Boss 2 exit -> Level 11: the Overseer's flood washed Ren out into raw rock.
+	"teleport_l11_in": [
+		{"who": HERO, "text": "...I'm alive. I think. Where did the water take me?"},
+		{"who": WARDEN, "text": "Out of the sewers, and into the rock under everything else. Nobody built these caves."},
+		{"who": WARDEN, "text": "The ceilings here are tired, Ren. Don't stand under them longer than you have to."},
+	],
 }
 
 const BOSS_BEATS := {
@@ -82,6 +88,14 @@ const EVENT_BEATS := {
 	"lastsluice": [
 		{"who": HERO, "text": "Not again!"},
 		{"who": WARDEN, "text": "Again. Up, Ren. You know how this goes."},
+	],
+	# Level 11: the chamber whose walls are covered in tally marks.
+	"tally": [
+		{"who": HERO, "text": "Someone's been counting. There must be hundreds of them."},
+		{"who": WARDEN, "text": "Thousands, further in."},
+		{"who": HERO, "text": "Counting what?"},
+		{"who": WARDEN, "text": "...Tries. I stopped counting after a while."},
+		{"who": WARDEN, "text": "The way up won't hold for long. When it starts to go, don't stop."},
 	],
 	# Boss 2: just before the Overseer wakes and the chase begins.
 	"overseer": [

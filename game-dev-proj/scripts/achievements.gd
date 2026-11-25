@@ -41,6 +41,7 @@ const LIST := [
 	{"id": "gauntlet", "title": "Through the Gauntlet", "text": "Clear Level 6.", "rarity": Rarity.COMMON},
 	{"id": "outfall", "title": "Light at the End", "text": "Clear Level 10, the Outfall.", "rarity": Rarity.RARE},
 	{"id": "overseer", "title": "Out of Sight", "text": "Escape the Overseer.", "rarity": Rarity.RARE},
+	{"id": "tally", "title": "Keeping Count", "text": "Clear Level 11, the Tally.", "rarity": Rarity.RARE},
 	# Echoes
 	{"id": "second_self", "title": "A Second Pair of Hands", "text": "Unlock your second echo.", "rarity": Rarity.COMMON},
 	{"id": "three_of_me", "title": "Three of Me", "text": "Have three echoes out at once.", "rarity": Rarity.COMMON},
@@ -54,6 +55,7 @@ const LIST := [
 	{"id": "not_a_scratch", "title": "Not a Scratch", "text": "Clear Level 10 without dying.", "rarity": Rarity.EPIC},
 	{"id": "perfect_memory", "title": "Perfect Memory", "text": "Earn every star.", "rarity": Rarity.LEGENDARY},
 	{"id": "beneath_its_gaze", "title": "Beneath Its Gaze", "text": "Escape the Overseer without dying.", "rarity": Rarity.LEGENDARY},
+	{"id": "tally_flawless", "title": "One Mark Only", "text": "Clear Level 11 in one run without dying, within its echo goal.", "rarity": Rarity.EPIC},
 	{"id": "again", "title": "Again. And Again.", "text": "Fall 100 times.", "rarity": Rarity.COMMON},
 	{"id": "decades", "title": "Decades of Practice", "text": "Fall 500 times.", "rarity": Rarity.RARE},
 	# The story
@@ -74,9 +76,9 @@ const LIST := [
 ## Level clears that count, by the name GameManager keeps records under
 ## (LevelList.run_name).
 const CLEARS := {"first_steps": "level_1", "keep_behind": "level_3", "echo_vault": "Level_4", "undercroft": "Level_5", "gauntlet": "Level_6",
-	"outfall": "Level_10", "overseer": "Boss_2"}
+	"outfall": "Level_10", "overseer": "Boss_2", "tally": "Level_11"}
 ## Clears that need a star and no deaths in that same run (checked as the run ends).
-const FLAWLESS := {"vault_flawless": "Level_4", "pest_control": "Level_5"}
+const FLAWLESS := {"vault_flawless": "Level_4", "pest_control": "Level_5", "tally_flawless": "Level_11"}
 const DEATHLESS_FROM := 4   # "Untouched": Level 4 and later
 const DEATHS := {"again": 100, "decades": 500}
 

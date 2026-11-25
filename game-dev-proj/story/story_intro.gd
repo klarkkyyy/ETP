@@ -72,6 +72,20 @@ func _build() -> void:
 	_hint.add_theme_font_size_override("font_size", 18)
 	_hint.add_theme_color_override("font_color", Color(1, 1, 1, 0.35))
 	layer.add_child(_hint)
+	if TouchControls.enabled:
+		# phones have no Esc: a Skip button instead (a tap elsewhere advances)
+		_hint.hide()
+		var skip := MenuStyle.button("Skip >")
+		skip.custom_minimum_size = Vector2(120, 44)
+		skip.focus_mode = Control.FOCUS_NONE  # so a tap-to-advance never presses it
+		skip.modulate.a = 0.7
+		skip.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+		skip.offset_left = -136
+		skip.offset_top = 12
+		skip.pressed.connect(func():
+			_skipping = true
+			_finish())
+		layer.add_child(skip)
 
 	_box = DialogueBox.new()
 	_box.speakers[HERO] = {"color": Color(0.55, 0.8, 1.0), "pitch": 1.25}
