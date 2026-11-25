@@ -150,6 +150,30 @@ func refill() -> void:
 
 
 # ── Recording ─────────────────────────────────────────────────────────────────
+## Touch (touch_controls.gd): tapping a slot's HUD icon. Records / finishes
+## like 1-3, but tapping a slot whose echo is out wipes it (Shift+1-3).
+func tap_slot(slot: int) -> void:
+	if not is_instance_valid(player) or player.get("is_dead") or player.get("controls_locked"):
+		return
+	if not GameManager.is_echo_unlocked(slot + 1):
+		return
+	var echo_node = _echo_nodes[slot]
+	var echo_out: bool = is_instance_valid(echo_node) and not echo_node.get("_dying")
+	if echo_out and not (is_recording and active_slot == slot):
+		clear_echo(slot)
+	else:
+		_handle_slot_press(slot)
+
+## Touch: the screen rects of the visible slot icons, or {} with no HUD.
+func icon_rects() -> Dictionary:
+	var rects := {}
+	if _hud == null or not _hud.visible:
+		return rects
+	for i in _icons.size():
+		if _icons[i].is_visible_in_tree():
+			rects[i] = _icons[i].get_global_rect().grow(6)
+	return rects
+
 func _handle_slot_press(slot: int) -> void:
 	if is_recording and active_slot == slot:
 		_finish_recording()

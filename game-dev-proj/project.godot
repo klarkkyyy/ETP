@@ -29,10 +29,12 @@ PauseMenu="*res://scripts/pause_menu.gd"
 DisplayManager="*res://scripts/display_manager.gd"
 Achievements="*res://scripts/achievements.gd"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+TouchControls="*res://scripts/touch_controls.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
+window/handheld/orientation=4
 
 [dotnet]
 
@@ -137,3 +139,4 @@ respawn={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true

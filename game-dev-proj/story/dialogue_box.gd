@@ -48,6 +48,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	add_to_group("dialogue_box")  # touch_controls.gd hides its buttons while one shows
 	_build_ui()
 	_place()
 	_build_blip()
@@ -160,6 +161,10 @@ func _build_blip() -> void:
 
 func show_box() -> void:
 	_panel.show()
+
+
+func is_showing() -> bool:
+	return _panel != null and _panel.is_visible_in_tree()
 
 
 func hide_box() -> void:
