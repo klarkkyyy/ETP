@@ -30,6 +30,7 @@ DisplayManager="*res://scripts/display_manager.gd"
 Achievements="*res://scripts/achievements.gd"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 TouchControls="*res://scripts/touch_controls.gd"
+LevelCuller="*res://scripts/level_culler.gd"
 
 [display]
 

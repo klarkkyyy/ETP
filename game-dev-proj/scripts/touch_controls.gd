@@ -60,6 +60,7 @@ func _ready() -> void:
 	get_tree().quit_on_go_back = false  # the back button pauses instead
 	if not enabled:
 		return
+	get_tree().node_added.connect(TouchHints.adapt)   # key hints -> touch wording
 	_load_settings()
 	_root = Node2D.new()
 	add_child(_root)

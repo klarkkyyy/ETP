@@ -180,7 +180,7 @@ func say(who: String, text: String) -> void:
 	_name_label.text = who
 	_name_label.add_theme_color_override("font_color", look["color"])
 	_blip_pitch = look["pitch"]
-	_text.text = text
+	_text.text = TouchHints.text(text) if TouchControls.enabled else text
 	_text.visible_characters = 0
 	_char_time = 0.0
 	_blip_counter = 0
